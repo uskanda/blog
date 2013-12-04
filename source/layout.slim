@@ -25,32 +25,33 @@ html
             = yield
         .col-md-3
           aside
-            h2
-            | Recent Articles
-            ol
-              - blog.articles[0...10].each do |article|
-                li
-                  = link_to article.title, article
-                  span
-                    = article.date.strftime('%b %e')
-            h2
-              | Tags
-            ol
-              - blog.tags.each do |tag, articles|
-                li
-                  = link_to tag, tag_path(tag)
-                  |  (
-                  = articles.size
-                  | )
-            h2
-              | By Year
-            ol
-            - blog.articles.group_by{|a| a.date.year }.each do |year, articles|
-                li
-                  = link_to year, blog_year_path(year)
-                  |  (
-                  = articles.size
-                  | )
+            .gadget#recents
+              span.title
+                | 最近の投稿
+              ol
+                - blog.articles[0...10].each do |article|
+                  li
+                    = link_to article.title+"("+article.date.strftime('%m/%d')+")", article
+            .gadget#tags
+              span.title
+                | タグ一覧
+              ol
+                - blog.tags.each do |tag, articles|
+                  li
+                    = link_to tag, tag_path(tag)
+                    |  (
+                    = articles.size
+                    | )
+            .gadget#archives
+              span.title
+                | 月別アーカイブ
+              ol
+              - blog.articles.group_by{|a| a.date.year }.each do |year, articles|
+                  li
+                    = link_to year, blog_year_path(year)
+                    |  (
+                    = articles.size
+                    | )
     .footer
       .container
         | Powered by Middleman.

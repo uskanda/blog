@@ -4,10 +4,11 @@ body {
     background-image: url(../images/grey_wash_wall.png);
     .header {
       color: #eeeeee;
-      .title {
+      .site_title {
           a {
               color: #eeeeee;
               text-decoration: none;
+              text-shadow: 1px -1px rgba(0,0,0,1);
               &:hover {
                   text-decoration: underline;
               }
@@ -19,6 +20,27 @@ body {
         color: #282828;
         padding-bottom: 20px;
         .border-radius(6px,6px,6px,6px);
+        article {
+            padding-top: 15px;
+            .title {
+                .subject {
+                  font-size: 150%;
+                  text-shadow: -1px 1px rgba(255,255,255,1);
+                }
+                .date {
+                    font-size: 80%;
+                }
+            }
+            .description {
+                margin-left: 5px;
+                h2 {
+                    font-size: 130%;
+                }
+                h3 {
+                    font-size: 115%;
+                }
+            }
+        }
         aside {
             border-left: 1px solid rgba(0,0,0,.1);
             .box-shadow(rgba(255,255,255,1) -1px 0 0);

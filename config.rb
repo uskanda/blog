@@ -2,7 +2,7 @@
 # Blog settings
 ###
 
-# Time.zone = "UTC"
+Time.zone = "Tokyo"
 # Slim settings
 Slim::Engine.set_default_options :pretty => true
 # shortcut

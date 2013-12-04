@@ -39,6 +39,7 @@ activate :blog do |blog|
   # blog.page_link = "page/{num}"
 end
 page "/feed.xml", layout: false
+page "/articles/**", layout: :article_layout
 
 activate :blog do |blog|
   blog.name = "cycle"

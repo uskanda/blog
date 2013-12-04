@@ -1,0 +1,55 @@
+doctype html
+html
+  head
+    meta[charset="utf-8"]
+    meta[http-equiv="X-UA-Compatible" content="IE=edge;chrome=1"]
+    link[href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet"]
+    link[href="stylesheets/gits.css" rel="stylesheet"]
+    script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"
+    title
+      | GHOST IN THE SUIT
+      = ' - ' + current_article.title unless current_article.nil?
+    = feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed"
+  body
+    .header
+      .container
+        h1
+          | GHOST IN THE SUIT
+        p
+          | Excelの泥にまみれても、こころの奥にgeekの灯を。
+    .container.main
+      .row
+        .col-md-9
+          #main[role="main"]
+            = yield
+        .col-md-3
+          aside
+            h2
+            | Recent Articles
+            ol
+              - blog.articles[0...10].each do |article|
+                li
+                  = link_to article.title, article
+                  span
+                    = article.date.strftime('%b %e')
+            h2
+              | Tags
+            ol
+              - blog.tags.each do |tag, articles|
+                li
+                  = link_to tag, tag_path(tag)
+                  |  (
+                  = articles.size
+                  | )
+            h2
+              | By Year
+            ol
+            - blog.articles.group_by{|a| a.date.year }.each do |year, articles|
+                li
+                  = link_to year, blog_year_path(year)
+                  |  (
+                  = articles.size
+                  | )
+    .footer
+      .container
+        | Powered by Middleman.

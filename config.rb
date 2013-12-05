@@ -22,7 +22,7 @@ activate :blog do |blog|
   # Matcher for blog source files
   blog.sources = "/articles/{year}-{month}-{day}-{title}.html"
   # blog.taglink = "tags/{tag}.html"
-  blog.layout = "layout"
+  blog.layout = "article_layout"
   # blog.summary_separator = /(READMORE)/
   # blog.summary_length = 250
   # blog.year_link = "{year}.html"
@@ -39,16 +39,15 @@ activate :blog do |blog|
   blog.page_link = "page/{num}"
 end
 page "/feed.xml", layout: false
-page "/articles/**", layout: :article_layout
 
 activate :blog do |blog|
   blog.name = "cycle"
   blog.prefix = "cycle"
-  blog.permalink = "cycle/article/{year}/{month}/{day}/{title}.html"
+  blog.permalink = "{year}/{month}/{day}/{title}.html"
   # Matcher for blog source files
-  # blog.sources = "{year}-{month}-{day}-{title}.html"
+  blog.sources = "/articles/{year}-{month}-{day}-{title}.html"
   # blog.taglink = "tags/{tag}.html"
-  # blog.layout = "layout"
+  blog.layout = "article_layout"
   # blog.summary_separator = /(READMORE)/
   # blog.summary_length = 250
   # blog.year_link = "{year}.html"
@@ -64,6 +63,8 @@ activate :blog do |blog|
   # blog.per_page = 10
   # blog.page_link = "page/{num}"
 end
+page "/cycle/*", layout: :cycle
+page "/cycle/articles/*", layout: :cycle_article
 
 activate :directory_indexes
 activate :syntax, :line_numbers => true

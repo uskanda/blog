@@ -20,10 +20,10 @@ html
           | Excelの泥にまみれても、こころの奥にgeekの灯を。
     .container.main
       .row
-        .col-md-9
+        .col-sm-9
           #main[role="main"]
             = yield
-        .col-md-3
+        .col-sm-3
           aside
             .gadget#recents
               span.title
@@ -58,4 +58,9 @@ html
                     | )
     .footer
       .container
-        | Powered by Middleman.
+        | &copy; uskanda 2010-2013.
+        .pull-right
+          | Powered by 
+          a href="http://middlemanapp.com"
+            | Middleman
+          | .

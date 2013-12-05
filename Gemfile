@@ -4,6 +4,7 @@ source 'http://rubygems.org'
 
 gem "middleman", "~> 3.2.0"
 gem "middleman-blog", "~> 3.5.0"
+gem "middleman-syntax"
 gem "slim"
 gem "redcarpet"
 gem "therubyracer"

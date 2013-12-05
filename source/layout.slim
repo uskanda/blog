@@ -12,13 +12,7 @@ html
       = ' - ' + current_article.title unless current_article.nil?
     = feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed"
   body
-    .header
-      .container
-        h1.site_title
-          a href="/"
-            | GHOST IN THE SUIT
-        p
-          | Excelの泥にまみれても、こころの奥にgeekの灯を。
+    = partial :header, locals: {site_title: "GHOST IN THE SUIT", site_subtitle: "Excelの泥にまみれても、こころの奥にgeekの灯を。"}
     .container.main
       .row
         .col-sm-9

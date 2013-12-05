@@ -13,7 +13,7 @@ Slim::Engine.set_default_options :shortcut => {
 }
 
 # Markdown settings 
-set :markdown, :tables => true, :autolink => true, :gh_blockcode => true, :fenced_code_blocks => true, :with_toc_data => true
+set :markdown, :tables => true, :autolink => true, :gh_blockcode => true, :fenced_code_blocks => true, :with_toc_data => true, :smartypants => true
 set :markdown_engine, :redcarpet
 
 activate :blog do |blog|
@@ -66,7 +66,7 @@ activate :blog do |blog|
 end
 
 activate :directory_indexes
-activate :syntax
+activate :syntax, :line_numbers => true
 
 ###
 # Compass

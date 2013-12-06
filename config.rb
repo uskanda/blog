@@ -66,8 +66,33 @@ end
 page "/cycle/*", layout: :cycle
 page "/cycle/articles/*", layout: :cycle_article
 
+activate :blog do |blog|
+  blog.name = "greedy"
+  blog.prefix = "greedy"
+  blog.permalink = "{year}/{month}/{day}/{title}.html"
+  # Matcher for blog source files
+  blog.sources = "/articles/{year}-{month}-{day}-{title}.html"
+  # blog.taglink = "tags/{tag}.html"
+  # blog.summary_separator = /(READMORE)/
+  # blog.summary_length = 250
+  # blog.year_link = "{year}.html"
+  # blog.month_link = "{year}/{month}.html"
+  # blog.day_link = "{year}/{month}/{day}.html"
+  # blog.default_extension = ".markdown"
+
+  blog.tag_template = "tag.html"
+  blog.calendar_template = "calendar.html"
+
+  # Enable pagination
+  # blog.paginate = true
+  # blog.per_page = 10
+  # blog.page_link = "page/{num}"
+end
+page "/greedy/*", layout: :greedy
+page "/greedy/articles/*", layout: :greedy_article
+
 activate :directory_indexes
-activate :syntax, :line_numbers => true
+activate :syntax
 
 ###
 # Compass

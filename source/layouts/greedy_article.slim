@@ -1,0 +1,10 @@
+- wrap_layout :greedy do
+  article
+    .title 
+      .subject
+        = current_article.title
+      .date 
+        = current_article.date
+    .body
+      = yield
+      = partial "comment"

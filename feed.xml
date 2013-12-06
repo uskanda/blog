@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Blog Name</title>
+  <subtitle>Blog subtitle</subtitle>
+  <id>http://blog.url.com/</id>
+  <link href="http://blog.url.com/"/>
+  <link href="http://blog.url.com/feed.xml" rel="self"/>
+  <updated>2013-12-04T17:39:00Z</updated>
+  <author>
+    <name>Blog Author</name>
+  </author>
+  <entry>
+    <title>OctopressからMiddlemanに移行した</title>
+    <link rel="alternate" href="http://blog.url.com/2013/12/05/transfer-from-octopress-to-middleman/"/>
+    <id>http://blog.url.com/2013/12/05/transfer-from-octopress-to-middleman/</id>
+    <published>2013-12-04T17:39:00Z</published>
+    <updated>2013-12-06T07:45:03+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;今年のはじめにWordpressからOctopressに移行したけど、結局ブログを書くようにはならなかったよ&amp;hellip;
+Middlemanを見てみたらよさげだったので、もう一度書き始めるきっかけに再度移行してみた。&lt;/p&gt;
+
+&lt;h2 id="toc_0"&gt;Octopressでしっくり来なかったところ&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;テンプレートエンジンに挫折&lt;br&gt;
+Liquidの記法が絶望的に覚えられない&amp;hellip;&lt;/li&gt;
+&lt;li&gt;ファイル構成&lt;br&gt;
+Octopressはgem/コマンドラインでの管理ツールが提供されておらず、cloneしたOctopressそのものからブログを構築していく。
+Octopress自体のバージョンアップをしたい場合はpullして持ってくることになる。
+本文以外のところのタグを変更しようとしてプラグインを独自にいじっているとOctopress本体の更新とのコンフリクトが厳しい。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id="toc_1"&gt;Middlemanを触ってみて&lt;/h2&gt;
+
+&lt;h3 id="toc_2"&gt;よさげなところ&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;構成が単純&lt;br&gt;
+sources以下にテンプレートやassetsを放り込んでいけばOK&lt;/li&gt;
+&lt;li&gt;Railsライク&lt;br&gt;
+ヘルパー名やディレクトリ構成等、明らかにRailsを意識して作っている感じ。
+いいか悪いかはともかく、Railsユーザには直観が働くようにできている。&lt;/li&gt;
+&lt;li&gt;好きなテンプレートエンジンが選べる&lt;br&gt;
+今回は初&lt;a href="http://slim-lang.com"&gt;Slim&lt;/a&gt;にしてみた。&lt;/li&gt;
+&lt;li&gt;マルチブログが簡単&lt;br&gt;
+Webサーバの設定に頼ることなく、複数ブログが簡単につくれる。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id="toc_3"&gt;いまいちなところ&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;ブログ機能自体は貧弱&lt;br&gt;
+主眼は静的サイトジェネレータなので、
+middleman-blog が提供する機能は記事管理/タグ付け/年別アーカイブ/ページネーションぐらい。
+cssもデフォルトだとなし。プロジェクト生成直後に見える画面↓なのは流石にどうだろう&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.flickr.com/photos/uskanda/11209451975/" title="middleman-blog-default by uskanda, on Flickr"&gt;&lt;img src="http://farm6.staticflickr.com/5493/11209451975_540c5f2e83_n.jpg" width="320" height="183" alt="middleman-blog-default"&gt;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;デプロイ設定
+github-pagesを強く意識しているOctopressよりはデプロイ設定が面倒な感じ。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Example Article</title>
+    <link rel="alternate" href="http://blog.url.com/2012/01/01/example-article/"/>
+    <id>http://blog.url.com/2012/01/01/example-article/</id>
+    <published>2011-12-31T15:00:00Z</published>
+    <updated>2013-12-06T07:45:03+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;This is an example article. You probably want to delete it and write your own articles!&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>RVM+PassengerでRuby1.8系と1.9系を同時利用する</title>
+    <link rel="alternate" href="http://blog.url.com/2011/06/22/use-multiple-ruby-with-passenger/"/>
+    <id>http://blog.url.com/2011/06/22/use-multiple-ruby-with-passenger/</id>
+    <published>2011-06-21T15:00:00Z</published>
+    <updated>2013-12-06T07:45:03+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;半年前に書いたものがアップせずに残ってたorz&lt;br&gt;
+一応あげておこう。。。    &lt;/p&gt;
+
+&lt;p&gt;RedmineはまだRuby1.8/Rails2系しか対応してないからRuby1.8を使わなきゃいけないけど、&lt;br&gt;
+他のRailsアプリはRuby1.9で動作させるようにしたい！というわけで&lt;br&gt;
+Passengerで複数のRubyを使ってアプリを動かす方法を探したら、&lt;br&gt;
+そのまんまの記事がPassenger公式に上がってた。    &lt;/p&gt;
+
+&lt;p&gt;&lt;a title="Permanent link to Phusion Passenger &amp;amp; running multiple Ruby versions" rel="bookmark" href="http://blog.phusion.nl/2010/09/21/phusion-passenger-running-multiple-ruby-versions/"&gt;Phusion Passenger &amp;amp; running multiple Ruby versions&lt;/a&gt;    &lt;/p&gt;
+
+&lt;p&gt;Passengerはnginx利用で単体起動する機能があるようで、&lt;br&gt;
+&amp;ldquo;passenger start&amp;quot;でnginxインストールから起動までやってくれる。&lt;br&gt;
+standaloneの場合、これで立ち上がったPassengerに大して、メインのApache/nginxのリバースプロキシでアクセスする。&lt;br&gt;
+rc.localに自動起動のための設定を書いた。    &lt;/p&gt;
+&lt;pre class="highlight text"&gt;su - $USERNAME -c &amp;quot;    
+cd /webapps/redmine    
+rvm use 1.8.7-head    
+passenger start -a 127.0.0.1 -p 3000 -e production -d    
+rvm use 1.9.2-head&amp;quot;
+&lt;/pre&gt;</content>
+  </entry>
+</feed>

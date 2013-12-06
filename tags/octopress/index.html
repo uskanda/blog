@@ -24,106 +24,14 @@
       <div class="row">
         <div class="col-sm-9">
           <div id="main" role="main">
-<article>
-  <div class="title">
-    <div class="subject">
-      <a href="/2013/12/05/transfer-from-octopress-to-middleman/">OctopressからMiddlemanに移行した</a>
-    </div>
-    <div class="date">
-      Dec  5, 2013
-    </div>
-  </div>
-  <div class="body">
-    <p>今年のはじめにWordpressからOctopressに移行したけど、結局ブログを書くようにはならなかったよ&hellip;
-    Middlemanを見てみたらよさげだったので、もう一度書き始めるきっかけに再度移行してみた。</p>
-    
-    <h2 id="toc_0">Octopressでしっくり来なかったところ</h2>
-    
-    <ul>
-    <li>テンプレートエンジンに挫折<br>
-    Liquidの記法が絶望的に覚えられない&hellip;</li>
-    <li>ファイル構成<br>
-    Octopressはgem/コマンドラインでの管理ツールが提供されておらず、cloneしたOctopressそのものからブログを構築していく。
-    Octopress自体のバージョンアップをしたい場合はpullして持ってくることになる。
-    本文以外のところのタグを変更しようとしてプラグインを独自にいじっているとOctopress本体の更新とのコンフリクトが厳しい。</li>
-    </ul>
-    
-    <h2 id="toc_1">Middlemanを触ってみて</h2>
-    
-    <h3 id="toc_2">よさげなところ</h3>
-    
-    <ul>
-    <li>構成が単純<br>
-    sources以下にテンプレートやassetsを放り込んでいけばOK</li>
-    <li>Railsライク<br>
-    ヘルパー名やディレクトリ構成等、明らかにRailsを意識して作っている感じ。
-    いいか悪いかはともかく、Railsユーザには直観が働くようにできている。</li>
-    <li>好きなテンプレートエンジンが選べる<br>
-    今回は初<a href="http://slim-lang.com">Slim</a>にしてみた。</li>
-    <li>マルチブログが簡単<br>
-    Webサーバの設定に頼ることなく、複数ブログが簡単につくれる。</li>
-    </ul>
-    
-    <h3 id="toc_3">いまいちなところ</h3>
-    
-    <ul>
-    <li><p>ブログ機能自体は貧弱<br>
-    主眼は静的サイトジェネレータなので、
-    middleman-blog が提供する機能は記事管理/タグ付け/年別アーカイブ/ページネーションぐらい。
-    cssもデフォルトだとなし。プロジェクト生成直後に見える画面↓なのは流石にどうだろう&hellip;</p>
-    
-    <p><a href="http://www.flickr.com/photos/uskanda/11209451975/" title="middleman-blog-default by uskanda, on Flickr"><img src="http://farm6.staticflickr.com/5493/11209451975_540c5f2e83_n.jpg" width="320" height="183" alt="middleman-blog-default"></a></p></li>
-    <li><p>デプロイ設定
-    github-pagesを強く意識しているOctopressよりはデプロイ設定が面倒な感じ。</p></li>
-    </ul>
-    
-  </div>
-</article>
-<article>
-  <div class="title">
-    <div class="subject">
-      <a href="/2012/01/01/example-article/">Example Article</a>
-    </div>
-    <div class="date">
-      Jan  1, 2012
-    </div>
-  </div>
-  <div class="body">
-    <p>This is an example article. You probably want to delete it and write your own articles!</p>
-    
-  </div>
-</article>
-<article>
-  <div class="title">
-    <div class="subject">
-      <a href="/2011/06/22/use-multiple-ruby-with-passenger/">RVM+PassengerでRuby1.8系と1.9系を同時利用する</a>
-    </div>
-    <div class="date">
-      Jun 22, 2011
-    </div>
-  </div>
-  <div class="body"><p>半年前に書いたものがアップせずに残ってたorz<br>
-一応あげておこう。。。    </p>
-
-<p>RedmineはまだRuby1.8/Rails2系しか対応してないからRuby1.8を使わなきゃいけないけど、<br>
-他のRailsアプリはRuby1.9で動作させるようにしたい！というわけで<br>
-Passengerで複数のRubyを使ってアプリを動かす方法を探したら、<br>
-そのまんまの記事がPassenger公式に上がってた。    </p>
-
-<p><a title="Permanent link to Phusion Passenger &amp; running multiple Ruby versions" rel="bookmark" href="http://blog.phusion.nl/2010/09/21/phusion-passenger-running-multiple-ruby-versions/">Phusion Passenger &amp; running multiple Ruby versions</a>    </p>
-
-<p>Passengerはnginx利用で単体起動する機能があるようで、<br>
-&ldquo;passenger start&quot;でnginxインストールから起動までやってくれる。<br>
-standaloneの場合、これで立ち上がったPassengerに大して、メインのApache/nginxのリバースプロキシでアクセスする。<br>
-rc.localに自動起動のための設定を書いた。    </p>
-<pre class="highlight text">su - $USERNAME -c &quot;    
-cd /webapps/redmine    
-rvm use 1.8.7-head    
-passenger start -a 127.0.0.1 -p 3000 -e production -d    
-rvm use 1.9.2-head&quot;
-</pre>
-  </div>
-</article>
+            <h1>
+              タグ'Octopress'を含む記事一覧
+            </h1>
+            <ul>
+              <li>
+                <a href="/2013/12/05/transfer-from-octopress-to-middleman/">OctopressからMiddlemanに移行した</a><span>Dec  5</span>
+              </li>
+            </ul>
           </div>
         </div>
         <div class="col-sm-3">

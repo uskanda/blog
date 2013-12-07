@@ -7,7 +7,7 @@
     <link href="/stylesheets/gits.css" rel="stylesheet" />
     <link href="/stylesheets/syntax.css" rel="stylesheet" />
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
-    <title>GHOST IN THE SUIT</title><link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+    <title>GHOST IN THE SUIT - yasnippet(dropdown-list)が列ハイライト利用時にも表示が崩れないようにする</title><link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
   </head>
   <body>
     <div class="header">
@@ -24,14 +24,41 @@
       <div class="row">
         <div class="col-sm-9">
           <div id="main" role="main">
-            <h1>
-              2012年1月1日の記事一覧
-            </h1>
-            <ul>
-              <li>
-                <a href="/2012/01/01/example-article/">Example Article</a><span>Jan  1</span>
-              </li>
-            </ul>
+            <article>
+              <div class="title">
+                <div class="subject">
+                  yasnippet(dropdown-list)が列ハイライト利用時にも表示が崩れないようにする
+                </div>
+                <div class="date">
+                  2011-12-03 00:00:00 +0900
+                </div>
+              </div>
+              <div class="body">
+                <p>数年ぶりに設定を見直し中なので、どこまでもEmacs小ネタ。
+                yasnippetの補完候補表示等に利用されるdropdown-listの表示が
+                現在のカーソル位置の列をハイライトするcol-highlight利用時に崩れるので、
+                dropdown-list利用時にcol-highlightを一時停止するようにした。
+                <script src="https://gist.github.com/1424152.js"> </script></p>
+                <h3>
+                  Comments
+                </h3>
+                <div aria-live="polite" id="disqus_thread">
+                  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                </div>
+                <script type="text/javascript">
+                  var disqus_shortname = 'ghostinthesuit';
+                  var disqus_identifier = "http://blog.uskanda.com/2011/12/03/fix-yasnippet-when-using-col-highlight/";
+                  var disqus_url = 'http://blog.uskanda.com/2011/12/03/fix-yasnippet-when-using-col-highlight/';
+                  var disqus_script = 'embed.js';
+                  
+                  (function () {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                  }());
+                </script>
+              </div>
+            </article>
           </div>
         </div>
         <div class="col-sm-3">

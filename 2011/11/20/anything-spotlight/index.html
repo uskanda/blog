@@ -7,7 +7,7 @@
     <link href="/stylesheets/gits.css" rel="stylesheet" />
     <link href="/stylesheets/syntax.css" rel="stylesheet" />
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
-    <title>GHOST IN THE SUIT</title><link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+    <title>GHOST IN THE SUIT - anythingのspotlight検索項目でバイナリファイルを開くときにMacアプリケーションを使う</title><link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
   </head>
   <body>
     <div class="header">
@@ -24,14 +24,42 @@
       <div class="row">
         <div class="col-sm-9">
           <div id="main" role="main">
-            <h1>
-              2012年1月1日の記事一覧
-            </h1>
-            <ul>
-              <li>
-                <a href="/2012/01/01/example-article/">Example Article</a><span>Jan  1</span>
-              </li>
-            </ul>
+            <article>
+              <div class="title">
+                <div class="subject">
+                  anythingのspotlight検索項目でバイナリファイルを開くときにMacアプリケーションを使う
+                </div>
+                <div class="date">
+                  2011-11-20 00:00:00 +0900
+                </div>
+              </div>
+              <div class="body">
+                <p>Spotlightの検索結果PDFを直接Preview.appで開きたいんでつくったー。<br>
+                <script src="https://gist.github.com/1379387.js"> </script><br>
+                Macアプリケーションで開きたい拡張子をanything-c-source-mac-spotlight2-open-file-extensionsに加える。<br>
+                anything-c-source-mac-spotlight2をanythingのanything-c-source-mac-spotlightの代わりにsourceとして使えばOK。<br>
+                ファイル開く動作全般に適用しようかとも思ったけど、PDFや画像を開くケースってspotlight検索ぐらいな気がしたので、<br>
+                ひとまず満足。</p>
+                <h3>
+                  Comments
+                </h3>
+                <div aria-live="polite" id="disqus_thread">
+                  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                </div>
+                <script type="text/javascript">
+                  var disqus_shortname = 'ghostinthesuit';
+                  var disqus_identifier = "http://blog.uskanda.com/2011/11/20/anything-spotlight/";
+                  var disqus_url = 'http://blog.uskanda.com/2011/11/20/anything-spotlight/';
+                  var disqus_script = 'embed.js';
+                  
+                  (function () {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                  }());
+                </script>
+              </div>
+            </article>
           </div>
         </div>
         <div class="col-sm-3">

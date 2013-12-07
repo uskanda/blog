@@ -14,7 +14,7 @@
     <link rel="alternate" href="http://blog.url.com/2013/12/05/transfer-from-octopress-to-middleman/"/>
     <id>http://blog.url.com/2013/12/05/transfer-from-octopress-to-middleman/</id>
     <published>2013-12-04T17:39:00Z</published>
-    <updated>2013-12-07T09:27:31+00:00</updated>
+    <updated>2013-12-07T09:58:10+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -67,7 +67,7 @@ github-pagesを強く意識しているOctopressよりはデプロイ設定が�
     <link rel="alternate" href="http://blog.url.com/2012/01/01/example-article/"/>
     <id>http://blog.url.com/2012/01/01/example-article/</id>
     <published>2011-12-31T15:00:00Z</published>
-    <updated>2013-12-07T09:27:31+00:00</updated>
+    <updated>2013-12-07T09:58:10+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -75,33 +75,75 @@ github-pagesを強く意識しているOctopressよりはデプロイ設定が�
 </content>
   </entry>
   <entry>
-    <title>RVM+PassengerでRuby1.8系と1.9系を同時利用する</title>
-    <link rel="alternate" href="http://blog.url.com/2011/06/22/use-multiple-ruby-with-passenger/"/>
-    <id>http://blog.url.com/2011/06/22/use-multiple-ruby-with-passenger/</id>
-    <published>2011-06-21T15:00:00Z</published>
-    <updated>2013-12-07T09:27:31+00:00</updated>
+    <title>RailsによるアジャイルWebアプリケーション開発 第4版が出てたので買った</title>
+    <link rel="alternate" href="http://blog.url.com/2011/12/04/agile-development-with-rails-4th-ed/"/>
+    <id>http://blog.url.com/2011/12/04/agile-development-with-rails-4th-ed/</id>
+    <published>2011-12-03T15:00:00Z</published>
+    <updated>2013-12-07T09:58:10+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
-    <content type="html">&lt;p&gt;半年前に書いたものがアップせずに残ってたorz&lt;br&gt;
-一応あげておこう。。。    &lt;/p&gt;
+    <content type="html">&lt;p&gt;今まで高かったから実は買ったことなかったRailsのバイブル。&amp;hellip;昔4000円台だったよね？
+&lt;a href="http://estore.ohmsha.co.jp/titles/978427406866P"&gt;PDF&lt;/a&gt;版がすぐ出てくれるのはすごくありがたい。&lt;/p&gt;
 
-&lt;p&gt;RedmineはまだRuby1.8/Rails2系しか対応してないからRuby1.8を使わなきゃいけないけど、&lt;br&gt;
-他のRailsアプリはRuby1.9で動作させるようにしたい！というわけで&lt;br&gt;
-Passengerで複数のRubyを使ってアプリを動かす方法を探したら、&lt;br&gt;
-そのまんまの記事がPassenger公式に上がってた。    &lt;/p&gt;
+&lt;p&gt;まとめて読む時間は取れそうにないけど、気がついたところは箇条書きでここにメモっていこう。とりあえずはこまかいところ&amp;hellip;
+&lt;ul&gt;
+  &lt;li&gt;Rails3.1はRuby1.9利用時はScaffoldでRuby1.9のハッシュ記法を使う。あれ？そうだっけ？っと思って試してみたらホントだった&lt;/li&gt;
+  &lt;li&gt;link_toの飛び先をcontroller, action, idのハッシュで指定する記法は載ってすらいない&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a title="Permanent link to Phusion Passenger &amp;amp; running multiple Ruby versions" rel="bookmark" href="http://blog.phusion.nl/2010/09/21/phusion-passenger-running-multiple-ruby-versions/"&gt;Phusion Passenger &amp;amp; running multiple Ruby versions&lt;/a&gt;    &lt;/p&gt;
+&lt;iframe src="http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=uasmks-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=4274068668" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"&gt;&lt;/iframe&gt;
+</content>
+  </entry>
+  <entry>
+    <title>yasnippet(dropdown-list)が列ハイライト利用時にも表示が崩れないようにする</title>
+    <link rel="alternate" href="http://blog.url.com/2011/12/03/fix-yasnippet-when-using-col-highlight/"/>
+    <id>http://blog.url.com/2011/12/03/fix-yasnippet-when-using-col-highlight/</id>
+    <published>2011-12-02T15:00:00Z</published>
+    <updated>2013-12-07T09:58:10+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;数年ぶりに設定を見直し中なので、どこまでもEmacs小ネタ。
+yasnippetの補完候補表示等に利用されるdropdown-listの表示が
+現在のカーソル位置の列をハイライトするcol-highlight利用時に崩れるので、
+dropdown-list利用時にcol-highlightを一時停止するようにした。
+&lt;script src="https://gist.github.com/1424152.js"&gt; &lt;/script&gt;&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>.rvmrcを使っているRailsプロジェクトでrinariからrails server,consoleを呼ぶ</title>
+    <link rel="alternate" href="http://blog.url.com/2011/12/02/rvm-rinari/"/>
+    <id>http://blog.url.com/2011/12/02/rvm-rinari/</id>
+    <published>2011-12-01T15:00:00Z</published>
+    <updated>2013-12-07T09:58:10+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;RVMで通常利用(rvm use &amp;ndash;default)している以外のRubyを.rvmrcで指定している&lt;br&gt;
+Railsプロジェクトで、rinariをそのまま使うとEmacsからのserver, console呼び出しができないので、&lt;br&gt;
+力技でRVMを変更することにした。    &lt;/p&gt;
 
-&lt;p&gt;Passengerはnginx利用で単体起動する機能があるようで、&lt;br&gt;
-&amp;ldquo;passenger start&amp;quot;でnginxインストールから起動までやってくれる。&lt;br&gt;
-standaloneの場合、これで立ち上がったPassengerに大して、メインのApache/nginxのリバースプロキシでアクセスする。&lt;br&gt;
-rc.localに自動起動のための設定を書いた。    &lt;/p&gt;
-&lt;pre class="highlight text"&gt;su - $USERNAME -c &amp;quot;    
-cd /webapps/redmine    
-rvm use 1.8.7-head    
-passenger start -a 127.0.0.1 -p 3000 -e production -d    
-rvm use 1.9.2-head&amp;quot;
-&lt;/pre&gt;</content>
+&lt;script src="https://gist.github.com/1390182.js"&gt; &lt;/script&gt;
+
+&lt;p&gt;rvm.elとrinari前提。    &lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>anythingのspotlight検索項目でバイナリファイルを開くときにMacアプリケーションを使う</title>
+    <link rel="alternate" href="http://blog.url.com/2011/11/20/anything-spotlight/"/>
+    <id>http://blog.url.com/2011/11/20/anything-spotlight/</id>
+    <published>2011-11-19T15:00:00Z</published>
+    <updated>2013-12-07T09:58:10+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;Spotlightの検索結果PDFを直接Preview.appで開きたいんでつくったー。&lt;br&gt;
+&lt;script src="https://gist.github.com/1379387.js"&gt; &lt;/script&gt;&lt;br&gt;
+Macアプリケーションで開きたい拡張子をanything-c-source-mac-spotlight2-open-file-extensionsに加える。&lt;br&gt;
+anything-c-source-mac-spotlight2をanythingのanything-c-source-mac-spotlightの代わりにsourceとして使えばOK。&lt;br&gt;
+ファイル開く動作全般に適用しようかとも思ったけど、PDFや画像を開くケースってspotlight検索ぐらいな気がしたので、&lt;br&gt;
+ひとまず満足。&lt;/p&gt;
+</content>
   </entry>
 </feed>

@@ -96,6 +96,86 @@
 <article>
   <div class="title">
     <div class="subject">
+      <a href="/2011/12/04/agile-development-with-rails-4th-ed/">RailsによるアジャイルWebアプリケーション開発 第4版が出てたので買った</a>
+    </div>
+    <div class="date">
+      Dec  4, 2011
+    </div>
+  </div>
+  <div class="body">
+    <p>今まで高かったから実は買ったことなかったRailsのバイブル。&hellip;昔4000円台だったよね？
+    <a href="http://estore.ohmsha.co.jp/titles/978427406866P">PDF</a>版がすぐ出てくれるのはすごくありがたい。</p>
+    
+    <p>まとめて読む時間は取れそうにないけど、気がついたところは箇条書きでここにメモっていこう。とりあえずはこまかいところ&hellip;
+    <ul>
+      <li>Rails3.1はRuby1.9利用時はScaffoldでRuby1.9のハッシュ記法を使う。あれ？そうだっけ？っと思って試してみたらホントだった</li>
+      <li>link_toの飛び先をcontroller, action, idのハッシュで指定する記法は載ってすらいない</li>
+    </ul></p>
+    
+    <iframe src="http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=uasmks-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=4274068668" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+    
+  </div>
+</article>
+<article>
+  <div class="title">
+    <div class="subject">
+      <a href="/2011/12/03/fix-yasnippet-when-using-col-highlight/">yasnippet(dropdown-list)が列ハイライト利用時にも表示が崩れないようにする</a>
+    </div>
+    <div class="date">
+      Dec  3, 2011
+    </div>
+  </div>
+  <div class="body">
+    <p>数年ぶりに設定を見直し中なので、どこまでもEmacs小ネタ。
+    yasnippetの補完候補表示等に利用されるdropdown-listの表示が
+    現在のカーソル位置の列をハイライトするcol-highlight利用時に崩れるので、
+    dropdown-list利用時にcol-highlightを一時停止するようにした。
+    <script src="https://gist.github.com/1424152.js"> </script></p>
+    
+  </div>
+</article>
+<article>
+  <div class="title">
+    <div class="subject">
+      <a href="/2011/12/02/rvm-rinari/">.rvmrcを使っているRailsプロジェクトでrinariからrails server,consoleを呼ぶ</a>
+    </div>
+    <div class="date">
+      Dec  2, 2011
+    </div>
+  </div>
+  <div class="body">
+    <p>RVMで通常利用(rvm use &ndash;default)している以外のRubyを.rvmrcで指定している<br>
+    Railsプロジェクトで、rinariをそのまま使うとEmacsからのserver, console呼び出しができないので、<br>
+    力技でRVMを変更することにした。    </p>
+    
+    <script src="https://gist.github.com/1390182.js"> </script>
+    
+    <p>rvm.elとrinari前提。    </p>
+    
+  </div>
+</article>
+<article>
+  <div class="title">
+    <div class="subject">
+      <a href="/2011/11/20/anything-spotlight/">anythingのspotlight検索項目でバイナリファイルを開くときにMacアプリケーションを使う</a>
+    </div>
+    <div class="date">
+      Nov 20, 2011
+    </div>
+  </div>
+  <div class="body">
+    <p>Spotlightの検索結果PDFを直接Preview.appで開きたいんでつくったー。<br>
+    <script src="https://gist.github.com/1379387.js"> </script><br>
+    Macアプリケーションで開きたい拡張子をanything-c-source-mac-spotlight2-open-file-extensionsに加える。<br>
+    anything-c-source-mac-spotlight2をanythingのanything-c-source-mac-spotlightの代わりにsourceとして使えばOK。<br>
+    ファイル開く動作全般に適用しようかとも思ったけど、PDFや画像を開くケースってspotlight検索ぐらいな気がしたので、<br>
+    ひとまず満足。</p>
+    
+  </div>
+</article>
+<article>
+  <div class="title">
+    <div class="subject">
       <a href="/2011/06/22/use-multiple-ruby-with-passenger/">RVM+PassengerでRuby1.8系と1.9系を同時利用する</a>
     </div>
     <div class="date">
@@ -124,6 +204,20 @@ rvm use 1.9.2-head&quot;
 </pre>
   </div>
 </article>
+<article>
+  <div class="title">
+    <div class="subject">
+      <a href="/2011/06/10/hello-world/">何度目かのブログ作りをするよー</a>
+    </div>
+    <div class="date">
+      Jun 10, 2011
+    </div>
+  </div>
+  <div class="body">
+    <p>自分の整理のためにも、ブログでやったことを整理することにしました。</p>
+    
+  </div>
+</article>
           </div>
         </div>
         <div class="col-sm-3">
@@ -138,7 +232,22 @@ rvm use 1.9.2-head&quot;
                   <a href="/2012/01/01/example-article/">Example Article(01/01)</a>
                 </li>
                 <li>
+                  <a href="/2011/12/04/agile-development-with-rails-4th-ed/">RailsによるアジャイルWebアプリケーション開発 第4版が出てたので買った(12/04)</a>
+                </li>
+                <li>
+                  <a href="/2011/12/03/fix-yasnippet-when-using-col-highlight/">yasnippet(dropdown-list)が列ハイライト利用時にも表示が崩れないようにする(12/03)</a>
+                </li>
+                <li>
+                  <a href="/2011/12/02/rvm-rinari/">.rvmrcを使っているRailsプロジェクトでrinariからrails server,consoleを呼ぶ(12/02)</a>
+                </li>
+                <li>
+                  <a href="/2011/11/20/anything-spotlight/">anythingのspotlight検索項目でバイナリファイルを開くときにMacアプリケーションを使う(11/20)</a>
+                </li>
+                <li>
                   <a href="/2011/06/22/use-multiple-ruby-with-passenger/">RVM+PassengerでRuby1.8系と1.9系を同時利用する(06/22)</a>
+                </li>
+                <li>
+                  <a href="/2011/06/10/hello-world/">何度目かのブログ作りをするよー(06/10)</a>
                 </li>
               </ol>
             </div>
@@ -155,13 +264,19 @@ rvm use 1.9.2-head&quot;
               <span class="title">タグ一覧</span>
               <ol>
                 <li>
-                  <a href="/tags/middleman/">Middleman</a> (1)
+                  <a href="/tags/book/">Book</a> (1)
                 </li>
                 <li>
-                  <a href="/tags/octopress/">Octopress</a> (1)
+                  <a href="/tags/ruby-on-rails/">Ruby on Rails</a> (2)
                 </li>
                 <li>
-                  <a href="/tags/ruby/">Ruby</a> (1)
+                  <a href="/tags/ruby/">Ruby</a> (3)
+                </li>
+                <li>
+                  <a href="/tags/emacs/">Emacs</a> (2)
+                </li>
+                <li>
+                  <a href="/tags/anything-el/">anything.el</a> (1)
                 </li>
                 <li>
                   <a href="/tags/rvm/">RVM</a> (1)
@@ -171,6 +286,15 @@ rvm use 1.9.2-head&quot;
                 </li>
                 <li>
                   <a href="/tags/example/">example</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/middleman/">Middleman</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/octopress/">Octopress</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/rinari/">rinari</a> (1)
                 </li>
               </ol>
             </div>
@@ -190,7 +314,7 @@ rvm use 1.9.2-head&quot;
                 <a href="/2012/">2012</a> (1)
               </li>
               <li>
-                <a href="/2011/">2011</a> (1)
+                <a href="/2011/">2011</a> (6)
               </li>
             </div>
           </aside>

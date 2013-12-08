@@ -1,5 +1,6 @@
 - article ||= current_article
 - date = article.date
+- with_link ||= false
 .title 
   a.date[rel="bookmark"]
     abbr
@@ -9,7 +10,10 @@
       = date.strftime("%R")
   .container
     .subject
-      = article.title
+      - if with_link then
+        = link_to article.title, article
+      - else
+        = article.title
     .tags
       - article.tags.each do |tag|
         .label.label-primary

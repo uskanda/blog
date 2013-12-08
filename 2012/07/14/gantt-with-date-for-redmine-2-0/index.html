@@ -7,7 +7,7 @@
     <link href="/stylesheets/gits.css" rel="stylesheet" />
     <link href="/stylesheets/syntax.css" rel="stylesheet" />
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
-    <title>GHOST IN THE SUIT - OctopressからMiddlemanに移行した</title><link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+    <title>GHOST IN THE SUIT - Redmine 2.0のガントチャートに日付表示を追加する</title><link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
   </head>
   <body>
     <div class="header">
@@ -27,55 +27,28 @@
             <article>
               <div class="title">
                 <div class="subject">
-                  OctopressからMiddlemanに移行した
+                  Redmine 2.0のガントチャートに日付表示を追加する
                 </div>
                 <div class="date">
-                  2013-12-05 02:39:00 +0900
+                  2012-07-14 00:00:00 +0900
                 </div>
               </div>
               <div class="body">
-                <p>今年のはじめにWordpressからOctopressに移行したけど、結局ブログを書くようにはならなかったよ&hellip;
-                Middlemanを見てみたらよさげだったので、もう一度書き始めるきっかけに再度移行してみた。</p>
+                <p>Redmineのガントチャートはデフォルトだと日付がでない。過去にパッチが作られている。</p>
                 
-                <h2 id="toc_0">Octopressでしっくり来なかったところ</h2>
+                <p><a href="http://ameblo.jp/hihihihiroki/entry-10854457740.html">【Redmine 1.1.2】ガントチャートに日付を表示させる｜渋谷ではたらくマー君の技術とかブログ。</a>
+                <a href="http://in.shappi.org/article/195687999.html">Redmineガントチャートの日付表示再び: 100ねんごの未来予想図</a></p>
                 
-                <ul>
-                <li>テンプレートエンジンに挫折<br>
-                Liquidの記法が絶望的に覚えられない&hellip;</li>
-                <li>ファイル構成<br>
-                Octopressはgem/コマンドラインでの管理ツールが提供されておらず、cloneしたOctopressそのものからブログを構築していく。
-                Octopress自体のバージョンアップをしたい場合はpullして持ってくることになる。
-                本文以外のところのタグを変更しようとしてプラグインを独自にいじっているとOctopress本体の更新とのコンフリクトが厳しい。</li>
-                </ul>
+                <p>これらを参考に、Redmine2.0でViewを直接書き換えた。ほぼ上記サイト作成のものそのままで動いた。</p>
                 
-                <h2 id="toc_1">Middlemanを触ってみて</h2>
+                <p><a href="http://www.flickr.com/photos/uskanda/7564467856" title="gantt-with-date"><img src="http://farm8.staticflickr.com/7272/7564467856_464d4e4f27.jpg" alt="gantt-with-date" class="aligncenter"/></a></p>
                 
-                <h3 id="toc_2">よさげなところ</h3>
+                <p>Redmine 2.0.3.stable.9920にて確認。
+                $RAILS_HOME/app/views/gantts/show.html.erbに下記パッチ。</p>
                 
-                <ul>
-                <li>構成が単純<br>
-                sources以下にテンプレートやassetsを放り込んでいけばOK</li>
-                <li>Railsライク<br>
-                ヘルパー名やディレクトリ構成等、明らかにRailsを意識して作っている感じ。
-                いいか悪いかはともかく、Railsユーザには直観が働くようにできている。</li>
-                <li>好きなテンプレートエンジンが選べる<br>
-                今回は初<a href="http://slim-lang.com">Slim</a>にしてみた。</li>
-                <li>マルチブログが簡単<br>
-                Webサーバの設定に頼ることなく、複数ブログが簡単につくれる。</li>
-                </ul>
+                <script src="https://gist.github.com/3107779.js?file=show.html.erb.patch"></script>
                 
-                <h3 id="toc_3">いまいちなところ</h3>
-                
-                <ul>
-                <li><p>ブログ機能自体は貧弱<br>
-                主眼は静的サイトジェネレータなので、
-                middleman-blog が提供する機能は記事管理/タグ付け/年別アーカイブ/ページネーションぐらい。
-                cssもデフォルトだとなし。プロジェクト生成直後に見える画面↓なのは流石にどうだろう&hellip;</p>
-                
-                <p><a href="http://www.flickr.com/photos/uskanda/11209451975/" title="middleman-blog-default by uskanda, on Flickr"><img src="http://farm6.staticflickr.com/5493/11209451975_540c5f2e83_n.jpg" width="320" height="183" alt="middleman-blog-default"></a></p></li>
-                <li><p>デプロイ設定
-                github-pagesを強く意識しているOctopressよりはデプロイ設定が面倒な感じ。</p></li>
-                </ul>
+                <p>こういう変更はERB差し替えになってしまう以上、Redmineプラグインにするのも微妙&hellip; バージョンアップごとにパッチするしかないのかなー</p>
                 <h3>
                   Comments
                 </h3>
@@ -84,8 +57,8 @@
                 </div>
                 <script type="text/javascript">
                   var disqus_shortname = 'ghostinthesuit';
-                  var disqus_identifier = "http://blog.uskanda.com/2013/12/05/transfer-from-octopress-to-middleman/";
-                  var disqus_url = 'http://blog.uskanda.com/2013/12/05/transfer-from-octopress-to-middleman/';
+                  var disqus_identifier = "http://blog.uskanda.com/2012/07/14/gantt-with-date-for-redmine-2-0/";
+                  var disqus_url = 'http://blog.uskanda.com/2012/07/14/gantt-with-date-for-redmine-2-0/';
                   var disqus_script = 'embed.js';
                   
                   (function () {
@@ -104,34 +77,34 @@
               <span class="title">最近の投稿</span>
               <ol>
                 <li>
-                  <a href="/2013/12/05/transfer-from-octopress-to-middleman/">OctopressからMiddlemanに移行した(12/05)</a>
+                  <a href="/2013/04/01/android-support-library-error-on-android-32/">Android3.2で通知を出そうとするとエラーが出る(04/01)</a>
                 </li>
                 <li>
-                  <a href="/2012/06/30/uc-411pbt-c/">「gooからだログ」に体重等自動送信できる体組成計UC-411PBT-Cを使ってみた(06/30)</a>
+                  <a href="/2013/02/23/mysql-show-columns-and-indices-from-all-the-tables/">MySQLで全てのテーブルのカラムとインデックス有無を表示したい(02/23)</a>
                 </li>
                 <li>
-                  <a href="/2012/06/18/osx-mouse-tips/">Mac OS Xでマウスを使うとしっくりこない件(06/18)</a>
+                  <a href="/2013/02/17/macbook-pro-cover/">MOBILE STUDIOのMacBook Proのマットブラック ハードケースを試す(02/17)</a>
                 </li>
                 <li>
-                  <a href="/2012/06/18/windows8-manifest-setting-for-compatibility/">Windows8デスクトップアプリでの互換性マニフェスト設定(06/18)</a>
+                  <a href="/2013/02/17/buy-macbook-pro-refurbished/">整備済製品のMacBook Pro 13inch Retinaを買ってみた(02/17)</a>
                 </li>
                 <li>
-                  <a href="/2012/06/17/wordpress-with-nginx/">Wordpressをnginx+fastcgiベースに移行した(06/17)</a>
+                  <a href="/2013/01/31/hello-octopress/">今更ながらOctopress(01/31)</a>
                 </li>
                 <li>
-                  <a href="/2012/06/13/buy-mac-mini/">Mac Mini(Mid2011)を買ってSSD換装したよー＼(^O^)／(06/13)</a>
+                  <a href="/2013/01/04/vim-commands-for-me/">僕の覚えた順Vimコマンド(01/04)</a>
                 </li>
                 <li>
-                  <a href="/2012/04/29/ubuntu-1204-name-resolve-failed/">Ubuntu 12.04にアップグレードしたら名前解決できなくなった(04/29)</a>
+                  <a href="/2012/11/30/air-for-android-launch-activity/">AIR for Androidの起動アクティビティ名(11/30)</a>
                 </li>
                 <li>
-                  <a href="/2012/04/02/update-rails-without-internet/">オフラインでのRails3アプリ環境の構築(04/02)</a>
+                  <a href="/2012/11/05/windows-8-pro-media-center-product-inf/">Windows 8のMedia Center Packを適用するとエディション名が変わる(11/05)</a>
                 </li>
                 <li>
-                  <a href="/2012/03/03/android-market-image-upload-error/">Android Marketアプリ登録時の画像アップロード失敗とデベロッパー登録時の留意点(03/03)</a>
+                  <a href="/2012/09/05/stop-spark-videoplayer-live-streaming/">Flex SparkコンポーネントのVideoPlayerがライブストリーミングの時止まらない(09/05)</a>
                 </li>
                 <li>
-                  <a href="/2012/02/09/emacs-markdown-mode-preview-ja/">markdown-modeのプレビューで日本語が消える(02/09)</a>
+                  <a href="/2012/07/14/gantt-with-date-for-redmine-2-0/">Redmine 2.0のガントチャートに日付表示を追加する(07/14)</a>
                 </li>
               </ol>
             </div>
@@ -148,22 +121,55 @@
               <span class="title">タグ一覧</span>
               <ol>
                 <li>
-                  <a href="/tags/nginx/">nginx</a> (1)
+                  <a href="/tags/macbookpro/">MacBookPro</a> (2)
                 </li>
                 <li>
-                  <a href="/tags/ubuntu/">Ubuntu</a> (2)
+                  <a href="/tags/review/">Review</a> (3)
                 </li>
                 <li>
-                  <a href="/tags/server/">Server</a> (2)
+                  <a href="/tags/gadget/">Gadget</a> (2)
                 </li>
                 <li>
-                  <a href="/tags/mac/">Mac</a> (2)
+                  <a href="/tags/case/">Case</a> (1)
                 </li>
                 <li>
-                  <a href="/tags/mouse/">Mouse</a> (1)
+                  <a href="/tags/emacs/">Emacs</a> (4)
                 </li>
                 <li>
-                  <a href="/tags/logicool/">Logicool</a> (1)
+                  <a href="/tags/anything-el/">anything.el</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/mac/">Mac</a> (3)
+                </li>
+                <li>
+                  <a href="/tags/refurbished/">Refurbished</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/ruby-on-rails/">Ruby on Rails</a> (4)
+                </li>
+                <li>
+                  <a href="/tags/ruby/">Ruby</a> (5)
+                </li>
+                <li>
+                  <a href="/tags/rinari/">rinari</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/actionscript/">Actionscript</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/flash/">Flash</a> (2)
+                </li>
+                <li>
+                  <a href="/tags/adobe-air/">Adobe AIR</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/android/">Android</a> (2)
+                </li>
+                <li>
+                  <a href="/tags/日々/">日々</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/mysql/">MySQL</a> (1)
                 </li>
                 <li>
                   <a href="/tags/開発/">開発</a> (1)
@@ -172,43 +178,28 @@
                   <a href="/tags/rails/">Rails</a> (1)
                 </li>
                 <li>
-                  <a href="/tags/middleman/">Middleman</a> (1)
+                  <a href="/tags/windows/">Windows</a> (2)
                 </li>
                 <li>
-                  <a href="/tags/octopress/">Octopress</a> (1)
+                  <a href="/tags/redmine/">redmine</a> (1)
                 </li>
                 <li>
-                  <a href="/tags/ruby/">Ruby</a> (5)
+                  <a href="/tags/ubuntu/">Ubuntu</a> (2)
                 </li>
                 <li>
-                  <a href="/tags/ruby-on-rails/">Ruby on Rails</a> (3)
+                  <a href="/tags/server/">Server</a> (2)
                 </li>
                 <li>
-                  <a href="/tags/rvm/">RVM</a> (1)
+                  <a href="/tags/vim/">Vim</a> (1)
                 </li>
                 <li>
-                  <a href="/tags/passenger/">Passenger</a> (1)
+                  <a href="/tags/mouse/">Mouse</a> (1)
                 </li>
                 <li>
-                  <a href="/tags/windows/">Windows</a> (1)
+                  <a href="/tags/logicool/">Logicool</a> (1)
                 </li>
                 <li>
-                  <a href="/tags/日々/">日々</a> (1)
-                </li>
-                <li>
-                  <a href="/tags/book/">Book</a> (1)
-                </li>
-                <li>
-                  <a href="/tags/emacs/">Emacs</a> (4)
-                </li>
-                <li>
-                  <a href="/tags/macmini/">MacMini</a> (1)
-                </li>
-                <li>
-                  <a href="/tags/ssd/">SSD</a> (1)
-                </li>
-                <li>
-                  <a href="/tags/review/">Review</a> (1)
+                  <a href="/tags/nginx/">nginx</a> (1)
                 </li>
                 <li>
                   <a href="/tags/uc-411pbt-c/">UC-411PBT-C</a> (1)
@@ -217,10 +208,28 @@
                   <a href="/tags/goo/">goo</a> (1)
                 </li>
                 <li>
-                  <a href="/tags/anything-el/">anything.el</a> (1)
+                  <a href="/tags/octopress/">Octopress</a> (1)
                 </li>
                 <li>
-                  <a href="/tags/rinari/">rinari</a> (1)
+                  <a href="/tags/rvm/">RVM</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/passenger/">Passenger</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/macmini/">MacMini</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/ssd/">SSD</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/book/">Book</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/windows8/">Windows8</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/mediacenterpack/">MediaCenterPack</a> (1)
                 </li>
               </ol>
             </div>
@@ -234,10 +243,10 @@
               <span class="title">アーカイブ</span>
               <ol></ol>
               <li>
-                <a href="/2013/">2013</a> (1)
+                <a href="/2013/">2013</a> (6)
               </li>
               <li>
-                <a href="/2012/">2012</a> (10)
+                <a href="/2012/">2012</a> (14)
               </li>
               <li>
                 <a href="/2011/">2011</a> (8)

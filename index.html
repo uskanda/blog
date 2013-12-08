@@ -24,615 +24,537 @@
       <div class="row">
         <div class="col-sm-9">
           <div id="main" role="main"><p>
-  Page 1 of 2
+  Page 1 of 3
 </p>
 <article>
   <div class="title">
     <div class="subject">
-      <a href="/2013/12/05/transfer-from-octopress-to-middleman/">OctopressからMiddlemanに移行した</a>
+      <a href="/2013/04/01/android-support-library-error-on-android-32/">Android3.2で通知を出そうとするとエラーが出る</a>
     </div>
     <div class="date">
-      Dec  5, 2013
+      Apr  1, 2013
+    </div>
+  </div>
+  <div class="body"><h2 id="toc_0">問題</h2>
+
+<p>Androidアプリで通知を出そうとするとエラーの出る機種があるよ&hellip;
+Honeycombの一部機種でだけ起こってるみたいだよ！</p>
+
+<h2 id="toc_1">こんなエラーが出てる</h2>
+<pre class="highlight text">E/AndroidRuntime(25922): FATAL EXCEPTION: main
+E/AndroidRuntime(25922): java.lang.NoSuchMethodError: android.app.Notification$Builder.setProgress
+E/AndroidRuntime(25922):    at android.support.v4.app.NotificationCompatIceCreamSandwich.add(NotificationCompatIceCreamSandwich.java:31)
+E/AndroidRuntime(25922):    at android.support.v4.app.NotificationCompat$NotificationCompatImplIceCreamSandwich.build(NotificationCompat.java:104)
+E/AndroidRuntime(25922):    at android.support.v4.app.NotificationCompat$Builder.build(NotificationCompat.java:558)
+</pre>
+<h2 id="toc_2">原因</h2>
+
+<p>Android Support LibraryがAPI Level 13(Android 3.2)の機種に対してバグってたよ&hellip;
+手元の3.0や3.1で試しても出なかったはずだよ&hellip;</p>
+
+<p><a href="https://code.google.com/p/android/issues/detail?id=36502">Issue 36502 - android - android support library v4 and notification on android-13 - Android - An Open Handset Alliance Project - Google Project Hosting</a></p>
+
+<p>android-support-v4.jarを更新したら直ったけどライブラリの差し替えなんてやりたくない時期だよ&hellip;(´・ω・`)</p>
+
+  </div>
+</article>
+<article>
+  <div class="title">
+    <div class="subject">
+      <a href="/2013/02/23/mysql-show-columns-and-indices-from-all-the-tables/">MySQLで全てのテーブルのカラムとインデックス有無を表示したい</a>
+    </div>
+    <div class="date">
+      Feb 23, 2013
+    </div>
+  </div>
+  <div class="body"><p>今の状況：</p>
+
+<blockquote class="twitter-tweet"><p>ひたすらMySQLのEXPLAINと格闘中である</p>&mdash; Yusuke Kanda (@uskanda) <a href="https://twitter.com/uskanda/status/305174512075411457">February 23, 2013</a></blockquote>
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>そればっかりやっているわけにもいかないんだけど&hellip;</p>
+
+<p>さて、MySQLで、ER図も何もないので今のDB全体をなんとなく俯瞰したい。
+当方生ぬるいORM厨でございます。</p>
+
+<p>showなんとかを繰り返さなくても、DBのメタデータ一式をINFORMATION_SCHEMAデータベースから取れるのね。便利。</p>
+
+<p><a href="http://dev.mysql.com/doc/refman/5.1/ja/information-schema.html">MySQL :: MySQL 5.1 リファレンスマニュアル :: 21 INFORMATION_SCHEMA データベース</a></p>
+
+<p>テーブルと各テーブルのカラム、インデックスを下記で取得。
+ツール使えよって話だけど、手探りの状態からだと手っ取り早い。</p>
+<pre class="highlight text">SELECT information_schema.columns.table_name, information_schema.columns.column_name, 
+       information_schema.columns.column_type, information_schema.statistics.index_name 
+FROM information_schema.columns LEFT JOIN information_schema.statistics 
+ON information_schema.columns.table_name = information_schema.statistics.table_name 
+AND information_schema.columns.column_name = information_schema.statistics.column_name;
+</pre>
+<p>複合インデックスが微妙だけど今欲しいものとしては問題なし。
+また、mysql起動時に-HでHTML出力にできたので、それを手元において確認中。</p>
+
+  </div>
+</article>
+<article>
+  <div class="title">
+    <div class="subject">
+      <a href="/2013/02/17/macbook-pro-cover/">MOBILE STUDIOのMacBook Proのマットブラック ハードケースを試す</a>
+    </div>
+    <div class="date">
+      Feb 17, 2013
     </div>
   </div>
   <div class="body">
-    <p>今年のはじめにWordpressからOctopressに移行したけど、結局ブログを書くようにはならなかったよ&hellip;
-    Middlemanを見てみたらよさげだったので、もう一度書き始めるきっかけに再度移行してみた。</p>
+    <p>Amazonで各MacBook向けのケースを売っている
+    MOBILE STUDIOのMacBook Pro 13inch Retina向け、マットブラックのケースを買ってみた。
+    お値段2380円。他のケースに比べて非常に割安！</p>
     
-    <h2 id="toc_0">Octopressでしっくり来なかったところ</h2>
+    <h2 id="toc_0">レビュー</h2>
     
-    <ul>
-    <li>テンプレートエンジンに挫折<br>
-    Liquidの記法が絶望的に覚えられない&hellip;</li>
-    <li>ファイル構成<br>
-    Octopressはgem/コマンドラインでの管理ツールが提供されておらず、cloneしたOctopressそのものからブログを構築していく。
-    Octopress自体のバージョンアップをしたい場合はpullして持ってくることになる。
-    本文以外のところのタグを変更しようとしてプラグインを独自にいじっているとOctopress本体の更新とのコンフリクトが厳しい。</li>
-    </ul>
+    <h3 id="toc_1">外観</h3>
     
-    <h2 id="toc_1">Middlemanを触ってみて</h2>
+    <p>正直いってこの価格だと見た目は期待していなかったのだけど、
+    まったく安っぽくない！いい意味で期待を裏切られた感じ。</p>
     
-    <h3 id="toc_2">よさげなところ</h3>
+    <p><a href="http://www.flickr.com/photos/uskanda/8467278289/" title="MOBILE STDUIO MacBook Pro 13inch Retina Case by uskanda, on Flickr"><img src="http://farm9.staticflickr.com/8372/8467278289_39d5239250_z.jpg" width="640" height="427" alt="MOBILE STDUIO MacBook Pro 13inch Retina Case"></a></p>
     
-    <ul>
-    <li>構成が単純<br>
-    sources以下にテンプレートやassetsを放り込んでいけばOK</li>
-    <li>Railsライク<br>
-    ヘルパー名やディレクトリ構成等、明らかにRailsを意識して作っている感じ。
-    いいか悪いかはともかく、Railsユーザには直観が働くようにできている。</li>
-    <li>好きなテンプレートエンジンが選べる<br>
-    今回は初<a href="http://slim-lang.com">Slim</a>にしてみた。</li>
-    <li>マルチブログが簡単<br>
-    Webサーバの設定に頼ることなく、複数ブログが簡単につくれる。</li>
-    </ul>
+    <p>Amazonレビューではアップルマーク周辺が浮いてしまうような指摘もあったけど、
+    自分のケースでは問題なし。</p>
     
-    <h3 id="toc_3">いまいちなところ</h3>
+    <p>個人的に見た目は以前MacBook Airで利用していたSpeckのSeeThru, TUNEWAREのCARBONLOOKよりおすすめ。
+    ゴム足が少し高めで、机から少し浮いた印象を感じるかも。</p>
     
-    <ul>
-    <li><p>ブログ機能自体は貧弱<br>
-    主眼は静的サイトジェネレータなので、
-    middleman-blog が提供する機能は記事管理/タグ付け/年別アーカイブ/ページネーションぐらい。
-    cssもデフォルトだとなし。プロジェクト生成直後に見える画面↓なのは流石にどうだろう&hellip;</p>
+    <p><a href="http://www.flickr.com/photos/uskanda/8467275001/" title="MacBook Pro 13inch Retina Case by uskanda, on Flickr"><img src="http://farm9.staticflickr.com/8089/8467275001_5682dc5a68_z.jpg" width="640" height="427" alt="MacBook Pro 13inch Retina Case"></a></p>
     
-    <p><a href="http://www.flickr.com/photos/uskanda/11209451975/" title="middleman-blog-default by uskanda, on Flickr"><img src="http://farm6.staticflickr.com/5493/11209451975_540c5f2e83_n.jpg" width="320" height="183" alt="middleman-blog-default"></a></p></li>
-    <li><p>デプロイ設定
-    github-pagesを強く意識しているOctopressよりはデプロイ設定が面倒な感じ。</p></li>
-    </ul>
+    <h3 id="toc_2">重量</h3>
+    
+    <p>両方合わせて実測254.5g。
+    装着すると1.9kg弱。非RetinaのMacBook Proに迫る重量になってしまうのはご愛嬌。</p>
+    
+    <h2 id="toc_3">リンク</h2>
+    
+    <p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00AF3LCHM/uasmks-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/21IjA6v8IWL._SL160_.jpg" alt="MacBook Pro Retina ディスプレイ 13.3インチ用 マット ハードケース 《全12色》 ブラック（黒） [MOBILE STUDIO]" /></a><br /><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00AF3LCHM/uasmks-22/ref=nosim/" target="_blank">MacBook Pro Retina ディスプレイ 13.3インチ用 マット ハードケース 《全12色》 ブラック（黒） [MOBILE STUDIO]</a></p>
+    
+    <p>こちらは15インチ用。</p>
+    
+    <p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B009A4YKXA/uasmks-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/21ghGdXBnuL._SL160_.jpg" alt="MacBook Pro Retina ディスプレイ 15.4インチ用 マット ハードケース 《全12色》 ブラック（黒） [MOBILE STUDIO]" /></a><br /><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B009A4YKXA/uasmks-22/ref=nosim/" target="_blank">MacBook Pro Retina ディスプレイ 15.4インチ用 マット ハードケース 《全12色》 ブラック（黒） [MOBILE STUDIO]</a></p>
+    
+    <p>Air向けも。また色展開も豊富。こちらは赤。</p>
+    
+    <p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B009T8LDJ6/uasmks-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/21XuoIXOITL._SL160_.jpg" alt="MacBook Air 11インチ用 マット ハードケース 《全12色》 レッド（赤） [MOBILE STUDIO]" /></a><br /><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B009T8LDJ6/uasmks-22/ref=nosim/" target="_blank">MacBook Air 11インチ用 マット ハードケース 《全12色》 レッド（赤） [MOBILE STUDIO]</a></p>
     
   </div>
 </article>
 <article>
   <div class="title">
     <div class="subject">
-      <a href="/2012/06/30/uc-411pbt-c/">「gooからだログ」に体重等自動送信できる体組成計UC-411PBT-Cを使ってみた</a>
+      <a href="/2013/02/17/buy-macbook-pro-refurbished/">整備済製品のMacBook Pro 13inch Retinaを買ってみた</a>
     </div>
     <div class="date">
-      Jun 30, 2012
+      Feb 17, 2013
+    </div>
+  </div>
+  <div class="body"><h2 id="toc_0">MacBook Proを買いました</h2>
+
+<p>アップルは初期不良などがあった品を修理した
+整備済製品を<a href="http://store.apple.com/jp/browse/home/specialdeals/mac">ウェブで販売している</a>。
+保証期間も新品同様で、少し割安でMac, iPod, iPadを購入できる。</p>
+
+<p>とはいえ、価格はkakaku.comの最安値より大概高いので、
+公式から買いたいアップルマニア以外にはあんまり意味がないように見える。</p>
+
+<p>しかし、アップルストアと一部BTO可能な店舗でしか購入できない
+USキーボード派には最安値と成り得る。</p>
+
+<p>最近MacBook Pro 13インチのRetina Displayモデルが
+整備済商品として登録されるようになってきた。
+USキーボードモデルもちょくちょく入荷されているようで、
+モノがあるのを見つけてから
+半日我慢したけどまだ在庫があったせいでつい
+IYHしてしまった。
+<strong>また暫く貧乏生活です。</strong></p>
+
+<h2 id="toc_1">到着</h2>
+
+<p>平日夜注文して二日後には受領。こんな外箱で届いた。</p>
+
+<p><a href="http://www.flickr.com/photos/uskanda/8467247999/" title="MacBook Pro 13inch Retina Refurbished - Package by uskanda, on Flickr"><img src="http://farm9.staticflickr.com/8391/8467247999_c0990068dd_z.jpg" width="640" height="427" alt="MacBook Pro 13inch Retina Refurbished - Package"></a></p>
+
+<p>この中に化粧箱があるのかと思いきや&hellip;</p>
+
+<p><a href="http://www.flickr.com/photos/uskanda/8467251841/" title="MacBook Pro 13inch Retina Refurbished - 開封 by uskanda, on Flickr"><img src="http://farm9.staticflickr.com/8378/8467251841_7bf1b85fe1_z.jpg" width="640" height="427" alt="MacBook Pro 13inch Retina Refurbished - 開封"></a></p>
+
+<p><a href="http://www.flickr.com/photos/uskanda/8468347038/" title="MacBook Pro 13inch Retina Refurbished - 付属品 by uskanda, on Flickr"><img src="http://farm9.staticflickr.com/8111/8468347038_f2f3bfd781_z.jpg" width="640" height="427" alt="MacBook Pro 13inch Retina Refurbished - 付属品"></a></p>
+
+<p><a href="http://www.flickr.com/photos/uskanda/8468348172/" title="MacBook Pro 13inch Retina Refurbished - 本体 by uskanda, on Flickr"><img src="http://farm9.staticflickr.com/8510/8468348172_e369312a17_z.jpg" width="640" height="427" alt="MacBook Pro 13inch Retina Refurbished - 本体"></a></p>
+
+<p>いきなりの付属品、その下に本体である。
+<strong>開封の儀好きにはオススメできない。</strong></p>
+
+<h2 id="toc_2">感触</h2>
+
+<p>整備済製品でも見た目は新品同様。
+一週間ほど使っていまのところ不具合なし。</p>
+
+<p>Retinaディスプレイは非常に良好。iPhone/iPadのRetinaに慣れた目でも、
+Macアプリケーションが美しく見えるのはたまらない。</p>
+
+<p>体感の処理速度としてはこれまで使っていたMacBook Air(2011)から
+確実によくなっているものの、CPUが1.7GHzから2.5GHzになったほどには、
+劇的に高速化した感じはない。Retinaのオーバーヘッドからか
+画面描画の際にはひっかかりを感じこともある。</p>
+
+<p>メモリが4GBから8GBになったので、メモリ不足でのレインボーカーソルは確実に減った。</p>
+
+<h2 id="toc_3">ベンチマーク</h2>
+
+<p>XBenchの結果は以下のとおり。</p>
+<pre class="highlight text">Results 241.09  
+    System Info     
+        Xbench Version      1.3
+        System Version      10.8.2 (12C3103)
+        Physical RAM        8192 MB
+        Model       MacBookPro10,2
+        Drive Type      APPLE SSD SM128E
+    CPU Test    249.37  
+        GCD Loop    325.32  17.15 Mops/sec
+        Floating Point Basic    208.60  4.96 Gflop/sec
+        vecLib FFT  165.82  5.47 Gflop/sec
+        Floating Point Library  466.84  81.29 Mops/sec
+    Memory Test 576.69  
+        System  584.38  
+            Allocate    2383.10 8.75 Malloc/sec
+            Fill    400.91  19492.94 MB/sec
+            Copy    450.52  9305.36 MB/sec
+        Stream  569.21  
+            Copy    557.26  11509.97 MB/sec
+            Scale   565.91  11691.44 MB/sec
+            Add 574.95  12247.63 MB/sec
+            Triad   579.22  12390.85 MB/sec
+    Quartz Graphics Test    185.29  
+        Line    194.80  12.97 Klines/sec [50% alpha]
+        Rectangle   190.84  56.98 Krects/sec [50% alpha]
+        Circle  166.01  13.53 Kcircles/sec [50% alpha]
+        Bezier  182.59  4.61 Kbeziers/sec [50% alpha]
+        Text    195.63  12.24 Kchars/sec
+    OpenGL Graphics Test    224.63  
+        Spinning Squares    224.63  284.95 frames/sec
+    User Interface Test 141.38  
+        Elements    141.38  648.85 refresh/sec
+    Disk Test   450.37  
+        Sequential  295.03  
+            Uncached Write  556.89  341.92 MB/sec [4K blocks]
+            Uncached Write  484.53  274.15 MB/sec [256K blocks]
+            Uncached Read   124.41  36.41 MB/sec [4K blocks]
+            Uncached Read   602.16  302.64 MB/sec [256K blocks]
+        Random  951.28  
+            Uncached Write  707.13  74.86 MB/sec [4K blocks]
+            Uncached Write  754.52  241.55 MB/sec [256K blocks]
+            Uncached Read   2230.67 15.81 MB/sec [4K blocks]
+            Uncached Read   983.22  182.44 MB/sec [256K blocks]
+</pre>
+<h2 id="toc_4">余談</h2>
+
+<p>買った途端<a href="http://www.gizmodo.jp/2013/02/macbook_proair.html">値下げ</a>しやがった(´・ω・｀)</p>
+
+<p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B009X5EJSW/uasmks-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/41OYV1CHZnL._SL160_.jpg" alt="APPLE MacBook Pro with Retina Display 13.3/2.5GHz Dual Core i5 MD212J/A" /></a><br /><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B009X5EJSW/uasmks-22/ref=nosim/" target="_blank">APPLE MacBook Pro with Retina Display 13.3/2.5GHz Dual Core i5 MD212J/A</a></p>
+
+  </div>
+</article>
+<article>
+  <div class="title">
+    <div class="subject">
+      <a href="/2013/01/31/hello-octopress/">今更ながらOctopress</a>
+    </div>
+    <div class="date">
+      Jan 31, 2013
     </div>
   </div>
   <div class="body">
-    <h2>gooからだログと連携できる体組成計をつかってみたよ</h2>
+    <h2 id="toc_0">ブログ移転しました</h2>
     
-    <p><a href="http://karada.goo.ne.jp/">gooからだログ</a>に自動でデータを送信できる体組成計(体重計+α)の<a href="http://www.aandd.co.jp/adhome/products/hhc/uc411pbt.html" target="_blank">UC-411PBT-C</a>を試してみた。</p>
+    <p>Wordpressをいろいろ整理したいと思っていたのだけど、
+    せっかくなのでOctopressに移行してみた。
+    Wordpressからの移行でデザインが崩れてる記事もあるけど、
+    おおよそおっけーなのでひとまずこのまま。</p>
     
-    <p><a title="IMG_8082.JPG" href="http://www.flickr.com/photos/uskanda/7471886112"><img class="aligncenter" src="http://farm8.staticflickr.com/7254/7471886112_dfa8051d95.jpg" alt="IMG_8082.JPG" /></a>
-    <a title="IMG_8083.JPG" href="http://www.flickr.com/photos/uskanda/7471889666"><img class="aligncenter" src="http://farm8.staticflickr.com/7121/7471889666_a60963d265.jpg" alt="IMG_8083.JPG" /></a>
-    デザインは悪くない感じ。
-    <h2>Withings Wifi Body Scaleとの比較</h2>
-    Web記録可能な体重計として最も知られているのは<a href="http://www.withings.jp/ja/" target="_blank">Withings</a>の<a href="http://www.withings.jp/ja/bodyscale" target="_blank">Wifi Body Scale</a>だろう。
-    個人的に気になった点を比較してみる。
+  </div>
+</article>
+<article>
+  <div class="title">
+    <div class="subject">
+      <a href="/2013/01/04/vim-commands-for-me/">僕の覚えた順Vimコマンド</a>
+    </div>
+    <div class="date">
+      Jan  4, 2013
+    </div>
+  </div>
+  <div class="body">
+    <p>あけましておめでとうございます。年末年始、風邪で死んでおります。
+    なんだかよくわかりませんが、ここ数カ月体中の節々が痛いです。年ですか。
+    ちょっと作業するだけで<strong>小指も痛い</strong>ので、
+    今年はEmacsからVimへの乗り換えを画策したいと思います。
+    本当はSublime Text2にしたかったけど、痒いところに微妙に手が届かず、断念orz
+    そんなわけで、MacVimを使いながら、勉強したコマンドを
+    覚えた順に列挙していきたいと思います。適宜追加予定。
+    <h2>これを書き始めたときの僕のviレベル</h2>
+    <ul>
+        <li>基本的にEmacsユーザ</li>
+        <li>viはサーバの設定ファイルとかいじるときとかにたまに使用</li>
+        <li>最低限のモード切り替え(i,A,etc)、移動(hjkl,gg,etc)や、最低限のコピペ(dd/yy/p)とかは知ってる</li>
+    </ul>
+    <h2>ビジュアルモード</h2>
+    コピー等する領域をコマンドベースじゃなくて、範囲を確認しながら行うモード。
+    ふつーのエディタならShift+カーソルで選択している状態。Emacsだとtransient-mark-modeオンでのリージョン選択相当。以下の表は記載なければビジュアルモードでのコマンド。
     <table border="0">
     <tbody>
     <tr>
-    <td>名称</td>
-    <td colspan="2">UC-411PBT-C</td>
-    <td colspan="2">Wifi Body Scale</td>
+    <td>ノーマルモードでv</td>
+    <td>ビジュアルモードに入る。
+    現在のカーソル位置から始まる任意の範囲を選択できる。
+    vの代わりにVで行単位での選択、&lt;C-v&gt;で矩形選択。</td>
     </tr>
     <tr>
-    <td>価格</td>
-    <td>-</td>
-    <td>\12,800
-    (USBドングル付き \18,780)</td>
-    <td>-</td>
-    <td>\17,800</td>
+    <td>hjkl等</td>
+    <td>hjklはじめ、移動はノーマルモードと同様に利用可能。</td>
     </tr>
     <tr>
-    <td>連携サービス</td>
-    <td>-</td>
-    <td><a href="http://karada.goo.ne.jp">gooからだログ</a></td>
-    <td>-</td>
-    <td><a href="http://www.withings.com/ja/">Withings</a></td>
+    <td>d</td>
+    <td>選択範囲を削除</td>
     </tr>
     <tr>
-    <td>通信方式</td>
-    <td>-</td>
-    <td>Bluetooth</td>
-    <td>-</td>
-    <td>Wifi</td>
+    <td>c</td>
+    <td>選択範囲を削除してインサートモードにする。</td>
     </tr>
     <tr>
-    <td>必要機器</td>
-    <td>△</td>
-    <td>コンティニュア対応機器<br>
-    (一部シャープ製Android,<br>
-    同規格対応PCもしくは<br>
-    インターネットに繋がるWindowsPC+
-    BluetoothUSBドングル<a href="http://nttxstore.jp/_II_QZX0005415">Blue-1000-v</a>)</td>
-    <td>◯</td>
-    <td>無線LANルータ等</td>
+    <td>y</td>
+    <td>選択範囲をコピー(ヤンク)</td>
+    </tr>
+    </tbody>
+    </table>
+    <h2>画面分割</h2>
+    <table border="0">
+    <tbody>
+    <tr>
+    <td>:split もしくは &lt;C-w&gt;s</td>
+    <td>画面を水平分割</td>
     </tr>
     <tr>
-    <td>測定値</td>
-    <td>◯</td>
-    <td>体重、体脂肪率、BMI、
-    基礎代謝、筋肉量、水分量</td>
-    <td>△</td>
-    <td>体重、体脂肪率、BMI</td>
+    <td>:vsplit もしくは &lt;C-w&gt;v</td>
+    <td>画面を垂直分割</td>
     </tr>
     <tr>
-    <td>家族利用</td>
-    <td>◯</td>
-    <td>測定者自動検出、5ユーザ</td>
-    <td>◯</td>
-    <td>測定者自動検出、8ユーザ</td>
+    <td>&lt;C-w&gt;[hjkltb]</td>
+    <td>hjklで指定した方向の画面に移動。
+    &lt;C-w&gt;tで最初のウィンドウ、bで最後のウィンドウ</td>
     </tr>
     <tr>
-    <td>体重測定単位</td>
-    <td>◯</td>
-    <td>50g(〜100kgまで)</td>
-    <td>△</td>
-    <td>100g</td>
+    <td>&lt;C-w&gt;c</td>
+    <td>分割した画面を閉じる</td>
+    </tr>
+    </tbody>
+    </table>
+    <h2>インデント</h2>
+    <table border="0">
+    <tbody>
+    <tr>
+    <td>&gt;&gt;</td>
+    <td>インデントを挿入</td>
+    </tr>
+    <tr>
+    <td>&lt;&lt;</td>
+    <td>インデントを削除</td>
+    </tr>
+    <tr>
+    <td>=</td>
+    <td>指定した範囲をオートインデント</td>
+    </tr>
+    <tr>
+    <td>gg=G</td>
+    <td>ファイル全体に対してオートインデントを適用。
+    ファイル先頭に移動(gg)→オートインデント(=)→ファイル終端(G)まで。</td>
+    </tr>
+    </tbody>
+    </table>
+    <h2>zencoding.vim</h2>
+    VimでのZen-Coding。下記をみながらお勉強。</p>
+    
+    <p><a href="http://mattn.kaoriya.net/software/vim/20100306021632.htm">Big Sky :: zen-codingの殆どの機能をzencoding.vimに取り込んだ。</a></p>
+    
+    <table border="0">
+    <tbody>
+    <tr>
+    <td>略語入力後&lt;C-y&gt;,</td>
+    <td>Zen-Coding略語展開</td>
+    </tr>
+    <tr>
+    <td>範囲選択後&lt;C-y&gt;,</td>
+    <td>任意のタグで選択範囲を括る</td>
+    </tr>
+    </tbody>
+    </table>
+    
+    <h2>移動・編集とか</h2>
+    
+    <p>編集の肌感覚がなんとなくわかってきた。
+    <table border="0">
+    <tbody>
+    <tr>
+    <td>g,</td>
+    <td>直前の編集箇所に戻る</td>
+    </tr>
+    <tr>
+    <td>cw</td>
+    <td>カーソル位置の単語を単語の終わりまでを削除してインサートモードに移行</td>
+    </tr>
+    <tr>
+    <td>caw</td>
+    <td>カーソル位置の単語全体を削除してインサートモードに移行</td>
+    </tr>
+    <tr>
+    <td>dw</td>
+    <td>カーソル位置から単語の終わりまでを削除</td>
+    </tr>
+    <tr>
+    <td>daw</td>
+    <td>カーソル位置の単語全体を削除</td>
+    </tr>
+    <tr>
+    <td>d$</td>
+    <td>カーソル位置から行末までを削除</td>
+    </tr>
+    <tr>
+    <td>d0,
+    d^</td>
+    <td>行頭からカーソル位置までを削除</td>
     </tr>
     </tbody>
     </table></p>
     
-    <p>価格については、現況ではほとんどのユーザが必要となってしまうUSBドングルも含めるとWifi Body Scaleとほぼ同等かやや高めといった感じ。単体購入のみで済む人であればUC-411PBT-Cのほうがお買い得。<br>
-    インターネットへの通信方法は大きく異なり、UC-411PBT-CはBluetooth利用のため、インターネットに繋がる何らかの機器で送信を仲介することになる。<br>
-    コンティニュアなる規格対応らしいけど、現況では対応機器は少ないが、Androidはシャープ製のものについてはアプリがあれば対応できるらしい。最近のBluetooth対応機器ならば理屈の上では対応できそうなので、今後に期待。</p>
-    
-    <p>&ldquo;体組成計&quot;を謳っているだけあって、測定項目は多い。
-    一応これまでも体重想定をしてきた身からすると、
-    運動の長期的効果の確認としての基礎代謝測定と、
-    水分補給による一時的変動なのか否かの指針となりそうな水分量測定は魅力的。
-    ウェブサービスはWithingsのサービスの利用経験もないし、からだログも使い込んでいないので評価は保留。
-    今のところ、からだログで閲覧にあたり不便はない。
-    ブログパーツがないことと、Twitter/Facebook連携ぐらいあればいいのになー、ぐらい？
-    <h2>PCとの連携</h2>
-    Windows PCとの連携手順は以下。
-    <ol>
-        <li>ドングルをUSBポートに指して、ドライバをインストール。Windows Vista/7の場合はプラグアンドプレイで自動インストールされるドライバでよい。
-    自分の場合はWin7で付属CDのドライバ入れたらペアリングできなかった。</li>
-        <li>データ転送用アプリをダウンロード、インストール。</li>
-        <li>アプリ内でgoo IDを設定。</li>
-        <li>体組成計の中央ボタンを3秒押した後、さらに2回押す。(利用者1名の場合)
-    その後、アプリ側で機器設定-&gt;機器追加をクリックしてペアリング。成功すれば下記のように見える。
-    <a title="gookaradalog" href="http://www.flickr.com/photos/uskanda/7472929902"><img class="aligncenter" src="http://farm9.staticflickr.com/8008/7472929902_dfe881cca8.jpg" alt="gookaradalog" /></a></li>
-        <li>体組成計に乗れば体重等の情報が自動送信される。</li>
-    </ol>
-    Windows PCと連携する場合、測定時に必ずしもPCが起動している必要はなく、体組成計側で過去の測定履歴を保存、PC起動時にまとめて送信してくれる。
-    <h2>ステマじゃないよ</h2>
-    <strong>※このポストは個人の見解であり、所属する組織の公式見解ではありません。</strong></p>
-    
   </div>
 </article>
 <article>
   <div class="title">
     <div class="subject">
-      <a href="/2012/06/18/osx-mouse-tips/">Mac OS Xでマウスを使うとしっくりこない件</a>
+      <a href="/2012/11/30/air-for-android-launch-activity/">AIR for Androidの起動アクティビティ名</a>
     </div>
     <div class="date">
-      Jun 18, 2012
+      Nov 30, 2012
+    </div>
+  </div>
+  <div class="body"><p>2,3回調べちゃったので備忘。</p>
+
+<p>AIR for Androidで作成したapk のエントリポイントとなるActivityの名称は
+&ldquo;AppEntry&rdquo; 。</p>
+
+<p>なので、adbからAIR for Androidで作成したアプリを起動する必要がある場合は以下のコマンドで実行可能。</p>
+
+<pre class="lang:sh decode:true crayon-selected" title="Launch AIR for Android App">adb shell am start -a android.intent.action.MAIN -n air.{APP_ID}/.AppEntry</pre>
+
+  </div>
+</article>
+<article>
+  <div class="title">
+    <div class="subject">
+      <a href="/2012/11/05/windows-8-pro-media-center-product-inf/">Windows 8のMedia Center Packを適用するとエディション名が変わる</a>
+    </div>
+    <div class="date">
+      Nov  5, 2012
     </div>
   </div>
   <div class="body">
-    <p>Mac Miniを購入して、OSXでマウス(Logicool M705)とMagic Trackpadを常用する環境になったが、マウスがいまいちしっくりこない。
-    <h2>1. マウス移動がWindowsと比べて加速しすぎる。</h2>
-    細かい動きをしようとすると動きが少なすぎてイライラする。最小化/最大化をミスクリックすること多数。
-    Logicool等、サードパーティのソフト設定ができる場合はOS側の&quot;軌跡の速さ&quot;を下げて、サードパーティ側の速度を極端に上げれば(Logicoolの場合、&quot;追随速度係数&quot;)加速が弱まってちょうどいい感じ。</p>
+    <p>Windows 8はWindows2000以来初めて、発売日に手に入れてない(^_^;)<br>
+    仕事で各プレビュー版をそれなりに触ってしまったので、情熱が。。。<br>
+    さて、Windows 8は単体ではDVD再生ができない。これは前から周知があった。</p>
     
-    <p>それにしてもLogicoolはハードウェアはいいのにソフトウェアはWindowsでもMacでもイマイチだね&hellip;
-    <h2>2. マウスのスクロール方向が逆</h2>
-    トラックパッドとマウスを併用する場合、現行のLionでは、<strong>トラックパッドとマウスのスクロール方向は連動している</strong>ので、トラックパッドをナチュラルスクロールにするとマウスのスクロールも逆になる。これは流石に慣れない&hellip;</p>
+    <p><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms724358(v=vs.85).aspx">GetProductInfo function</a></p>
     
-    <p>指定デバイスのスクロールだけ逆転させてくれるソフトがあったのでOSがどうにかしてくれるまではこれを使うとする。</p>
+    <p>以下のMedia Center Packを適用すれば再生可能になる。2013/1/31まではタダらしい。</p>
     
-    <p><a href="http://pilotmoon.com/scrollreverser/" target="_blank">Scroll Reverser for Mac OS X</a>
-    <h2>3. 利用しているM705の場合、ホイールをフリースピンさせた後にガタガタ動く。</h2>
-    Windowsでは起こってなかったのでハードウェアがヘタったわけではないようだ。これだけ解決策がまだ見当たらないので模索中&hellip;</p>
+    <p><a href="http://windows.microsoft.com/ja-JP/windows-8/feature-packs">機能の追加 - Microsoft Windows</a></p>
     
-  </div>
-</article>
-<article>
-  <div class="title">
-    <div class="subject">
-      <a href="/2012/06/18/windows8-manifest-setting-for-compatibility/">Windows8デスクトップアプリでの互換性マニフェスト設定</a>
-    </div>
-    <div class="date">
-      Jun 18, 2012
-    </div>
-  </div>
-  <div class="body">
-    <p>Windows7でもネイティブモードで動かすためにはマニフェストに互換性設定が必要だったように、Windows8でもネイティブモードで動かすにはマニフェストに宣言が必要。</p>
+    <p>このMedia Center Packを当てたWindows 8 Proは、通常のWindows 8 Proとは別エディションになるようだ。</p>
     
-    <p><a href="http://msdn.microsoft.com/en-us/library/hh848036(v=vs.85).aspx">App (Executable) Manifest (Preliminary)</a></p>
+    <p>見た限り、エディション判別によく使う、getProductInfo APIのpdwReturnedProductTypeの値がWindows 8 Proと異なる。</p>
     
-    <p>Windows8でもネイティブモードでないとプログラム互換性アシスタント(PCA)が動く。
-    <blockquote><strong>Program Compatibility Assistant (PCA)</strong>
-    <ul>
-        <li>Windows 8: Apps with the compatibility section do not get the PCA mitigation.</li>
-        <li>Windows 7: Apps with the compatibility section are tracked for potential compatibility issues for Windows 8 changes (described in this document).</li>
-        <li>Windows Vista (default): Apps that fail to install properly or crash during runtime under some specific circumstances get the PCA mitigation. For more information, see the Resources section.</li>
-    </ul>
-    </blockquote>
-    Windows8サポートであることを明示し、ネイティブモードで動かすには以下のGUIDをcompatibilityセクションで指定する。
-    <blockquote>{4a2f28e3-53b9-4441-ba9c-d69d4a4a6e38}</blockquote>
-    MSDN記載のサンプルは以下。
-    <blockquote>&lt;?xml version=&ldquo;1.0&rdquo; encoding=&ldquo;UTF-8&rdquo; standalone=&ldquo;yes&rdquo;?&gt;
-    &lt;assembly xmlns=&ldquo;urn:schemas-microsoft-com:asm.v1&rdquo; manifestVersion=&ldquo;1.0&rdquo;&gt;
-    &lt;compatibility xmlns=&ldquo;urn:schemas-microsoft-com:compatibility.v1&rdquo;&gt;
-    &lt;application&gt;
-    &lt;!&ndash;The ID below indicates app support for Windows Vista &ndash;&gt;
-    &lt;supportedOS Id=&ldquo;{e2011457-1546-43c5-a5fe-008deee3d3f0}&rdquo;/&gt;
-    &lt;!&ndash;The ID below indicates app support for Windows 7 &ndash;&gt;
-    &lt;supportedOS Id=&ldquo;{35138b9a-5d96-4fbd-8e2d-a2440225f93a}&rdquo;/&gt;
-    &lt;!&ndash;The ID below indicates app support for Windows Developer Preview &ndash;&gt;
-    &lt;supportedOS Id=&ldquo;{4a2f28e3-53b9-4441-ba9c-d69d4a4a6e38}&rdquo;/&gt;
-    &lt;/application&gt;
-    &lt;/compatibility&gt;
-    &lt;/assembly&gt;</blockquote></p>
+    <p><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms724358(v=vs.85).aspx">GetProductInfo function</a></p>
+    
+    <p>Media Center Packを適用すると、Proを示すPRODUCT<em>PROFESSIONAL(0x00000030)でなく、
+    PRODUCT</em>PROFESSIONAL_WMC(0x00000067)になってるようだ。</p>
+    
+    <p>WindowsのOSバージョン/エディション判定ロジックのWindows8対応を行ったプロダクトがある場合、この点を見逃していないか確認が必要かも。</p>
+    
+    <p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B009K1SK3E/uasmks-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/510nCGJ7QdL._SL160_.jpg" alt="Microsoft Windows 8 Pro (DSP版)  64bit 日本語" /></a><br /><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B009K1SK3E/uasmks-22/ref=nosim/" target="_blank">Microsoft Windows 8 Pro (DSP版)  64bit 日本語</a></p>
     
   </div>
 </article>
 <article>
   <div class="title">
     <div class="subject">
-      <a href="/2012/06/17/wordpress-with-nginx/">Wordpressをnginx+fastcgiベースに移行した</a>
+      <a href="/2012/09/05/stop-spark-videoplayer-live-streaming/">Flex SparkコンポーネントのVideoPlayerがライブストリーミングの時止まらない</a>
     </div>
     <div class="date">
-      Jun 17, 2012
+      Sep  5, 2012
     </div>
   </div>
-  <div class="body"><p>旧さくらのVPS移行期限が近づいてきたので、急いでWordpressを新設したVPSに移行した。せっかくなのでnginxベースに。</p>
+  <div class="body"><p>最近はコンセプト検証用のサンプルプログラムを作って営業することが多い。
+ここ数日、FlexでAdobe AIRのサンプルを作っているけど
+ActionScript自体触った機会がないので手探り状態&hellip;</p>
 
-<p>WordPressは事前にWordPressディレクトリ内全ファイルをコピーしておく他、
-データベースはすべてダンプし、移行先サーバに設置、インポートするだけ。データベースのダンプは
-phpmyadminなどで行うか、wp-db-backup等のWordPressプラグインで行えばかんたん。</p>
+<p>さて、こんなん
+<pre class="lang:as decode:true " >&lt;s:VideoDisplay id=&quot;video_player&quot;&gt;
+    &lt;s:source&gt;
+        &lt;s:DynamicStreamingVideoSource streamType=&quot;live&quot; host=&quot;{data.host}&quot;&gt;
+            &lt;s:DynamicStreamingVideoItem streamName=&quot;{data.streamName}&quot;/&gt;
+        &lt;/s:DynamicStreamingVideoSource&gt;
+    &lt;/s:source&gt;
+&lt;/s:VideoDisplay&gt;</pre> </p>
 
-<p>以下、Ubuntu 12.04での作業ログ。</p>
+<p>作ってVideoPlayerにDynamicStreamingVideoSourceを指定してライブストリーミングを受信するようにすると、
+video_player.play()で再生はできるけどstop()やpause()が効かない&hellip;(´・ω・｀)</p>
 
-<p>nginx/php/fastcgiのインストール。<code>
-aptitude install nginx php5-cli php5-cgi php5-gd spawn-fcgi</code></p>
+<p>手探りで
+video<em>player.mx</em>internal::videoPlayer.stop();
+としてみると止まった。</p>
 
-<p>/usr/bin/以下に以下の内容でphp-fastcgiファイルを作成。
-<code>
-#!/bin/sh
-/usr/bin/spawn-fcgi -a 127.0.0.1 -p 9000 -C 6 -u www-data -f /usr/bin/php5-cgi
-</code></p>
-
-<p>作成したファイルに実行権限付加。
-<code>
-cd /usr/bin/
-chmod a+x php-fastcgi
-</code></p>
-
-<p>起動用スクリプト/etc/init.d/php-fastcgiを作成。</p>
-<pre class="highlight text">\#!/bin/bash
-PHP_SCRIPT=/usr/bin/php-fastcgi
-FASTCGI_USER=www-data
-RETVAL=0
-case &quot;$1&quot; in
-start)
-su - $FASTCGI_USER -c $PHP_SCRIPT
-RETVAL=$?
-;;
-stop)
-killall -9 php5-cgi
-RETVAL=$?
-;;
-restart)
-killall -9 php5-cgi
-su - $FASTCGI_USER -c $PHP_SCRIPT
-RETVAL=$?
-;;
-*)
-echo &quot;Usage: php-fastcgi {start|stop|restart}&quot;
-exit 1
-;;
-esac
-exit $RETVAL
-console output
-</pre>
-<p>権限付加、自動起動設定してデーモン起動。
-    chmod a+x /etc/init.d/php-fastcgi
-    update-rc.d php-fastcgi defaults
-    /etc/init.d/php-fastcgi start</p>
-
-<p>nginxにWordpress用の設定を追加する。/etc/nginx/sites-available/wordpress に下記を追加。
-    upstream php {
-    server unix:/tmp/php-cgi.socket;
-    server 127.0.0.1:9000;
-    }</p>
-<pre class="highlight text">server {
-listen 80;
-server_name your_domain_name;
-access_log /var/log/nginx/wordpress.access.log;
-error_log /var/log/nginx/wordpress.error.log;
-root /path/to/wordpress/;
-index index.php;
-location = /favicon.ico {
-log_not_found off;
-access_log off;
-}
-
-location = /robots.txt {
-allow all;
-log_not_found off;
-access_log off;
-}
-
-location / {
-try_files $uri $uri/ /index.php;
-}
-
-location ~ \.php$ {
-include /etc/nginx/fastcgi_params;
-fastcgi_param SCRIPT_FILENAME /path/to/wordpress/$fastcgi_script_name;
-fastcgi_intercept_errors on;
-fastcgi_pass php;
-}
-
-location ~* \.(js|css|png|jpg|jpeg|gif|ico)$ {
-expires max;
-log_not_found off;
-}
-}
-</pre>
-<p>作成した設定を有効化、fastcgi/nginxを起動。
-<code>
-ln -s /etc/nginx/sites-available/wordpress /etc/nginx/sites-enable/wordpress
-/etc/init.d/php-fastcgi start
-/etc/init.d/nginx start
-</code>
-<h2>参考サイト</h2>
-<a href="http://iphone-diary.com/?p=9113">耐えられずにSixcoreサーバーへ移動 | 普通のサラリーマンのiPhone日記</a>
-(Wordpressの移行)</p>
-
-<p><a href="http://tjun.jp/blog/2011/09/nginx/">さくらVPS+ubuntu+wordpressにnginx入れたメモ | tjun memo</a></p>
-
-<p><a href="http://wiki.nginx.org/WordPress">WordPress</a>
-(nginx公式)</p>
-
-<p><a href="http://akibe.com/wordpress%E7%94%A8%E3%81%AEnginx%E3%81%AE%E3%82%B5%E3%82%A4%E3%83%88%E8%A8%AD%E5%AE%9A%E3%82%92%E8%A6%8B%E7%9B%B4%E3%81%97/" target="_blank">Wordpress用のNginxのサイト設定を見直し @AKIBE</a></p>
-
-  </div>
-</article>
-<article>
-  <div class="title">
-    <div class="subject">
-      <a href="/2012/06/13/buy-mac-mini/">Mac Mini(Mid2011)を買ってSSD換装したよー＼(^O^)／</a>
-    </div>
-    <div class="date">
-      Jun 13, 2012
-    </div>
-  </div>
-  <div class="body">
-    <p>WWDC2012はデスクトップMac待ちのみんなにひどいことをしたよね！何あのMacProのアップデート…</p>
-    
-    <p>ずっとiMac待ちだったけど、いろいろと限界だったのでついカッとなって<strong>Mac Miniを買ったよ！</strong></p>
-    
-    <p><a title="IMG_8028" href="http://www.flickr.com/photos/uskanda/7368789174" target="_blank"><img class="aligncenter" src="http://farm9.staticflickr.com/8016/7368789174_358cc0e4cd.jpg" alt="IMG_8028" /></a></p>
-    
-    <p>上位モデルだけど、発売から時間がたっていることもありほぼ下位モデルの値段で
-    秋葉原で買えた。当然の如くメモリとSSDも購入。メモリは8GB×2、SSDはA-DATAのSX900 256GB。ふたつ合わせて25,000円弱。</p>
-    
-    <p>動作確認だけして&hellip;</p>
-    
-    <p><a title="IMG_8032" href="http://www.flickr.com/photos/uskanda/7183555013"><img class="aligncenter" src="http://farm8.staticflickr.com/7104/7183555013_781c6e55fc.jpg" alt="IMG_8032" /></a></p>
-    
-    <p>即解体。</p>
-    
-    <p><a title="IMG_8033" href="http://www.flickr.com/photos/uskanda/7368786352"><img class="aligncenter" src="http://farm8.staticflickr.com/7097/7368786352_4882de8ace.jpg" alt="IMG_8033" /></a></p>
-    
-    <p>SSDの換装は下記記事を参考に実施。図解をたどっていけばかんたん。</p>
-    
-    <p><a href="http://d.hatena.ne.jp/pcmaster/20110807/p2">Mac mini(Mid 2011)のストレージをSSDに換装してみました - 理想未来はどうなった？</a></p>
-    
-    <p>完成。</p>
-    
-    <p><a title="IMG_8038" href="http://www.flickr.com/photos/uskanda/7368782996"><img class="aligncenter" src="http://farm9.staticflickr.com/8028/7368782996_081f574202.jpg" alt="IMG_8038" /></a></p>
-    
-    <p>Lionはインターネットインストールできるけど、ドライブ入れ替え後に勝手にはやってくれないらしい。Command+Rを押しながら起動でOSインストールを開始できる。</p>
-    
-    <h2 id="toc_0">ベンチマーク</h2>
-    
-    <p>XBenchの結果はこちら。
-        Results 375.82
-        System Info
-        Xbench Version 1.3
-        System Version 10.7.4 (11E53)
-        Physical RAM 16384 MB
-        Model Macmini5,2
-        Drive Type ADATA SX900
-        CPU Test 237.23
-        GCD Loop 312.73 16.48 Mops/sec
-        Floating Point Basic 195.03 4.63 Gflop/sec
-        vecLib FFT 155.71 5.14 Gflop/sec
-        Floating Point Library 472.98 82.36 Mops/sec
-        Memory Test 587.42
-        System 609.85
-        Allocate 2291.84 8.42 Malloc/sec
-        Fill 422.42 20539.26 MB/sec
-        Copy 472.67 9762.84 MB/sec
-        Stream 566.58
-        Copy 557.26 11509.97 MB/sec
-        Scale 545.02 11259.88 MB/sec
-        Add 588.66 12539.81 MB/sec
-        Triad 577.40 12352.08 MB/sec
-        Quartz Graphics Test 425.80
-        Line 363.20 24.18 Klines/sec [50% alpha]
-        Rectangle 497.89 148.65 Krects/sec [50% alpha]
-        Circle 330.10 26.91 Kcircles/sec [50% alpha]
-        Bezier 307.42 7.75 Kbeziers/sec [50% alpha]
-        Text 1431.67 89.56 Kchars/sec
-        OpenGL Graphics Test 374.30
-        Spinning Squares 374.30 474.83 frames/sec
-        User Interface Test 351.71
-        Elements 351.71 1.61 Krefresh/sec
-        Disk Test 457.91
-        Sequential 267.80
-        Uncached Write 700.42 430.05 MB/sec [4K blocks]
-        Uncached Write 462.01 261.40 MB/sec [256K blocks]
-        Uncached Read 104.64 30.62 MB/sec [4K blocks]
-        Uncached Read 559.36 281.13 MB/sec [256K blocks]
-        Random 1578.62
-        Uncached Write 2427.72 257.00 MB/sec [4K blocks]
-        Uncached Write 888.41 284.41 MB/sec [256K blocks]
-        Uncached Read 2909.52 20.62 MB/sec [4K blocks]
-        Uncached Read 1532.21 284.31 MB/sec [256K blocks]
-    最近のSSDはRandom早いね！
-    MacBookAir(Mid2011 Ultimate)と比べてもだいぶ体感性能が違う感じ。これでHaswellなRetina iMacまで待とう&hellip;</p>
-    
-    <iframe src="http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=uasmks-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B005DPEVH0" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
-    
-  </div>
-</article>
-<article>
-  <div class="title">
-    <div class="subject">
-      <a href="/2012/04/29/ubuntu-1204-name-resolve-failed/">Ubuntu 12.04にアップグレードしたら名前解決できなくなった</a>
-    </div>
-    <div class="date">
-      Apr 29, 2012
-    </div>
-  </div>
-  <div class="body"><p>さくらのVPS 2Gに現状の1.5Gからの移行を準備中。<br>
-新サーバは出たてのUbuntu 12.04 LTSにしてみたら、名前解決ができなくなった＞＜<br>
-以下、DNS情報はさくらのVPSの場合。</p>
-
-<p>/etc/resolv.conf を見たら何も書いてない&hellip;  </p>
-<pre class="highlight text"># Dynamic resolv.conf(5) file for glibc resolver(3) generated by resolvconf(8)
-#     DO NOT EDIT THIS FILE BY HAND -- YOUR CHANGES WILL BE OVERWRITTEN
-</pre>
-<p>resolvconfコマンドが自動生成するようになりました、とのこと。</p>
-
-<p>そのresolvconfはインタフェース設定(/etc/network/interfaces)に記載の
-DNSサーバ情報を/etc/resolv.confに書いてくれるのだけど、interfacesに<br>
-下記のように書いても変化なし。
-<code>
-dns-nameservers 210.188.224.11
-dns-search sakura.ne.jp
-</code></p>
-
-<p>resolvconfのmanを読むとデフォルト設定が/etc/resolvconf/resolv.conf.d/baseらしい。
+<p>ただし、mx<em>internal名前空間以下のメソッドは&lt;a href=&ldquo;<a href="http://cookbooks.adobe.com/post">http://cookbooks.adobe.com/post</a></em>What<em>is</em>mx<em>internal</em>-12212.html&rdquo;&gt;アドビの説明</a>によると
 <blockquote>
-/etc/resolvconf/resolv.conf.d/base
-File containing basic resolver information.  The lines in this file are included in the resolver configuration file even when no interfaces are configured.
-</blockquote></p>
-
-<p>このファイルに既存のresolv.conf設定を書いて暫定対処。
-<code>
-search sakura.ne.jp
-nameserver 210.188.224.11
-</code></p>
+Problem
+Looking at the Flex framework code, several properties and functions are prefixed with mx<em>internal. What is this?
+Solution
+mx</em>internal is a namespace used by the Flex framework to partition out functions and properties that may change in future releases of the Flex SDK.
+</blockquote>
+いつ消えるとも知れないらしい&hellip; Flexのバージョンアップに追随していく必要のあるアプリだと使えなさそう。
+今回のケースでは問題少なそうだから、ひとまずこれで対処することにする。</p>
 
   </div>
 </article>
 <article>
   <div class="title">
     <div class="subject">
-      <a href="/2012/04/02/update-rails-without-internet/">オフラインでのRails3アプリ環境の構築</a>
+      <a href="/2012/07/14/gantt-with-date-for-redmine-2-0/">Redmine 2.0のガントチャートに日付表示を追加する</a>
     </div>
     <div class="date">
-      Apr  2, 2012
-    </div>
-  </div>
-  <div class="body"><p>内製アプリの改修を納品したときにオフラインの本番環境に対してRailsアプリの更新をしなければならなかったのでメモ。
-物理メディアのみのやり取りでgemの整理をするのは意外とめんどかった&hellip;</p>
-
-<p>まず、下記コマンドで$RAILS_HOME/vender/cacheに依存gemのコピーが保存される。
-<pre>
-bundle package
-</pre>
-これをオンラインの環境で実施した後、オフライン環境で
-<pre>
-bundle install --local
-</pre>
-とすれば基本的にはOK。
-&hellip;なのだけど、Rubygemsのバージョン依存のgemがあれば当然実行時のバージョンによってエラーが出てしまう。
-デプロイ先はUbuntuだったので、rubygems-updateの最新.gemファイルを持って行って
-<pre>
-gem install rubygems-update --local
-</pre>
-とした。これで行けるかと思ったら今度はbundlerが死んだので、bundlerのgemも持って行って
-<pre>
-gem install bundler --local
-</pre>
-としてやっと解決。
-bundlerはbundle packageでは入らないんでgemファイルを準備していったほうが無難っぽい。</p>
-
-  </div>
-</article>
-<article>
-  <div class="title">
-    <div class="subject">
-      <a href="/2012/03/03/android-market-image-upload-error/">Android Marketアプリ登録時の画像アップロード失敗とデベロッパー登録時の留意点</a>
-    </div>
-    <div class="date">
-      Mar  3, 2012
+      Jul 14, 2012
     </div>
   </div>
   <div class="body">
-    <p>案件でAndroidアプリの受託開発を行なっていて、リリース時にハマったのでログを残しておく。
-    お客様は過去、Androidアプリリリースはなかったので、下記順でデベロッパー登録からリリース作業を予定していた。</p>
+    <p>Redmineのガントチャートはデフォルトだと日付がでない。過去にパッチが作られている。</p>
     
-    <ol>
-        <li>Android MarketにGoogleアカウントでログインしてデベロッパー登録(Google Checkoutで$25支払う)</li>
-        <li><a href="https://market.android.com/publish/Home" target="_blank">マーケットのアプリ登録画面</a>から新規アプリを追加、apkをアップロード</li>
-        <li>アプリ説明文を記述、スクリーンショット等の画像をアップロードして公開</li>
-    </ol>
+    <p><a href="http://ameblo.jp/hihihihiroki/entry-10854457740.html">【Redmine 1.1.2】ガントチャートに日付を表示させる｜渋谷ではたらくマー君の技術とかブログ。</a>
+    <a href="http://in.shappi.org/article/195687999.html">Redmineガントチャートの日付表示再び: 100ねんごの未来予想図</a></p>
     
-    <p>しかし、3.でスクリーンショットをアップロードしようとすると</p>
+    <p>これらを参考に、Redmine2.0でViewを直接書き換えた。ほぼ上記サイト作成のものそのままで動いた。</p>
     
-    <blockquote>「応答を解析できません。JSON 応答を変更するブラウザ拡張機能やアドオンがインストールされている場合は、 それらを無効にしてからこのページを更新してください。」</blockquote>
+    <p><a href="http://www.flickr.com/photos/uskanda/7564467856" title="gantt-with-date"><img src="http://farm8.staticflickr.com/7272/7564467856_464d4e4f27.jpg" alt="gantt-with-date" class="aligncenter"/></a></p>
     
-    <p>というメッセージが出て登録できず&hellip;。
-    画像アップロードのAjaxがGoogle側に蹴られているような挙動で、
-    ブラウザ・OS・ネットワーク環境を変更しても改善しない。
-    理由が思い当たらず途方に暮れていたら、半日ほどして</p>
+    <p>Redmine 2.0.3.stable.9920にて確認。
+    $RAILS_HOME/app/views/gantts/show.html.erbに下記パッチ。</p>
     
-    <blockquote>Android マーケットの登録料の支払いが拒否されました。</blockquote>
+    <script src="https://gist.github.com/3107779.js?file=show.html.erb.patch"></script>
     
-    <p>とのメッセージがアプリ登録画面に表示された。
-    何らかの理由でデベロッパー登録のクレジットカード決済が蹴られていたらしく、
-    これが原因で画像アップロードに失敗していたらしいorz</p>
+    <p>こういう変更はERB差し替えになってしまう以上、Redmineプラグインにするのも微妙&hellip; バージョンアップごとにパッチするしかないのかなー</p>
     
-    <p>この登録未完了状態でもapkの登録はうまく行ったように見えるし、
-    画像のアップロードだけが何らかの理由で失敗したように見えるので予想がつかない。
-    Google Checkout(Google Wallet)に移動して問題を解決しろ、と言われるが
-    Google Wallet側からも再支払いする方法がなく、このアカウントはマーケットに開発者登録されていながら
-    アプリ公開できない中途半端状態に&hellip;</p>
-    
-    <p>(あとから見るとMarket側のアプリ登録画面から再支払いできるようになっていた。
-     Googleに問い合わせるか、時間を置けば再支払いはできるようだ。)</p>
-    
-    <p>今回のケースではお客様に別アカウントと別クレジットカードで再登録頂いてなんとかなったのだけど、
-    別クレカの登録、Maps API Keyの再取得とapk再生成に時間が必要となってしまった。</p>
-    
-    <p>なお、正常にクレジットカード登録が終わり、アプリが利用可能となると</p>
-    
-    <blockquote>Android マーケットへの登録が承認されました。</blockquote>
-    
-    <p>とメッセージがアプリ登録画面に出現する。以前登録した際は一瞬でこの状態だったので
-    注意が向いていなかった&hellip;</p>
-    
-    <p>今回の教訓はデベロッパー登録をしていない場合、
-    <strong>Androidマーケットへのリリース時はデベロッパー登録を必ず先にしておく！</strong>
-    ということ。通常でも半日〜１日かかるケースもある等、Google先生の機嫌に左右されて時間がかかるリスクがあるので、
-    一週間余裕を持っておいたほうがいいと思う。</p>
-    
-  </div>
-</article>
-<article>
-  <div class="title">
-    <div class="subject">
-      <a href="/2012/02/09/emacs-markdown-mode-preview-ja/">markdown-modeのプレビューで日本語が消える</a>
-    </div>
-    <div class="date">
-      Feb  9, 2012
-    </div>
-  </div>
-  <div class="body"><p>最近はEmacs+markdown-modeで仕事の議事録をとってみてる。
-だけど、markdown-modeで、markdownの変換結果プレビューすると日本語が全滅状態&hellip;</p>
-
-<p>markdown-modeの問題というよりか、今の自分の環境では
-リージョンをコマンドに引き渡すshell-command-on-regionそのものが日本語をうまく持っていけてないみたい。</p>
-
-<p>ひとまず、リージョンではなくファイルで引き渡す設定が下記でできるので
-markdown-modeの問題はこれで解決。
-<code>
-(setq markdown-command-needs-filename t)
-</code></p>
-
   </div>
 </article>
 <p>
@@ -646,34 +568,34 @@ markdown-modeの問題はこれで解決。
               <span class="title">最近の投稿</span>
               <ol>
                 <li>
-                  <a href="/2013/12/05/transfer-from-octopress-to-middleman/">OctopressからMiddlemanに移行した(12/05)</a>
+                  <a href="/2013/04/01/android-support-library-error-on-android-32/">Android3.2で通知を出そうとするとエラーが出る(04/01)</a>
                 </li>
                 <li>
-                  <a href="/2012/06/30/uc-411pbt-c/">「gooからだログ」に体重等自動送信できる体組成計UC-411PBT-Cを使ってみた(06/30)</a>
+                  <a href="/2013/02/23/mysql-show-columns-and-indices-from-all-the-tables/">MySQLで全てのテーブルのカラムとインデックス有無を表示したい(02/23)</a>
                 </li>
                 <li>
-                  <a href="/2012/06/18/osx-mouse-tips/">Mac OS Xでマウスを使うとしっくりこない件(06/18)</a>
+                  <a href="/2013/02/17/macbook-pro-cover/">MOBILE STUDIOのMacBook Proのマットブラック ハードケースを試す(02/17)</a>
                 </li>
                 <li>
-                  <a href="/2012/06/18/windows8-manifest-setting-for-compatibility/">Windows8デスクトップアプリでの互換性マニフェスト設定(06/18)</a>
+                  <a href="/2013/02/17/buy-macbook-pro-refurbished/">整備済製品のMacBook Pro 13inch Retinaを買ってみた(02/17)</a>
                 </li>
                 <li>
-                  <a href="/2012/06/17/wordpress-with-nginx/">Wordpressをnginx+fastcgiベースに移行した(06/17)</a>
+                  <a href="/2013/01/31/hello-octopress/">今更ながらOctopress(01/31)</a>
                 </li>
                 <li>
-                  <a href="/2012/06/13/buy-mac-mini/">Mac Mini(Mid2011)を買ってSSD換装したよー＼(^O^)／(06/13)</a>
+                  <a href="/2013/01/04/vim-commands-for-me/">僕の覚えた順Vimコマンド(01/04)</a>
                 </li>
                 <li>
-                  <a href="/2012/04/29/ubuntu-1204-name-resolve-failed/">Ubuntu 12.04にアップグレードしたら名前解決できなくなった(04/29)</a>
+                  <a href="/2012/11/30/air-for-android-launch-activity/">AIR for Androidの起動アクティビティ名(11/30)</a>
                 </li>
                 <li>
-                  <a href="/2012/04/02/update-rails-without-internet/">オフラインでのRails3アプリ環境の構築(04/02)</a>
+                  <a href="/2012/11/05/windows-8-pro-media-center-product-inf/">Windows 8のMedia Center Packを適用するとエディション名が変わる(11/05)</a>
                 </li>
                 <li>
-                  <a href="/2012/03/03/android-market-image-upload-error/">Android Marketアプリ登録時の画像アップロード失敗とデベロッパー登録時の留意点(03/03)</a>
+                  <a href="/2012/09/05/stop-spark-videoplayer-live-streaming/">Flex SparkコンポーネントのVideoPlayerがライブストリーミングの時止まらない(09/05)</a>
                 </li>
                 <li>
-                  <a href="/2012/02/09/emacs-markdown-mode-preview-ja/">markdown-modeのプレビューで日本語が消える(02/09)</a>
+                  <a href="/2012/07/14/gantt-with-date-for-redmine-2-0/">Redmine 2.0のガントチャートに日付表示を追加する(07/14)</a>
                 </li>
               </ol>
             </div>
@@ -690,22 +612,55 @@ markdown-modeの問題はこれで解決。
               <span class="title">タグ一覧</span>
               <ol>
                 <li>
-                  <a href="/tags/nginx/">nginx</a> (1)
+                  <a href="/tags/macbookpro/">MacBookPro</a> (2)
                 </li>
                 <li>
-                  <a href="/tags/ubuntu/">Ubuntu</a> (2)
+                  <a href="/tags/review/">Review</a> (3)
                 </li>
                 <li>
-                  <a href="/tags/server/">Server</a> (2)
+                  <a href="/tags/gadget/">Gadget</a> (2)
                 </li>
                 <li>
-                  <a href="/tags/mac/">Mac</a> (2)
+                  <a href="/tags/case/">Case</a> (1)
                 </li>
                 <li>
-                  <a href="/tags/mouse/">Mouse</a> (1)
+                  <a href="/tags/emacs/">Emacs</a> (4)
                 </li>
                 <li>
-                  <a href="/tags/logicool/">Logicool</a> (1)
+                  <a href="/tags/anything-el/">anything.el</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/mac/">Mac</a> (3)
+                </li>
+                <li>
+                  <a href="/tags/refurbished/">Refurbished</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/ruby-on-rails/">Ruby on Rails</a> (4)
+                </li>
+                <li>
+                  <a href="/tags/ruby/">Ruby</a> (5)
+                </li>
+                <li>
+                  <a href="/tags/rinari/">rinari</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/actionscript/">Actionscript</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/flash/">Flash</a> (2)
+                </li>
+                <li>
+                  <a href="/tags/adobe-air/">Adobe AIR</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/android/">Android</a> (2)
+                </li>
+                <li>
+                  <a href="/tags/日々/">日々</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/mysql/">MySQL</a> (1)
                 </li>
                 <li>
                   <a href="/tags/開発/">開発</a> (1)
@@ -714,43 +669,28 @@ markdown-modeの問題はこれで解決。
                   <a href="/tags/rails/">Rails</a> (1)
                 </li>
                 <li>
-                  <a href="/tags/middleman/">Middleman</a> (1)
+                  <a href="/tags/windows/">Windows</a> (2)
                 </li>
                 <li>
-                  <a href="/tags/octopress/">Octopress</a> (1)
+                  <a href="/tags/redmine/">redmine</a> (1)
                 </li>
                 <li>
-                  <a href="/tags/ruby/">Ruby</a> (5)
+                  <a href="/tags/ubuntu/">Ubuntu</a> (2)
                 </li>
                 <li>
-                  <a href="/tags/ruby-on-rails/">Ruby on Rails</a> (3)
+                  <a href="/tags/server/">Server</a> (2)
                 </li>
                 <li>
-                  <a href="/tags/rvm/">RVM</a> (1)
+                  <a href="/tags/vim/">Vim</a> (1)
                 </li>
                 <li>
-                  <a href="/tags/passenger/">Passenger</a> (1)
+                  <a href="/tags/mouse/">Mouse</a> (1)
                 </li>
                 <li>
-                  <a href="/tags/windows/">Windows</a> (1)
+                  <a href="/tags/logicool/">Logicool</a> (1)
                 </li>
                 <li>
-                  <a href="/tags/日々/">日々</a> (1)
-                </li>
-                <li>
-                  <a href="/tags/book/">Book</a> (1)
-                </li>
-                <li>
-                  <a href="/tags/emacs/">Emacs</a> (4)
-                </li>
-                <li>
-                  <a href="/tags/macmini/">MacMini</a> (1)
-                </li>
-                <li>
-                  <a href="/tags/ssd/">SSD</a> (1)
-                </li>
-                <li>
-                  <a href="/tags/review/">Review</a> (1)
+                  <a href="/tags/nginx/">nginx</a> (1)
                 </li>
                 <li>
                   <a href="/tags/uc-411pbt-c/">UC-411PBT-C</a> (1)
@@ -759,10 +699,28 @@ markdown-modeの問題はこれで解決。
                   <a href="/tags/goo/">goo</a> (1)
                 </li>
                 <li>
-                  <a href="/tags/anything-el/">anything.el</a> (1)
+                  <a href="/tags/octopress/">Octopress</a> (1)
                 </li>
                 <li>
-                  <a href="/tags/rinari/">rinari</a> (1)
+                  <a href="/tags/rvm/">RVM</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/passenger/">Passenger</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/macmini/">MacMini</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/ssd/">SSD</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/book/">Book</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/windows8/">Windows8</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/mediacenterpack/">MediaCenterPack</a> (1)
                 </li>
               </ol>
             </div>
@@ -776,10 +734,10 @@ markdown-modeの問題はこれで解決。
               <span class="title">アーカイブ</span>
               <ol></ol>
               <li>
-                <a href="/2013/">2013</a> (1)
+                <a href="/2013/">2013</a> (6)
               </li>
               <li>
-                <a href="/2012/">2012</a> (10)
+                <a href="/2012/">2012</a> (14)
               </li>
               <li>
                 <a href="/2011/">2011</a> (8)

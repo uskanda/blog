@@ -5,447 +5,406 @@
   <id>http://blog.url.com/</id>
   <link href="http://blog.url.com/"/>
   <link href="http://blog.url.com/feed.xml" rel="self"/>
-  <updated>2013-12-04T17:39:00Z</updated>
+  <updated>2013-04-01T10:22:00Z</updated>
   <author>
     <name>Blog Author</name>
   </author>
   <entry>
-    <title>OctopressからMiddlemanに移行した</title>
-    <link rel="alternate" href="http://blog.url.com/2013/12/05/transfer-from-octopress-to-middleman/"/>
-    <id>http://blog.url.com/2013/12/05/transfer-from-octopress-to-middleman/</id>
-    <published>2013-12-04T17:39:00Z</published>
-    <updated>2013-12-08T06:01:42+00:00</updated>
+    <title>Android3.2で通知を出そうとするとエラーが出る</title>
+    <link rel="alternate" href="http://blog.url.com/2013/04/01/android-support-library-error-on-android-32/"/>
+    <id>http://blog.url.com/2013/04/01/android-support-library-error-on-android-32/</id>
+    <published>2013-04-01T10:22:00Z</published>
+    <updated>2013-12-08T06:42:00+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
-    <content type="html">&lt;p&gt;今年のはじめにWordpressからOctopressに移行したけど、結局ブログを書くようにはならなかったよ&amp;hellip;
-Middlemanを見てみたらよさげだったので、もう一度書き始めるきっかけに再度移行してみた。&lt;/p&gt;
+    <content type="html">&lt;h2 id="toc_0"&gt;問題&lt;/h2&gt;
 
-&lt;h2 id="toc_0"&gt;Octopressでしっくり来なかったところ&lt;/h2&gt;
+&lt;p&gt;Androidアプリで通知を出そうとするとエラーの出る機種があるよ&amp;hellip;
+Honeycombの一部機種でだけ起こってるみたいだよ！&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;テンプレートエンジンに挫折&lt;br&gt;
-Liquidの記法が絶望的に覚えられない&amp;hellip;&lt;/li&gt;
-&lt;li&gt;ファイル構成&lt;br&gt;
-Octopressはgem/コマンドラインでの管理ツールが提供されておらず、cloneしたOctopressそのものからブログを構築していく。
-Octopress自体のバージョンアップをしたい場合はpullして持ってくることになる。
-本文以外のところのタグを変更しようとしてプラグインを独自にいじっているとOctopress本体の更新とのコンフリクトが厳しい。&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h2 id="toc_1"&gt;こんなエラーが出てる&lt;/h2&gt;
+&lt;pre class="highlight text"&gt;E/AndroidRuntime(25922): FATAL EXCEPTION: main
+E/AndroidRuntime(25922): java.lang.NoSuchMethodError: android.app.Notification$Builder.setProgress
+E/AndroidRuntime(25922):    at android.support.v4.app.NotificationCompatIceCreamSandwich.add(NotificationCompatIceCreamSandwich.java:31)
+E/AndroidRuntime(25922):    at android.support.v4.app.NotificationCompat$NotificationCompatImplIceCreamSandwich.build(NotificationCompat.java:104)
+E/AndroidRuntime(25922):    at android.support.v4.app.NotificationCompat$Builder.build(NotificationCompat.java:558)
+&lt;/pre&gt;
+&lt;h2 id="toc_2"&gt;原因&lt;/h2&gt;
 
-&lt;h2 id="toc_1"&gt;Middlemanを触ってみて&lt;/h2&gt;
+&lt;p&gt;Android Support LibraryがAPI Level 13(Android 3.2)の機種に対してバグってたよ&amp;hellip;
+手元の3.0や3.1で試しても出なかったはずだよ&amp;hellip;&lt;/p&gt;
 
-&lt;h3 id="toc_2"&gt;よさげなところ&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://code.google.com/p/android/issues/detail?id=36502"&gt;Issue 36502 - android - android support library v4 and notification on android-13 - Android - An Open Handset Alliance Project - Google Project Hosting&lt;/a&gt;&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;構成が単純&lt;br&gt;
-sources以下にテンプレートやassetsを放り込んでいけばOK&lt;/li&gt;
-&lt;li&gt;Railsライク&lt;br&gt;
-ヘルパー名やディレクトリ構成等、明らかにRailsを意識して作っている感じ。
-いいか悪いかはともかく、Railsユーザには直観が働くようにできている。&lt;/li&gt;
-&lt;li&gt;好きなテンプレートエンジンが選べる&lt;br&gt;
-今回は初&lt;a href="http://slim-lang.com"&gt;Slim&lt;/a&gt;にしてみた。&lt;/li&gt;
-&lt;li&gt;マルチブログが簡単&lt;br&gt;
-Webサーバの設定に頼ることなく、複数ブログが簡単につくれる。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id="toc_3"&gt;いまいちなところ&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;ブログ機能自体は貧弱&lt;br&gt;
-主眼は静的サイトジェネレータなので、
-middleman-blog が提供する機能は記事管理/タグ付け/年別アーカイブ/ページネーションぐらい。
-cssもデフォルトだとなし。プロジェクト生成直後に見える画面↓なのは流石にどうだろう&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="http://www.flickr.com/photos/uskanda/11209451975/" title="middleman-blog-default by uskanda, on Flickr"&gt;&lt;img src="http://farm6.staticflickr.com/5493/11209451975_540c5f2e83_n.jpg" width="320" height="183" alt="middleman-blog-default"&gt;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;デプロイ設定
-github-pagesを強く意識しているOctopressよりはデプロイ設定が面倒な感じ。&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;android-support-v4.jarを更新したら直ったけどライブラリの差し替えなんてやりたくない時期だよ&amp;hellip;(´・ω・`)&lt;/p&gt;
 </content>
   </entry>
   <entry>
-    <title>「gooからだログ」に体重等自動送信できる体組成計UC-411PBT-Cを使ってみた</title>
-    <link rel="alternate" href="http://blog.url.com/2012/06/30/uc-411pbt-c/"/>
-    <id>http://blog.url.com/2012/06/30/uc-411pbt-c/</id>
-    <published>2012-06-29T15:00:00Z</published>
-    <updated>2013-12-08T06:01:42+00:00</updated>
+    <title>MySQLで全てのテーブルのカラムとインデックス有無を表示したい</title>
+    <link rel="alternate" href="http://blog.url.com/2013/02/23/mysql-show-columns-and-indices-from-all-the-tables/"/>
+    <id>http://blog.url.com/2013/02/23/mysql-show-columns-and-indices-from-all-the-tables/</id>
+    <published>2013-02-23T10:00:00Z</published>
+    <updated>2013-12-08T06:42:00+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
-    <content type="html">&lt;h2&gt;gooからだログと連携できる体組成計をつかってみたよ&lt;/h2&gt;
+    <content type="html">&lt;p&gt;今の状況：&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="http://karada.goo.ne.jp/"&gt;gooからだログ&lt;/a&gt;に自動でデータを送信できる体組成計(体重計+α)の&lt;a href="http://www.aandd.co.jp/adhome/products/hhc/uc411pbt.html" target="_blank"&gt;UC-411PBT-C&lt;/a&gt;を試してみた。&lt;/p&gt;
+&lt;blockquote class="twitter-tweet"&gt;&lt;p&gt;ひたすらMySQLのEXPLAINと格闘中である&lt;/p&gt;&amp;mdash; Yusuke Kanda (@uskanda) &lt;a href="https://twitter.com/uskanda/status/305174512075411457"&gt;February 23, 2013&lt;/a&gt;&lt;/blockquote&gt;
 
-&lt;p&gt;&lt;a title="IMG_8082.JPG" href="http://www.flickr.com/photos/uskanda/7471886112"&gt;&lt;img class="aligncenter" src="http://farm8.staticflickr.com/7254/7471886112_dfa8051d95.jpg" alt="IMG_8082.JPG" /&gt;&lt;/a&gt;
-&lt;a title="IMG_8083.JPG" href="http://www.flickr.com/photos/uskanda/7471889666"&gt;&lt;img class="aligncenter" src="http://farm8.staticflickr.com/7121/7471889666_a60963d265.jpg" alt="IMG_8083.JPG" /&gt;&lt;/a&gt;
-デザインは悪くない感じ。
-&lt;h2&gt;Withings Wifi Body Scaleとの比較&lt;/h2&gt;
-Web記録可能な体重計として最も知られているのは&lt;a href="http://www.withings.jp/ja/" target="_blank"&gt;Withings&lt;/a&gt;の&lt;a href="http://www.withings.jp/ja/bodyscale" target="_blank"&gt;Wifi Body Scale&lt;/a&gt;だろう。
-個人的に気になった点を比較してみる。
+&lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;p&gt;そればっかりやっているわけにもいかないんだけど&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;さて、MySQLで、ER図も何もないので今のDB全体をなんとなく俯瞰したい。
+当方生ぬるいORM厨でございます。&lt;/p&gt;
+
+&lt;p&gt;showなんとかを繰り返さなくても、DBのメタデータ一式をINFORMATION_SCHEMAデータベースから取れるのね。便利。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://dev.mysql.com/doc/refman/5.1/ja/information-schema.html"&gt;MySQL :: MySQL 5.1 リファレンスマニュアル :: 21 INFORMATION_SCHEMA データベース&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;テーブルと各テーブルのカラム、インデックスを下記で取得。
+ツール使えよって話だけど、手探りの状態からだと手っ取り早い。&lt;/p&gt;
+&lt;pre class="highlight text"&gt;SELECT information_schema.columns.table_name, information_schema.columns.column_name, 
+       information_schema.columns.column_type, information_schema.statistics.index_name 
+FROM information_schema.columns LEFT JOIN information_schema.statistics 
+ON information_schema.columns.table_name = information_schema.statistics.table_name 
+AND information_schema.columns.column_name = information_schema.statistics.column_name;
+&lt;/pre&gt;
+&lt;p&gt;複合インデックスが微妙だけど今欲しいものとしては問題なし。
+また、mysql起動時に-HでHTML出力にできたので、それを手元において確認中。&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>MOBILE STUDIOのMacBook Proのマットブラック ハードケースを試す</title>
+    <link rel="alternate" href="http://blog.url.com/2013/02/17/macbook-pro-cover/"/>
+    <id>http://blog.url.com/2013/02/17/macbook-pro-cover/</id>
+    <published>2013-02-16T21:33:00Z</published>
+    <updated>2013-12-08T06:42:00+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;Amazonで各MacBook向けのケースを売っている
+MOBILE STUDIOのMacBook Pro 13inch Retina向け、マットブラックのケースを買ってみた。
+お値段2380円。他のケースに比べて非常に割安！&lt;/p&gt;
+
+&lt;h2 id="toc_0"&gt;レビュー&lt;/h2&gt;
+
+&lt;h3 id="toc_1"&gt;外観&lt;/h3&gt;
+
+&lt;p&gt;正直いってこの価格だと見た目は期待していなかったのだけど、
+まったく安っぽくない！いい意味で期待を裏切られた感じ。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.flickr.com/photos/uskanda/8467278289/" title="MOBILE STDUIO MacBook Pro 13inch Retina Case by uskanda, on Flickr"&gt;&lt;img src="http://farm9.staticflickr.com/8372/8467278289_39d5239250_z.jpg" width="640" height="427" alt="MOBILE STDUIO MacBook Pro 13inch Retina Case"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Amazonレビューではアップルマーク周辺が浮いてしまうような指摘もあったけど、
+自分のケースでは問題なし。&lt;/p&gt;
+
+&lt;p&gt;個人的に見た目は以前MacBook Airで利用していたSpeckのSeeThru, TUNEWAREのCARBONLOOKよりおすすめ。
+ゴム足が少し高めで、机から少し浮いた印象を感じるかも。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.flickr.com/photos/uskanda/8467275001/" title="MacBook Pro 13inch Retina Case by uskanda, on Flickr"&gt;&lt;img src="http://farm9.staticflickr.com/8089/8467275001_5682dc5a68_z.jpg" width="640" height="427" alt="MacBook Pro 13inch Retina Case"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id="toc_2"&gt;重量&lt;/h3&gt;
+
+&lt;p&gt;両方合わせて実測254.5g。
+装着すると1.9kg弱。非RetinaのMacBook Proに迫る重量になってしまうのはご愛嬌。&lt;/p&gt;
+
+&lt;h2 id="toc_3"&gt;リンク&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00AF3LCHM/uasmks-22/ref=nosim/" target="_blank"&gt;&lt;img src="http://ecx.images-amazon.com/images/I/21IjA6v8IWL._SL160_.jpg" alt="MacBook Pro Retina ディスプレイ 13.3インチ用 マット ハードケース 《全12色》 ブラック（黒） [MOBILE STUDIO]" /&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00AF3LCHM/uasmks-22/ref=nosim/" target="_blank"&gt;MacBook Pro Retina ディスプレイ 13.3インチ用 マット ハードケース 《全12色》 ブラック（黒） [MOBILE STUDIO]&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;こちらは15インチ用。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.amazon.co.jp/exec/obidos/ASIN/B009A4YKXA/uasmks-22/ref=nosim/" target="_blank"&gt;&lt;img src="http://ecx.images-amazon.com/images/I/21ghGdXBnuL._SL160_.jpg" alt="MacBook Pro Retina ディスプレイ 15.4インチ用 マット ハードケース 《全12色》 ブラック（黒） [MOBILE STUDIO]" /&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href="http://www.amazon.co.jp/exec/obidos/ASIN/B009A4YKXA/uasmks-22/ref=nosim/" target="_blank"&gt;MacBook Pro Retina ディスプレイ 15.4インチ用 マット ハードケース 《全12色》 ブラック（黒） [MOBILE STUDIO]&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Air向けも。また色展開も豊富。こちらは赤。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.amazon.co.jp/exec/obidos/ASIN/B009T8LDJ6/uasmks-22/ref=nosim/" target="_blank"&gt;&lt;img src="http://ecx.images-amazon.com/images/I/21XuoIXOITL._SL160_.jpg" alt="MacBook Air 11インチ用 マット ハードケース 《全12色》 レッド（赤） [MOBILE STUDIO]" /&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href="http://www.amazon.co.jp/exec/obidos/ASIN/B009T8LDJ6/uasmks-22/ref=nosim/" target="_blank"&gt;MacBook Air 11インチ用 マット ハードケース 《全12色》 レッド（赤） [MOBILE STUDIO]&lt;/a&gt;&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>整備済製品のMacBook Pro 13inch Retinaを買ってみた</title>
+    <link rel="alternate" href="http://blog.url.com/2013/02/17/buy-macbook-pro-refurbished/"/>
+    <id>http://blog.url.com/2013/02/17/buy-macbook-pro-refurbished/</id>
+    <published>2013-02-16T19:31:00Z</published>
+    <updated>2013-12-08T06:42:00+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;h2 id="toc_0"&gt;MacBook Proを買いました&lt;/h2&gt;
+
+&lt;p&gt;アップルは初期不良などがあった品を修理した
+整備済製品を&lt;a href="http://store.apple.com/jp/browse/home/specialdeals/mac"&gt;ウェブで販売している&lt;/a&gt;。
+保証期間も新品同様で、少し割安でMac, iPod, iPadを購入できる。&lt;/p&gt;
+
+&lt;p&gt;とはいえ、価格はkakaku.comの最安値より大概高いので、
+公式から買いたいアップルマニア以外にはあんまり意味がないように見える。&lt;/p&gt;
+
+&lt;p&gt;しかし、アップルストアと一部BTO可能な店舗でしか購入できない
+USキーボード派には最安値と成り得る。&lt;/p&gt;
+
+&lt;p&gt;最近MacBook Pro 13インチのRetina Displayモデルが
+整備済商品として登録されるようになってきた。
+USキーボードモデルもちょくちょく入荷されているようで、
+モノがあるのを見つけてから
+半日我慢したけどまだ在庫があったせいでつい
+IYHしてしまった。
+&lt;strong&gt;また暫く貧乏生活です。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id="toc_1"&gt;到着&lt;/h2&gt;
+
+&lt;p&gt;平日夜注文して二日後には受領。こんな外箱で届いた。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.flickr.com/photos/uskanda/8467247999/" title="MacBook Pro 13inch Retina Refurbished - Package by uskanda, on Flickr"&gt;&lt;img src="http://farm9.staticflickr.com/8391/8467247999_c0990068dd_z.jpg" width="640" height="427" alt="MacBook Pro 13inch Retina Refurbished - Package"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;この中に化粧箱があるのかと思いきや&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.flickr.com/photos/uskanda/8467251841/" title="MacBook Pro 13inch Retina Refurbished - 開封 by uskanda, on Flickr"&gt;&lt;img src="http://farm9.staticflickr.com/8378/8467251841_7bf1b85fe1_z.jpg" width="640" height="427" alt="MacBook Pro 13inch Retina Refurbished - 開封"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.flickr.com/photos/uskanda/8468347038/" title="MacBook Pro 13inch Retina Refurbished - 付属品 by uskanda, on Flickr"&gt;&lt;img src="http://farm9.staticflickr.com/8111/8468347038_f2f3bfd781_z.jpg" width="640" height="427" alt="MacBook Pro 13inch Retina Refurbished - 付属品"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.flickr.com/photos/uskanda/8468348172/" title="MacBook Pro 13inch Retina Refurbished - 本体 by uskanda, on Flickr"&gt;&lt;img src="http://farm9.staticflickr.com/8510/8468348172_e369312a17_z.jpg" width="640" height="427" alt="MacBook Pro 13inch Retina Refurbished - 本体"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;いきなりの付属品、その下に本体である。
+&lt;strong&gt;開封の儀好きにはオススメできない。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id="toc_2"&gt;感触&lt;/h2&gt;
+
+&lt;p&gt;整備済製品でも見た目は新品同様。
+一週間ほど使っていまのところ不具合なし。&lt;/p&gt;
+
+&lt;p&gt;Retinaディスプレイは非常に良好。iPhone/iPadのRetinaに慣れた目でも、
+Macアプリケーションが美しく見えるのはたまらない。&lt;/p&gt;
+
+&lt;p&gt;体感の処理速度としてはこれまで使っていたMacBook Air(2011)から
+確実によくなっているものの、CPUが1.7GHzから2.5GHzになったほどには、
+劇的に高速化した感じはない。Retinaのオーバーヘッドからか
+画面描画の際にはひっかかりを感じこともある。&lt;/p&gt;
+
+&lt;p&gt;メモリが4GBから8GBになったので、メモリ不足でのレインボーカーソルは確実に減った。&lt;/p&gt;
+
+&lt;h2 id="toc_3"&gt;ベンチマーク&lt;/h2&gt;
+
+&lt;p&gt;XBenchの結果は以下のとおり。&lt;/p&gt;
+&lt;pre class="highlight text"&gt;Results 241.09  
+    System Info     
+        Xbench Version      1.3
+        System Version      10.8.2 (12C3103)
+        Physical RAM        8192 MB
+        Model       MacBookPro10,2
+        Drive Type      APPLE SSD SM128E
+    CPU Test    249.37  
+        GCD Loop    325.32  17.15 Mops/sec
+        Floating Point Basic    208.60  4.96 Gflop/sec
+        vecLib FFT  165.82  5.47 Gflop/sec
+        Floating Point Library  466.84  81.29 Mops/sec
+    Memory Test 576.69  
+        System  584.38  
+            Allocate    2383.10 8.75 Malloc/sec
+            Fill    400.91  19492.94 MB/sec
+            Copy    450.52  9305.36 MB/sec
+        Stream  569.21  
+            Copy    557.26  11509.97 MB/sec
+            Scale   565.91  11691.44 MB/sec
+            Add 574.95  12247.63 MB/sec
+            Triad   579.22  12390.85 MB/sec
+    Quartz Graphics Test    185.29  
+        Line    194.80  12.97 Klines/sec [50% alpha]
+        Rectangle   190.84  56.98 Krects/sec [50% alpha]
+        Circle  166.01  13.53 Kcircles/sec [50% alpha]
+        Bezier  182.59  4.61 Kbeziers/sec [50% alpha]
+        Text    195.63  12.24 Kchars/sec
+    OpenGL Graphics Test    224.63  
+        Spinning Squares    224.63  284.95 frames/sec
+    User Interface Test 141.38  
+        Elements    141.38  648.85 refresh/sec
+    Disk Test   450.37  
+        Sequential  295.03  
+            Uncached Write  556.89  341.92 MB/sec [4K blocks]
+            Uncached Write  484.53  274.15 MB/sec [256K blocks]
+            Uncached Read   124.41  36.41 MB/sec [4K blocks]
+            Uncached Read   602.16  302.64 MB/sec [256K blocks]
+        Random  951.28  
+            Uncached Write  707.13  74.86 MB/sec [4K blocks]
+            Uncached Write  754.52  241.55 MB/sec [256K blocks]
+            Uncached Read   2230.67 15.81 MB/sec [4K blocks]
+            Uncached Read   983.22  182.44 MB/sec [256K blocks]
+&lt;/pre&gt;
+&lt;h2 id="toc_4"&gt;余談&lt;/h2&gt;
+
+&lt;p&gt;買った途端&lt;a href="http://www.gizmodo.jp/2013/02/macbook_proair.html"&gt;値下げ&lt;/a&gt;しやがった(´・ω・｀)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.amazon.co.jp/exec/obidos/ASIN/B009X5EJSW/uasmks-22/ref=nosim/" target="_blank"&gt;&lt;img src="http://ecx.images-amazon.com/images/I/41OYV1CHZnL._SL160_.jpg" alt="APPLE MacBook Pro with Retina Display 13.3/2.5GHz Dual Core i5 MD212J/A" /&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href="http://www.amazon.co.jp/exec/obidos/ASIN/B009X5EJSW/uasmks-22/ref=nosim/" target="_blank"&gt;APPLE MacBook Pro with Retina Display 13.3/2.5GHz Dual Core i5 MD212J/A&lt;/a&gt;&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>今更ながらOctopress</title>
+    <link rel="alternate" href="http://blog.url.com/2013/01/31/hello-octopress/"/>
+    <id>http://blog.url.com/2013/01/31/hello-octopress/</id>
+    <published>2013-01-30T15:00:00Z</published>
+    <updated>2013-12-08T06:42:00+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;h2 id="toc_0"&gt;ブログ移転しました&lt;/h2&gt;
+
+&lt;p&gt;Wordpressをいろいろ整理したいと思っていたのだけど、
+せっかくなのでOctopressに移行してみた。
+Wordpressからの移行でデザインが崩れてる記事もあるけど、
+おおよそおっけーなのでひとまずこのまま。&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>僕の覚えた順Vimコマンド</title>
+    <link rel="alternate" href="http://blog.url.com/2013/01/04/vim-commands-for-me/"/>
+    <id>http://blog.url.com/2013/01/04/vim-commands-for-me/</id>
+    <published>2013-01-03T15:00:00Z</published>
+    <updated>2013-12-08T06:42:00+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;あけましておめでとうございます。年末年始、風邪で死んでおります。
+なんだかよくわかりませんが、ここ数カ月体中の節々が痛いです。年ですか。
+ちょっと作業するだけで&lt;strong&gt;小指も痛い&lt;/strong&gt;ので、
+今年はEmacsからVimへの乗り換えを画策したいと思います。
+本当はSublime Text2にしたかったけど、痒いところに微妙に手が届かず、断念orz
+そんなわけで、MacVimを使いながら、勉強したコマンドを
+覚えた順に列挙していきたいと思います。適宜追加予定。
+&lt;h2&gt;これを書き始めたときの僕のviレベル&lt;/h2&gt;
+&lt;ul&gt;
+    &lt;li&gt;基本的にEmacsユーザ&lt;/li&gt;
+    &lt;li&gt;viはサーバの設定ファイルとかいじるときとかにたまに使用&lt;/li&gt;
+    &lt;li&gt;最低限のモード切り替え(i,A,etc)、移動(hjkl,gg,etc)や、最低限のコピペ(dd/yy/p)とかは知ってる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;ビジュアルモード&lt;/h2&gt;
+コピー等する領域をコマンドベースじゃなくて、範囲を確認しながら行うモード。
+ふつーのエディタならShift+カーソルで選択している状態。Emacsだとtransient-mark-modeオンでのリージョン選択相当。以下の表は記載なければビジュアルモードでのコマンド。
 &lt;table border="0"&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;名称&lt;/td&gt;
-&lt;td colspan="2"&gt;UC-411PBT-C&lt;/td&gt;
-&lt;td colspan="2"&gt;Wifi Body Scale&lt;/td&gt;
+&lt;td&gt;ノーマルモードでv&lt;/td&gt;
+&lt;td&gt;ビジュアルモードに入る。
+現在のカーソル位置から始まる任意の範囲を選択できる。
+vの代わりにVで行単位での選択、&amp;lt;C-v&amp;gt;で矩形選択。&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;価格&lt;/td&gt;
-&lt;td&gt;-&lt;/td&gt;
-&lt;td&gt;\12,800
-(USBドングル付き \18,780)&lt;/td&gt;
-&lt;td&gt;-&lt;/td&gt;
-&lt;td&gt;\17,800&lt;/td&gt;
+&lt;td&gt;hjkl等&lt;/td&gt;
+&lt;td&gt;hjklはじめ、移動はノーマルモードと同様に利用可能。&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;連携サービス&lt;/td&gt;
-&lt;td&gt;-&lt;/td&gt;
-&lt;td&gt;&lt;a href="http://karada.goo.ne.jp"&gt;gooからだログ&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;-&lt;/td&gt;
-&lt;td&gt;&lt;a href="http://www.withings.com/ja/"&gt;Withings&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;d&lt;/td&gt;
+&lt;td&gt;選択範囲を削除&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;通信方式&lt;/td&gt;
-&lt;td&gt;-&lt;/td&gt;
-&lt;td&gt;Bluetooth&lt;/td&gt;
-&lt;td&gt;-&lt;/td&gt;
-&lt;td&gt;Wifi&lt;/td&gt;
+&lt;td&gt;c&lt;/td&gt;
+&lt;td&gt;選択範囲を削除してインサートモードにする。&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;必要機器&lt;/td&gt;
-&lt;td&gt;△&lt;/td&gt;
-&lt;td&gt;コンティニュア対応機器&lt;br&gt;
-(一部シャープ製Android,&lt;br&gt;
-同規格対応PCもしくは&lt;br&gt;
-インターネットに繋がるWindowsPC+
-BluetoothUSBドングル&lt;a href="http://nttxstore.jp/_II_QZX0005415"&gt;Blue-1000-v&lt;/a&gt;)&lt;/td&gt;
-&lt;td&gt;◯&lt;/td&gt;
-&lt;td&gt;無線LANルータ等&lt;/td&gt;
+&lt;td&gt;y&lt;/td&gt;
+&lt;td&gt;選択範囲をコピー(ヤンク)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;画面分割&lt;/h2&gt;
+&lt;table border="0"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;:split もしくは &amp;lt;C-w&amp;gt;s&lt;/td&gt;
+&lt;td&gt;画面を水平分割&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;測定値&lt;/td&gt;
-&lt;td&gt;◯&lt;/td&gt;
-&lt;td&gt;体重、体脂肪率、BMI、
-基礎代謝、筋肉量、水分量&lt;/td&gt;
-&lt;td&gt;△&lt;/td&gt;
-&lt;td&gt;体重、体脂肪率、BMI&lt;/td&gt;
+&lt;td&gt;:vsplit もしくは &amp;lt;C-w&amp;gt;v&lt;/td&gt;
+&lt;td&gt;画面を垂直分割&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;家族利用&lt;/td&gt;
-&lt;td&gt;◯&lt;/td&gt;
-&lt;td&gt;測定者自動検出、5ユーザ&lt;/td&gt;
-&lt;td&gt;◯&lt;/td&gt;
-&lt;td&gt;測定者自動検出、8ユーザ&lt;/td&gt;
+&lt;td&gt;&amp;lt;C-w&amp;gt;[hjkltb]&lt;/td&gt;
+&lt;td&gt;hjklで指定した方向の画面に移動。
+&amp;lt;C-w&amp;gt;tで最初のウィンドウ、bで最後のウィンドウ&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;体重測定単位&lt;/td&gt;
-&lt;td&gt;◯&lt;/td&gt;
-&lt;td&gt;50g(〜100kgまで)&lt;/td&gt;
-&lt;td&gt;△&lt;/td&gt;
-&lt;td&gt;100g&lt;/td&gt;
+&lt;td&gt;&amp;lt;C-w&amp;gt;c&lt;/td&gt;
+&lt;td&gt;分割した画面を閉じる&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;インデント&lt;/h2&gt;
+&lt;table border="0"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;gt;&amp;gt;&lt;/td&gt;
+&lt;td&gt;インデントを挿入&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;lt;&amp;lt;&lt;/td&gt;
+&lt;td&gt;インデントを削除&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;=&lt;/td&gt;
+&lt;td&gt;指定した範囲をオートインデント&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;gg=G&lt;/td&gt;
+&lt;td&gt;ファイル全体に対してオートインデントを適用。
+ファイル先頭に移動(gg)→オートインデント(=)→ファイル終端(G)まで。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;zencoding.vim&lt;/h2&gt;
+VimでのZen-Coding。下記をみながらお勉強。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://mattn.kaoriya.net/software/vim/20100306021632.htm"&gt;Big Sky :: zen-codingの殆どの機能をzencoding.vimに取り込んだ。&lt;/a&gt;&lt;/p&gt;
+
+&lt;table border="0"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;略語入力後&amp;lt;C-y&amp;gt;,&lt;/td&gt;
+&lt;td&gt;Zen-Coding略語展開&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;範囲選択後&amp;lt;C-y&amp;gt;,&lt;/td&gt;
+&lt;td&gt;任意のタグで選択範囲を括る&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2&gt;移動・編集とか&lt;/h2&gt;
+
+&lt;p&gt;編集の肌感覚がなんとなくわかってきた。
+&lt;table border="0"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;g,&lt;/td&gt;
+&lt;td&gt;直前の編集箇所に戻る&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cw&lt;/td&gt;
+&lt;td&gt;カーソル位置の単語を単語の終わりまでを削除してインサートモードに移行&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;caw&lt;/td&gt;
+&lt;td&gt;カーソル位置の単語全体を削除してインサートモードに移行&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;dw&lt;/td&gt;
+&lt;td&gt;カーソル位置から単語の終わりまでを削除&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;daw&lt;/td&gt;
+&lt;td&gt;カーソル位置の単語全体を削除&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;d$&lt;/td&gt;
+&lt;td&gt;カーソル位置から行末までを削除&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;d0,
+d^&lt;/td&gt;
+&lt;td&gt;行頭からカーソル位置までを削除&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;&lt;/p&gt;
-
-&lt;p&gt;価格については、現況ではほとんどのユーザが必要となってしまうUSBドングルも含めるとWifi Body Scaleとほぼ同等かやや高めといった感じ。単体購入のみで済む人であればUC-411PBT-Cのほうがお買い得。&lt;br&gt;
-インターネットへの通信方法は大きく異なり、UC-411PBT-CはBluetooth利用のため、インターネットに繋がる何らかの機器で送信を仲介することになる。&lt;br&gt;
-コンティニュアなる規格対応らしいけど、現況では対応機器は少ないが、Androidはシャープ製のものについてはアプリがあれば対応できるらしい。最近のBluetooth対応機器ならば理屈の上では対応できそうなので、今後に期待。&lt;/p&gt;
-
-&lt;p&gt;&amp;ldquo;体組成計&amp;quot;を謳っているだけあって、測定項目は多い。
-一応これまでも体重想定をしてきた身からすると、
-運動の長期的効果の確認としての基礎代謝測定と、
-水分補給による一時的変動なのか否かの指針となりそうな水分量測定は魅力的。
-ウェブサービスはWithingsのサービスの利用経験もないし、からだログも使い込んでいないので評価は保留。
-今のところ、からだログで閲覧にあたり不便はない。
-ブログパーツがないことと、Twitter/Facebook連携ぐらいあればいいのになー、ぐらい？
-&lt;h2&gt;PCとの連携&lt;/h2&gt;
-Windows PCとの連携手順は以下。
-&lt;ol&gt;
-    &lt;li&gt;ドングルをUSBポートに指して、ドライバをインストール。Windows Vista/7の場合はプラグアンドプレイで自動インストールされるドライバでよい。
-自分の場合はWin7で付属CDのドライバ入れたらペアリングできなかった。&lt;/li&gt;
-    &lt;li&gt;データ転送用アプリをダウンロード、インストール。&lt;/li&gt;
-    &lt;li&gt;アプリ内でgoo IDを設定。&lt;/li&gt;
-    &lt;li&gt;体組成計の中央ボタンを3秒押した後、さらに2回押す。(利用者1名の場合)
-その後、アプリ側で機器設定-&amp;gt;機器追加をクリックしてペアリング。成功すれば下記のように見える。
-&lt;a title="gookaradalog" href="http://www.flickr.com/photos/uskanda/7472929902"&gt;&lt;img class="aligncenter" src="http://farm9.staticflickr.com/8008/7472929902_dfe881cca8.jpg" alt="gookaradalog" /&gt;&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;体組成計に乗れば体重等の情報が自動送信される。&lt;/li&gt;
-&lt;/ol&gt;
-Windows PCと連携する場合、測定時に必ずしもPCが起動している必要はなく、体組成計側で過去の測定履歴を保存、PC起動時にまとめて送信してくれる。
-&lt;h2&gt;ステマじゃないよ&lt;/h2&gt;
-&lt;strong&gt;※このポストは個人の見解であり、所属する組織の公式見解ではありません。&lt;/strong&gt;&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Mac OS Xでマウスを使うとしっくりこない件</title>
-    <link rel="alternate" href="http://blog.url.com/2012/06/18/osx-mouse-tips/"/>
-    <id>http://blog.url.com/2012/06/18/osx-mouse-tips/</id>
-    <published>2012-06-17T15:00:00Z</published>
-    <updated>2013-12-08T06:01:42+00:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;Mac Miniを購入して、OSXでマウス(Logicool M705)とMagic Trackpadを常用する環境になったが、マウスがいまいちしっくりこない。
-&lt;h2&gt;1. マウス移動がWindowsと比べて加速しすぎる。&lt;/h2&gt;
-細かい動きをしようとすると動きが少なすぎてイライラする。最小化/最大化をミスクリックすること多数。
-Logicool等、サードパーティのソフト設定ができる場合はOS側の&amp;quot;軌跡の速さ&amp;quot;を下げて、サードパーティ側の速度を極端に上げれば(Logicoolの場合、&amp;quot;追随速度係数&amp;quot;)加速が弱まってちょうどいい感じ。&lt;/p&gt;
-
-&lt;p&gt;それにしてもLogicoolはハードウェアはいいのにソフトウェアはWindowsでもMacでもイマイチだね&amp;hellip;
-&lt;h2&gt;2. マウスのスクロール方向が逆&lt;/h2&gt;
-トラックパッドとマウスを併用する場合、現行のLionでは、&lt;strong&gt;トラックパッドとマウスのスクロール方向は連動している&lt;/strong&gt;ので、トラックパッドをナチュラルスクロールにするとマウスのスクロールも逆になる。これは流石に慣れない&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;指定デバイスのスクロールだけ逆転させてくれるソフトがあったのでOSがどうにかしてくれるまではこれを使うとする。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="http://pilotmoon.com/scrollreverser/" target="_blank"&gt;Scroll Reverser for Mac OS X&lt;/a&gt;
-&lt;h2&gt;3. 利用しているM705の場合、ホイールをフリースピンさせた後にガタガタ動く。&lt;/h2&gt;
-Windowsでは起こってなかったのでハードウェアがヘタったわけではないようだ。これだけ解決策がまだ見当たらないので模索中&amp;hellip;&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Windows8デスクトップアプリでの互換性マニフェスト設定</title>
-    <link rel="alternate" href="http://blog.url.com/2012/06/18/windows8-manifest-setting-for-compatibility/"/>
-    <id>http://blog.url.com/2012/06/18/windows8-manifest-setting-for-compatibility/</id>
-    <published>2012-06-17T15:00:00Z</published>
-    <updated>2013-12-08T06:01:42+00:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;Windows7でもネイティブモードで動かすためにはマニフェストに互換性設定が必要だったように、Windows8でもネイティブモードで動かすにはマニフェストに宣言が必要。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="http://msdn.microsoft.com/en-us/library/hh848036(v=vs.85).aspx"&gt;App (Executable) Manifest (Preliminary)&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Windows8でもネイティブモードでないとプログラム互換性アシスタント(PCA)が動く。
-&lt;blockquote&gt;&lt;strong&gt;Program Compatibility Assistant (PCA)&lt;/strong&gt;
-&lt;ul&gt;
-    &lt;li&gt;Windows 8: Apps with the compatibility section do not get the PCA mitigation.&lt;/li&gt;
-    &lt;li&gt;Windows 7: Apps with the compatibility section are tracked for potential compatibility issues for Windows 8 changes (described in this document).&lt;/li&gt;
-    &lt;li&gt;Windows Vista (default): Apps that fail to install properly or crash during runtime under some specific circumstances get the PCA mitigation. For more information, see the Resources section.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-Windows8サポートであることを明示し、ネイティブモードで動かすには以下のGUIDをcompatibilityセクションで指定する。
-&lt;blockquote&gt;{4a2f28e3-53b9-4441-ba9c-d69d4a4a6e38}&lt;/blockquote&gt;
-MSDN記載のサンプルは以下。
-&lt;blockquote&gt;&amp;lt;?xml version=&amp;ldquo;1.0&amp;rdquo; encoding=&amp;ldquo;UTF-8&amp;rdquo; standalone=&amp;ldquo;yes&amp;rdquo;?&amp;gt;
-&amp;lt;assembly xmlns=&amp;ldquo;urn:schemas-microsoft-com:asm.v1&amp;rdquo; manifestVersion=&amp;ldquo;1.0&amp;rdquo;&amp;gt;
-&amp;lt;compatibility xmlns=&amp;ldquo;urn:schemas-microsoft-com:compatibility.v1&amp;rdquo;&amp;gt;
-&amp;lt;application&amp;gt;
-&amp;lt;!&amp;ndash;The ID below indicates app support for Windows Vista &amp;ndash;&amp;gt;
-&amp;lt;supportedOS Id=&amp;ldquo;{e2011457-1546-43c5-a5fe-008deee3d3f0}&amp;rdquo;/&amp;gt;
-&amp;lt;!&amp;ndash;The ID below indicates app support for Windows 7 &amp;ndash;&amp;gt;
-&amp;lt;supportedOS Id=&amp;ldquo;{35138b9a-5d96-4fbd-8e2d-a2440225f93a}&amp;rdquo;/&amp;gt;
-&amp;lt;!&amp;ndash;The ID below indicates app support for Windows Developer Preview &amp;ndash;&amp;gt;
-&amp;lt;supportedOS Id=&amp;ldquo;{4a2f28e3-53b9-4441-ba9c-d69d4a4a6e38}&amp;rdquo;/&amp;gt;
-&amp;lt;/application&amp;gt;
-&amp;lt;/compatibility&amp;gt;
-&amp;lt;/assembly&amp;gt;&lt;/blockquote&gt;&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Wordpressをnginx+fastcgiベースに移行した</title>
-    <link rel="alternate" href="http://blog.url.com/2012/06/17/wordpress-with-nginx/"/>
-    <id>http://blog.url.com/2012/06/17/wordpress-with-nginx/</id>
-    <published>2012-06-16T15:00:00Z</published>
-    <updated>2013-12-08T06:01:42+00:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;旧さくらのVPS移行期限が近づいてきたので、急いでWordpressを新設したVPSに移行した。せっかくなのでnginxベースに。&lt;/p&gt;
-
-&lt;p&gt;WordPressは事前にWordPressディレクトリ内全ファイルをコピーしておく他、
-データベースはすべてダンプし、移行先サーバに設置、インポートするだけ。データベースのダンプは
-phpmyadminなどで行うか、wp-db-backup等のWordPressプラグインで行えばかんたん。&lt;/p&gt;
-
-&lt;p&gt;以下、Ubuntu 12.04での作業ログ。&lt;/p&gt;
-
-&lt;p&gt;nginx/php/fastcgiのインストール。&lt;code&gt;
-aptitude install nginx php5-cli php5-cgi php5-gd spawn-fcgi&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;/usr/bin/以下に以下の内容でphp-fastcgiファイルを作成。
-&lt;code&gt;
-#!/bin/sh
-/usr/bin/spawn-fcgi -a 127.0.0.1 -p 9000 -C 6 -u www-data -f /usr/bin/php5-cgi
-&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;作成したファイルに実行権限付加。
-&lt;code&gt;
-cd /usr/bin/
-chmod a+x php-fastcgi
-&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;起動用スクリプト/etc/init.d/php-fastcgiを作成。&lt;/p&gt;
-&lt;pre class="highlight text"&gt;\#!/bin/bash
-PHP_SCRIPT=/usr/bin/php-fastcgi
-FASTCGI_USER=www-data
-RETVAL=0
-case &amp;quot;$1&amp;quot; in
-start)
-su - $FASTCGI_USER -c $PHP_SCRIPT
-RETVAL=$?
-;;
-stop)
-killall -9 php5-cgi
-RETVAL=$?
-;;
-restart)
-killall -9 php5-cgi
-su - $FASTCGI_USER -c $PHP_SCRIPT
-RETVAL=$?
-;;
-*)
-echo &amp;quot;Usage: php-fastcgi {start|stop|restart}&amp;quot;
-exit 1
-;;
-esac
-exit $RETVAL
-console output
-&lt;/pre&gt;
-&lt;p&gt;権限付加、自動起動設定してデーモン起動。
-    chmod a+x /etc/init.d/php-fastcgi
-    update-rc.d php-fastcgi defaults
-    /etc/init.d/php-fastcgi start&lt;/p&gt;
-
-&lt;p&gt;nginxにWordpress用の設定を追加する。/etc/nginx/sites-available/wordpress に下記を追加。
-    upstream php {
-    server unix:/tmp/php-cgi.socket;
-    server 127.0.0.1:9000;
-    }&lt;/p&gt;
-&lt;pre class="highlight text"&gt;server {
-listen 80;
-server_name your_domain_name;
-access_log /var/log/nginx/wordpress.access.log;
-error_log /var/log/nginx/wordpress.error.log;
-root /path/to/wordpress/;
-index index.php;
-location = /favicon.ico {
-log_not_found off;
-access_log off;
-}
-
-location = /robots.txt {
-allow all;
-log_not_found off;
-access_log off;
-}
-
-location / {
-try_files $uri $uri/ /index.php;
-}
-
-location ~ \.php$ {
-include /etc/nginx/fastcgi_params;
-fastcgi_param SCRIPT_FILENAME /path/to/wordpress/$fastcgi_script_name;
-fastcgi_intercept_errors on;
-fastcgi_pass php;
-}
-
-location ~* \.(js|css|png|jpg|jpeg|gif|ico)$ {
-expires max;
-log_not_found off;
-}
-}
-&lt;/pre&gt;
-&lt;p&gt;作成した設定を有効化、fastcgi/nginxを起動。
-&lt;code&gt;
-ln -s /etc/nginx/sites-available/wordpress /etc/nginx/sites-enable/wordpress
-/etc/init.d/php-fastcgi start
-/etc/init.d/nginx start
-&lt;/code&gt;
-&lt;h2&gt;参考サイト&lt;/h2&gt;
-&lt;a href="http://iphone-diary.com/?p=9113"&gt;耐えられずにSixcoreサーバーへ移動 | 普通のサラリーマンのiPhone日記&lt;/a&gt;
-(Wordpressの移行)&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="http://tjun.jp/blog/2011/09/nginx/"&gt;さくらVPS+ubuntu+wordpressにnginx入れたメモ | tjun memo&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="http://wiki.nginx.org/WordPress"&gt;WordPress&lt;/a&gt;
-(nginx公式)&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="http://akibe.com/wordpress%E7%94%A8%E3%81%AEnginx%E3%81%AE%E3%82%B5%E3%82%A4%E3%83%88%E8%A8%AD%E5%AE%9A%E3%82%92%E8%A6%8B%E7%9B%B4%E3%81%97/" target="_blank"&gt;Wordpress用のNginxのサイト設定を見直し @AKIBE&lt;/a&gt;&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Mac Mini(Mid2011)を買ってSSD換装したよー＼(^O^)／</title>
-    <link rel="alternate" href="http://blog.url.com/2012/06/13/buy-mac-mini/"/>
-    <id>http://blog.url.com/2012/06/13/buy-mac-mini/</id>
-    <published>2012-06-12T15:00:00Z</published>
-    <updated>2013-12-08T06:01:42+00:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;WWDC2012はデスクトップMac待ちのみんなにひどいことをしたよね！何あのMacProのアップデート…&lt;/p&gt;
-
-&lt;p&gt;ずっとiMac待ちだったけど、いろいろと限界だったのでついカッとなって&lt;strong&gt;Mac Miniを買ったよ！&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a title="IMG_8028" href="http://www.flickr.com/photos/uskanda/7368789174" target="_blank"&gt;&lt;img class="aligncenter" src="http://farm9.staticflickr.com/8016/7368789174_358cc0e4cd.jpg" alt="IMG_8028" /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;上位モデルだけど、発売から時間がたっていることもありほぼ下位モデルの値段で
-秋葉原で買えた。当然の如くメモリとSSDも購入。メモリは8GB×2、SSDはA-DATAのSX900 256GB。ふたつ合わせて25,000円弱。&lt;/p&gt;
-
-&lt;p&gt;動作確認だけして&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;&lt;a title="IMG_8032" href="http://www.flickr.com/photos/uskanda/7183555013"&gt;&lt;img class="aligncenter" src="http://farm8.staticflickr.com/7104/7183555013_781c6e55fc.jpg" alt="IMG_8032" /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;即解体。&lt;/p&gt;
-
-&lt;p&gt;&lt;a title="IMG_8033" href="http://www.flickr.com/photos/uskanda/7368786352"&gt;&lt;img class="aligncenter" src="http://farm8.staticflickr.com/7097/7368786352_4882de8ace.jpg" alt="IMG_8033" /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;SSDの換装は下記記事を参考に実施。図解をたどっていけばかんたん。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="http://d.hatena.ne.jp/pcmaster/20110807/p2"&gt;Mac mini(Mid 2011)のストレージをSSDに換装してみました - 理想未来はどうなった？&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;完成。&lt;/p&gt;
-
-&lt;p&gt;&lt;a title="IMG_8038" href="http://www.flickr.com/photos/uskanda/7368782996"&gt;&lt;img class="aligncenter" src="http://farm9.staticflickr.com/8028/7368782996_081f574202.jpg" alt="IMG_8038" /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Lionはインターネットインストールできるけど、ドライブ入れ替え後に勝手にはやってくれないらしい。Command+Rを押しながら起動でOSインストールを開始できる。&lt;/p&gt;
-
-&lt;h2 id="toc_0"&gt;ベンチマーク&lt;/h2&gt;
-
-&lt;p&gt;XBenchの結果はこちら。
-    Results 375.82
-    System Info
-    Xbench Version 1.3
-    System Version 10.7.4 (11E53)
-    Physical RAM 16384 MB
-    Model Macmini5,2
-    Drive Type ADATA SX900
-    CPU Test 237.23
-    GCD Loop 312.73 16.48 Mops/sec
-    Floating Point Basic 195.03 4.63 Gflop/sec
-    vecLib FFT 155.71 5.14 Gflop/sec
-    Floating Point Library 472.98 82.36 Mops/sec
-    Memory Test 587.42
-    System 609.85
-    Allocate 2291.84 8.42 Malloc/sec
-    Fill 422.42 20539.26 MB/sec
-    Copy 472.67 9762.84 MB/sec
-    Stream 566.58
-    Copy 557.26 11509.97 MB/sec
-    Scale 545.02 11259.88 MB/sec
-    Add 588.66 12539.81 MB/sec
-    Triad 577.40 12352.08 MB/sec
-    Quartz Graphics Test 425.80
-    Line 363.20 24.18 Klines/sec [50% alpha]
-    Rectangle 497.89 148.65 Krects/sec [50% alpha]
-    Circle 330.10 26.91 Kcircles/sec [50% alpha]
-    Bezier 307.42 7.75 Kbeziers/sec [50% alpha]
-    Text 1431.67 89.56 Kchars/sec
-    OpenGL Graphics Test 374.30
-    Spinning Squares 374.30 474.83 frames/sec
-    User Interface Test 351.71
-    Elements 351.71 1.61 Krefresh/sec
-    Disk Test 457.91
-    Sequential 267.80
-    Uncached Write 700.42 430.05 MB/sec [4K blocks]
-    Uncached Write 462.01 261.40 MB/sec [256K blocks]
-    Uncached Read 104.64 30.62 MB/sec [4K blocks]
-    Uncached Read 559.36 281.13 MB/sec [256K blocks]
-    Random 1578.62
-    Uncached Write 2427.72 257.00 MB/sec [4K blocks]
-    Uncached Write 888.41 284.41 MB/sec [256K blocks]
-    Uncached Read 2909.52 20.62 MB/sec [4K blocks]
-    Uncached Read 1532.21 284.31 MB/sec [256K blocks]
-最近のSSDはRandom早いね！
-MacBookAir(Mid2011 Ultimate)と比べてもだいぶ体感性能が違う感じ。これでHaswellなRetina iMacまで待とう&amp;hellip;&lt;/p&gt;
-
-&lt;iframe src="http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=uasmks-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=B005DPEVH0" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"&gt;&lt;/iframe&gt;
 </content>
   </entry>
 </feed>

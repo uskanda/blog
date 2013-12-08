@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge;chrome=1" http-equiv="X-UA-Compatible" />
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/stylesheets/gits.css" rel="stylesheet" />
+    <link href="/stylesheets/syntax.css" rel="stylesheet" />
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+    <title>GHOST IN THE SUIT</title><link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="container">
+        <h1 class="site_title">
+          <a href="/">GHOST IN THE SUIT</a>
+        </h1>
+        <p>
+          Excelの泥にまみれても、こころの奥にgeekの灯を。
+        </p>
+      </div>
+    </div>
+    <div class="container main">
+      <div class="row">
+        <div class="col-sm-9">
+          <div id="main" role="main"><p>
+  Page 3 of 3
+</p>
+<p>
+  <a href="/page/2/">Previous page</a>
+</p>
+<article>
+  <div class="title">
+    <div class="subject">
+      <a href="/2011/12/04/ac-rsense-yas-expand/">Rsenseでの補完時に引数等を自動補完する</a>
+    </div>
+    <div class="date">
+      Dec  4, 2011
+    </div>
+  </div>
+  <div class="body">
+    <p>Emacsの整理にあたり、いつか試そうと思ってたけど使ってなかった
+    <a href="http://cx4a.org/software/rsense/index.ja.html" target="_blank">Rsense</a>を導入してみたらすごく便利だった！</p>
+    
+    <p>組み込みライブラリのメソッド名の補完等はバッチリなんで、せっかくなんで
+    yasnippetと連携させて引数やブロック有無なども補完できるようにしてみた。</p>
+    
+    <p><a href="https://github.com/uskanda/ac-rsense-yas-expand"><a href="https://github.com/uskanda/ac-rsense-yas-expand">https://github.com/uskanda/ac-rsense-yas-expand</a>
+    </a></p>
+    
+    <p>Emacs, auto-completeでのRsense利用が前提。
+    力技でRefeから組み込みライブラリの主要メソッドのsnippetを作って、
+    これまた力技でauto-completeにRsenseから伝えられたクラス情報を横取りして、yasnippetの起動条件に渡してる。
+    これで組み込みライブラリに関していえばIDEと遜色ないのではないかと。</p>
+    
+  </div>
+</article>
+<article>
+  <div class="title">
+    <div class="subject">
+      <a href="/2011/12/04/agile-development-with-rails-4th-ed/">RailsによるアジャイルWebアプリケーション開発 第4版が出てたので買った</a>
+    </div>
+    <div class="date">
+      Dec  4, 2011
+    </div>
+  </div>
+  <div class="body">
+    <p>今まで高かったから実は買ったことなかったRailsのバイブル。&hellip;昔4000円台だったよね？
+    <a href="http://estore.ohmsha.co.jp/titles/978427406866P">PDF</a>版がすぐ出てくれるのはすごくありがたい。</p>
+    
+    <p>まとめて読む時間は取れそうにないけど、気がついたところは箇条書きでここにメモっていこう。とりあえずはこまかいところ&hellip;
+    <ul>
+      <li>Rails3.1はRuby1.9利用時はScaffoldでRuby1.9のハッシュ記法を使う。あれ？そうだっけ？っと思って試してみたらホントだった</li>
+      <li>link_toの飛び先をcontroller, action, idのハッシュで指定する記法は載ってすらいない</li>
+    </ul></p>
+    
+    <iframe src="http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=uasmks-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=4274068668" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+    
+  </div>
+</article>
+<article>
+  <div class="title">
+    <div class="subject">
+      <a href="/2011/12/04/blog-nameduplication/">まさかのカブリ</a>
+    </div>
+    <div class="date">
+      Dec  4, 2011
+    </div>
+  </div>
+  <div class="body">
+    <p>ブログをまともに再開したのだけど、
+    適当につけていたブログ名がまさか会社さんとカブっていたとは&hellip;</p>
+    
+    <p><a href="http://fugapiyo.jp/" target="_blank">株式会社フガピヨ</a></p>
+    
+    <p>新しいブログ名急いで考えよう&hellip;</p>
+    
+  </div>
+</article>
+<article>
+  <div class="title">
+    <div class="subject">
+      <a href="/2011/12/03/fix-yasnippet-when-using-col-highlight/">yasnippet(dropdown-list)が列ハイライト利用時にも表示が崩れないようにする</a>
+    </div>
+    <div class="date">
+      Dec  3, 2011
+    </div>
+  </div>
+  <div class="body">
+    <p>数年ぶりに設定を見直し中なので、どこまでもEmacs小ネタ。
+    yasnippetの補完候補表示等に利用されるdropdown-listの表示が
+    現在のカーソル位置の列をハイライトするcol-highlight利用時に崩れるので、
+    dropdown-list利用時にcol-highlightを一時停止するようにした。
+    <script src="https://gist.github.com/1424152.js"> </script></p>
+    
+  </div>
+</article>
+<article>
+  <div class="title">
+    <div class="subject">
+      <a href="/2011/12/02/rvm-rinari/">.rvmrcを使っているRailsプロジェクトでrinariからrails server,consoleを呼ぶ</a>
+    </div>
+    <div class="date">
+      Dec  2, 2011
+    </div>
+  </div>
+  <div class="body">
+    <p>RVMで通常利用(rvm use &ndash;default)している以外のRubyを.rvmrcで指定している<br>
+    Railsプロジェクトで、rinariをそのまま使うとEmacsからのserver, console呼び出しができないので、<br>
+    力技でRVMを変更することにした。    </p>
+    
+    <script src="https://gist.github.com/1390182.js"> </script>
+    
+    <p>rvm.elとrinari前提。    </p>
+    
+  </div>
+</article>
+<article>
+  <div class="title">
+    <div class="subject">
+      <a href="/2011/11/20/anything-spotlight/">anythingのspotlight検索項目でバイナリファイルを開くときにMacアプリケーションを使う</a>
+    </div>
+    <div class="date">
+      Nov 20, 2011
+    </div>
+  </div>
+  <div class="body">
+    <p>Spotlightの検索結果PDFを直接Preview.appで開きたいんでつくったー。<br>
+    <script src="https://gist.github.com/1379387.js"> </script><br>
+    Macアプリケーションで開きたい拡張子をanything-c-source-mac-spotlight2-open-file-extensionsに加える。<br>
+    anything-c-source-mac-spotlight2をanythingのanything-c-source-mac-spotlightの代わりにsourceとして使えばOK。<br>
+    ファイル開く動作全般に適用しようかとも思ったけど、PDFや画像を開くケースってspotlight検索ぐらいな気がしたので、<br>
+    ひとまず満足。</p>
+    
+  </div>
+</article>
+<article>
+  <div class="title">
+    <div class="subject">
+      <a href="/2011/06/22/use-multiple-ruby-with-passenger/">RVM+PassengerでRuby1.8系と1.9系を同時利用する</a>
+    </div>
+    <div class="date">
+      Jun 22, 2011
+    </div>
+  </div>
+  <div class="body"><p>半年前に書いたものがアップせずに残ってたorz<br>
+一応あげておこう。。。    </p>
+
+<p>RedmineはまだRuby1.8/Rails2系しか対応してないからRuby1.8を使わなきゃいけないけど、<br>
+他のRailsアプリはRuby1.9で動作させるようにしたい！というわけで<br>
+Passengerで複数のRubyを使ってアプリを動かす方法を探したら、<br>
+そのまんまの記事がPassenger公式に上がってた。    </p>
+
+<p><a title="Permanent link to Phusion Passenger &amp; running multiple Ruby versions" rel="bookmark" href="http://blog.phusion.nl/2010/09/21/phusion-passenger-running-multiple-ruby-versions/">Phusion Passenger &amp; running multiple Ruby versions</a>    </p>
+
+<p>Passengerはnginx利用で単体起動する機能があるようで、<br>
+&ldquo;passenger start&quot;でnginxインストールから起動までやってくれる。<br>
+standaloneの場合、これで立ち上がったPassengerに大して、メインのApache/nginxのリバースプロキシでアクセスする。<br>
+rc.localに自動起動のための設定を書いた。    </p>
+<pre class="highlight text">su - $USERNAME -c &quot;    
+cd /webapps/redmine    
+rvm use 1.8.7-head    
+passenger start -a 127.0.0.1 -p 3000 -e production -d    
+rvm use 1.9.2-head&quot;
+</pre>
+  </div>
+</article>
+<article>
+  <div class="title">
+    <div class="subject">
+      <a href="/2011/06/10/hello-world/">何度目かのブログ作りをするよー</a>
+    </div>
+    <div class="date">
+      Jun 10, 2011
+    </div>
+  </div>
+  <div class="body">
+    <p>自分の整理のためにも、ブログでやったことを整理することにしました。</p>
+    
+  </div>
+</article>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <aside>
+            <div class="gadget" id="recents">
+              <span class="title">最近の投稿</span>
+              <ol>
+                <li>
+                  <a href="/2013/04/01/android-support-library-error-on-android-32/">Android3.2で通知を出そうとするとエラーが出る(04/01)</a>
+                </li>
+                <li>
+                  <a href="/2013/02/23/mysql-show-columns-and-indices-from-all-the-tables/">MySQLで全てのテーブルのカラムとインデックス有無を表示したい(02/23)</a>
+                </li>
+                <li>
+                  <a href="/2013/02/17/macbook-pro-cover/">MOBILE STUDIOのMacBook Proのマットブラック ハードケースを試す(02/17)</a>
+                </li>
+                <li>
+                  <a href="/2013/02/17/buy-macbook-pro-refurbished/">整備済製品のMacBook Pro 13inch Retinaを買ってみた(02/17)</a>
+                </li>
+                <li>
+                  <a href="/2013/01/31/hello-octopress/">今更ながらOctopress(01/31)</a>
+                </li>
+                <li>
+                  <a href="/2013/01/04/vim-commands-for-me/">僕の覚えた順Vimコマンド(01/04)</a>
+                </li>
+                <li>
+                  <a href="/2012/11/30/air-for-android-launch-activity/">AIR for Androidの起動アクティビティ名(11/30)</a>
+                </li>
+                <li>
+                  <a href="/2012/11/05/windows-8-pro-media-center-product-inf/">Windows 8のMedia Center Packを適用するとエディション名が変わる(11/05)</a>
+                </li>
+                <li>
+                  <a href="/2012/09/05/stop-spark-videoplayer-live-streaming/">Flex SparkコンポーネントのVideoPlayerがライブストリーミングの時止まらない(09/05)</a>
+                </li>
+                <li>
+                  <a href="/2012/07/14/gantt-with-date-for-redmine-2-0/">Redmine 2.0のガントチャートに日付表示を追加する(07/14)</a>
+                </li>
+              </ol>
+            </div>
+            <div class="gadget" id="adsense">
+              <script>
+                async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+              </script>
+              <ins class="adsbygoogle" data-ad-client="ca-pub-1385530273298456" data-ad-slot="9191807793" style="display:inline-block;width:200px;height:200px"></ins>
+              <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+              </script>
+            </div>
+            <div class="gadget" id="tags">
+              <span class="title">タグ一覧</span>
+              <ol>
+                <li>
+                  <a href="/tags/macbookpro/">MacBookPro</a> (2)
+                </li>
+                <li>
+                  <a href="/tags/review/">Review</a> (3)
+                </li>
+                <li>
+                  <a href="/tags/gadget/">Gadget</a> (2)
+                </li>
+                <li>
+                  <a href="/tags/case/">Case</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/emacs/">Emacs</a> (4)
+                </li>
+                <li>
+                  <a href="/tags/anything-el/">anything.el</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/mac/">Mac</a> (3)
+                </li>
+                <li>
+                  <a href="/tags/refurbished/">Refurbished</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/ruby-on-rails/">Ruby on Rails</a> (4)
+                </li>
+                <li>
+                  <a href="/tags/ruby/">Ruby</a> (5)
+                </li>
+                <li>
+                  <a href="/tags/rinari/">rinari</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/actionscript/">Actionscript</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/flash/">Flash</a> (2)
+                </li>
+                <li>
+                  <a href="/tags/adobe-air/">Adobe AIR</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/android/">Android</a> (2)
+                </li>
+                <li>
+                  <a href="/tags/日々/">日々</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/mysql/">MySQL</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/開発/">開発</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/rails/">Rails</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/windows/">Windows</a> (2)
+                </li>
+                <li>
+                  <a href="/tags/redmine/">redmine</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/ubuntu/">Ubuntu</a> (2)
+                </li>
+                <li>
+                  <a href="/tags/server/">Server</a> (2)
+                </li>
+                <li>
+                  <a href="/tags/vim/">Vim</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/mouse/">Mouse</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/logicool/">Logicool</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/nginx/">nginx</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/uc-411pbt-c/">UC-411PBT-C</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/goo/">goo</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/octopress/">Octopress</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/rvm/">RVM</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/passenger/">Passenger</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/macmini/">MacMini</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/ssd/">SSD</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/book/">Book</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/windows8/">Windows8</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/mediacenterpack/">MediaCenterPack</a> (1)
+                </li>
+              </ol>
+            </div>
+            <div class="gadget" id="twitter">
+              <span class="title">ツイート</span><a class="twitter-timeline" data-chrome="noheader noborders transparent" data-widget-id="408280914938982400" href="https://twitter.com/uskanda">Tweets by @uskanda</a>
+              <script>
+                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+              </script>
+            </div>
+            <div class="gadget" id="archives">
+              <span class="title">アーカイブ</span>
+              <ol></ol>
+              <li>
+                <a href="/2013/">2013</a> (6)
+              </li>
+              <li>
+                <a href="/2012/">2012</a> (14)
+              </li>
+              <li>
+                <a href="/2011/">2011</a> (8)
+              </li>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="container">
+        <style>
+          .blogresponsivewide { width: 320px; height: 50px; }@media(min-width: 500px) { .blogresponsivewide { width: 468px; height: 60px; } }@media(min-width: 800px) { .blogresponsivewide { width: 728px; height: 90px; } }
+        </style>
+        <script>
+          async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        </script>
+        <ins class="adsbygoogle blogresponsivewide" data-ad-client="ca-pub-1385530273298456" data-ad-slot="4816571790" style="display:inline-block"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <div class="container">
+        &copy; uskanda 2010-2013.
+        <div class="pull-right">
+          Powered by <a href="http://middlemanapp.com">Middleman</a>.
+        </div>
+      </div>
+    </div>
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+    
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-3828545-4']);
+      _gaq.push(['_setDomainName', 'uskanda.com']);
+      _gaq.push(['_trackPageview']);
+    
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    
+    </script>
+    
+  </body>
+</html>

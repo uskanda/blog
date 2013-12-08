@@ -5,16 +5,75 @@
   <id>http://blog.url.com/</id>
   <link href="http://blog.url.com/"/>
   <link href="http://blog.url.com/feed.xml" rel="self"/>
-  <updated>2013-04-01T10:22:00Z</updated>
+  <updated>2013-12-08T15:00:00Z</updated>
   <author>
     <name>Blog Author</name>
   </author>
+  <entry>
+    <title>OctopressからMiddlemanに移行した</title>
+    <link rel="alternate" href="http://blog.url.com/2013/12/09/transfer-from-octopress-to-middleman/"/>
+    <id>http://blog.url.com/2013/12/09/transfer-from-octopress-to-middleman/</id>
+    <published>2013-12-08T15:00:00Z</published>
+    <updated>2013-12-08T16:20:41+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;今年のはじめにWordpressからOctopressに移行したけど、結局ブログを書くようにはならなかったよ&amp;hellip;
+Middlemanを見てみたらよさげだったので、もう一度書き始めるきっかけに再度移行してみた。&lt;/p&gt;
+
+&lt;h2 id="toc_0"&gt;Octopressでしっくり来なかったところ&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;テンプレートエンジンに挫折&lt;br&gt;
+Liquidの記法が絶望的に覚えられない&amp;hellip;&lt;/li&gt;
+&lt;li&gt;ファイル構成&lt;br&gt;
+Octopressはgem/コマンドラインでの管理ツールが提供されておらず、cloneしたOctopressそのものからブログを構築していく。
+Octopress自体のバージョンアップをしたい場合はpullして持ってくることになる。
+本文以外のところのタグを変更しようとしてプラグインを独自にいじっているとOctopress本体の更新とのコンフリクトが厳しい。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id="toc_1"&gt;Middlemanを触ってみて&lt;/h2&gt;
+
+&lt;h3 id="toc_2"&gt;よさげなところ&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;構成が単純&lt;br&gt;
+sources以下にテンプレートやassetsを放り込んでいけばOK&lt;/li&gt;
+&lt;li&gt;Railsライク&lt;br&gt;
+Padrinoベースなせいかもしれないけど、ヘルパー名やディレクトリ構成等、明らかにRailsを意識して作っている感じ。
+いいか悪いかはともかく、Railsユーザには直観が働くようにできている。&lt;/li&gt;
+&lt;li&gt;好きなテンプレートエンジンが選べる&lt;br&gt;
+今回は初&lt;a href="http://slim-lang.com"&gt;Slim&lt;/a&gt;にしてみた。&lt;/li&gt;
+&lt;li&gt;マルチブログが簡単&lt;br&gt;
+Webサーバの設定に頼ることなく、複数ブログが簡単につくれる。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id="toc_3"&gt;いまいちなところ&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;ブログ機能自体は貧弱&lt;br&gt;
+主眼は静的サイトジェネレータなので、
+middleman-blog が提供する機能は記事管理/タグ付け/年別アーカイブ/ページネーションぐらい。
+cssもデフォルトだとなし。プロジェクト生成直後に見える画面↓なのは流石にどうだろう&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.flickr.com/photos/uskanda/11209451975/" title="middleman-blog-default by uskanda, on Flickr"&gt;&lt;img src="http://farm6.staticflickr.com/5493/11209451975_540c5f2e83_n.jpg" width="320" height="183" alt="middleman-blog-default"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;サクッとブログ作るって用途には向いてないかな。でも0から作っていくの楽しい。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;デプロイ設定&lt;br&gt;
+Github Pagesを強く意識しているOctopressよりはデプロイ設定が面倒な感じ。&lt;br&gt;
+↓を参考にさせて頂いてTravis CI経由でビルド成功時にGithub Pagesにプッシュするようにした。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://webtech-walker.com/archive/2013/08/jekyll_to_middleman.html"&gt;ブログをJekyllからmiddlemanに移行してTravis CIでGitHub Pagesにデプロイするようにした - Webtech Walker&lt;/a&gt;&lt;br&gt;
+&lt;a href="http://tricknotes.hateblo.jp/entry/2013/06/17/020229"&gt;Middleman で作った web サイトを Travis + GitHub pages でお手軽に運用する - tricknotesのぼうけんのしょ&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
   <entry>
     <title>Android3.2で通知を出そうとするとエラーが出る</title>
     <link rel="alternate" href="http://blog.url.com/2013/04/01/android-support-library-error-on-android-32/"/>
     <id>http://blog.url.com/2013/04/01/android-support-library-error-on-android-32/</id>
     <published>2013-04-01T10:22:00Z</published>
-    <updated>2013-12-08T10:02:47+00:00</updated>
+    <updated>2013-12-08T16:20:41+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -45,7 +104,7 @@ E/AndroidRuntime(25922):    at android.support.v4.app.NotificationCompat$Builder
     <link rel="alternate" href="http://blog.url.com/2013/02/23/mysql-show-columns-and-indices-from-all-the-tables/"/>
     <id>http://blog.url.com/2013/02/23/mysql-show-columns-and-indices-from-all-the-tables/</id>
     <published>2013-02-23T10:00:00Z</published>
-    <updated>2013-12-08T10:02:47+00:00</updated>
+    <updated>2013-12-08T16:20:41+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -81,7 +140,7 @@ AND information_schema.columns.column_name = information_schema.statistics.colum
     <link rel="alternate" href="http://blog.url.com/2013/02/17/macbook-pro-cover/"/>
     <id>http://blog.url.com/2013/02/17/macbook-pro-cover/</id>
     <published>2013-02-16T21:33:00Z</published>
-    <updated>2013-12-08T10:02:47+00:00</updated>
+    <updated>2013-12-08T16:20:41+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -129,7 +188,7 @@ MOBILE STUDIOのMacBook Pro 13inch Retina向け、マットブラックのケー
     <link rel="alternate" href="http://blog.url.com/2013/02/17/buy-macbook-pro-refurbished/"/>
     <id>http://blog.url.com/2013/02/17/buy-macbook-pro-refurbished/</id>
     <published>2013-02-16T19:31:00Z</published>
-    <updated>2013-12-08T10:02:47+00:00</updated>
+    <updated>2013-12-08T16:20:41+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -244,7 +303,7 @@ Macアプリケーションが美しく見えるのはたまらない。&lt;/p&g
     <link rel="alternate" href="http://blog.url.com/2013/01/31/hello-octopress/"/>
     <id>http://blog.url.com/2013/01/31/hello-octopress/</id>
     <published>2013-01-30T15:00:00Z</published>
-    <updated>2013-12-08T10:02:47+00:00</updated>
+    <updated>2013-12-08T16:20:41+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -254,157 +313,6 @@ Macアプリケーションが美しく見えるのはたまらない。&lt;/p&g
 せっかくなのでOctopressに移行してみた。
 Wordpressからの移行でデザインが崩れてる記事もあるけど、
 おおよそおっけーなのでひとまずこのまま。&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>僕の覚えた順Vimコマンド</title>
-    <link rel="alternate" href="http://blog.url.com/2013/01/04/vim-commands-for-me/"/>
-    <id>http://blog.url.com/2013/01/04/vim-commands-for-me/</id>
-    <published>2013-01-03T15:00:00Z</published>
-    <updated>2013-12-08T10:02:47+00:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;あけましておめでとうございます。年末年始、風邪で死んでおります。
-なんだかよくわかりませんが、ここ数カ月体中の節々が痛いです。年ですか。
-ちょっと作業するだけで&lt;strong&gt;小指も痛い&lt;/strong&gt;ので、
-今年はEmacsからVimへの乗り換えを画策したいと思います。
-本当はSublime Text2にしたかったけど、痒いところに微妙に手が届かず、断念orz
-そんなわけで、MacVimを使いながら、勉強したコマンドを
-覚えた順に列挙していきたいと思います。適宜追加予定。
-&lt;h2&gt;これを書き始めたときの僕のviレベル&lt;/h2&gt;
-&lt;ul&gt;
-    &lt;li&gt;基本的にEmacsユーザ&lt;/li&gt;
-    &lt;li&gt;viはサーバの設定ファイルとかいじるときとかにたまに使用&lt;/li&gt;
-    &lt;li&gt;最低限のモード切り替え(i,A,etc)、移動(hjkl,gg,etc)や、最低限のコピペ(dd/yy/p)とかは知ってる&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;ビジュアルモード&lt;/h2&gt;
-コピー等する領域をコマンドベースじゃなくて、範囲を確認しながら行うモード。
-ふつーのエディタならShift+カーソルで選択している状態。Emacsだとtransient-mark-modeオンでのリージョン選択相当。以下の表は記載なければビジュアルモードでのコマンド。
-&lt;table border="0"&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;ノーマルモードでv&lt;/td&gt;
-&lt;td&gt;ビジュアルモードに入る。
-現在のカーソル位置から始まる任意の範囲を選択できる。
-vの代わりにVで行単位での選択、&amp;lt;C-v&amp;gt;で矩形選択。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;hjkl等&lt;/td&gt;
-&lt;td&gt;hjklはじめ、移動はノーマルモードと同様に利用可能。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;d&lt;/td&gt;
-&lt;td&gt;選択範囲を削除&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;c&lt;/td&gt;
-&lt;td&gt;選択範囲を削除してインサートモードにする。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;y&lt;/td&gt;
-&lt;td&gt;選択範囲をコピー(ヤンク)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;画面分割&lt;/h2&gt;
-&lt;table border="0"&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;:split もしくは &amp;lt;C-w&amp;gt;s&lt;/td&gt;
-&lt;td&gt;画面を水平分割&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;:vsplit もしくは &amp;lt;C-w&amp;gt;v&lt;/td&gt;
-&lt;td&gt;画面を垂直分割&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&amp;lt;C-w&amp;gt;[hjkltb]&lt;/td&gt;
-&lt;td&gt;hjklで指定した方向の画面に移動。
-&amp;lt;C-w&amp;gt;tで最初のウィンドウ、bで最後のウィンドウ&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&amp;lt;C-w&amp;gt;c&lt;/td&gt;
-&lt;td&gt;分割した画面を閉じる&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;インデント&lt;/h2&gt;
-&lt;table border="0"&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&amp;gt;&amp;gt;&lt;/td&gt;
-&lt;td&gt;インデントを挿入&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&amp;lt;&amp;lt;&lt;/td&gt;
-&lt;td&gt;インデントを削除&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;=&lt;/td&gt;
-&lt;td&gt;指定した範囲をオートインデント&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;gg=G&lt;/td&gt;
-&lt;td&gt;ファイル全体に対してオートインデントを適用。
-ファイル先頭に移動(gg)→オートインデント(=)→ファイル終端(G)まで。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;zencoding.vim&lt;/h2&gt;
-VimでのZen-Coding。下記をみながらお勉強。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="http://mattn.kaoriya.net/software/vim/20100306021632.htm"&gt;Big Sky :: zen-codingの殆どの機能をzencoding.vimに取り込んだ。&lt;/a&gt;&lt;/p&gt;
-
-&lt;table border="0"&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;略語入力後&amp;lt;C-y&amp;gt;,&lt;/td&gt;
-&lt;td&gt;Zen-Coding略語展開&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;範囲選択後&amp;lt;C-y&amp;gt;,&lt;/td&gt;
-&lt;td&gt;任意のタグで選択範囲を括る&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2&gt;移動・編集とか&lt;/h2&gt;
-
-&lt;p&gt;編集の肌感覚がなんとなくわかってきた。
-&lt;table border="0"&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;g,&lt;/td&gt;
-&lt;td&gt;直前の編集箇所に戻る&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;cw&lt;/td&gt;
-&lt;td&gt;カーソル位置の単語を単語の終わりまでを削除してインサートモードに移行&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;caw&lt;/td&gt;
-&lt;td&gt;カーソル位置の単語全体を削除してインサートモードに移行&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;dw&lt;/td&gt;
-&lt;td&gt;カーソル位置から単語の終わりまでを削除&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;daw&lt;/td&gt;
-&lt;td&gt;カーソル位置の単語全体を削除&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;d$&lt;/td&gt;
-&lt;td&gt;カーソル位置から行末までを削除&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;d0,
-d^&lt;/td&gt;
-&lt;td&gt;行頭からカーソル位置までを削除&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;&lt;/p&gt;
 </content>
   </entry>
 </feed>

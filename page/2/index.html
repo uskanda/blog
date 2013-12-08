@@ -31,6 +31,44 @@
 </p>
 <article>
   <div class="title">
+    <a class="date" rel="bookmark"><abbr>2012/07</abbr>14<sub>00:00</sub></a>
+    <div class="container">
+      <div class="subject">
+        Redmine 2.0のガントチャートに日付表示を追加する
+      </div>
+      <div class="tags">
+        <div class="label label-primary">
+          redmine
+        </div>
+        <div class="label label-primary">
+          Ruby on Rails
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <div class="body">
+    <p>Redmineのガントチャートはデフォルトだと日付がでない。過去にパッチが作られている。</p>
+    
+    <p><a href="http://ameblo.jp/hihihihiroki/entry-10854457740.html">【Redmine 1.1.2】ガントチャートに日付を表示させる｜渋谷ではたらくマー君の技術とかブログ。</a>
+    <a href="http://in.shappi.org/article/195687999.html">Redmineガントチャートの日付表示再び: 100ねんごの未来予想図</a></p>
+    
+    <p>これらを参考に、Redmine2.0でViewを直接書き換えた。ほぼ上記サイト作成のものそのままで動いた。</p>
+    
+    <p><a href="http://www.flickr.com/photos/uskanda/7564467856" title="gantt-with-date"><img src="http://farm8.staticflickr.com/7272/7564467856_464d4e4f27.jpg" alt="gantt-with-date" class="aligncenter"/></a></p>
+    
+    <p>Redmine 2.0.3.stable.9920にて確認。
+    $RAILS_HOME/app/views/gantts/show.html.erbに下記パッチ。</p>
+    
+    <script src="https://gist.github.com/3107779.js?file=show.html.erb.patch"></script>
+    
+    <p>こういう変更はERB差し替えになってしまう以上、Redmineプラグインにするのも微妙&hellip; バージョンアップごとにパッチするしかないのかなー</p>
+    
+  </div>
+</article>
+<hr />
+<article>
+  <div class="title">
     <a class="date" rel="bookmark"><abbr>2012/06</abbr>30<sub>00:00</sub></a>
     <div class="container">
       <div class="subject">
@@ -673,42 +711,6 @@ markdown-modeの問題はこれで解決。
   </div>
 </article>
 <hr />
-<article>
-  <div class="title">
-    <a class="date" rel="bookmark"><abbr>2012/01</abbr>1<sub>00:00</sub></a>
-    <div class="container">
-      <div class="subject">
-        新年の目標を共有するサービス Kotoshiwaをリリースしました
-      </div>
-      <div class="tags">
-        <div class="label label-primary">
-          開発
-        </div>
-        <div class="label label-primary">
-          Rails
-        </div>
-      </div>
-    </div>
-    <div class="clearfix"></div>
-  </div>
-  <div class="body">
-    <p>2011年、あけましておめでとうございます。
-    本年もよろしくお願いします。</p>
-    
-    <p>今年こそウェブサービスをリリースしたいので、<br>
-    その気持ちをあらわすべく、手始めに<br>
-    &ldquo;今年こそ○○する&quot;という新年の目標を共有するウェブサービスを作成しました。</p>
-    
-    <p><a href="http://kotoshiwa.com" title="Kotoshiwa - 新年の目標を共有しよう">Kotoshiwa - 新年の目標を共有しよう</a></p>
-    
-    <p><a href="http://kotoshiwa.com" title="Kotoshiwa - 新年の目標を共有しよう"><a href="http://kotoshiwa.com">http://kotoshiwa.com</a></a></p>
-    
-    <p>Twitterでログインして、新年の目標を100文字以内で投稿するだけです！
-    是非利用してみてください！</p>
-    
-  </div>
-</article>
-<hr />
 <p>
   <a href="/page/3/">Next page</a>
 </p>
@@ -719,6 +721,9 @@ markdown-modeの問題はこれで解決。
             <div class="gadget" id="recents">
               <span class="title">最近の投稿</span>
               <ol>
+                <li>
+                  <a href="/2013/12/09/transfer-from-octopress-to-middleman/">OctopressからMiddlemanに移行した(12/09)</a>
+                </li>
                 <li>
                   <a href="/2013/04/01/android-support-library-error-on-android-32/">Android3.2で通知を出そうとするとエラーが出る(04/01)</a>
                 </li>
@@ -746,9 +751,6 @@ markdown-modeの問題はこれで解決。
                 <li>
                   <a href="/2012/09/05/stop-spark-videoplayer-live-streaming/">Flex SparkコンポーネントのVideoPlayerがライブストリーミングの時止まらない(09/05)</a>
                 </li>
-                <li>
-                  <a href="/2012/07/14/gantt-with-date-for-redmine-2-0/">Redmine 2.0のガントチャートに日付表示を追加する(07/14)</a>
-                </li>
               </ol>
             </div>
             <div class="gadget" id="adsense">
@@ -763,43 +765,44 @@ markdown-modeの問題はこれで解決。
             <div class="gadget" id="tags">
               <span class="title">タグ一覧</span>
               <div class="gadget_body"><a href="/tags/ruby/">
-                Ruby(5) </a><a href="/tags/ruby-on-rails/">
-                Ruby on Rails(4) </a><a href="/tags/emacs/">
-                Emacs(4) </a><a href="/tags/review/">
-                Review(3) </a><a href="/tags/mac/">
-                Mac(3) </a><a href="/tags/flash/">
-                Flash(2) </a><a href="/tags/android/">
-                Android(2) </a><a href="/tags/gadget/">
-                Gadget(2) </a><a href="/tags/windows/">
-                Windows(2) </a><a href="/tags/macbookpro/">
-                MacBookPro(2) </a><a href="/tags/server/">
+                Ruby(5) </a><a href="/tags/emacs/">
+                Emacs(4) </a><a href="/tags/ruby-on-rails/">
+                Ruby on Rails(4) </a><a href="/tags/mac/">
+                Mac(3) </a><a href="/tags/review/">
+                Review(3) </a><a href="/tags/macbookpro/">
+                MacBookPro(2) </a><a href="/tags/octopress/">
+                Octopress(2) </a><a href="/tags/server/">
                 Server(2) </a><a href="/tags/ubuntu/">
-                Ubuntu(2) </a><a href="/tags/goo/">
-                goo(1) </a><a href="/tags/rails/">
-                Rails(1) </a><a href="/tags/開発/">
-                開発(1) </a><a href="/tags/rvm/">
-                RVM(1) </a><a href="/tags/passenger/">
-                Passenger(1) </a><a href="/tags/uc-411pbt-c/">
-                UC-411PBT-C(1) </a><a href="/tags/nginx/">
-                nginx(1) </a><a href="/tags/rinari/">
-                rinari(1) </a><a href="/tags/redmine/">
-                redmine(1) </a><a href="/tags/mysql/">
-                MySQL(1) </a><a href="/tags/refurbished/">
-                Refurbished(1) </a><a href="/tags/adobe-air/">
-                Adobe AIR(1) </a><a href="/tags/octopress/">
-                Octopress(1) </a><a href="/tags/日々/">
-                日々(1) </a><a href="/tags/vim/">
-                Vim(1) </a><a href="/tags/anything-el/">
-                anything.el(1) </a><a href="/tags/actionscript/">
-                Actionscript(1) </a><a href="/tags/book/">
-                Book(1) </a><a href="/tags/mouse/">
-                Mouse(1) </a><a href="/tags/logicool/">
-                Logicool(1) </a><a href="/tags/macmini/">
+                Ubuntu(2) </a><a href="/tags/gadget/">
+                Gadget(2) </a><a href="/tags/flash/">
+                Flash(2) </a><a href="/tags/windows/">
+                Windows(2) </a><a href="/tags/android/">
+                Android(2) </a><a href="/tags/goo/">
+                goo(1) </a><a href="/tags/macmini/">
                 MacMini(1) </a><a href="/tags/ssd/">
-                SSD(1) </a><a href="/tags/windows8/">
-                Windows8(1) </a><a href="/tags/mediacenterpack/">
-                MediaCenterPack(1) </a><a href="/tags/case/">
-                Case(1) </a>
+                SSD(1) </a><a href="/tags/uc-411pbt-c/">
+                UC-411PBT-C(1) </a><a href="/tags/adobe-air/">
+                Adobe AIR(1) </a><a href="/tags/passenger/">
+                Passenger(1) </a><a href="/tags/rvm/">
+                RVM(1) </a><a href="/tags/vim/">
+                Vim(1) </a><a href="/tags/nginx/">
+                nginx(1) </a><a href="/tags/mediacenterpack/">
+                MediaCenterPack(1) </a><a href="/tags/windows8/">
+                Windows8(1) </a><a href="/tags/rinari/">
+                rinari(1) </a><a href="/tags/anything-el/">
+                anything.el(1) </a><a href="/tags/actionscript/">
+                Actionscript(1) </a><a href="/tags/redmine/">
+                redmine(1) </a><a href="/tags/middleman/">
+                Middleman(1) </a><a href="/tags/case/">
+                Case(1) </a><a href="/tags/book/">
+                Book(1) </a><a href="/tags/refurbished/">
+                Refurbished(1) </a><a href="/tags/日々/">
+                日々(1) </a><a href="/tags/開発/">
+                開発(1) </a><a href="/tags/rails/">
+                Rails(1) </a><a href="/tags/mouse/">
+                Mouse(1) </a><a href="/tags/logicool/">
+                Logicool(1) </a><a href="/tags/mysql/">
+                MySQL(1) </a>
               </div>
             </div>
             <div class="gadget" id="twitter">
@@ -812,7 +815,7 @@ markdown-modeの問題はこれで解決。
               <span class="title">アーカイブ</span>
               <ol></ol>
               <li>
-                <a href="/2013/">2013</a> (6)
+                <a href="/2013/">2013</a> (7)
               </li>
               <li>
                 <a href="/2012/">2012</a> (14)

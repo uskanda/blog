@@ -7,7 +7,7 @@
     <link href="/stylesheets/gits.css" rel="stylesheet" />
     <link href="/stylesheets/syntax.css" rel="stylesheet" />
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
-    <title>GHOST IN THE SUIT</title><link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+    <title>GHOST IN THE SUIT - OctopressからMiddlemanに移行した</title><link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
   </head>
   <body>
     <div class="header">
@@ -24,14 +24,93 @@
       <div class="row">
         <div class="col-sm-9">
           <div id="main" role="main">
-            <h1>
-              タグ'日々'を含む記事一覧
-            </h1>
-            <ul>
-              <li>
-                <a href="/2011/12/04/blog-nameduplication/">まさかのカブリ</a><span>Dec  4</span>
-              </li>
-            </ul>
+            <article>
+              <div class="title">
+                <a class="date" rel="bookmark"><abbr>2013/12</abbr>9<sub>00:00</sub></a>
+                <div class="container">
+                  <div class="subject">
+                    OctopressからMiddlemanに移行した
+                  </div>
+                  <div class="tags">
+                    <div class="label label-primary">
+                      Middleman
+                    </div>
+                    <div class="label label-primary">
+                      Octopress
+                    </div>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+              <div class="body">
+                <p>今年のはじめにWordpressからOctopressに移行したけど、結局ブログを書くようにはならなかったよ&hellip;
+                Middlemanを見てみたらよさげだったので、もう一度書き始めるきっかけに再度移行してみた。</p>
+                
+                <h2 id="toc_0">Octopressでしっくり来なかったところ</h2>
+                
+                <ul>
+                <li>テンプレートエンジンに挫折<br>
+                Liquidの記法が絶望的に覚えられない&hellip;</li>
+                <li>ファイル構成<br>
+                Octopressはgem/コマンドラインでの管理ツールが提供されておらず、cloneしたOctopressそのものからブログを構築していく。
+                Octopress自体のバージョンアップをしたい場合はpullして持ってくることになる。
+                本文以外のところのタグを変更しようとしてプラグインを独自にいじっているとOctopress本体の更新とのコンフリクトが厳しい。</li>
+                </ul>
+                
+                <h2 id="toc_1">Middlemanを触ってみて</h2>
+                
+                <h3 id="toc_2">よさげなところ</h3>
+                
+                <ul>
+                <li>構成が単純<br>
+                sources以下にテンプレートやassetsを放り込んでいけばOK</li>
+                <li>Railsライク<br>
+                Padrinoベースなせいかもしれないけど、ヘルパー名やディレクトリ構成等、明らかにRailsを意識して作っている感じ。
+                いいか悪いかはともかく、Railsユーザには直観が働くようにできている。</li>
+                <li>好きなテンプレートエンジンが選べる<br>
+                今回は初<a href="http://slim-lang.com">Slim</a>にしてみた。</li>
+                <li>マルチブログが簡単<br>
+                Webサーバの設定に頼ることなく、複数ブログが簡単につくれる。</li>
+                </ul>
+                
+                <h3 id="toc_3">いまいちなところ</h3>
+                
+                <ul>
+                <li><p>ブログ機能自体は貧弱<br>
+                主眼は静的サイトジェネレータなので、
+                middleman-blog が提供する機能は記事管理/タグ付け/年別アーカイブ/ページネーションぐらい。
+                cssもデフォルトだとなし。プロジェクト生成直後に見える画面↓なのは流石にどうだろう&hellip;</p>
+                
+                <p><a href="http://www.flickr.com/photos/uskanda/11209451975/" title="middleman-blog-default by uskanda, on Flickr"><img src="http://farm6.staticflickr.com/5493/11209451975_540c5f2e83_n.jpg" width="320" height="183" alt="middleman-blog-default"></a></p>
+                
+                <p>サクッとブログ作るって用途には向いてないかな。でも0から作っていくの楽しい。</p></li>
+                <li><p>デプロイ設定<br>
+                Github Pagesを強く意識しているOctopressよりはデプロイ設定が面倒な感じ。<br>
+                ↓を参考にさせて頂いてTravis CI経由でビルド成功時にGithub Pagesにプッシュするようにした。</p>
+                
+                <p><a href="http://webtech-walker.com/archive/2013/08/jekyll_to_middleman.html">ブログをJekyllからmiddlemanに移行してTravis CIでGitHub Pagesにデプロイするようにした - Webtech Walker</a><br>
+                <a href="http://tricknotes.hateblo.jp/entry/2013/06/17/020229">Middleman で作った web サイトを Travis + GitHub pages でお手軽に運用する - tricknotesのぼうけんのしょ</a></p></li>
+                </ul>
+                <h3>
+                  Comments
+                </h3>
+                <div aria-live="polite" id="disqus_thread">
+                  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                </div>
+                <script type="text/javascript">
+                  var disqus_shortname = 'ghostinthesuit';
+                  var disqus_identifier = "http://blog.uskanda.com/2013/12/09/transfer-from-octopress-to-middleman/";
+                  var disqus_url = 'http://blog.uskanda.com/2013/12/09/transfer-from-octopress-to-middleman/';
+                  var disqus_script = 'embed.js';
+                  
+                  (function () {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                  }());
+                </script>
+              </div>
+            </article>
           </div>
         </div>
         <div class="col-sm-3">

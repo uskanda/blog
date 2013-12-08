@@ -1,4 +1,5 @@
 @import "elements.less";
+@import "date.less";
 
 body {
     background-image: url(../images/grey_wash_wall.png);
@@ -23,12 +24,24 @@ body {
         article {
             padding-top: 15px;
             .title {
-                .subject {
-                  font-size: 150%;
-                  text-shadow: -1px 1px rgba(255,255,255,1);
-                }
                 .date {
-                    font-size: 80%;
+                  float: left;
+                  width: 60px;
+                  margin-right: 10px;
+                }
+                .container {
+                     width: auto;
+                     .subject {
+                         font-size: 150%;
+                         padding-left: 20px;
+                         text-shadow: -1px 1px rgba(255,255,255,1);
+                         @media (max-width: 768px){font-size: 125%;}
+                     }
+                     .tags {
+                         .label {
+                             margin-right: 0.5em;
+                         }
+                     }
                 }
             }
             .body {

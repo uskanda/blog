@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Blog Name</title>
-  <subtitle>Blog subtitle</subtitle>
-  <id>http://blog.url.com/</id>
-  <link href="http://blog.url.com/"/>
-  <link href="http://blog.url.com/feed.xml" rel="self"/>
+  <title>GHOST IN THE SUIT</title>
+  <subtitle>プログラムとかガジェットとか</subtitle>
+  <id>http://blog.uskanda.com/</id>
+  <link href="http://blog.uskanda.com/"/>
+  <link href="http://blog.uskanda.com/feed.xml" rel="self"/>
   <updated>2013-12-08T15:00:00Z</updated>
   <author>
-    <name>Blog Author</name>
+    <name>Yusuke Kanda</name>
   </author>
   <entry>
     <title>OctopressからMiddlemanに移行した</title>
-    <link rel="alternate" href="http://blog.url.com/2013/12/09/transfer-from-octopress-to-middleman/"/>
-    <id>http://blog.url.com/2013/12/09/transfer-from-octopress-to-middleman/</id>
+    <link rel="alternate" href="http://blog.uskanda.com/2013/12/09/transfer-from-octopress-to-middleman/"/>
+    <id>http://blog.uskanda.com/2013/12/09/transfer-from-octopress-to-middleman/</id>
     <published>2013-12-08T15:00:00Z</published>
-    <updated>2013-12-08T16:33:38+00:00</updated>
+    <updated>2013-12-08T17:00:21+00:00</updated>
     <author>
-      <name>Article Author</name>
+      <name>Yusuke Kanda</name>
     </author>
     <content type="html">&lt;p&gt;今年のはじめにWordpressからOctopressに移行したけど、結局ブログを書くようにはならなかったよ&amp;hellip;
 Middlemanを見てみたらよさげだったので、もう一度書き始めるきっかけに再度移行してみた。&lt;/p&gt;
@@ -70,12 +70,12 @@ Github Pagesを強く意識しているOctopressよりはデプロイ設定が�
   </entry>
   <entry>
     <title>Android3.2で通知を出そうとするとエラーが出る</title>
-    <link rel="alternate" href="http://blog.url.com/2013/04/01/android-support-library-error-on-android-32/"/>
-    <id>http://blog.url.com/2013/04/01/android-support-library-error-on-android-32/</id>
+    <link rel="alternate" href="http://blog.uskanda.com/2013/04/01/android-support-library-error-on-android-32/"/>
+    <id>http://blog.uskanda.com/2013/04/01/android-support-library-error-on-android-32/</id>
     <published>2013-04-01T10:22:00Z</published>
-    <updated>2013-12-08T16:33:38+00:00</updated>
+    <updated>2013-12-08T17:00:21+00:00</updated>
     <author>
-      <name>Article Author</name>
+      <name>Yusuke Kanda</name>
     </author>
     <content type="html">&lt;h2 id="toc_0"&gt;問題&lt;/h2&gt;
 
@@ -101,12 +101,12 @@ E/AndroidRuntime(25922):    at android.support.v4.app.NotificationCompat$Builder
   </entry>
   <entry>
     <title>MySQLで全てのテーブルのカラムとインデックス有無を表示したい</title>
-    <link rel="alternate" href="http://blog.url.com/2013/02/23/mysql-show-columns-and-indices-from-all-the-tables/"/>
-    <id>http://blog.url.com/2013/02/23/mysql-show-columns-and-indices-from-all-the-tables/</id>
+    <link rel="alternate" href="http://blog.uskanda.com/2013/02/23/mysql-show-columns-and-indices-from-all-the-tables/"/>
+    <id>http://blog.uskanda.com/2013/02/23/mysql-show-columns-and-indices-from-all-the-tables/</id>
     <published>2013-02-23T10:00:00Z</published>
-    <updated>2013-12-08T16:33:38+00:00</updated>
+    <updated>2013-12-08T17:00:21+00:00</updated>
     <author>
-      <name>Article Author</name>
+      <name>Yusuke Kanda</name>
     </author>
     <content type="html">&lt;p&gt;今の状況：&lt;/p&gt;
 
@@ -137,12 +137,12 @@ AND information_schema.columns.column_name = information_schema.statistics.colum
   </entry>
   <entry>
     <title>MOBILE STUDIOのMacBook Proのマットブラック ハードケースを試す</title>
-    <link rel="alternate" href="http://blog.url.com/2013/02/17/macbook-pro-cover/"/>
-    <id>http://blog.url.com/2013/02/17/macbook-pro-cover/</id>
+    <link rel="alternate" href="http://blog.uskanda.com/2013/02/17/macbook-pro-cover/"/>
+    <id>http://blog.uskanda.com/2013/02/17/macbook-pro-cover/</id>
     <published>2013-02-16T21:33:00Z</published>
-    <updated>2013-12-08T16:33:38+00:00</updated>
+    <updated>2013-12-08T17:00:21+00:00</updated>
     <author>
-      <name>Article Author</name>
+      <name>Yusuke Kanda</name>
     </author>
     <content type="html">&lt;p&gt;Amazonで各MacBook向けのケースを売っている
 MOBILE STUDIOのMacBook Pro 13inch Retina向け、マットブラックのケースを買ってみた。
@@ -185,12 +185,12 @@ MOBILE STUDIOのMacBook Pro 13inch Retina向け、マットブラックのケー
   </entry>
   <entry>
     <title>整備済製品のMacBook Pro 13inch Retinaを買ってみた</title>
-    <link rel="alternate" href="http://blog.url.com/2013/02/17/buy-macbook-pro-refurbished/"/>
-    <id>http://blog.url.com/2013/02/17/buy-macbook-pro-refurbished/</id>
+    <link rel="alternate" href="http://blog.uskanda.com/2013/02/17/buy-macbook-pro-refurbished/"/>
+    <id>http://blog.uskanda.com/2013/02/17/buy-macbook-pro-refurbished/</id>
     <published>2013-02-16T19:31:00Z</published>
-    <updated>2013-12-08T16:33:38+00:00</updated>
+    <updated>2013-12-08T17:00:21+00:00</updated>
     <author>
-      <name>Article Author</name>
+      <name>Yusuke Kanda</name>
     </author>
     <content type="html">&lt;h2 id="toc_0"&gt;MacBook Proを買いました&lt;/h2&gt;
 
@@ -300,12 +300,12 @@ Macアプリケーションが美しく見えるのはたまらない。&lt;/p&g
   </entry>
   <entry>
     <title>今更ながらOctopress</title>
-    <link rel="alternate" href="http://blog.url.com/2013/01/31/hello-octopress/"/>
-    <id>http://blog.url.com/2013/01/31/hello-octopress/</id>
+    <link rel="alternate" href="http://blog.uskanda.com/2013/01/31/hello-octopress/"/>
+    <id>http://blog.uskanda.com/2013/01/31/hello-octopress/</id>
     <published>2013-01-30T15:00:00Z</published>
-    <updated>2013-12-08T16:33:38+00:00</updated>
+    <updated>2013-12-08T17:00:21+00:00</updated>
     <author>
-      <name>Article Author</name>
+      <name>Yusuke Kanda</name>
     </author>
     <content type="html">&lt;h2 id="toc_0"&gt;ブログ移転しました&lt;/h2&gt;
 

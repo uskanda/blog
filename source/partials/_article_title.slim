@@ -1,0 +1,17 @@
+- article ||= current_article
+- date = article.date
+.title 
+  a.date[rel="bookmark"]
+    abbr
+      = date.strftime("%Y/%m")
+    = date.day 
+    sub
+      = date.strftime("%R")
+  .container
+    .subject
+      = article.title
+    .tags
+      - article.tags.each do |tag|
+        .label.label-primary
+          = tag
+  .clearfix

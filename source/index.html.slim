@@ -14,13 +14,10 @@ blog: gits
       = link_to 'Previous page', prev_page
 - page_articles.each_with_index do |article, i|
   article
-    .title 
-      .subject
-        = link_to article.title, article
-      .date
-        = article.date.strftime('%b %e, %Y')
+    = partial :article_title, locals: {article: article}
     .body
       = article.body
+  hr
 - if paginate
   - if next_page
     p

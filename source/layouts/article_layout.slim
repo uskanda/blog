@@ -2,21 +2,7 @@
 - date = article.date
 - wrap_layout :layout do
   article
-    .title 
-      a.date[rel="bookmark"]
-        abbr
-          = date.strftime("%Y/%m")
-        = date.day 
-        sub
-          = date.strftime("%R")
-      .container
-        .subject
-          = article.title
-        .tags
-          - current_article.tags.each do |tag|
-            .label.label-primary
-              = tag
-      .clearfix
+    = partial :article_title
     .body
       = yield
       = partial "comment"

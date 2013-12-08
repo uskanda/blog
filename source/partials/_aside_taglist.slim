@@ -1,9 +1,9 @@
 span.title
   | タグ一覧
-ol
-  - blog.tags.each do |tag, articles|
-    li
-      = link_to tag, tag_path(tag)
-      |  (
-      = articles.size
-      | )
+.gadget_body
+  - blog.tags.sort{|(tag1, articles1), (tag2, articles2)| articles2.size <=> articles1.size}.each do |tag, articles|
+        = link_to tag_path(tag) do 
+          = tag
+          | (
+          = articles.size
+          | ) 

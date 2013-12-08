@@ -2,6 +2,7 @@
 title: OctopressからMiddlemanに移行した
 date: 2013-12-05 02:39 JST
 tags: Middleman, Octopress
+published: false
 ---
 
 今年のはじめにWordpressからOctopressに移行したけど、結局ブログを書くようにはならなかったよ...

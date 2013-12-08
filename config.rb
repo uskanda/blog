@@ -22,7 +22,6 @@ activate :blog do |blog|
   # Matcher for blog source files
   blog.sources = "/articles/{year}-{month}-{day}-{title}.html"
   # blog.taglink = "tags/{tag}.html"
-  blog.layout = "article_layout"
   # blog.summary_separator = /(READMORE)/
   # blog.summary_length = 250
   # blog.year_link = "{year}.html"
@@ -38,6 +37,8 @@ activate :blog do |blog|
   blog.per_page = 10
   blog.page_link = "page/{num}"
 end
+page "/*", layout: :gits
+page "/articles/*", layout: :article_layout
 page "/feed.xml", layout: false
 
 activate :blog do |blog|

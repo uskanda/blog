@@ -30,6 +30,10 @@ end
 
 def build
   sh 'bundle exec middleman build'
+  Dir.chdir DEST_DIR do
+      sh 'touch CNAME'
+      sh "echo 'blog.uskanda.com' > CNAME"
+  end
 end
 
 def push_to_gh_pages(repository, branch)

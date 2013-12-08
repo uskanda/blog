@@ -63,6 +63,16 @@ body .header .site_title a {
 body .header .site_title a:hover {
   text-decoration: underline;
 }
+body .header .externals {
+  padding-top: 30px;
+  text-align: right;
+}
+body .header .externals a {
+  color: #eeeeee;
+}
+body .header .externals a:hover {
+  color: #ff6600;
+}
 body .main {
   background: #e8e8e8 url(../images/paper_fibers.png);
   color: #282828;

@@ -104,6 +104,9 @@ body .main article .title .container .subject {
     font-size: 125%;
   }
 }
+body .main article .title .container .subject a {
+  color: #282828;
+}
 body .main article .title .container .tags .label {
   margin-right: 0.5em;
 }

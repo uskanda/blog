@@ -135,6 +135,9 @@ body .main article .body h5 {
   -moz-box-shadow: #ffffff -1px 0 0;
   box-shadow: #ffffff -1px 0 0;
 }
+body .main .paginate_box {
+  font-size: 125%;
+}
 body .main aside {
   border-left: 1px solid rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: #ffffff -1px 0 0;

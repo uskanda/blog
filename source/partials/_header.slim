@@ -1,7 +1,12 @@
 .header
   .container
-    h1.site_title
-      a href="/"
-        = site_title
-    p
-      = site_subtitle 
+    .row
+      .col-sm-9
+        h1.site_title
+          a href="/"
+            = site_title
+        p
+          = site_subtitle 
+      .col-sm-3.externals
+        a href="/feed.xml"
+          i.fa.fa-rss.fa-3x

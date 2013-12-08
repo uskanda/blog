@@ -1,0 +1,45 @@
+a[rel~=bookmark] {
+  display: block;
+  position: relative;
+  width: 60px;
+  border: 1px solid #bbbbbb;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  font: 24px/35px "Helvetica Neue", Arial, sans-serif;
+  text-align: center;
+  letter-spacing: 2px;
+  text-decoration: none;
+  color: #666;
+  background: #fcfcfc repeat-x left 18px;
+  margin-bottom: 0;
+  margin-top: 5px;
+}
+/* year + month */
+a[rel~=bookmark] abbr {
+  display: block;
+  font: 10px Verdana, sans-serif;
+  letter-spacing: normal;
+  color: white;
+  -moz-border-radius-topright: 5px;
+  -webkit-border-top-right-radius: 5px;
+}
+a[rel~=bookmark] > :first-child {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #832a28;
+  line-height: 16px;
+  text-align: center;
+  text-transform: uppercase;
+  background: #a33537 repeat-x bottom left;
+}
+a[rel~=bookmark] sub {
+  display: block;
+  height: 17px;
+  border-top: 1px solid #bbd;
+  margin: 0 3px;
+  color: #aac;
+  font: 9px/16px Verdana, sans-serif;
+  letter-spacing: normal;
+  text-align: center;
+}

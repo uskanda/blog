@@ -14,7 +14,7 @@
     <link rel="alternate" href="http://blog.url.com/2013/12/05/transfer-from-octopress-to-middleman/"/>
     <id>http://blog.url.com/2013/12/05/transfer-from-octopress-to-middleman/</id>
     <published>2013-12-04T17:39:00Z</published>
-    <updated>2013-12-08T04:11:52+00:00</updated>
+    <updated>2013-12-08T06:01:42+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -63,105 +63,389 @@ github-pagesを強く意識しているOctopressよりはデプロイ設定が�
 </content>
   </entry>
   <entry>
-    <title>新年の目標を共有するサービス Kotoshiwaをリリースしました</title>
-    <link rel="alternate" href="http://blog.url.com/2012/01/01/release-kotoshiwa/"/>
-    <id>http://blog.url.com/2012/01/01/release-kotoshiwa/</id>
-    <published>2011-12-31T15:00:00Z</published>
-    <updated>2013-12-08T04:11:52+00:00</updated>
+    <title>「gooからだログ」に体重等自動送信できる体組成計UC-411PBT-Cを使ってみた</title>
+    <link rel="alternate" href="http://blog.url.com/2012/06/30/uc-411pbt-c/"/>
+    <id>http://blog.url.com/2012/06/30/uc-411pbt-c/</id>
+    <published>2012-06-29T15:00:00Z</published>
+    <updated>2013-12-08T06:01:42+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
-    <content type="html">&lt;p&gt;2011年、あけましておめでとうございます。
-本年もよろしくお願いします。&lt;/p&gt;
+    <content type="html">&lt;h2&gt;gooからだログと連携できる体組成計をつかってみたよ&lt;/h2&gt;
 
-&lt;p&gt;今年こそウェブサービスをリリースしたいので、&lt;br&gt;
-その気持ちをあらわすべく、手始めに&lt;br&gt;
-&amp;ldquo;今年こそ○○する&amp;quot;という新年の目標を共有するウェブサービスを作成しました。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://karada.goo.ne.jp/"&gt;gooからだログ&lt;/a&gt;に自動でデータを送信できる体組成計(体重計+α)の&lt;a href="http://www.aandd.co.jp/adhome/products/hhc/uc411pbt.html" target="_blank"&gt;UC-411PBT-C&lt;/a&gt;を試してみた。&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="http://kotoshiwa.com" title="Kotoshiwa - 新年の目標を共有しよう"&gt;Kotoshiwa - 新年の目標を共有しよう&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a title="IMG_8082.JPG" href="http://www.flickr.com/photos/uskanda/7471886112"&gt;&lt;img class="aligncenter" src="http://farm8.staticflickr.com/7254/7471886112_dfa8051d95.jpg" alt="IMG_8082.JPG" /&gt;&lt;/a&gt;
+&lt;a title="IMG_8083.JPG" href="http://www.flickr.com/photos/uskanda/7471889666"&gt;&lt;img class="aligncenter" src="http://farm8.staticflickr.com/7121/7471889666_a60963d265.jpg" alt="IMG_8083.JPG" /&gt;&lt;/a&gt;
+デザインは悪くない感じ。
+&lt;h2&gt;Withings Wifi Body Scaleとの比較&lt;/h2&gt;
+Web記録可能な体重計として最も知られているのは&lt;a href="http://www.withings.jp/ja/" target="_blank"&gt;Withings&lt;/a&gt;の&lt;a href="http://www.withings.jp/ja/bodyscale" target="_blank"&gt;Wifi Body Scale&lt;/a&gt;だろう。
+個人的に気になった点を比較してみる。
+&lt;table border="0"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;名称&lt;/td&gt;
+&lt;td colspan="2"&gt;UC-411PBT-C&lt;/td&gt;
+&lt;td colspan="2"&gt;Wifi Body Scale&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;価格&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;\12,800
+(USBドングル付き \18,780)&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;\17,800&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;連携サービス&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;&lt;a href="http://karada.goo.ne.jp"&gt;gooからだログ&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;&lt;a href="http://www.withings.com/ja/"&gt;Withings&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;通信方式&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;Bluetooth&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;Wifi&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;必要機器&lt;/td&gt;
+&lt;td&gt;△&lt;/td&gt;
+&lt;td&gt;コンティニュア対応機器&lt;br&gt;
+(一部シャープ製Android,&lt;br&gt;
+同規格対応PCもしくは&lt;br&gt;
+インターネットに繋がるWindowsPC+
+BluetoothUSBドングル&lt;a href="http://nttxstore.jp/_II_QZX0005415"&gt;Blue-1000-v&lt;/a&gt;)&lt;/td&gt;
+&lt;td&gt;◯&lt;/td&gt;
+&lt;td&gt;無線LANルータ等&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;測定値&lt;/td&gt;
+&lt;td&gt;◯&lt;/td&gt;
+&lt;td&gt;体重、体脂肪率、BMI、
+基礎代謝、筋肉量、水分量&lt;/td&gt;
+&lt;td&gt;△&lt;/td&gt;
+&lt;td&gt;体重、体脂肪率、BMI&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;家族利用&lt;/td&gt;
+&lt;td&gt;◯&lt;/td&gt;
+&lt;td&gt;測定者自動検出、5ユーザ&lt;/td&gt;
+&lt;td&gt;◯&lt;/td&gt;
+&lt;td&gt;測定者自動検出、8ユーザ&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;体重測定単位&lt;/td&gt;
+&lt;td&gt;◯&lt;/td&gt;
+&lt;td&gt;50g(〜100kgまで)&lt;/td&gt;
+&lt;td&gt;△&lt;/td&gt;
+&lt;td&gt;100g&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="http://kotoshiwa.com" title="Kotoshiwa - 新年の目標を共有しよう"&gt;&lt;a href="http://kotoshiwa.com"&gt;http://kotoshiwa.com&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;価格については、現況ではほとんどのユーザが必要となってしまうUSBドングルも含めるとWifi Body Scaleとほぼ同等かやや高めといった感じ。単体購入のみで済む人であればUC-411PBT-Cのほうがお買い得。&lt;br&gt;
+インターネットへの通信方法は大きく異なり、UC-411PBT-CはBluetooth利用のため、インターネットに繋がる何らかの機器で送信を仲介することになる。&lt;br&gt;
+コンティニュアなる規格対応らしいけど、現況では対応機器は少ないが、Androidはシャープ製のものについてはアプリがあれば対応できるらしい。最近のBluetooth対応機器ならば理屈の上では対応できそうなので、今後に期待。&lt;/p&gt;
 
-&lt;p&gt;Twitterでログインして、新年の目標を100文字以内で投稿するだけです！
-是非利用してみてください！&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;体組成計&amp;quot;を謳っているだけあって、測定項目は多い。
+一応これまでも体重想定をしてきた身からすると、
+運動の長期的効果の確認としての基礎代謝測定と、
+水分補給による一時的変動なのか否かの指針となりそうな水分量測定は魅力的。
+ウェブサービスはWithingsのサービスの利用経験もないし、からだログも使い込んでいないので評価は保留。
+今のところ、からだログで閲覧にあたり不便はない。
+ブログパーツがないことと、Twitter/Facebook連携ぐらいあればいいのになー、ぐらい？
+&lt;h2&gt;PCとの連携&lt;/h2&gt;
+Windows PCとの連携手順は以下。
+&lt;ol&gt;
+    &lt;li&gt;ドングルをUSBポートに指して、ドライバをインストール。Windows Vista/7の場合はプラグアンドプレイで自動インストールされるドライバでよい。
+自分の場合はWin7で付属CDのドライバ入れたらペアリングできなかった。&lt;/li&gt;
+    &lt;li&gt;データ転送用アプリをダウンロード、インストール。&lt;/li&gt;
+    &lt;li&gt;アプリ内でgoo IDを設定。&lt;/li&gt;
+    &lt;li&gt;体組成計の中央ボタンを3秒押した後、さらに2回押す。(利用者1名の場合)
+その後、アプリ側で機器設定-&amp;gt;機器追加をクリックしてペアリング。成功すれば下記のように見える。
+&lt;a title="gookaradalog" href="http://www.flickr.com/photos/uskanda/7472929902"&gt;&lt;img class="aligncenter" src="http://farm9.staticflickr.com/8008/7472929902_dfe881cca8.jpg" alt="gookaradalog" /&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;体組成計に乗れば体重等の情報が自動送信される。&lt;/li&gt;
+&lt;/ol&gt;
+Windows PCと連携する場合、測定時に必ずしもPCが起動している必要はなく、体組成計側で過去の測定履歴を保存、PC起動時にまとめて送信してくれる。
+&lt;h2&gt;ステマじゃないよ&lt;/h2&gt;
+&lt;strong&gt;※このポストは個人の見解であり、所属する組織の公式見解ではありません。&lt;/strong&gt;&lt;/p&gt;
 </content>
   </entry>
   <entry>
-    <title>まさかのカブリ</title>
-    <link rel="alternate" href="http://blog.url.com/2011/12/04/blog-nameduplication/"/>
-    <id>http://blog.url.com/2011/12/04/blog-nameduplication/</id>
-    <published>2011-12-03T15:00:00Z</published>
-    <updated>2013-12-08T04:11:52+00:00</updated>
+    <title>Mac OS Xでマウスを使うとしっくりこない件</title>
+    <link rel="alternate" href="http://blog.url.com/2012/06/18/osx-mouse-tips/"/>
+    <id>http://blog.url.com/2012/06/18/osx-mouse-tips/</id>
+    <published>2012-06-17T15:00:00Z</published>
+    <updated>2013-12-08T06:01:42+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
-    <content type="html">&lt;p&gt;ブログをまともに再開したのだけど、
-適当につけていたブログ名がまさか会社さんとカブっていたとは&amp;hellip;&lt;/p&gt;
+    <content type="html">&lt;p&gt;Mac Miniを購入して、OSXでマウス(Logicool M705)とMagic Trackpadを常用する環境になったが、マウスがいまいちしっくりこない。
+&lt;h2&gt;1. マウス移動がWindowsと比べて加速しすぎる。&lt;/h2&gt;
+細かい動きをしようとすると動きが少なすぎてイライラする。最小化/最大化をミスクリックすること多数。
+Logicool等、サードパーティのソフト設定ができる場合はOS側の&amp;quot;軌跡の速さ&amp;quot;を下げて、サードパーティ側の速度を極端に上げれば(Logicoolの場合、&amp;quot;追随速度係数&amp;quot;)加速が弱まってちょうどいい感じ。&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="http://fugapiyo.jp/" target="_blank"&gt;株式会社フガピヨ&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;それにしてもLogicoolはハードウェアはいいのにソフトウェアはWindowsでもMacでもイマイチだね&amp;hellip;
+&lt;h2&gt;2. マウスのスクロール方向が逆&lt;/h2&gt;
+トラックパッドとマウスを併用する場合、現行のLionでは、&lt;strong&gt;トラックパッドとマウスのスクロール方向は連動している&lt;/strong&gt;ので、トラックパッドをナチュラルスクロールにするとマウスのスクロールも逆になる。これは流石に慣れない&amp;hellip;&lt;/p&gt;
 
-&lt;p&gt;新しいブログ名急いで考えよう&amp;hellip;&lt;/p&gt;
+&lt;p&gt;指定デバイスのスクロールだけ逆転させてくれるソフトがあったのでOSがどうにかしてくれるまではこれを使うとする。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://pilotmoon.com/scrollreverser/" target="_blank"&gt;Scroll Reverser for Mac OS X&lt;/a&gt;
+&lt;h2&gt;3. 利用しているM705の場合、ホイールをフリースピンさせた後にガタガタ動く。&lt;/h2&gt;
+Windowsでは起こってなかったのでハードウェアがヘタったわけではないようだ。これだけ解決策がまだ見当たらないので模索中&amp;hellip;&lt;/p&gt;
 </content>
   </entry>
   <entry>
-    <title>RailsによるアジャイルWebアプリケーション開発 第4版が出てたので買った</title>
-    <link rel="alternate" href="http://blog.url.com/2011/12/04/agile-development-with-rails-4th-ed/"/>
-    <id>http://blog.url.com/2011/12/04/agile-development-with-rails-4th-ed/</id>
-    <published>2011-12-03T15:00:00Z</published>
-    <updated>2013-12-08T04:11:52+00:00</updated>
+    <title>Windows8デスクトップアプリでの互換性マニフェスト設定</title>
+    <link rel="alternate" href="http://blog.url.com/2012/06/18/windows8-manifest-setting-for-compatibility/"/>
+    <id>http://blog.url.com/2012/06/18/windows8-manifest-setting-for-compatibility/</id>
+    <published>2012-06-17T15:00:00Z</published>
+    <updated>2013-12-08T06:01:42+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
-    <content type="html">&lt;p&gt;今まで高かったから実は買ったことなかったRailsのバイブル。&amp;hellip;昔4000円台だったよね？
-&lt;a href="http://estore.ohmsha.co.jp/titles/978427406866P"&gt;PDF&lt;/a&gt;版がすぐ出てくれるのはすごくありがたい。&lt;/p&gt;
+    <content type="html">&lt;p&gt;Windows7でもネイティブモードで動かすためにはマニフェストに互換性設定が必要だったように、Windows8でもネイティブモードで動かすにはマニフェストに宣言が必要。&lt;/p&gt;
 
-&lt;p&gt;まとめて読む時間は取れそうにないけど、気がついたところは箇条書きでここにメモっていこう。とりあえずはこまかいところ&amp;hellip;
+&lt;p&gt;&lt;a href="http://msdn.microsoft.com/en-us/library/hh848036(v=vs.85).aspx"&gt;App (Executable) Manifest (Preliminary)&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Windows8でもネイティブモードでないとプログラム互換性アシスタント(PCA)が動く。
+&lt;blockquote&gt;&lt;strong&gt;Program Compatibility Assistant (PCA)&lt;/strong&gt;
 &lt;ul&gt;
-  &lt;li&gt;Rails3.1はRuby1.9利用時はScaffoldでRuby1.9のハッシュ記法を使う。あれ？そうだっけ？っと思って試してみたらホントだった&lt;/li&gt;
-  &lt;li&gt;link_toの飛び先をcontroller, action, idのハッシュで指定する記法は載ってすらいない&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;
-
-&lt;iframe src="http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=uasmks-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=4274068668" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"&gt;&lt;/iframe&gt;
+    &lt;li&gt;Windows 8: Apps with the compatibility section do not get the PCA mitigation.&lt;/li&gt;
+    &lt;li&gt;Windows 7: Apps with the compatibility section are tracked for potential compatibility issues for Windows 8 changes (described in this document).&lt;/li&gt;
+    &lt;li&gt;Windows Vista (default): Apps that fail to install properly or crash during runtime under some specific circumstances get the PCA mitigation. For more information, see the Resources section.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+Windows8サポートであることを明示し、ネイティブモードで動かすには以下のGUIDをcompatibilityセクションで指定する。
+&lt;blockquote&gt;{4a2f28e3-53b9-4441-ba9c-d69d4a4a6e38}&lt;/blockquote&gt;
+MSDN記載のサンプルは以下。
+&lt;blockquote&gt;&amp;lt;?xml version=&amp;ldquo;1.0&amp;rdquo; encoding=&amp;ldquo;UTF-8&amp;rdquo; standalone=&amp;ldquo;yes&amp;rdquo;?&amp;gt;
+&amp;lt;assembly xmlns=&amp;ldquo;urn:schemas-microsoft-com:asm.v1&amp;rdquo; manifestVersion=&amp;ldquo;1.0&amp;rdquo;&amp;gt;
+&amp;lt;compatibility xmlns=&amp;ldquo;urn:schemas-microsoft-com:compatibility.v1&amp;rdquo;&amp;gt;
+&amp;lt;application&amp;gt;
+&amp;lt;!&amp;ndash;The ID below indicates app support for Windows Vista &amp;ndash;&amp;gt;
+&amp;lt;supportedOS Id=&amp;ldquo;{e2011457-1546-43c5-a5fe-008deee3d3f0}&amp;rdquo;/&amp;gt;
+&amp;lt;!&amp;ndash;The ID below indicates app support for Windows 7 &amp;ndash;&amp;gt;
+&amp;lt;supportedOS Id=&amp;ldquo;{35138b9a-5d96-4fbd-8e2d-a2440225f93a}&amp;rdquo;/&amp;gt;
+&amp;lt;!&amp;ndash;The ID below indicates app support for Windows Developer Preview &amp;ndash;&amp;gt;
+&amp;lt;supportedOS Id=&amp;ldquo;{4a2f28e3-53b9-4441-ba9c-d69d4a4a6e38}&amp;rdquo;/&amp;gt;
+&amp;lt;/application&amp;gt;
+&amp;lt;/compatibility&amp;gt;
+&amp;lt;/assembly&amp;gt;&lt;/blockquote&gt;&lt;/p&gt;
 </content>
   </entry>
   <entry>
-    <title>Rsenseでの補完時に引数等を自動補完する</title>
-    <link rel="alternate" href="http://blog.url.com/2011/12/04/ac-rsense-yas-expand/"/>
-    <id>http://blog.url.com/2011/12/04/ac-rsense-yas-expand/</id>
-    <published>2011-12-03T15:00:00Z</published>
-    <updated>2013-12-08T04:11:52+00:00</updated>
+    <title>Wordpressをnginx+fastcgiベースに移行した</title>
+    <link rel="alternate" href="http://blog.url.com/2012/06/17/wordpress-with-nginx/"/>
+    <id>http://blog.url.com/2012/06/17/wordpress-with-nginx/</id>
+    <published>2012-06-16T15:00:00Z</published>
+    <updated>2013-12-08T06:01:42+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
-    <content type="html">&lt;p&gt;Emacsの整理にあたり、いつか試そうと思ってたけど使ってなかった
-&lt;a href="http://cx4a.org/software/rsense/index.ja.html" target="_blank"&gt;Rsense&lt;/a&gt;を導入してみたらすごく便利だった！&lt;/p&gt;
+    <content type="html">&lt;p&gt;旧さくらのVPS移行期限が近づいてきたので、急いでWordpressを新設したVPSに移行した。せっかくなのでnginxベースに。&lt;/p&gt;
 
-&lt;p&gt;組み込みライブラリのメソッド名の補完等はバッチリなんで、せっかくなんで
-yasnippetと連携させて引数やブロック有無なども補完できるようにしてみた。&lt;/p&gt;
+&lt;p&gt;WordPressは事前にWordPressディレクトリ内全ファイルをコピーしておく他、
+データベースはすべてダンプし、移行先サーバに設置、インポートするだけ。データベースのダンプは
+phpmyadminなどで行うか、wp-db-backup等のWordPressプラグインで行えばかんたん。&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="https://github.com/uskanda/ac-rsense-yas-expand"&gt;&lt;a href="https://github.com/uskanda/ac-rsense-yas-expand"&gt;https://github.com/uskanda/ac-rsense-yas-expand&lt;/a&gt;
-&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;以下、Ubuntu 12.04での作業ログ。&lt;/p&gt;
 
-&lt;p&gt;Emacs, auto-completeでのRsense利用が前提。
-力技でRefeから組み込みライブラリの主要メソッドのsnippetを作って、
-これまた力技でauto-completeにRsenseから伝えられたクラス情報を横取りして、yasnippetの起動条件に渡してる。
-これで組み込みライブラリに関していえばIDEと遜色ないのではないかと。&lt;/p&gt;
+&lt;p&gt;nginx/php/fastcgiのインストール。&lt;code&gt;
+aptitude install nginx php5-cli php5-cgi php5-gd spawn-fcgi&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;/usr/bin/以下に以下の内容でphp-fastcgiファイルを作成。
+&lt;code&gt;
+#!/bin/sh
+/usr/bin/spawn-fcgi -a 127.0.0.1 -p 9000 -C 6 -u www-data -f /usr/bin/php5-cgi
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;作成したファイルに実行権限付加。
+&lt;code&gt;
+cd /usr/bin/
+chmod a+x php-fastcgi
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;起動用スクリプト/etc/init.d/php-fastcgiを作成。&lt;/p&gt;
+&lt;pre class="highlight text"&gt;\#!/bin/bash
+PHP_SCRIPT=/usr/bin/php-fastcgi
+FASTCGI_USER=www-data
+RETVAL=0
+case &amp;quot;$1&amp;quot; in
+start)
+su - $FASTCGI_USER -c $PHP_SCRIPT
+RETVAL=$?
+;;
+stop)
+killall -9 php5-cgi
+RETVAL=$?
+;;
+restart)
+killall -9 php5-cgi
+su - $FASTCGI_USER -c $PHP_SCRIPT
+RETVAL=$?
+;;
+*)
+echo &amp;quot;Usage: php-fastcgi {start|stop|restart}&amp;quot;
+exit 1
+;;
+esac
+exit $RETVAL
+console output
+&lt;/pre&gt;
+&lt;p&gt;権限付加、自動起動設定してデーモン起動。
+    chmod a+x /etc/init.d/php-fastcgi
+    update-rc.d php-fastcgi defaults
+    /etc/init.d/php-fastcgi start&lt;/p&gt;
+
+&lt;p&gt;nginxにWordpress用の設定を追加する。/etc/nginx/sites-available/wordpress に下記を追加。
+    upstream php {
+    server unix:/tmp/php-cgi.socket;
+    server 127.0.0.1:9000;
+    }&lt;/p&gt;
+&lt;pre class="highlight text"&gt;server {
+listen 80;
+server_name your_domain_name;
+access_log /var/log/nginx/wordpress.access.log;
+error_log /var/log/nginx/wordpress.error.log;
+root /path/to/wordpress/;
+index index.php;
+location = /favicon.ico {
+log_not_found off;
+access_log off;
+}
+
+location = /robots.txt {
+allow all;
+log_not_found off;
+access_log off;
+}
+
+location / {
+try_files $uri $uri/ /index.php;
+}
+
+location ~ \.php$ {
+include /etc/nginx/fastcgi_params;
+fastcgi_param SCRIPT_FILENAME /path/to/wordpress/$fastcgi_script_name;
+fastcgi_intercept_errors on;
+fastcgi_pass php;
+}
+
+location ~* \.(js|css|png|jpg|jpeg|gif|ico)$ {
+expires max;
+log_not_found off;
+}
+}
+&lt;/pre&gt;
+&lt;p&gt;作成した設定を有効化、fastcgi/nginxを起動。
+&lt;code&gt;
+ln -s /etc/nginx/sites-available/wordpress /etc/nginx/sites-enable/wordpress
+/etc/init.d/php-fastcgi start
+/etc/init.d/nginx start
+&lt;/code&gt;
+&lt;h2&gt;参考サイト&lt;/h2&gt;
+&lt;a href="http://iphone-diary.com/?p=9113"&gt;耐えられずにSixcoreサーバーへ移動 | 普通のサラリーマンのiPhone日記&lt;/a&gt;
+(Wordpressの移行)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://tjun.jp/blog/2011/09/nginx/"&gt;さくらVPS+ubuntu+wordpressにnginx入れたメモ | tjun memo&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://wiki.nginx.org/WordPress"&gt;WordPress&lt;/a&gt;
+(nginx公式)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://akibe.com/wordpress%E7%94%A8%E3%81%AEnginx%E3%81%AE%E3%82%B5%E3%82%A4%E3%83%88%E8%A8%AD%E5%AE%9A%E3%82%92%E8%A6%8B%E7%9B%B4%E3%81%97/" target="_blank"&gt;Wordpress用のNginxのサイト設定を見直し @AKIBE&lt;/a&gt;&lt;/p&gt;
 </content>
   </entry>
   <entry>
-    <title>yasnippet(dropdown-list)が列ハイライト利用時にも表示が崩れないようにする</title>
-    <link rel="alternate" href="http://blog.url.com/2011/12/03/fix-yasnippet-when-using-col-highlight/"/>
-    <id>http://blog.url.com/2011/12/03/fix-yasnippet-when-using-col-highlight/</id>
-    <published>2011-12-02T15:00:00Z</published>
-    <updated>2013-12-08T04:11:52+00:00</updated>
+    <title>Mac Mini(Mid2011)を買ってSSD換装したよー＼(^O^)／</title>
+    <link rel="alternate" href="http://blog.url.com/2012/06/13/buy-mac-mini/"/>
+    <id>http://blog.url.com/2012/06/13/buy-mac-mini/</id>
+    <published>2012-06-12T15:00:00Z</published>
+    <updated>2013-12-08T06:01:42+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
-    <content type="html">&lt;p&gt;数年ぶりに設定を見直し中なので、どこまでもEmacs小ネタ。
-yasnippetの補完候補表示等に利用されるdropdown-listの表示が
-現在のカーソル位置の列をハイライトするcol-highlight利用時に崩れるので、
-dropdown-list利用時にcol-highlightを一時停止するようにした。
-&lt;script src="https://gist.github.com/1424152.js"&gt; &lt;/script&gt;&lt;/p&gt;
+    <content type="html">&lt;p&gt;WWDC2012はデスクトップMac待ちのみんなにひどいことをしたよね！何あのMacProのアップデート…&lt;/p&gt;
+
+&lt;p&gt;ずっとiMac待ちだったけど、いろいろと限界だったのでついカッとなって&lt;strong&gt;Mac Miniを買ったよ！&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a title="IMG_8028" href="http://www.flickr.com/photos/uskanda/7368789174" target="_blank"&gt;&lt;img class="aligncenter" src="http://farm9.staticflickr.com/8016/7368789174_358cc0e4cd.jpg" alt="IMG_8028" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;上位モデルだけど、発売から時間がたっていることもありほぼ下位モデルの値段で
+秋葉原で買えた。当然の如くメモリとSSDも購入。メモリは8GB×2、SSDはA-DATAのSX900 256GB。ふたつ合わせて25,000円弱。&lt;/p&gt;
+
+&lt;p&gt;動作確認だけして&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;&lt;a title="IMG_8032" href="http://www.flickr.com/photos/uskanda/7183555013"&gt;&lt;img class="aligncenter" src="http://farm8.staticflickr.com/7104/7183555013_781c6e55fc.jpg" alt="IMG_8032" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;即解体。&lt;/p&gt;
+
+&lt;p&gt;&lt;a title="IMG_8033" href="http://www.flickr.com/photos/uskanda/7368786352"&gt;&lt;img class="aligncenter" src="http://farm8.staticflickr.com/7097/7368786352_4882de8ace.jpg" alt="IMG_8033" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;SSDの換装は下記記事を参考に実施。図解をたどっていけばかんたん。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://d.hatena.ne.jp/pcmaster/20110807/p2"&gt;Mac mini(Mid 2011)のストレージをSSDに換装してみました - 理想未来はどうなった？&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;完成。&lt;/p&gt;
+
+&lt;p&gt;&lt;a title="IMG_8038" href="http://www.flickr.com/photos/uskanda/7368782996"&gt;&lt;img class="aligncenter" src="http://farm9.staticflickr.com/8028/7368782996_081f574202.jpg" alt="IMG_8038" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Lionはインターネットインストールできるけど、ドライブ入れ替え後に勝手にはやってくれないらしい。Command+Rを押しながら起動でOSインストールを開始できる。&lt;/p&gt;
+
+&lt;h2 id="toc_0"&gt;ベンチマーク&lt;/h2&gt;
+
+&lt;p&gt;XBenchの結果はこちら。
+    Results 375.82
+    System Info
+    Xbench Version 1.3
+    System Version 10.7.4 (11E53)
+    Physical RAM 16384 MB
+    Model Macmini5,2
+    Drive Type ADATA SX900
+    CPU Test 237.23
+    GCD Loop 312.73 16.48 Mops/sec
+    Floating Point Basic 195.03 4.63 Gflop/sec
+    vecLib FFT 155.71 5.14 Gflop/sec
+    Floating Point Library 472.98 82.36 Mops/sec
+    Memory Test 587.42
+    System 609.85
+    Allocate 2291.84 8.42 Malloc/sec
+    Fill 422.42 20539.26 MB/sec
+    Copy 472.67 9762.84 MB/sec
+    Stream 566.58
+    Copy 557.26 11509.97 MB/sec
+    Scale 545.02 11259.88 MB/sec
+    Add 588.66 12539.81 MB/sec
+    Triad 577.40 12352.08 MB/sec
+    Quartz Graphics Test 425.80
+    Line 363.20 24.18 Klines/sec [50% alpha]
+    Rectangle 497.89 148.65 Krects/sec [50% alpha]
+    Circle 330.10 26.91 Kcircles/sec [50% alpha]
+    Bezier 307.42 7.75 Kbeziers/sec [50% alpha]
+    Text 1431.67 89.56 Kchars/sec
+    OpenGL Graphics Test 374.30
+    Spinning Squares 374.30 474.83 frames/sec
+    User Interface Test 351.71
+    Elements 351.71 1.61 Krefresh/sec
+    Disk Test 457.91
+    Sequential 267.80
+    Uncached Write 700.42 430.05 MB/sec [4K blocks]
+    Uncached Write 462.01 261.40 MB/sec [256K blocks]
+    Uncached Read 104.64 30.62 MB/sec [4K blocks]
+    Uncached Read 559.36 281.13 MB/sec [256K blocks]
+    Random 1578.62
+    Uncached Write 2427.72 257.00 MB/sec [4K blocks]
+    Uncached Write 888.41 284.41 MB/sec [256K blocks]
+    Uncached Read 2909.52 20.62 MB/sec [4K blocks]
+    Uncached Read 1532.21 284.31 MB/sec [256K blocks]
+最近のSSDはRandom早いね！
+MacBookAir(Mid2011 Ultimate)と比べてもだいぶ体感性能が違う感じ。これでHaswellなRetina iMacまで待とう&amp;hellip;&lt;/p&gt;
+
+&lt;iframe src="http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=uasmks-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=B005DPEVH0" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"&gt;&lt;/iframe&gt;
 </content>
   </entry>
 </feed>

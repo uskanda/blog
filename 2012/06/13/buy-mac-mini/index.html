@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge;chrome=1" http-equiv="X-UA-Compatible" />
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/stylesheets/gits.css" rel="stylesheet" />
+    <link href="/stylesheets/syntax.css" rel="stylesheet" />
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+    <title>GHOST IN THE SUIT - Mac Mini(Mid2011)を買ってSSD換装したよー＼(^O^)／</title><link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="container">
+        <h1 class="site_title">
+          <a href="/">GHOST IN THE SUIT</a>
+        </h1>
+        <p>
+          Excelの泥にまみれても、こころの奥にgeekの灯を。
+        </p>
+      </div>
+    </div>
+    <div class="container main">
+      <div class="row">
+        <div class="col-sm-9">
+          <div id="main" role="main">
+            <article>
+              <div class="title">
+                <div class="subject">
+                  Mac Mini(Mid2011)を買ってSSD換装したよー＼(^O^)／
+                </div>
+                <div class="date">
+                  2012-06-13 00:00:00 +0900
+                </div>
+              </div>
+              <div class="body">
+                <p>WWDC2012はデスクトップMac待ちのみんなにひどいことをしたよね！何あのMacProのアップデート…</p>
+                
+                <p>ずっとiMac待ちだったけど、いろいろと限界だったのでついカッとなって<strong>Mac Miniを買ったよ！</strong></p>
+                
+                <p><a title="IMG_8028" href="http://www.flickr.com/photos/uskanda/7368789174" target="_blank"><img class="aligncenter" src="http://farm9.staticflickr.com/8016/7368789174_358cc0e4cd.jpg" alt="IMG_8028" /></a></p>
+                
+                <p>上位モデルだけど、発売から時間がたっていることもありほぼ下位モデルの値段で
+                秋葉原で買えた。当然の如くメモリとSSDも購入。メモリは8GB×2、SSDはA-DATAのSX900 256GB。ふたつ合わせて25,000円弱。</p>
+                
+                <p>動作確認だけして&hellip;</p>
+                
+                <p><a title="IMG_8032" href="http://www.flickr.com/photos/uskanda/7183555013"><img class="aligncenter" src="http://farm8.staticflickr.com/7104/7183555013_781c6e55fc.jpg" alt="IMG_8032" /></a></p>
+                
+                <p>即解体。</p>
+                
+                <p><a title="IMG_8033" href="http://www.flickr.com/photos/uskanda/7368786352"><img class="aligncenter" src="http://farm8.staticflickr.com/7097/7368786352_4882de8ace.jpg" alt="IMG_8033" /></a></p>
+                
+                <p>SSDの換装は下記記事を参考に実施。図解をたどっていけばかんたん。</p>
+                
+                <p><a href="http://d.hatena.ne.jp/pcmaster/20110807/p2">Mac mini(Mid 2011)のストレージをSSDに換装してみました - 理想未来はどうなった？</a></p>
+                
+                <p>完成。</p>
+                
+                <p><a title="IMG_8038" href="http://www.flickr.com/photos/uskanda/7368782996"><img class="aligncenter" src="http://farm9.staticflickr.com/8028/7368782996_081f574202.jpg" alt="IMG_8038" /></a></p>
+                
+                <p>Lionはインターネットインストールできるけど、ドライブ入れ替え後に勝手にはやってくれないらしい。Command+Rを押しながら起動でOSインストールを開始できる。</p>
+                
+                <h2 id="toc_0">ベンチマーク</h2>
+                
+                <p>XBenchの結果はこちら。
+                    Results 375.82
+                    System Info
+                    Xbench Version 1.3
+                    System Version 10.7.4 (11E53)
+                    Physical RAM 16384 MB
+                    Model Macmini5,2
+                    Drive Type ADATA SX900
+                    CPU Test 237.23
+                    GCD Loop 312.73 16.48 Mops/sec
+                    Floating Point Basic 195.03 4.63 Gflop/sec
+                    vecLib FFT 155.71 5.14 Gflop/sec
+                    Floating Point Library 472.98 82.36 Mops/sec
+                    Memory Test 587.42
+                    System 609.85
+                    Allocate 2291.84 8.42 Malloc/sec
+                    Fill 422.42 20539.26 MB/sec
+                    Copy 472.67 9762.84 MB/sec
+                    Stream 566.58
+                    Copy 557.26 11509.97 MB/sec
+                    Scale 545.02 11259.88 MB/sec
+                    Add 588.66 12539.81 MB/sec
+                    Triad 577.40 12352.08 MB/sec
+                    Quartz Graphics Test 425.80
+                    Line 363.20 24.18 Klines/sec [50% alpha]
+                    Rectangle 497.89 148.65 Krects/sec [50% alpha]
+                    Circle 330.10 26.91 Kcircles/sec [50% alpha]
+                    Bezier 307.42 7.75 Kbeziers/sec [50% alpha]
+                    Text 1431.67 89.56 Kchars/sec
+                    OpenGL Graphics Test 374.30
+                    Spinning Squares 374.30 474.83 frames/sec
+                    User Interface Test 351.71
+                    Elements 351.71 1.61 Krefresh/sec
+                    Disk Test 457.91
+                    Sequential 267.80
+                    Uncached Write 700.42 430.05 MB/sec [4K blocks]
+                    Uncached Write 462.01 261.40 MB/sec [256K blocks]
+                    Uncached Read 104.64 30.62 MB/sec [4K blocks]
+                    Uncached Read 559.36 281.13 MB/sec [256K blocks]
+                    Random 1578.62
+                    Uncached Write 2427.72 257.00 MB/sec [4K blocks]
+                    Uncached Write 888.41 284.41 MB/sec [256K blocks]
+                    Uncached Read 2909.52 20.62 MB/sec [4K blocks]
+                    Uncached Read 1532.21 284.31 MB/sec [256K blocks]
+                最近のSSDはRandom早いね！
+                MacBookAir(Mid2011 Ultimate)と比べてもだいぶ体感性能が違う感じ。これでHaswellなRetina iMacまで待とう&hellip;</p>
+                
+                <iframe src="http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=uasmks-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B005DPEVH0" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+                <h3>
+                  Comments
+                </h3>
+                <div aria-live="polite" id="disqus_thread">
+                  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                </div>
+                <script type="text/javascript">
+                  var disqus_shortname = 'ghostinthesuit';
+                  var disqus_identifier = "http://blog.uskanda.com/2012/06/13/buy-mac-mini/";
+                  var disqus_url = 'http://blog.uskanda.com/2012/06/13/buy-mac-mini/';
+                  var disqus_script = 'embed.js';
+                  
+                  (function () {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                  }());
+                </script>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <aside>
+            <div class="gadget" id="recents">
+              <span class="title">最近の投稿</span>
+              <ol>
+                <li>
+                  <a href="/2013/12/05/transfer-from-octopress-to-middleman/">OctopressからMiddlemanに移行した(12/05)</a>
+                </li>
+                <li>
+                  <a href="/2012/06/30/uc-411pbt-c/">「gooからだログ」に体重等自動送信できる体組成計UC-411PBT-Cを使ってみた(06/30)</a>
+                </li>
+                <li>
+                  <a href="/2012/06/18/osx-mouse-tips/">Mac OS Xでマウスを使うとしっくりこない件(06/18)</a>
+                </li>
+                <li>
+                  <a href="/2012/06/18/windows8-manifest-setting-for-compatibility/">Windows8デスクトップアプリでの互換性マニフェスト設定(06/18)</a>
+                </li>
+                <li>
+                  <a href="/2012/06/17/wordpress-with-nginx/">Wordpressをnginx+fastcgiベースに移行した(06/17)</a>
+                </li>
+                <li>
+                  <a href="/2012/06/13/buy-mac-mini/">Mac Mini(Mid2011)を買ってSSD換装したよー＼(^O^)／(06/13)</a>
+                </li>
+                <li>
+                  <a href="/2012/04/29/ubuntu-1204-name-resolve-failed/">Ubuntu 12.04にアップグレードしたら名前解決できなくなった(04/29)</a>
+                </li>
+                <li>
+                  <a href="/2012/04/02/update-rails-without-internet/">オフラインでのRails3アプリ環境の構築(04/02)</a>
+                </li>
+                <li>
+                  <a href="/2012/03/03/android-market-image-upload-error/">Android Marketアプリ登録時の画像アップロード失敗とデベロッパー登録時の留意点(03/03)</a>
+                </li>
+                <li>
+                  <a href="/2012/02/09/emacs-markdown-mode-preview-ja/">markdown-modeのプレビューで日本語が消える(02/09)</a>
+                </li>
+              </ol>
+            </div>
+            <div class="gadget" id="adsense">
+              <script>
+                async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+              </script>
+              <ins class="adsbygoogle" data-ad-client="ca-pub-1385530273298456" data-ad-slot="9191807793" style="display:inline-block;width:200px;height:200px"></ins>
+              <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+              </script>
+            </div>
+            <div class="gadget" id="tags">
+              <span class="title">タグ一覧</span>
+              <ol>
+                <li>
+                  <a href="/tags/nginx/">nginx</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/ubuntu/">Ubuntu</a> (2)
+                </li>
+                <li>
+                  <a href="/tags/server/">Server</a> (2)
+                </li>
+                <li>
+                  <a href="/tags/mac/">Mac</a> (2)
+                </li>
+                <li>
+                  <a href="/tags/mouse/">Mouse</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/logicool/">Logicool</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/開発/">開発</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/rails/">Rails</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/middleman/">Middleman</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/octopress/">Octopress</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/ruby/">Ruby</a> (5)
+                </li>
+                <li>
+                  <a href="/tags/ruby-on-rails/">Ruby on Rails</a> (3)
+                </li>
+                <li>
+                  <a href="/tags/rvm/">RVM</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/passenger/">Passenger</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/windows/">Windows</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/日々/">日々</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/book/">Book</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/emacs/">Emacs</a> (4)
+                </li>
+                <li>
+                  <a href="/tags/macmini/">MacMini</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/ssd/">SSD</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/review/">Review</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/uc-411pbt-c/">UC-411PBT-C</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/goo/">goo</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/anything-el/">anything.el</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/rinari/">rinari</a> (1)
+                </li>
+              </ol>
+            </div>
+            <div class="gadget" id="twitter">
+              <span class="title">ツイート</span><a class="twitter-timeline" data-chrome="noheader noborders transparent" data-widget-id="408280914938982400" href="https://twitter.com/uskanda">Tweets by @uskanda</a>
+              <script>
+                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+              </script>
+            </div>
+            <div class="gadget" id="archives">
+              <span class="title">アーカイブ</span>
+              <ol></ol>
+              <li>
+                <a href="/2013/">2013</a> (1)
+              </li>
+              <li>
+                <a href="/2012/">2012</a> (10)
+              </li>
+              <li>
+                <a href="/2011/">2011</a> (8)
+              </li>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="container">
+        <style>
+          .blogresponsivewide { width: 320px; height: 50px; }@media(min-width: 500px) { .blogresponsivewide { width: 468px; height: 60px; } }@media(min-width: 800px) { .blogresponsivewide { width: 728px; height: 90px; } }
+        </style>
+        <script>
+          async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        </script>
+        <ins class="adsbygoogle blogresponsivewide" data-ad-client="ca-pub-1385530273298456" data-ad-slot="4816571790" style="display:inline-block"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <div class="container">
+        &copy; uskanda 2010-2013.
+        <div class="pull-right">
+          Powered by <a href="http://middlemanapp.com">Middleman</a>.
+        </div>
+      </div>
+    </div>
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+    
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-3828545-4']);
+      _gaq.push(['_setDomainName', 'uskanda.com']);
+      _gaq.push(['_trackPageview']);
+    
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    
+    </script>
+    
+  </body>
+</html>

@@ -14,7 +14,7 @@
     <link rel="alternate" href="http://blog.url.com/2013/04/01/android-support-library-error-on-android-32/"/>
     <id>http://blog.url.com/2013/04/01/android-support-library-error-on-android-32/</id>
     <published>2013-04-01T10:22:00Z</published>
-    <updated>2013-12-08T06:42:00+00:00</updated>
+    <updated>2013-12-08T08:23:20+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -45,7 +45,7 @@ E/AndroidRuntime(25922):    at android.support.v4.app.NotificationCompat$Builder
     <link rel="alternate" href="http://blog.url.com/2013/02/23/mysql-show-columns-and-indices-from-all-the-tables/"/>
     <id>http://blog.url.com/2013/02/23/mysql-show-columns-and-indices-from-all-the-tables/</id>
     <published>2013-02-23T10:00:00Z</published>
-    <updated>2013-12-08T06:42:00+00:00</updated>
+    <updated>2013-12-08T08:23:20+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -81,7 +81,7 @@ AND information_schema.columns.column_name = information_schema.statistics.colum
     <link rel="alternate" href="http://blog.url.com/2013/02/17/macbook-pro-cover/"/>
     <id>http://blog.url.com/2013/02/17/macbook-pro-cover/</id>
     <published>2013-02-16T21:33:00Z</published>
-    <updated>2013-12-08T06:42:00+00:00</updated>
+    <updated>2013-12-08T08:23:20+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -129,7 +129,7 @@ MOBILE STUDIOのMacBook Pro 13inch Retina向け、マットブラックのケー
     <link rel="alternate" href="http://blog.url.com/2013/02/17/buy-macbook-pro-refurbished/"/>
     <id>http://blog.url.com/2013/02/17/buy-macbook-pro-refurbished/</id>
     <published>2013-02-16T19:31:00Z</published>
-    <updated>2013-12-08T06:42:00+00:00</updated>
+    <updated>2013-12-08T08:23:20+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -244,7 +244,7 @@ Macアプリケーションが美しく見えるのはたまらない。&lt;/p&g
     <link rel="alternate" href="http://blog.url.com/2013/01/31/hello-octopress/"/>
     <id>http://blog.url.com/2013/01/31/hello-octopress/</id>
     <published>2013-01-30T15:00:00Z</published>
-    <updated>2013-12-08T06:42:00+00:00</updated>
+    <updated>2013-12-08T08:23:20+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -261,7 +261,7 @@ Wordpressからの移行でデザインが崩れてる記事もあるけど、
     <link rel="alternate" href="http://blog.url.com/2013/01/04/vim-commands-for-me/"/>
     <id>http://blog.url.com/2013/01/04/vim-commands-for-me/</id>
     <published>2013-01-03T15:00:00Z</published>
-    <updated>2013-12-08T06:42:00+00:00</updated>
+    <updated>2013-12-08T08:23:20+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>

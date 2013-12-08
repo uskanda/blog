@@ -7,7 +7,7 @@
     <link href="/stylesheets/gits.css" rel="stylesheet" />
     <link href="/stylesheets/syntax.css" rel="stylesheet" />
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
-    <title>GHOST IN THE SUIT</title><link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+    <title>GHOST IN THE SUIT - Rsenseでの補完時に引数等を自動補完する</title><link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
   </head>
   <body>
     <div class="header">
@@ -24,14 +24,49 @@
       <div class="row">
         <div class="col-sm-9">
           <div id="main" role="main">
-            <h1>
-              2013年12月の記事一覧
-            </h1>
-            <ul>
-              <li>
-                <a href="/2013/12/05/transfer-from-octopress-to-middleman/">OctopressからMiddlemanに移行した</a><span>Dec  5</span>
-              </li>
-            </ul>
+            <article>
+              <div class="title">
+                <div class="subject">
+                  Rsenseでの補完時に引数等を自動補完する
+                </div>
+                <div class="date">
+                  2011-12-04 00:00:00 +0900
+                </div>
+              </div>
+              <div class="body">
+                <p>Emacsの整理にあたり、いつか試そうと思ってたけど使ってなかった
+                <a href="http://cx4a.org/software/rsense/index.ja.html" target="_blank">Rsense</a>を導入してみたらすごく便利だった！</p>
+                
+                <p>組み込みライブラリのメソッド名の補完等はバッチリなんで、せっかくなんで
+                yasnippetと連携させて引数やブロック有無なども補完できるようにしてみた。</p>
+                
+                <p><a href="https://github.com/uskanda/ac-rsense-yas-expand"><a href="https://github.com/uskanda/ac-rsense-yas-expand">https://github.com/uskanda/ac-rsense-yas-expand</a>
+                </a></p>
+                
+                <p>Emacs, auto-completeでのRsense利用が前提。
+                力技でRefeから組み込みライブラリの主要メソッドのsnippetを作って、
+                これまた力技でauto-completeにRsenseから伝えられたクラス情報を横取りして、yasnippetの起動条件に渡してる。
+                これで組み込みライブラリに関していえばIDEと遜色ないのではないかと。</p>
+                <h3>
+                  Comments
+                </h3>
+                <div aria-live="polite" id="disqus_thread">
+                  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                </div>
+                <script type="text/javascript">
+                  var disqus_shortname = 'ghostinthesuit';
+                  var disqus_identifier = "http://blog.uskanda.com/2011/12/04/ac-rsense-yas-expand/";
+                  var disqus_url = 'http://blog.uskanda.com/2011/12/04/ac-rsense-yas-expand/';
+                  var disqus_script = 'embed.js';
+                  
+                  (function () {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                  }());
+                </script>
+              </div>
+            </article>
           </div>
         </div>
         <div class="col-sm-3">

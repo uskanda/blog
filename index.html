@@ -82,14 +82,45 @@
 <article>
   <div class="title">
     <div class="subject">
-      <a href="/2012/01/01/example-article/">Example Article</a>
+      <a href="/2012/01/01/release-kotoshiwa/">新年の目標を共有するサービス Kotoshiwaをリリースしました</a>
     </div>
     <div class="date">
       Jan  1, 2012
     </div>
   </div>
   <div class="body">
-    <p>This is an example article. You probably want to delete it and write your own articles!</p>
+    <p>2011年、あけましておめでとうございます。
+    本年もよろしくお願いします。</p>
+    
+    <p>今年こそウェブサービスをリリースしたいので、<br>
+    その気持ちをあらわすべく、手始めに<br>
+    &ldquo;今年こそ○○する&quot;という新年の目標を共有するウェブサービスを作成しました。</p>
+    
+    <p><a href="http://kotoshiwa.com" title="Kotoshiwa - 新年の目標を共有しよう">Kotoshiwa - 新年の目標を共有しよう</a></p>
+    
+    <p><a href="http://kotoshiwa.com" title="Kotoshiwa - 新年の目標を共有しよう"><a href="http://kotoshiwa.com">http://kotoshiwa.com</a></a></p>
+    
+    <p>Twitterでログインして、新年の目標を100文字以内で投稿するだけです！
+    是非利用してみてください！</p>
+    
+  </div>
+</article>
+<article>
+  <div class="title">
+    <div class="subject">
+      <a href="/2011/12/04/blog-nameduplication/">まさかのカブリ</a>
+    </div>
+    <div class="date">
+      Dec  4, 2011
+    </div>
+  </div>
+  <div class="body">
+    <p>ブログをまともに再開したのだけど、
+    適当につけていたブログ名がまさか会社さんとカブっていたとは&hellip;</p>
+    
+    <p><a href="http://fugapiyo.jp/" target="_blank">株式会社フガピヨ</a></p>
+    
+    <p>新しいブログ名急いで考えよう&hellip;</p>
     
   </div>
 </article>
@@ -113,6 +144,32 @@
     </ul></p>
     
     <iframe src="http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=uasmks-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=4274068668" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+    
+  </div>
+</article>
+<article>
+  <div class="title">
+    <div class="subject">
+      <a href="/2011/12/04/ac-rsense-yas-expand/">Rsenseでの補完時に引数等を自動補完する</a>
+    </div>
+    <div class="date">
+      Dec  4, 2011
+    </div>
+  </div>
+  <div class="body">
+    <p>Emacsの整理にあたり、いつか試そうと思ってたけど使ってなかった
+    <a href="http://cx4a.org/software/rsense/index.ja.html" target="_blank">Rsense</a>を導入してみたらすごく便利だった！</p>
+    
+    <p>組み込みライブラリのメソッド名の補完等はバッチリなんで、せっかくなんで
+    yasnippetと連携させて引数やブロック有無なども補完できるようにしてみた。</p>
+    
+    <p><a href="https://github.com/uskanda/ac-rsense-yas-expand"><a href="https://github.com/uskanda/ac-rsense-yas-expand">https://github.com/uskanda/ac-rsense-yas-expand</a>
+    </a></p>
+    
+    <p>Emacs, auto-completeでのRsense利用が前提。
+    力技でRefeから組み込みライブラリの主要メソッドのsnippetを作って、
+    これまた力技でauto-completeにRsenseから伝えられたクラス情報を横取りして、yasnippetの起動条件に渡してる。
+    これで組み込みライブラリに関していえばIDEと遜色ないのではないかと。</p>
     
   </div>
 </article>
@@ -229,10 +286,16 @@ rvm use 1.9.2-head&quot;
                   <a href="/2013/12/05/transfer-from-octopress-to-middleman/">OctopressからMiddlemanに移行した(12/05)</a>
                 </li>
                 <li>
-                  <a href="/2012/01/01/example-article/">Example Article(01/01)</a>
+                  <a href="/2012/01/01/release-kotoshiwa/">新年の目標を共有するサービス Kotoshiwaをリリースしました(01/01)</a>
+                </li>
+                <li>
+                  <a href="/2011/12/04/blog-nameduplication/">まさかのカブリ(12/04)</a>
                 </li>
                 <li>
                   <a href="/2011/12/04/agile-development-with-rails-4th-ed/">RailsによるアジャイルWebアプリケーション開発 第4版が出てたので買った(12/04)</a>
+                </li>
+                <li>
+                  <a href="/2011/12/04/ac-rsense-yas-expand/">Rsenseでの補完時に引数等を自動補完する(12/04)</a>
                 </li>
                 <li>
                   <a href="/2011/12/03/fix-yasnippet-when-using-col-highlight/">yasnippet(dropdown-list)が列ハイライト利用時にも表示が崩れないようにする(12/03)</a>
@@ -264,28 +327,16 @@ rvm use 1.9.2-head&quot;
               <span class="title">タグ一覧</span>
               <ol>
                 <li>
-                  <a href="/tags/book/">Book</a> (1)
+                  <a href="/tags/emacs/">Emacs</a> (3)
                 </li>
                 <li>
                   <a href="/tags/ruby-on-rails/">Ruby on Rails</a> (2)
                 </li>
                 <li>
-                  <a href="/tags/ruby/">Ruby</a> (3)
+                  <a href="/tags/ruby/">Ruby</a> (4)
                 </li>
                 <li>
-                  <a href="/tags/emacs/">Emacs</a> (2)
-                </li>
-                <li>
-                  <a href="/tags/anything-el/">anything.el</a> (1)
-                </li>
-                <li>
-                  <a href="/tags/rvm/">RVM</a> (1)
-                </li>
-                <li>
-                  <a href="/tags/passenger/">Passenger</a> (1)
-                </li>
-                <li>
-                  <a href="/tags/example/">example</a> (1)
+                  <a href="/tags/rinari/">rinari</a> (1)
                 </li>
                 <li>
                   <a href="/tags/middleman/">Middleman</a> (1)
@@ -294,7 +345,25 @@ rvm use 1.9.2-head&quot;
                   <a href="/tags/octopress/">Octopress</a> (1)
                 </li>
                 <li>
-                  <a href="/tags/rinari/">rinari</a> (1)
+                  <a href="/tags/anything-el/">anything.el</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/book/">Book</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/開発/">開発</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/rails/">Rails</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/日々/">日々</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/rvm/">RVM</a> (1)
+                </li>
+                <li>
+                  <a href="/tags/passenger/">Passenger</a> (1)
                 </li>
               </ol>
             </div>
@@ -314,7 +383,7 @@ rvm use 1.9.2-head&quot;
                 <a href="/2012/">2012</a> (1)
               </li>
               <li>
-                <a href="/2011/">2011</a> (6)
+                <a href="/2011/">2011</a> (8)
               </li>
             </div>
           </aside>

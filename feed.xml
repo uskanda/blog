@@ -14,7 +14,7 @@
     <link rel="alternate" href="http://blog.url.com/2013/12/05/transfer-from-octopress-to-middleman/"/>
     <id>http://blog.url.com/2013/12/05/transfer-from-octopress-to-middleman/</id>
     <published>2013-12-04T17:39:00Z</published>
-    <updated>2013-12-07T09:58:10+00:00</updated>
+    <updated>2013-12-08T04:11:52+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -63,15 +63,44 @@ github-pagesを強く意識しているOctopressよりはデプロイ設定が�
 </content>
   </entry>
   <entry>
-    <title>Example Article</title>
-    <link rel="alternate" href="http://blog.url.com/2012/01/01/example-article/"/>
-    <id>http://blog.url.com/2012/01/01/example-article/</id>
+    <title>新年の目標を共有するサービス Kotoshiwaをリリースしました</title>
+    <link rel="alternate" href="http://blog.url.com/2012/01/01/release-kotoshiwa/"/>
+    <id>http://blog.url.com/2012/01/01/release-kotoshiwa/</id>
     <published>2011-12-31T15:00:00Z</published>
-    <updated>2013-12-07T09:58:10+00:00</updated>
+    <updated>2013-12-08T04:11:52+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
-    <content type="html">&lt;p&gt;This is an example article. You probably want to delete it and write your own articles!&lt;/p&gt;
+    <content type="html">&lt;p&gt;2011年、あけましておめでとうございます。
+本年もよろしくお願いします。&lt;/p&gt;
+
+&lt;p&gt;今年こそウェブサービスをリリースしたいので、&lt;br&gt;
+その気持ちをあらわすべく、手始めに&lt;br&gt;
+&amp;ldquo;今年こそ○○する&amp;quot;という新年の目標を共有するウェブサービスを作成しました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://kotoshiwa.com" title="Kotoshiwa - 新年の目標を共有しよう"&gt;Kotoshiwa - 新年の目標を共有しよう&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://kotoshiwa.com" title="Kotoshiwa - 新年の目標を共有しよう"&gt;&lt;a href="http://kotoshiwa.com"&gt;http://kotoshiwa.com&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Twitterでログインして、新年の目標を100文字以内で投稿するだけです！
+是非利用してみてください！&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>まさかのカブリ</title>
+    <link rel="alternate" href="http://blog.url.com/2011/12/04/blog-nameduplication/"/>
+    <id>http://blog.url.com/2011/12/04/blog-nameduplication/</id>
+    <published>2011-12-03T15:00:00Z</published>
+    <updated>2013-12-08T04:11:52+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;ブログをまともに再開したのだけど、
+適当につけていたブログ名がまさか会社さんとカブっていたとは&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://fugapiyo.jp/" target="_blank"&gt;株式会社フガピヨ&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;新しいブログ名急いで考えよう&amp;hellip;&lt;/p&gt;
 </content>
   </entry>
   <entry>
@@ -79,7 +108,7 @@ github-pagesを強く意識しているOctopressよりはデプロイ設定が�
     <link rel="alternate" href="http://blog.url.com/2011/12/04/agile-development-with-rails-4th-ed/"/>
     <id>http://blog.url.com/2011/12/04/agile-development-with-rails-4th-ed/</id>
     <published>2011-12-03T15:00:00Z</published>
-    <updated>2013-12-07T09:58:10+00:00</updated>
+    <updated>2013-12-08T04:11:52+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -96,11 +125,35 @@ github-pagesを強く意識しているOctopressよりはデプロイ設定が�
 </content>
   </entry>
   <entry>
+    <title>Rsenseでの補完時に引数等を自動補完する</title>
+    <link rel="alternate" href="http://blog.url.com/2011/12/04/ac-rsense-yas-expand/"/>
+    <id>http://blog.url.com/2011/12/04/ac-rsense-yas-expand/</id>
+    <published>2011-12-03T15:00:00Z</published>
+    <updated>2013-12-08T04:11:52+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;Emacsの整理にあたり、いつか試そうと思ってたけど使ってなかった
+&lt;a href="http://cx4a.org/software/rsense/index.ja.html" target="_blank"&gt;Rsense&lt;/a&gt;を導入してみたらすごく便利だった！&lt;/p&gt;
+
+&lt;p&gt;組み込みライブラリのメソッド名の補完等はバッチリなんで、せっかくなんで
+yasnippetと連携させて引数やブロック有無なども補完できるようにしてみた。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/uskanda/ac-rsense-yas-expand"&gt;&lt;a href="https://github.com/uskanda/ac-rsense-yas-expand"&gt;https://github.com/uskanda/ac-rsense-yas-expand&lt;/a&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Emacs, auto-completeでのRsense利用が前提。
+力技でRefeから組み込みライブラリの主要メソッドのsnippetを作って、
+これまた力技でauto-completeにRsenseから伝えられたクラス情報を横取りして、yasnippetの起動条件に渡してる。
+これで組み込みライブラリに関していえばIDEと遜色ないのではないかと。&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
     <title>yasnippet(dropdown-list)が列ハイライト利用時にも表示が崩れないようにする</title>
     <link rel="alternate" href="http://blog.url.com/2011/12/03/fix-yasnippet-when-using-col-highlight/"/>
     <id>http://blog.url.com/2011/12/03/fix-yasnippet-when-using-col-highlight/</id>
     <published>2011-12-02T15:00:00Z</published>
-    <updated>2013-12-07T09:58:10+00:00</updated>
+    <updated>2013-12-08T04:11:52+00:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -109,41 +162,6 @@ yasnippetの補完候補表示等に利用されるdropdown-listの表示が
 現在のカーソル位置の列をハイライトするcol-highlight利用時に崩れるので、
 dropdown-list利用時にcol-highlightを一時停止するようにした。
 &lt;script src="https://gist.github.com/1424152.js"&gt; &lt;/script&gt;&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>.rvmrcを使っているRailsプロジェクトでrinariからrails server,consoleを呼ぶ</title>
-    <link rel="alternate" href="http://blog.url.com/2011/12/02/rvm-rinari/"/>
-    <id>http://blog.url.com/2011/12/02/rvm-rinari/</id>
-    <published>2011-12-01T15:00:00Z</published>
-    <updated>2013-12-07T09:58:10+00:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;RVMで通常利用(rvm use &amp;ndash;default)している以外のRubyを.rvmrcで指定している&lt;br&gt;
-Railsプロジェクトで、rinariをそのまま使うとEmacsからのserver, console呼び出しができないので、&lt;br&gt;
-力技でRVMを変更することにした。    &lt;/p&gt;
-
-&lt;script src="https://gist.github.com/1390182.js"&gt; &lt;/script&gt;
-
-&lt;p&gt;rvm.elとrinari前提。    &lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>anythingのspotlight検索項目でバイナリファイルを開くときにMacアプリケーションを使う</title>
-    <link rel="alternate" href="http://blog.url.com/2011/11/20/anything-spotlight/"/>
-    <id>http://blog.url.com/2011/11/20/anything-spotlight/</id>
-    <published>2011-11-19T15:00:00Z</published>
-    <updated>2013-12-07T09:58:10+00:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;Spotlightの検索結果PDFを直接Preview.appで開きたいんでつくったー。&lt;br&gt;
-&lt;script src="https://gist.github.com/1379387.js"&gt; &lt;/script&gt;&lt;br&gt;
-Macアプリケーションで開きたい拡張子をanything-c-source-mac-spotlight2-open-file-extensionsに加える。&lt;br&gt;
-anything-c-source-mac-spotlight2をanythingのanything-c-source-mac-spotlightの代わりにsourceとして使えばOK。&lt;br&gt;
-ファイル開く動作全般に適用しようかとも思ったけど、PDFや画像を開くケースってspotlight検索ぐらいな気がしたので、&lt;br&gt;
-ひとまず満足。&lt;/p&gt;
 </content>
   </entry>
 </feed>

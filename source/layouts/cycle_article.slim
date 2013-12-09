@@ -1,10 +1,8 @@
+- article ||= current_article
+- date = article.date
 - wrap_layout :cycle do
   article
-    .title 
-      .subject
-        = current_article.title
-      .date 
-        = current_article.date
+    = partial :article_title
     .body
       = yield
       = partial "comment"

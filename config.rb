@@ -65,6 +65,7 @@ activate :blog do |blog|
 end
 page "/cycle/*", layout: :cycle
 page "/cycle/articles/*", layout: :cycle_article
+page "/cycle/feed.xml", layout: false
 
 activate :blog do |blog|
   blog.name = "greedy"

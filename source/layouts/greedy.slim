@@ -1,42 +1,16 @@
-doctype html
-html
-  head
+- wrap_layout :layout do
+  - content_for :head do
     meta[charset="utf-8"]
     meta[http-equiv="X-UA-Compatible" content="IE=edge;chrome=1"]
     link[href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet"]
-    link[href="/stylesheets/gits.css" rel="stylesheet"]
+    link[href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"]
+    link[href="/stylesheets/greedy.css" rel="stylesheet"]
     link[href="/stylesheets/syntax.css" rel="stylesheet"]
     script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"
     title
       | GHOST IN THE SUIT
       = ' - ' + current_article.title unless current_article.nil?
-    = feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed"
-  body
-    = partial :header, locals: {site_title: "物欲稟議書", site_subtitle: "30km乗ったらもう帰りたい。だけど好きなんです。自転車関連、乗車記録/レビュー/TV観戦記"}
-    .container.main
-      .row
-        .col-sm-9
-          #main[role="main"]
-            = yield
-        .col-sm-3
-          aside
-            .gadget#recents
-              = partial :aside_recents
-            .gadget#tags
-              = partial :aside_taglist
-            .gadget#twitter
-              span.title
-                | ツイート
-              = partial :twitter
-            .gadget#archives
-              = partial :aside_archive
-    .footer
-      .container
-        = partial :adsense_wide
-      .container
-        | &copy; uskanda 2010-2013.
-        .pull-right
-          | Powered by 
-          a href="http://middlemanapp.com"
-            | Middleman
-          | .
+    = feed_tag :atom, "cycle/feed.xml", title: "Atom Feed"
+  - content_for :header do
+    = partial :header, locals: {site_title: "物欲遡及決裁", site_subtitle: "なんか買ったら書く、懺悔のレビュー。"}
+  = yield

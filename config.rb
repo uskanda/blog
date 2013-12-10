@@ -91,6 +91,7 @@ activate :blog do |blog|
 end
 page "/greedy/*", layout: :greedy
 page "/greedy/articles/*", layout: :greedy_article
+page "/greedy/feed.xml", layout: false
 
 activate :directory_indexes
 activate :syntax

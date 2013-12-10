@@ -9,6 +9,7 @@ gem "slim"
 gem "redcarpet"
 gem "therubyracer"
 gem "less"
+gem "middleman-livereload", "~> 3.1.0"
 
 # For feed.xml.builder
 gem "builder", "~> 3.0"

@@ -95,6 +95,7 @@ page "/greedy/feed.xml", layout: false
 
 activate :directory_indexes
 activate :syntax
+activate :livereload
 
 ###
 # Compass

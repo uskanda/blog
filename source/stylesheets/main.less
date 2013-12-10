@@ -5,6 +5,7 @@
 @background-image: url(../images/grey_wash_wall.png);
 @background-text-color: #eeeeee;
 @background-text-shadow: 1px -1px rgba(0,0,0,1);
+@h-border-color: #ccc;
 @main-background-image: #e8e8e8 url(../images/paper_fibers.png);
 @main-text-color: #282828;
 
@@ -67,10 +68,16 @@ body {
             .body {
                 margin-left: 5px;
                 h2 {
-                    font-size: 130%;
+                    font-size: 140%;
+                    border-left: 7px solid @h-border-color;
+                    border-bottom: 1px solid @h-border-color;
+                    padding: .6em .8em;
                 }
                 h3 {
-                    font-size: 115%;
+                    font-size: 125%;
+                    border-left: 7px solid @h-border-color;
+                    border-bottom: 1px solid @h-border-color;
+                    padding: .3em .8em;
                 }
                 h5 {
                     border-bottom: 1px solid rgba(0,0,0,.1);

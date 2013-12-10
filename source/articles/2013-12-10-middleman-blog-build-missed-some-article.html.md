@@ -1,7 +1,7 @@
 ---
 title: middleman-blogでbuildしたら何故か生成されない記事がある
-date: 2013-12-09 23:00 JST
-tags:
+date: 2013-12-10 23:00 JST
+tags: Middleman
 ---
 
 ## 記事が出てきません

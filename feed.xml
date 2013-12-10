@@ -5,16 +5,37 @@
   <id>http://blog.uskanda.com/</id>
   <link href="http://blog.uskanda.com/"/>
   <link href="http://blog.uskanda.com/feed.xml" rel="self"/>
-  <updated>2013-12-08T15:00:00Z</updated>
+  <updated>2013-12-10T14:00:00Z</updated>
   <author>
     <name>Yusuke Kanda</name>
   </author>
+  <entry>
+    <title>middleman-blogでbuildしたら何故か生成されない記事がある</title>
+    <link rel="alternate" href="http://blog.uskanda.com/2013/12/10/middleman-blog-build-missed-some-article/"/>
+    <id>http://blog.uskanda.com/2013/12/10/middleman-blog-build-missed-some-article/</id>
+    <published>2013-12-10T14:00:00Z</published>
+    <updated>2013-12-10T14:26:11+00:00</updated>
+    <author>
+      <name>Yusuke Kanda</name>
+    </author>
+    <content type="html">&lt;h2 id="toc_0"&gt;記事が出てきません&lt;/h2&gt;
+&lt;pre class="highlight text"&gt;bundle exec middleman build
+&lt;/pre&gt;
+&lt;p&gt;あれ？最新の記事が出てこない&amp;hellip;ビルドでエラーも出てない(´・ω・`)？&lt;br&gt;
+ローカルのサーバ経由だとちゃんと見えるのになー？&lt;br&gt;
+published: false でもないんだけどなー？&lt;/p&gt;
+
+&lt;h2 id="toc_1"&gt;もしかして：日付が未来日&lt;/h2&gt;
+
+&lt;p&gt;空気読んでくれてただけだった orz&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>OctopressからMiddlemanに移行した</title>
     <link rel="alternate" href="http://blog.uskanda.com/2013/12/09/transfer-from-octopress-to-middleman/"/>
     <id>http://blog.uskanda.com/2013/12/09/transfer-from-octopress-to-middleman/</id>
     <published>2013-12-08T15:00:00Z</published>
-    <updated>2013-12-09T03:46:01+00:00</updated>
+    <updated>2013-12-10T14:26:11+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -73,7 +94,7 @@ Github Pagesを強く意識しているOctopressよりはデプロイ設定が�
     <link rel="alternate" href="http://blog.uskanda.com/2013/04/01/android-support-library-error-on-android-32/"/>
     <id>http://blog.uskanda.com/2013/04/01/android-support-library-error-on-android-32/</id>
     <published>2013-04-01T10:22:00Z</published>
-    <updated>2013-12-09T03:46:01+00:00</updated>
+    <updated>2013-12-10T14:26:11+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -104,7 +125,7 @@ E/AndroidRuntime(25922):    at android.support.v4.app.NotificationCompat$Builder
     <link rel="alternate" href="http://blog.uskanda.com/2013/02/23/mysql-show-columns-and-indices-from-all-the-tables/"/>
     <id>http://blog.uskanda.com/2013/02/23/mysql-show-columns-and-indices-from-all-the-tables/</id>
     <published>2013-02-23T10:00:00Z</published>
-    <updated>2013-12-09T03:46:01+00:00</updated>
+    <updated>2013-12-10T14:26:11+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -140,7 +161,7 @@ AND information_schema.columns.column_name = information_schema.statistics.colum
     <link rel="alternate" href="http://blog.uskanda.com/2013/02/17/macbook-pro-cover/"/>
     <id>http://blog.uskanda.com/2013/02/17/macbook-pro-cover/</id>
     <published>2013-02-16T21:33:00Z</published>
-    <updated>2013-12-09T03:46:01+00:00</updated>
+    <updated>2013-12-10T14:26:11+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -188,7 +209,7 @@ MOBILE STUDIOのMacBook Pro 13inch Retina向け、マットブラックのケー
     <link rel="alternate" href="http://blog.uskanda.com/2013/02/17/buy-macbook-pro-refurbished/"/>
     <id>http://blog.uskanda.com/2013/02/17/buy-macbook-pro-refurbished/</id>
     <published>2013-02-16T19:31:00Z</published>
-    <updated>2013-12-09T03:46:01+00:00</updated>
+    <updated>2013-12-10T14:26:11+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -296,23 +317,6 @@ Macアプリケーションが美しく見えるのはたまらない。&lt;/p&g
 &lt;p&gt;買った途端&lt;a href="http://www.gizmodo.jp/2013/02/macbook_proair.html"&gt;値下げ&lt;/a&gt;しやがった(´・ω・｀)&lt;/p&gt;
 
 &lt;p&gt;&lt;a href="http://www.amazon.co.jp/exec/obidos/ASIN/B009X5EJSW/uasmks-22/ref=nosim/" target="_blank"&gt;&lt;img src="http://ecx.images-amazon.com/images/I/41OYV1CHZnL._SL160_.jpg" alt="APPLE MacBook Pro with Retina Display 13.3/2.5GHz Dual Core i5 MD212J/A" /&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href="http://www.amazon.co.jp/exec/obidos/ASIN/B009X5EJSW/uasmks-22/ref=nosim/" target="_blank"&gt;APPLE MacBook Pro with Retina Display 13.3/2.5GHz Dual Core i5 MD212J/A&lt;/a&gt;&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>今更ながらOctopress</title>
-    <link rel="alternate" href="http://blog.uskanda.com/2013/01/31/hello-octopress/"/>
-    <id>http://blog.uskanda.com/2013/01/31/hello-octopress/</id>
-    <published>2013-01-30T15:00:00Z</published>
-    <updated>2013-12-09T03:46:01+00:00</updated>
-    <author>
-      <name>Yusuke Kanda</name>
-    </author>
-    <content type="html">&lt;h2 id="toc_0"&gt;ブログ移転しました&lt;/h2&gt;
-
-&lt;p&gt;Wordpressをいろいろ整理したいと思っていたのだけど、
-せっかくなのでOctopressに移行してみた。
-Wordpressからの移行でデザインが崩れてる記事もあるけど、
-おおよそおっけーなのでひとまずこのまま。&lt;/p&gt;
 </content>
   </entry>
 </feed>

@@ -34,6 +34,68 @@
           <div id="main" role="main">
 <article>
   <div class="title">
+    <a class="date" rel="bookmark"><abbr>2012/09</abbr>5<sub>00:00</sub></a>
+    <div class="container">
+      <div class="subject">
+        <a href="/2012/09/05/stop-spark-videoplayer-live-streaming/">Flex SparkコンポーネントのVideoPlayerがライブストリーミングの時止まらない</a>
+      </div>
+      <div class="tags">
+        <div class="label label-primary">
+          Actionscript
+        </div>
+        <div class="label label-primary">
+          Flash
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <div class="body"><p>最近はコンセプト検証用のサンプルプログラムを作って営業することが多い。
+ここ数日、FlexでAdobe AIRのサンプルを作っているけど
+ActionScript自体触った機会がないので手探り状態&hellip;</p>
+
+<p>さて、こんなん
+<pre class="lang:as decode:true " >&lt;s:VideoDisplay id=&quot;video_player&quot;&gt;
+    &lt;s:source&gt;
+        &lt;s:DynamicStreamingVideoSource streamType=&quot;live&quot; host=&quot;{data.host}&quot;&gt;
+            &lt;s:DynamicStreamingVideoItem streamName=&quot;{data.streamName}&quot;/&gt;
+        &lt;/s:DynamicStreamingVideoSource&gt;
+    &lt;/s:source&gt;
+&lt;/s:VideoDisplay&gt;</pre> </p>
+
+<p>作ってVideoPlayerにDynamicStreamingVideoSourceを指定してライブストリーミングを受信するようにすると、
+video_player.play()で再生はできるけどstop()やpause()が効かない&hellip;(´・ω・｀)</p>
+
+<p>手探りで
+video<em>player.mx</em>internal::videoPlayer.stop();
+としてみると止まった。</p>
+
+<p>ただし、mx<em>internal名前空間以下のメソッドは&lt;a href=&ldquo;<a href="http://cookbooks.adobe.com/post">http://cookbooks.adobe.com/post</a></em>What<em>is</em>mx<em>internal</em>-12212.html&rdquo;&gt;アドビの説明</a>によると
+<blockquote>
+Problem
+Looking at the Flex framework code, several properties and functions are prefixed with mx<em>internal. What is this?
+Solution
+mx</em>internal is a namespace used by the Flex framework to partition out functions and properties that may change in future releases of the Flex SDK.
+</blockquote>
+いつ消えるとも知れないらしい&hellip; Flexのバージョンアップに追随していく必要のあるアプリだと使えなさそう。
+今回のケースでは問題少なそうだから、ひとまずこれで対処することにする。</p>
+
+  </div>
+</article>
+<hr /><div class="text-center">
+  <style>
+    .blogresponsivewide { width: 320px; height: 50px; }@media(min-width: 500px) { .blogresponsivewide { width: 468px; height: 60px; } }@media(min-width: 800px) { .blogresponsivewide { width: 728px; height: 90px; } }
+  </style>
+  <script>
+    async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+  </script>
+  <ins class="adsbygoogle blogresponsivewide" data-ad-client="ca-pub-1385530273298456" data-ad-slot="4816571790" style="display:inline-block"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<article>
+  <div class="title">
     <a class="date" rel="bookmark"><abbr>2012/07</abbr>14<sub>00:00</sub></a>
     <div class="container">
       <div class="subject">
@@ -69,16 +131,7 @@
     
   </div>
 </article>
-<hr /><style>
-  .blogresponsivewide { width: 320px; height: 50px; }@media(min-width: 500px) { .blogresponsivewide { width: 468px; height: 60px; } }@media(min-width: 800px) { .blogresponsivewide { width: 728px; height: 90px; } }
-</style>
-<script>
-  async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-</script>
-<ins class="adsbygoogle blogresponsivewide" data-ad-client="ca-pub-1385530273298456" data-ad-slot="4816571790" style="display:inline-block"></ins>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+<hr />
 <article>
   <div class="title">
     <a class="date" rel="bookmark"><abbr>2012/06</abbr>30<sub>00:00</sub></a>
@@ -693,36 +746,6 @@ bundlerはbundle packageでは入らないんでgemファイルを準備して�
   </div>
 </article>
 <hr />
-<article>
-  <div class="title">
-    <a class="date" rel="bookmark"><abbr>2012/02</abbr>9<sub>00:00</sub></a>
-    <div class="container">
-      <div class="subject">
-        <a href="/2012/02/09/emacs-markdown-mode-preview-ja/">markdown-modeのプレビューで日本語が消える</a>
-      </div>
-      <div class="tags">
-        <div class="label label-primary">
-          Emacs
-        </div>
-      </div>
-    </div>
-    <div class="clearfix"></div>
-  </div>
-  <div class="body"><p>最近はEmacs+markdown-modeで仕事の議事録をとってみてる。
-だけど、markdown-modeで、markdownの変換結果プレビューすると日本語が全滅状態&hellip;</p>
-
-<p>markdown-modeの問題というよりか、今の自分の環境では
-リージョンをコマンドに引き渡すshell-command-on-regionそのものが日本語をうまく持っていけてないみたい。</p>
-
-<p>ひとまず、リージョンではなくファイルで引き渡す設定が下記でできるので
-markdown-modeの問題はこれで解決。
-<code>
-(setq markdown-command-needs-filename t)
-</code></p>
-
-  </div>
-</article>
-<hr />
 <div class="paginate_box">
   <div class="pull-left">
     <a href="/">前のページ</a>
@@ -738,6 +761,9 @@ markdown-modeの問題はこれで解決。
             <div class="gadget" id="recents">
               <span class="title">最近の投稿</span>
               <ol>
+                <li>
+                  <a href="/2013/12/10/middleman-blog-build-missed-some-article/">middleman-blogでbuildしたら何故か生成されない記事がある(12/10)</a>
+                </li>
                 <li>
                   <a href="/2013/12/09/transfer-from-octopress-to-middleman/">OctopressからMiddlemanに移行した(12/09)</a>
                 </li>
@@ -765,9 +791,6 @@ markdown-modeの問題はこれで解決。
                 <li>
                   <a href="/2012/11/05/windows-8-pro-media-center-product-inf/">Windows 8のMedia Center Packを適用するとエディション名が変わる(11/05)</a>
                 </li>
-                <li>
-                  <a href="/2012/09/05/stop-spark-videoplayer-live-streaming/">Flex SparkコンポーネントのVideoPlayerがライブストリーミングの時止まらない(09/05)</a>
-                </li>
               </ol>
             </div>
             <div class="gadget" id="adsense">
@@ -789,40 +812,40 @@ markdown-modeの問題はこれで解決。
                 Ruby on Rails(4) </a><a href="/tags/emacs/">
                 Emacs(4) </a><a href="/tags/review/">
                 Review(3) </a><a href="/tags/mac/">
-                Mac(3) </a><a href="/tags/macbookpro/">
-                MacBookPro(2) </a><a href="/tags/ubuntu/">
-                Ubuntu(2) </a><a href="/tags/octopress/">
-                Octopress(2) </a><a href="/tags/server/">
-                Server(2) </a><a href="/tags/gadget/">
-                Gadget(2) </a><a href="/tags/flash/">
-                Flash(2) </a><a href="/tags/android/">
-                Android(2) </a><a href="/tags/windows/">
-                Windows(2) </a><a href="/tags/adobe-air/">
-                Adobe AIR(1) </a><a href="/tags/actionscript/">
-                Actionscript(1) </a><a href="/tags/日々/">
-                日々(1) </a><a href="/tags/mysql/">
-                MySQL(1) </a><a href="/tags/開発/">
-                開発(1) </a><a href="/tags/rails/">
-                Rails(1) </a><a href="/tags/rinari/">
-                rinari(1) </a><a href="/tags/middleman/">
-                Middleman(1) </a><a href="/tags/refurbished/">
-                Refurbished(1) </a><a href="/tags/redmine/">
-                redmine(1) </a><a href="/tags/anything-el/">
-                anything.el(1) </a><a href="/tags/case/">
-                Case(1) </a><a href="/tags/vim/">
-                Vim(1) </a><a href="/tags/mouse/">
-                Mouse(1) </a><a href="/tags/logicool/">
-                Logicool(1) </a><a href="/tags/nginx/">
-                nginx(1) </a><a href="/tags/uc-411pbt-c/">
-                UC-411PBT-C(1) </a><a href="/tags/goo/">
-                goo(1) </a><a href="/tags/rvm/">
+                Mac(3) </a><a href="/tags/flash/">
+                Flash(2) </a><a href="/tags/octopress/">
+                Octopress(2) </a><a href="/tags/middleman/">
+                Middleman(2) </a><a href="/tags/android/">
+                Android(2) </a><a href="/tags/gadget/">
+                Gadget(2) </a><a href="/tags/windows/">
+                Windows(2) </a><a href="/tags/macbookpro/">
+                MacBookPro(2) </a><a href="/tags/server/">
+                Server(2) </a><a href="/tags/ubuntu/">
+                Ubuntu(2) </a><a href="/tags/uc-411pbt-c/">
+                UC-411PBT-C(1) </a><a href="/tags/rails/">
+                Rails(1) </a><a href="/tags/開発/">
+                開発(1) </a><a href="/tags/rvm/">
                 RVM(1) </a><a href="/tags/passenger/">
-                Passenger(1) </a><a href="/tags/macmini/">
+                Passenger(1) </a><a href="/tags/nginx/">
+                nginx(1) </a><a href="/tags/goo/">
+                goo(1) </a><a href="/tags/rinari/">
+                rinari(1) </a><a href="/tags/redmine/">
+                redmine(1) </a><a href="/tags/mysql/">
+                MySQL(1) </a><a href="/tags/refurbished/">
+                Refurbished(1) </a><a href="/tags/adobe-air/">
+                Adobe AIR(1) </a><a href="/tags/日々/">
+                日々(1) </a><a href="/tags/vim/">
+                Vim(1) </a><a href="/tags/anything-el/">
+                anything.el(1) </a><a href="/tags/actionscript/">
+                Actionscript(1) </a><a href="/tags/book/">
+                Book(1) </a><a href="/tags/mouse/">
+                Mouse(1) </a><a href="/tags/logicool/">
+                Logicool(1) </a><a href="/tags/macmini/">
                 MacMini(1) </a><a href="/tags/ssd/">
-                SSD(1) </a><a href="/tags/book/">
-                Book(1) </a><a href="/tags/windows8/">
+                SSD(1) </a><a href="/tags/windows8/">
                 Windows8(1) </a><a href="/tags/mediacenterpack/">
-                MediaCenterPack(1) </a>
+                MediaCenterPack(1) </a><a href="/tags/case/">
+                Case(1) </a>
               </div>
             </div>
             <div class="gadget" id="twitter">
@@ -835,7 +858,7 @@ markdown-modeの問題はこれで解決。
               <span class="title">アーカイブ</span>
               <ol></ol>
               <li>
-                <a href="/2013/">2013</a> (7)
+                <a href="/2013/">2013</a> (8)
               </li>
               <li>
                 <a href="/2012/">2012</a> (14)
@@ -856,16 +879,18 @@ markdown-modeの問題はこれで解決。
     </div>
     <div class="footer">
       <div class="container">
-        <style>
-          .blogresponsivewide { width: 320px; height: 50px; }@media(min-width: 500px) { .blogresponsivewide { width: 468px; height: 60px; } }@media(min-width: 800px) { .blogresponsivewide { width: 728px; height: 90px; } }
-        </style>
-        <script>
-          async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-        </script>
-        <ins class="adsbygoogle blogresponsivewide" data-ad-client="ca-pub-1385530273298456" data-ad-slot="4816571790" style="display:inline-block"></ins>
-        <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
+        <div class="text-center">
+          <style>
+            .blogresponsivewide { width: 320px; height: 50px; }@media(min-width: 500px) { .blogresponsivewide { width: 468px; height: 60px; } }@media(min-width: 800px) { .blogresponsivewide { width: 728px; height: 90px; } }
+          </style>
+          <script>
+            async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          </script>
+          <ins class="adsbygoogle blogresponsivewide" data-ad-client="ca-pub-1385530273298456" data-ad-slot="4816571790" style="display:inline-block"></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
       </div>
       <div class="container">
         &copy; Yusuke Kanda 2010-2013.

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Homesick Cyclist</title>
+  <subtitle>自転車関連、乗車記録/レビュー/TV観戦記</subtitle>
+  <id>http://blog.uskanda.com/cycle</id>
+  <link href="http://blog.uskanda.com/cycle"/>
+  <link href="http://blog.uskanda.com/cycle/cycle/feed.xml" rel="self"/>
+  <updated>2013-12-10T14:00:00Z</updated>
+  <author>
+    <name>Yusuke Kanda</name>
+  </author>
+  <entry>
+    <title>自転車ブログを書くよー</title>
+    <link rel="alternate" href="http://blog.uskanda.com/cycle/2013/12/10/initial/"/>
+    <id>http://blog.uskanda.com/cycle/2013/12/10/initial/</id>
+    <published>2013-12-10T14:00:00Z</published>
+    <updated>2013-12-10T14:26:11+00:00</updated>
+    <author>
+      <name>Yusuke Kanda</name>
+    </author>
+    <content type="html">&lt;h1 id="toc_0"&gt;ブログ書くよ！&lt;/h1&gt;
+
+&lt;p&gt;ロードバイク購入から1年、
+ちゃんと乗れてないのでブログ書いてがんばるよ(｀・ω・´)&lt;/p&gt;
+</content>
+  </entry>
+</feed>

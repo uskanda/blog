@@ -1,0 +1,164 @@
+/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com
+  ---------------------------------------------------*/
+a[rel~=bookmark] {
+  display: block;
+  position: relative;
+  width: 60px;
+  border: 1px solid #bbbbbb;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  font: 24px/35px "Helvetica Neue", Arial, sans-serif;
+  text-align: center;
+  letter-spacing: 2px;
+  text-decoration: none;
+  color: #666;
+  background: #fcfcfc repeat-x left 18px;
+  margin-bottom: 0;
+  margin-top: 5px;
+}
+/* year + month */
+a[rel~=bookmark] abbr {
+  display: block;
+  font: 10px Verdana, sans-serif;
+  letter-spacing: normal;
+  color: white;
+  -moz-border-radius-topright: 5px;
+  -webkit-border-top-right-radius: 5px;
+}
+a[rel~=bookmark] > :first-child {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #832a28;
+  line-height: 16px;
+  text-align: center;
+  text-transform: uppercase;
+  background: #a33537 repeat-x bottom left;
+}
+a[rel~=bookmark] sub {
+  display: block;
+  height: 17px;
+  border-top: 1px solid #bbd;
+  margin: 0 3px;
+  color: #aac;
+  font: 9px/16px Verdana, sans-serif;
+  letter-spacing: normal;
+  text-align: center;
+}
+body {
+  background-image: url(../images/grey.png);
+}
+body .header {
+  color: #222222;
+  text-shadow: -1px 1px rgba(0, 0, 0, 0.2);
+}
+body .header .site_title a {
+  color: #222222;
+  text-decoration: none;
+  text-shadow: -1px 1px rgba(0, 0, 0, 0.2);
+}
+body .header .site_title a:hover {
+  text-decoration: underline;
+}
+body .header .externals {
+  padding-top: 30px;
+  text-align: right;
+}
+body .header .externals a {
+  color: #eeeeee;
+}
+body .header .externals a:hover {
+  color: #ff6600;
+}
+body .main {
+  background: rgba(255, 255, 255, 0.7);
+  color: #282828;
+  padding-bottom: 20px;
+  -webkit-border-top-right-radius: 6px;
+  -webkit-border-bottom-right-radius: 6px;
+  -webkit-border-bottom-left-radius: 6px;
+  -webkit-border-top-left-radius: 6px;
+  -moz-border-radius-topright: 6px;
+  -moz-border-radius-bottomright: 6px;
+  -moz-border-radius-bottomleft: 6px;
+  -moz-border-radius-topleft: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-top-left-radius: 6px;
+  -moz-background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+body .main article {
+  padding-top: 15px;
+}
+body .main article .title .date {
+  float: left;
+  width: 60px;
+  margin-right: 10px;
+}
+body .main article .title .container {
+  width: auto;
+}
+body .main article .title .container .subject {
+  font-size: 150%;
+  padding-left: 20px;
+  text-shadow: -1px 1px #ffffff;
+}
+@media (max-width: 768px) {
+  body .main article .title .container .subject {
+    font-size: 125%;
+  }
+}
+body .main article .title .container .subject a {
+  color: #282828;
+}
+body .main article .title .container .tags .label {
+  margin-right: 0.5em;
+}
+body .main article .body {
+  margin-left: 5px;
+}
+body .main article .body h2 {
+  font-size: 130%;
+}
+body .main article .body h3 {
+  font-size: 115%;
+}
+body .main article .body h5 {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: #ffffff -1px 0 0;
+  -moz-box-shadow: #ffffff -1px 0 0;
+  box-shadow: #ffffff -1px 0 0;
+}
+body .main .paginate_box {
+  font-size: 125%;
+}
+body .main aside {
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: #ffffff -1px 0 0;
+  -moz-box-shadow: #ffffff -1px 0 0;
+  box-shadow: #ffffff -1px 0 0;
+  padding-left: 15px;
+  padding-top: 15px;
+}
+body .main aside .gadget {
+  margin-bottom: 15px;
+}
+body .main aside .gadget span.title {
+  font-size: 130%;
+}
+body .main aside .gadget ol {
+  list-style-type: disc;
+  padding-left: 0px;
+  margin: 0 0 0 1em;
+}
+body .footer {
+  color: #eeeeee;
+  margin-top: 15px;
+}

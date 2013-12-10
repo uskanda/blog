@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>物欲遡及決裁</title>
+  <subtitle>なんか買ったら書く、懺悔のレビュー。</subtitle>
+  <id>http://blog.uskanda.com/greedy</id>
+  <link href="http://blog.uskanda.com/greedy"/>
+  <link href="http://blog.uskanda.com/greedy/greedy/feed.xml" rel="self"/>
+  <updated>2013-12-10T15:00:00Z</updated>
+  <author>
+    <name>Yusuke Kanda</name>
+  </author>
+  <entry>
+    <title>このブログについて</title>
+    <link rel="alternate" href="http://blog.uskanda.com/greedy/2013/12/11/about-this-blog/"/>
+    <id>http://blog.uskanda.com/greedy/2013/12/11/about-this-blog/</id>
+    <published>2013-12-10T15:00:00Z</published>
+    <updated>2013-12-10T16:14:15+00:00</updated>
+    <author>
+      <name>Yusuke Kanda</name>
+    </author>
+    <content type="html">&lt;h2 id="toc_0"&gt;このブログはなに？&lt;/h2&gt;
+
+&lt;p&gt;このブログは&lt;a href="http://twitter.com/uskanda"&gt;@uskanda&lt;/a&gt;が物欲にまみれた生活を矯正するための記録書です。&lt;br&gt;
+&lt;strong&gt;高価な買い物を必ず記録する&lt;/strong&gt;ことによって、反省と自戒を自分に促すことを目的としています。
+ついでにレビューもします。&lt;/p&gt;
+
+&lt;h2 id="toc_1"&gt;投稿ルール&lt;/h2&gt;
+
+&lt;p&gt;私は以下のルールを順守します:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;10,000円(税抜)以上の品物を購入した場合、2週間以内に必ず購入報告記事を投稿します。&lt;/li&gt;
+&lt;li&gt;長期利用を経なければ感想が書けない品物については、3ヶ月以内に再度レビュー記事を投稿します。&lt;/li&gt;
+&lt;li&gt;10,000円未満の品物についても、生活必需品以外の初購入品は極力記事を投稿します。&lt;/li&gt;
+&lt;li&gt;投稿時に購入金額を入力し、管理します。&lt;/li&gt;
+&lt;li&gt;最低年一回、直近一年の購入物品を総括します。&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
+</feed>

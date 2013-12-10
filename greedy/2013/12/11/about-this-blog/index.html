@@ -8,7 +8,7 @@
     <link href="/stylesheets/greedy.css" rel="stylesheet" />
     <link href="/stylesheets/syntax.css" rel="stylesheet" />
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
-    <title>GHOST IN THE SUIT - RVM+PassengerでRuby1.8系と1.9系を同時利用する</title><link rel="alternate" type="application/atom+xml" title="Atom Feed" href="cycle/feed.xml" />
+    <title>GHOST IN THE SUIT - このブログについて</title><link rel="alternate" type="application/atom+xml" title="Atom Feed" href="cycle/feed.xml" />
   </head>
   <body>
     <div class="header">
@@ -31,54 +31,54 @@
     <div class="container main">
       <div class="row">
         <div class="col-sm-9">
-          <div id="main" role="main"><article>
-  <div class="title">
-    <div class="subject">
-      RVM+PassengerでRuby1.8系と1.9系を同時利用する
-    </div>
-    <div class="date">
-      2011-06-22 00:00:00 +0900
-    </div>
-  </div>
-  <div class="body"><p>半年前に書いたものがアップせずに残ってたorz<br>
-一応あげておこう。。。    </p>
-
-<p>RedmineはまだRuby1.8/Rails2系しか対応してないからRuby1.8を使わなきゃいけないけど、<br>
-他のRailsアプリはRuby1.9で動作させるようにしたい！というわけで<br>
-Passengerで複数のRubyを使ってアプリを動かす方法を探したら、<br>
-そのまんまの記事がPassenger公式に上がってた。    </p>
-
-<p><a title="Permanent link to Phusion Passenger &amp; running multiple Ruby versions" rel="bookmark" href="http://blog.phusion.nl/2010/09/21/phusion-passenger-running-multiple-ruby-versions/">Phusion Passenger &amp; running multiple Ruby versions</a>    </p>
-
-<p>Passengerはnginx利用で単体起動する機能があるようで、<br>
-&ldquo;passenger start&quot;でnginxインストールから起動までやってくれる。<br>
-standaloneの場合、これで立ち上がったPassengerに大して、メインのApache/nginxのリバースプロキシでアクセスする。<br>
-rc.localに自動起動のための設定を書いた。    </p>
-<pre class="highlight text">su - $USERNAME -c &quot;    
-cd /webapps/redmine    
-rvm use 1.8.7-head    
-passenger start -a 127.0.0.1 -p 3000 -e production -d    
-rvm use 1.9.2-head&quot;
-</pre><h3>
-      Comments
-    </h3>
-    <div aria-live="polite" id="disqus_thread">
-      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </div>
-    <script type="text/javascript">
-      var disqus_shortname = 'ghostinthesuit';
-      var disqus_identifier = "http://blog.uskanda.com/greedy/2011/06/22/use-multiple-ruby-with-passenger/";
-      var disqus_url = 'http://blog.uskanda.com/greedy/2011/06/22/use-multiple-ruby-with-passenger/';
-      var disqus_script = 'embed.js';
-      
-      (function () {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      }());
-    </script>
-  </div>
-</article>
+          <div id="main" role="main">
+            <article>
+              <div class="title">
+                <div class="subject">
+                  このブログについて
+                </div>
+                <div class="date">
+                  2013-12-11 00:00:00 +0900
+                </div>
+              </div>
+              <div class="body">
+                <h2 id="toc_0">このブログはなに？</h2>
+                
+                <p>このブログは<a href="http://twitter.com/uskanda">@uskanda</a>が物欲にまみれた生活を矯正するための記録書です。<br>
+                <strong>高価な買い物を必ず記録する</strong>ことによって、反省と自戒を自分に促すことを目的としています。
+                ついでにレビューもします。</p>
+                
+                <h2 id="toc_1">投稿ルール</h2>
+                
+                <p>私は以下のルールを順守します:</p>
+                
+                <ul>
+                <li>10,000円(税抜)以上の品物を購入した場合、2週間以内に必ず購入報告記事を投稿します。</li>
+                <li>長期利用を経なければ感想が書けない品物については、3ヶ月以内に再度レビュー記事を投稿します。</li>
+                <li>10,000円未満の品物についても、生活必需品以外の初購入品は極力記事を投稿します。</li>
+                <li>投稿時に購入金額を入力し、管理します。</li>
+                <li>最低年一回、直近一年の購入物品を総括します。</li>
+                </ul>
+                <h3>
+                  Comments
+                </h3>
+                <div aria-live="polite" id="disqus_thread">
+                  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                </div>
+                <script type="text/javascript">
+                  var disqus_shortname = 'ghostinthesuit';
+                  var disqus_identifier = "http://blog.uskanda.com/greedy/2013/12/11/about-this-blog/";
+                  var disqus_url = 'http://blog.uskanda.com/greedy/2013/12/11/about-this-blog/';
+                  var disqus_script = 'embed.js';
+                  
+                  (function () {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                  }());
+                </script>
+              </div>
+            </article>
           </div>
         </div>
         <div class="col-sm-3">
@@ -87,7 +87,7 @@ rvm use 1.9.2-head&quot;
               <span class="title">最近の投稿</span>
               <ol>
                 <li>
-                  <a href="/greedy/2011/06/22/use-multiple-ruby-with-passenger/">RVM+PassengerでRuby1.8系と1.9系を同時利用する(06/22)</a>
+                  <a href="/greedy/2013/12/11/about-this-blog/">このブログについて(12/11)</a>
                 </li>
               </ol>
             </div>
@@ -105,10 +105,8 @@ rvm use 1.9.2-head&quot;
             </div>
             <div class="gadget" id="tags">
               <span class="title">タグ一覧</span>
-              <div class="gadget_body"><a href="/greedy/tags/ruby/">
-                Ruby(1) </a><a href="/greedy/tags/rvm/">
-                RVM(1) </a><a href="/greedy/tags/passenger/">
-                Passenger(1) </a>
+              <div class="gadget_body"><a href="/greedy/tags/趣旨/">
+                趣旨(1) </a>
               </div>
             </div>
             <div class="gadget" id="twitter">
@@ -121,7 +119,7 @@ rvm use 1.9.2-head&quot;
               <span class="title">アーカイブ</span>
               <ol></ol>
               <li>
-                <a href="/greedy/2011/">2011</a> (1)
+                <a href="/greedy/2013/">2013</a> (1)
               </li>
             </div>
             <div class="gadget" id="amazon">

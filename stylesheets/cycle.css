@@ -124,10 +124,16 @@ body .main article .body {
   margin-left: 5px;
 }
 body .main article .body h2 {
-  font-size: 130%;
+  font-size: 140%;
+  border-left: 7px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  padding: .6em .8em;
 }
 body .main article .body h3 {
-  font-size: 115%;
+  font-size: 125%;
+  border-left: 7px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  padding: .3em .8em;
 }
 body .main article .body h5 {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);

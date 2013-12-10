@@ -29,11 +29,19 @@ html
       .container
         = partial :adsense_wide
       .container
-        | &copy; Yusuke Kanda 2010-2013.
+        a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"
+          img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/4.0/88x31.png"
+        |    Some rights reserved by Yusuke Kanda 2010-2013.
         .pull-right
           | Powered by 
           a href="http://middlemanapp.com"
             | Middleman
-          | .    
+          | , 
+          a href="http://github.com"
+            | Github
+          | , 
+          a href="https://travis-ci.org/"
+            | Travis CI
+          | .  
           img src="https://travis-ci.org/uskanda/blog.png?branch=master"
     = partial :bottom_js_analytics

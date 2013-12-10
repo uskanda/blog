@@ -53,13 +53,12 @@ body {
   background-image: url(../images/retina_wood.png);
 }
 body .header {
-  color: #222222;
-  text-shadow: -1px 1px rgba(0, 0, 0, 0.2);
+  color: #333333;
+  text-shadow: 1px -1px rgba(0, 0, 0, 0.2);
 }
 body .header .site_title a {
-  color: #222222;
+  color: #333333;
   text-decoration: none;
-  text-shadow: -1px 1px rgba(0, 0, 0, 0.2);
 }
 body .header .site_title a:hover {
   text-decoration: underline;
@@ -69,7 +68,7 @@ body .header .externals {
   text-align: right;
 }
 body .header .externals a {
-  color: #eeeeee;
+  color: #333333;
 }
 body .header .externals a:hover {
   color: #ff6600;
@@ -159,6 +158,6 @@ body .main aside .gadget ol {
   margin: 0 0 0 1em;
 }
 body .footer {
-  color: #eeeeee;
+  color: #333333;
   margin-top: 15px;
 }

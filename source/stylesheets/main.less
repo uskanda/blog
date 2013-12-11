@@ -118,5 +118,18 @@ body {
     .footer {
       color: @background-text-color;
       margin-top: 15px;
+      .blog_list {
+          ul {
+              list-style-type: none;
+              padding-left: 1em;
+          }
+      }
+    }
+    a.foreground_color {
+              color: @background-text-color;
+              text-decoration: none;
+              &:hover {
+                  text-decoration: underline;
+              }
     }
 }

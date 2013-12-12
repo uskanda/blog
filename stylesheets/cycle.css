@@ -56,6 +56,9 @@ body .header {
   color: #333333;
   text-shadow: 1px -1px rgba(0, 0, 0, 0.2);
 }
+body .header .site_title {
+  font-weight: bold;
+}
 body .header .site_title a {
   color: #333333;
   text-decoration: none;
@@ -106,6 +109,7 @@ body .main article .title .container {
 }
 body .main article .title .container .subject {
   font-size: 150%;
+  font-weight: bold;
   padding-left: 20px;
   text-shadow: -1px 1px #ffffff;
 }
@@ -177,4 +181,15 @@ body .main aside .gadget ol {
 body .footer {
   color: #333333;
   margin-top: 15px;
+}
+body .footer .blog_list ul {
+  list-style-type: none;
+  padding-left: 1em;
+}
+body a.foreground_color {
+  color: #333333;
+  text-decoration: none;
+}
+body a.foreground_color:hover {
+  text-decoration: underline;
 }

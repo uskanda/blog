@@ -1,7 +1,6 @@
 ---
 title: Vimのrelativenumber設定が便利すぎてヤバイ
 date: 2013-12-14 01:00 JST
-published: false
 tags: Vim
 ---
 

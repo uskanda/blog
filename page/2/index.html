@@ -35,6 +35,64 @@
           <div id="main" role="main">
 <article>
   <div class="title">
+    <a class="date" rel="bookmark"><abbr>2012/11</abbr>5<sub>00:00</sub></a>
+    <div class="container">
+      <div class="subject">
+        <a href="/2012/11/05/windows-8-pro-media-center-product-inf/">Windows 8のMedia Center Packを適用するとエディション名が変わる</a>
+      </div>
+      <div class="tags">
+        <div class="label label-primary">
+          <i class="fa fa-tag"></i> Windows
+        </div>
+        <div class="label label-primary">
+          <i class="fa fa-tag"></i> Windows8
+        </div>
+        <div class="label label-primary">
+          <i class="fa fa-tag"></i> MediaCenterPack
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="body">
+    <p>Windows 8はWindows2000以来初めて、発売日に手に入れてない(^_^;)<br>
+    仕事で各プレビュー版をそれなりに触ってしまったので、情熱が。。。<br>
+    さて、Windows 8は単体ではDVD再生ができない。これは前から周知があった。</p>
+    
+    <p><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms724358(v=vs.85).aspx">GetProductInfo function</a></p>
+    
+    <p>以下のMedia Center Packを適用すれば再生可能になる。2013/1/31まではタダらしい。</p>
+    
+    <p><a href="http://windows.microsoft.com/ja-JP/windows-8/feature-packs">機能の追加 - Microsoft Windows</a></p>
+    
+    <p>このMedia Center Packを当てたWindows 8 Proは、通常のWindows 8 Proとは別エディションになるようだ。</p>
+    
+    <p>見た限り、エディション判別によく使う、getProductInfo APIのpdwReturnedProductTypeの値がWindows 8 Proと異なる。</p>
+    
+    <p><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms724358(v=vs.85).aspx">GetProductInfo function</a></p>
+    
+    <p>Media Center Packを適用すると、Proを示すPRODUCT<em>PROFESSIONAL(0x00000030)でなく、
+    PRODUCT</em>PROFESSIONAL_WMC(0x00000067)になってるようだ。</p>
+    
+    <p>WindowsのOSバージョン/エディション判定ロジックのWindows8対応を行ったプロダクトがある場合、この点を見逃していないか確認が必要かも。</p>
+    
+    <p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B009K1SK3E/uasmks-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/510nCGJ7QdL._SL160_.jpg" alt="Microsoft Windows 8 Pro (DSP版)  64bit 日本語" /></a><br /><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B009K1SK3E/uasmks-22/ref=nosim/" target="_blank">Microsoft Windows 8 Pro (DSP版)  64bit 日本語</a></p>
+    
+  </div>
+</article>
+<hr /><div class="text-center">
+  <style>
+    .blogresponsivewide { width: 320px; height: 50px; }@media(min-width: 500px) { .blogresponsivewide { width: 468px; height: 60px; } }@media(min-width: 800px) { .blogresponsivewide { width: 728px; height: 90px; } }
+  </style>
+  <script>
+    async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+  </script>
+  <ins class="adsbygoogle blogresponsivewide" data-ad-client="ca-pub-1385530273298456" data-ad-slot="4816571790" style="display:inline-block"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<article>
+  <div class="title">
     <a class="date" rel="bookmark"><abbr>2012/09</abbr>5<sub>00:00</sub></a>
     <div class="container">
       <div class="subject">
@@ -82,18 +140,7 @@ mx</em>internal is a namespace used by the Flex framework to partition out funct
 
   </div>
 </article>
-<hr /><div class="text-center">
-  <style>
-    .blogresponsivewide { width: 320px; height: 50px; }@media(min-width: 500px) { .blogresponsivewide { width: 468px; height: 60px; } }@media(min-width: 800px) { .blogresponsivewide { width: 728px; height: 90px; } }
-  </style>
-  <script>
-    async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-  </script>
-  <ins class="adsbygoogle blogresponsivewide" data-ad-client="ca-pub-1385530273298456" data-ad-slot="4816571790" style="display:inline-block"></ins>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-</div>
+<hr />
 <article>
   <div class="title">
     <a class="date" rel="bookmark"><abbr>2012/07</abbr>14<sub>00:00</sub></a>
@@ -259,45 +306,6 @@ mx</em>internal is a namespace used by the Flex framework to partition out funct
     <a class="date" rel="bookmark"><abbr>2012/06</abbr>18<sub>00:00</sub></a>
     <div class="container">
       <div class="subject">
-        <a href="/2012/06/18/osx-mouse-tips/">Mac OS Xでマウスを使うとしっくりこない件</a>
-      </div>
-      <div class="tags">
-        <div class="label label-primary">
-          <i class="fa fa-tag"></i> Mac
-        </div>
-        <div class="label label-primary">
-          <i class="fa fa-tag"></i> Mouse
-        </div>
-        <div class="label label-primary">
-          <i class="fa fa-tag"></i> Logicool
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="body">
-    <p>Mac Miniを購入して、OSXでマウス(Logicool M705)とMagic Trackpadを常用する環境になったが、マウスがいまいちしっくりこない。
-    <h2>1. マウス移動がWindowsと比べて加速しすぎる。</h2>
-    細かい動きをしようとすると動きが少なすぎてイライラする。最小化/最大化をミスクリックすること多数。
-    Logicool等、サードパーティのソフト設定ができる場合はOS側の&quot;軌跡の速さ&quot;を下げて、サードパーティ側の速度を極端に上げれば(Logicoolの場合、&quot;追随速度係数&quot;)加速が弱まってちょうどいい感じ。</p>
-    
-    <p>それにしてもLogicoolはハードウェアはいいのにソフトウェアはWindowsでもMacでもイマイチだね&hellip;
-    <h2>2. マウスのスクロール方向が逆</h2>
-    トラックパッドとマウスを併用する場合、現行のLionでは、<strong>トラックパッドとマウスのスクロール方向は連動している</strong>ので、トラックパッドをナチュラルスクロールにするとマウスのスクロールも逆になる。これは流石に慣れない&hellip;</p>
-    
-    <p>指定デバイスのスクロールだけ逆転させてくれるソフトがあったのでOSがどうにかしてくれるまではこれを使うとする。</p>
-    
-    <p><a href="http://pilotmoon.com/scrollreverser/" target="_blank">Scroll Reverser for Mac OS X</a>
-    <h2>3. 利用しているM705の場合、ホイールをフリースピンさせた後にガタガタ動く。</h2>
-    Windowsでは起こってなかったのでハードウェアがヘタったわけではないようだ。これだけ解決策がまだ見当たらないので模索中&hellip;</p>
-    
-  </div>
-</article>
-<hr />
-<article>
-  <div class="title">
-    <a class="date" rel="bookmark"><abbr>2012/06</abbr>18<sub>00:00</sub></a>
-    <div class="container">
-      <div class="subject">
         <a href="/2012/06/18/windows8-manifest-setting-for-compatibility/">Windows8デスクトップアプリでの互換性マニフェスト設定</a>
       </div>
       <div class="tags">
@@ -336,6 +344,45 @@ mx</em>internal is a namespace used by the Flex framework to partition out funct
     &lt;/application&gt;
     &lt;/compatibility&gt;
     &lt;/assembly&gt;</blockquote></p>
+    
+  </div>
+</article>
+<hr />
+<article>
+  <div class="title">
+    <a class="date" rel="bookmark"><abbr>2012/06</abbr>18<sub>00:00</sub></a>
+    <div class="container">
+      <div class="subject">
+        <a href="/2012/06/18/osx-mouse-tips/">Mac OS Xでマウスを使うとしっくりこない件</a>
+      </div>
+      <div class="tags">
+        <div class="label label-primary">
+          <i class="fa fa-tag"></i> Mac
+        </div>
+        <div class="label label-primary">
+          <i class="fa fa-tag"></i> Mouse
+        </div>
+        <div class="label label-primary">
+          <i class="fa fa-tag"></i> Logicool
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="body">
+    <p>Mac Miniを購入して、OSXでマウス(Logicool M705)とMagic Trackpadを常用する環境になったが、マウスがいまいちしっくりこない。
+    <h2>1. マウス移動がWindowsと比べて加速しすぎる。</h2>
+    細かい動きをしようとすると動きが少なすぎてイライラする。最小化/最大化をミスクリックすること多数。
+    Logicool等、サードパーティのソフト設定ができる場合はOS側の&quot;軌跡の速さ&quot;を下げて、サードパーティ側の速度を極端に上げれば(Logicoolの場合、&quot;追随速度係数&quot;)加速が弱まってちょうどいい感じ。</p>
+    
+    <p>それにしてもLogicoolはハードウェアはいいのにソフトウェアはWindowsでもMacでもイマイチだね&hellip;
+    <h2>2. マウスのスクロール方向が逆</h2>
+    トラックパッドとマウスを併用する場合、現行のLionでは、<strong>トラックパッドとマウスのスクロール方向は連動している</strong>ので、トラックパッドをナチュラルスクロールにするとマウスのスクロールも逆になる。これは流石に慣れない&hellip;</p>
+    
+    <p>指定デバイスのスクロールだけ逆転させてくれるソフトがあったのでOSがどうにかしてくれるまではこれを使うとする。</p>
+    
+    <p><a href="http://pilotmoon.com/scrollreverser/" target="_blank">Scroll Reverser for Mac OS X</a>
+    <h2>3. 利用しているM705の場合、ホイールをフリースピンさせた後にガタガタ動く。</h2>
+    Windowsでは起こってなかったのでハードウェアがヘタったわけではないようだ。これだけ解決策がまだ見当たらないので模索中&hellip;</p>
     
   </div>
 </article>
@@ -674,69 +721,6 @@ bundlerはbundle packageでは入らないんでgemファイルを準備して�
   </div>
 </article>
 <hr />
-<article>
-  <div class="title">
-    <a class="date" rel="bookmark"><abbr>2012/03</abbr>3<sub>00:00</sub></a>
-    <div class="container">
-      <div class="subject">
-        <a href="/2012/03/03/android-market-image-upload-error/">Android Marketアプリ登録時の画像アップロード失敗とデベロッパー登録時の留意点</a>
-      </div>
-      <div class="tags">
-      </div>
-    </div>
-  </div>
-  <div class="body">
-    <p>案件でAndroidアプリの受託開発を行なっていて、リリース時にハマったのでログを残しておく。
-    お客様は過去、Androidアプリリリースはなかったので、下記順でデベロッパー登録からリリース作業を予定していた。</p>
-    
-    <ol>
-        <li>Android MarketにGoogleアカウントでログインしてデベロッパー登録(Google Checkoutで$25支払う)</li>
-        <li><a href="https://market.android.com/publish/Home" target="_blank">マーケットのアプリ登録画面</a>から新規アプリを追加、apkをアップロード</li>
-        <li>アプリ説明文を記述、スクリーンショット等の画像をアップロードして公開</li>
-    </ol>
-    
-    <p>しかし、3.でスクリーンショットをアップロードしようとすると</p>
-    
-    <blockquote>「応答を解析できません。JSON 応答を変更するブラウザ拡張機能やアドオンがインストールされている場合は、 それらを無効にしてからこのページを更新してください。」</blockquote>
-    
-    <p>というメッセージが出て登録できず&hellip;。
-    画像アップロードのAjaxがGoogle側に蹴られているような挙動で、
-    ブラウザ・OS・ネットワーク環境を変更しても改善しない。
-    理由が思い当たらず途方に暮れていたら、半日ほどして</p>
-    
-    <blockquote>Android マーケットの登録料の支払いが拒否されました。</blockquote>
-    
-    <p>とのメッセージがアプリ登録画面に表示された。
-    何らかの理由でデベロッパー登録のクレジットカード決済が蹴られていたらしく、
-    これが原因で画像アップロードに失敗していたらしいorz</p>
-    
-    <p>この登録未完了状態でもapkの登録はうまく行ったように見えるし、
-    画像のアップロードだけが何らかの理由で失敗したように見えるので予想がつかない。
-    Google Checkout(Google Wallet)に移動して問題を解決しろ、と言われるが
-    Google Wallet側からも再支払いする方法がなく、このアカウントはマーケットに開発者登録されていながら
-    アプリ公開できない中途半端状態に&hellip;</p>
-    
-    <p>(あとから見るとMarket側のアプリ登録画面から再支払いできるようになっていた。
-     Googleに問い合わせるか、時間を置けば再支払いはできるようだ。)</p>
-    
-    <p>今回のケースではお客様に別アカウントと別クレジットカードで再登録頂いてなんとかなったのだけど、
-    別クレカの登録、Maps API Keyの再取得とapk再生成に時間が必要となってしまった。</p>
-    
-    <p>なお、正常にクレジットカード登録が終わり、アプリが利用可能となると</p>
-    
-    <blockquote>Android マーケットへの登録が承認されました。</blockquote>
-    
-    <p>とメッセージがアプリ登録画面に出現する。以前登録した際は一瞬でこの状態だったので
-    注意が向いていなかった&hellip;</p>
-    
-    <p>今回の教訓はデベロッパー登録をしていない場合、
-    <strong>Androidマーケットへのリリース時はデベロッパー登録を必ず先にしておく！</strong>
-    ということ。通常でも半日〜１日かかるケースもある等、Google先生の機嫌に左右されて時間がかかるリスクがあるので、
-    一週間余裕を持っておいたほうがいいと思う。</p>
-    
-  </div>
-</article>
-<hr />
 <div class="paginate_box">
   <div class="pull-left">
     <a href="/">前のページ</a>
@@ -752,6 +736,9 @@ bundlerはbundle packageでは入らないんでgemファイルを準備して�
             <div class="gadget" id="recents">
               <span class="title">最近の投稿</span>
               <ol>
+                <li>
+                  <a href="/2013/12/14/vim-set-relativenumber/">Vimのrelativenumber設定が便利すぎてヤバイ(12/14)</a>
+                </li>
                 <li>
                   <a href="/2013/12/10/middleman-blog-build-missed-some-article/">middleman-blogでbuildしたら何故か生成されない記事がある(12/10)</a>
                 </li>
@@ -779,9 +766,6 @@ bundlerはbundle packageでは入らないんでgemファイルを準備して�
                 <li>
                   <a href="/2012/11/30/air-for-android-launch-activity/">AIR for Androidの起動アクティビティ名(11/30)</a>
                 </li>
-                <li>
-                  <a href="/2012/11/05/windows-8-pro-media-center-product-inf/">Windows 8のMedia Center Packを適用するとエディション名が変わる(11/05)</a>
-                </li>
               </ol>
             </div>
             <div class="gadget" id="adsense">
@@ -799,44 +783,44 @@ bundlerはbundle packageでは入らないんでgemファイルを準備して�
             <div class="gadget" id="tags">
               <span class="title">タグ一覧</span>
               <div class="gadget_body"><a href="/tags/ruby/">
-                Ruby(5) </a><a href="/tags/ruby-on-rails/">
-                Ruby on Rails(4) </a><a href="/tags/emacs/">
-                Emacs(4) </a><a href="/tags/mac/">
-                Mac(3) </a><a href="/tags/review/">
-                Review(3) </a><a href="/tags/macbookpro/">
-                MacBookPro(2) </a><a href="/tags/middleman/">
-                Middleman(2) </a><a href="/tags/octopress/">
-                Octopress(2) </a><a href="/tags/ubuntu/">
-                Ubuntu(2) </a><a href="/tags/server/">
-                Server(2) </a><a href="/tags/windows/">
-                Windows(2) </a><a href="/tags/flash/">
-                Flash(2) </a><a href="/tags/gadget/">
-                Gadget(2) </a><a href="/tags/android/">
-                Android(2) </a><a href="/tags/rinari/">
-                rinari(1) </a><a href="/tags/macmini/">
-                MacMini(1) </a><a href="/tags/ssd/">
-                SSD(1) </a><a href="/tags/windows8/">
-                Windows8(1) </a><a href="/tags/book/">
-                Book(1) </a><a href="/tags/mediacenterpack/">
-                MediaCenterPack(1) </a><a href="/tags/mysql/">
-                MySQL(1) </a><a href="/tags/actionscript/">
-                Actionscript(1) </a><a href="/tags/case/">
-                Case(1) </a><a href="/tags/日々/">
-                日々(1) </a><a href="/tags/adobe-air/">
-                Adobe AIR(1) </a><a href="/tags/mouse/">
-                Mouse(1) </a><a href="/tags/logicool/">
-                Logicool(1) </a><a href="/tags/nginx/">
-                nginx(1) </a><a href="/tags/rvm/">
-                RVM(1) </a><a href="/tags/passenger/">
-                Passenger(1) </a><a href="/tags/uc-411pbt-c/">
+                Ruby(5) </a><a href="/tags/emacs/">
+                Emacs(4) </a><a href="/tags/ruby-on-rails/">
+                Ruby on Rails(4) </a><a href="/tags/review/">
+                Review(3) </a><a href="/tags/mac/">
+                Mac(3) </a><a href="/tags/vim/">
+                Vim(2) </a><a href="/tags/server/">
+                Server(2) </a><a href="/tags/flash/">
+                Flash(2) </a><a href="/tags/android/">
+                Android(2) </a><a href="/tags/middleman/">
+                Middleman(2) </a><a href="/tags/ubuntu/">
+                Ubuntu(2) </a><a href="/tags/windows/">
+                Windows(2) </a><a href="/tags/octopress/">
+                Octopress(2) </a><a href="/tags/gadget/">
+                Gadget(2) </a><a href="/tags/macbookpro/">
+                MacBookPro(2) </a><a href="/tags/rinari/">
+                rinari(1) </a><a href="/tags/ssd/">
+                SSD(1) </a><a href="/tags/refurbished/">
+                Refurbished(1) </a><a href="/tags/macmini/">
+                MacMini(1) </a><a href="/tags/logicool/">
+                Logicool(1) </a><a href="/tags/mouse/">
+                Mouse(1) </a><a href="/tags/nginx/">
+                nginx(1) </a><a href="/tags/windows8/">
+                Windows8(1) </a><a href="/tags/mysql/">
+                MySQL(1) </a><a href="/tags/日々/">
+                日々(1) </a><a href="/tags/uc-411pbt-c/">
                 UC-411PBT-C(1) </a><a href="/tags/goo/">
-                goo(1) </a><a href="/tags/anything-el/">
-                anything.el(1) </a><a href="/tags/refurbished/">
-                Refurbished(1) </a><a href="/tags/vim/">
-                Vim(1) </a><a href="/tags/redmine/">
-                redmine(1) </a><a href="/tags/開発/">
+                goo(1) </a><a href="/tags/adobe-air/">
+                Adobe AIR(1) </a><a href="/tags/mediacenterpack/">
+                MediaCenterPack(1) </a><a href="/tags/book/">
+                Book(1) </a><a href="/tags/actionscript/">
+                Actionscript(1) </a><a href="/tags/redmine/">
+                redmine(1) </a><a href="/tags/rvm/">
+                RVM(1) </a><a href="/tags/passenger/">
+                Passenger(1) </a><a href="/tags/開発/">
                 開発(1) </a><a href="/tags/rails/">
-                Rails(1) </a>
+                Rails(1) </a><a href="/tags/case/">
+                Case(1) </a><a href="/tags/anything-el/">
+                anything.el(1) </a>
               </div>
             </div>
             <div class="gadget" id="twitter">
@@ -849,7 +833,7 @@ bundlerはbundle packageでは入らないんでgemファイルを準備して�
               <span class="title">アーカイブ</span>
               <ol></ol>
               <li>
-                <a href="/2013/">2013</a> (8)
+                <a href="/2013/">2013</a> (9)
               </li>
               <li>
                 <a href="/2012/">2012</a> (14)

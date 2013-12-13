@@ -35,6 +35,80 @@
           <div id="main" role="main">
 <article>
   <div class="title">
+    <a class="date" rel="bookmark"><abbr>2012/03</abbr>3<sub>00:00</sub></a>
+    <div class="container">
+      <div class="subject">
+        <a href="/2012/03/03/android-market-image-upload-error/">Android Marketアプリ登録時の画像アップロード失敗とデベロッパー登録時の留意点</a>
+      </div>
+      <div class="tags">
+      </div>
+    </div>
+  </div>
+  <div class="body">
+    <p>案件でAndroidアプリの受託開発を行なっていて、リリース時にハマったのでログを残しておく。
+    お客様は過去、Androidアプリリリースはなかったので、下記順でデベロッパー登録からリリース作業を予定していた。</p>
+    
+    <ol>
+        <li>Android MarketにGoogleアカウントでログインしてデベロッパー登録(Google Checkoutで$25支払う)</li>
+        <li><a href="https://market.android.com/publish/Home" target="_blank">マーケットのアプリ登録画面</a>から新規アプリを追加、apkをアップロード</li>
+        <li>アプリ説明文を記述、スクリーンショット等の画像をアップロードして公開</li>
+    </ol>
+    
+    <p>しかし、3.でスクリーンショットをアップロードしようとすると</p>
+    
+    <blockquote>「応答を解析できません。JSON 応答を変更するブラウザ拡張機能やアドオンがインストールされている場合は、 それらを無効にしてからこのページを更新してください。」</blockquote>
+    
+    <p>というメッセージが出て登録できず&hellip;。
+    画像アップロードのAjaxがGoogle側に蹴られているような挙動で、
+    ブラウザ・OS・ネットワーク環境を変更しても改善しない。
+    理由が思い当たらず途方に暮れていたら、半日ほどして</p>
+    
+    <blockquote>Android マーケットの登録料の支払いが拒否されました。</blockquote>
+    
+    <p>とのメッセージがアプリ登録画面に表示された。
+    何らかの理由でデベロッパー登録のクレジットカード決済が蹴られていたらしく、
+    これが原因で画像アップロードに失敗していたらしいorz</p>
+    
+    <p>この登録未完了状態でもapkの登録はうまく行ったように見えるし、
+    画像のアップロードだけが何らかの理由で失敗したように見えるので予想がつかない。
+    Google Checkout(Google Wallet)に移動して問題を解決しろ、と言われるが
+    Google Wallet側からも再支払いする方法がなく、このアカウントはマーケットに開発者登録されていながら
+    アプリ公開できない中途半端状態に&hellip;</p>
+    
+    <p>(あとから見るとMarket側のアプリ登録画面から再支払いできるようになっていた。
+     Googleに問い合わせるか、時間を置けば再支払いはできるようだ。)</p>
+    
+    <p>今回のケースではお客様に別アカウントと別クレジットカードで再登録頂いてなんとかなったのだけど、
+    別クレカの登録、Maps API Keyの再取得とapk再生成に時間が必要となってしまった。</p>
+    
+    <p>なお、正常にクレジットカード登録が終わり、アプリが利用可能となると</p>
+    
+    <blockquote>Android マーケットへの登録が承認されました。</blockquote>
+    
+    <p>とメッセージがアプリ登録画面に出現する。以前登録した際は一瞬でこの状態だったので
+    注意が向いていなかった&hellip;</p>
+    
+    <p>今回の教訓はデベロッパー登録をしていない場合、
+    <strong>Androidマーケットへのリリース時はデベロッパー登録を必ず先にしておく！</strong>
+    ということ。通常でも半日〜１日かかるケースもある等、Google先生の機嫌に左右されて時間がかかるリスクがあるので、
+    一週間余裕を持っておいたほうがいいと思う。</p>
+    
+  </div>
+</article>
+<hr /><div class="text-center">
+  <style>
+    .blogresponsivewide { width: 320px; height: 50px; }@media(min-width: 500px) { .blogresponsivewide { width: 468px; height: 60px; } }@media(min-width: 800px) { .blogresponsivewide { width: 728px; height: 90px; } }
+  </style>
+  <script>
+    async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+  </script>
+  <ins class="adsbygoogle blogresponsivewide" data-ad-client="ca-pub-1385530273298456" data-ad-slot="4816571790" style="display:inline-block"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<article>
+  <div class="title">
     <a class="date" rel="bookmark"><abbr>2012/02</abbr>9<sub>00:00</sub></a>
     <div class="container">
       <div class="subject">
@@ -61,18 +135,7 @@ markdown-modeの問題はこれで解決。
 
   </div>
 </article>
-<hr /><div class="text-center">
-  <style>
-    .blogresponsivewide { width: 320px; height: 50px; }@media(min-width: 500px) { .blogresponsivewide { width: 468px; height: 60px; } }@media(min-width: 800px) { .blogresponsivewide { width: 728px; height: 90px; } }
-  </style>
-  <script>
-    async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-  </script>
-  <ins class="adsbygoogle blogresponsivewide" data-ad-client="ca-pub-1385530273298456" data-ad-slot="4816571790" style="display:inline-block"></ins>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-</div>
+<hr />
 <article>
   <div class="title">
     <a class="date" rel="bookmark"><abbr>2012/01</abbr>1<sub>00:00</sub></a>
@@ -148,31 +211,6 @@ markdown-modeの問題はこれで解決。
     <a class="date" rel="bookmark"><abbr>2011/12</abbr>4<sub>00:00</sub></a>
     <div class="container">
       <div class="subject">
-        <a href="/2011/12/04/blog-nameduplication/">まさかのカブリ</a>
-      </div>
-      <div class="tags">
-        <div class="label label-primary">
-          <i class="fa fa-tag"></i> 日々
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="body">
-    <p>ブログをまともに再開したのだけど、
-    適当につけていたブログ名がまさか会社さんとカブっていたとは&hellip;</p>
-    
-    <p><a href="http://fugapiyo.jp/" target="_blank">株式会社フガピヨ</a></p>
-    
-    <p>新しいブログ名急いで考えよう&hellip;</p>
-    
-  </div>
-</article>
-<hr />
-<article>
-  <div class="title">
-    <a class="date" rel="bookmark"><abbr>2011/12</abbr>4<sub>00:00</sub></a>
-    <div class="container">
-      <div class="subject">
         <a href="/2011/12/04/ac-rsense-yas-expand/">Rsenseでの補完時に引数等を自動補完する</a>
       </div>
       <div class="tags">
@@ -199,6 +237,31 @@ markdown-modeの問題はこれで解決。
     力技でRefeから組み込みライブラリの主要メソッドのsnippetを作って、
     これまた力技でauto-completeにRsenseから伝えられたクラス情報を横取りして、yasnippetの起動条件に渡してる。
     これで組み込みライブラリに関していえばIDEと遜色ないのではないかと。</p>
+    
+  </div>
+</article>
+<hr />
+<article>
+  <div class="title">
+    <a class="date" rel="bookmark"><abbr>2011/12</abbr>4<sub>00:00</sub></a>
+    <div class="container">
+      <div class="subject">
+        <a href="/2011/12/04/blog-nameduplication/">まさかのカブリ</a>
+      </div>
+      <div class="tags">
+        <div class="label label-primary">
+          <i class="fa fa-tag"></i> 日々
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="body">
+    <p>ブログをまともに再開したのだけど、
+    適当につけていたブログ名がまさか会社さんとカブっていたとは&hellip;</p>
+    
+    <p><a href="http://fugapiyo.jp/" target="_blank">株式会社フガピヨ</a></p>
+    
+    <p>新しいブログ名急いで考えよう&hellip;</p>
     
   </div>
 </article>
@@ -330,26 +393,12 @@ rvm use 1.9.2-head&quot;
   </div>
 </article>
 <hr />
-<article>
-  <div class="title">
-    <a class="date" rel="bookmark"><abbr>2011/06</abbr>10<sub>00:00</sub></a>
-    <div class="container">
-      <div class="subject">
-        <a href="/2011/06/10/hello-world/">何度目かのブログ作りをするよー</a>
-      </div>
-      <div class="tags">
-      </div>
-    </div>
-  </div>
-  <div class="body">
-    <p>自分の整理のためにも、ブログでやったことを整理することにしました。</p>
-    
-  </div>
-</article>
-<hr />
 <div class="paginate_box">
   <div class="pull-left">
     <a href="/page/2/">前のページ</a>
+  </div>
+  <div class="pull-right">
+    <a href="/page/4/">次のページ</a>
   </div>
 </div>
           </div>
@@ -359,6 +408,9 @@ rvm use 1.9.2-head&quot;
             <div class="gadget" id="recents">
               <span class="title">最近の投稿</span>
               <ol>
+                <li>
+                  <a href="/2013/12/14/vim-set-relativenumber/">Vimのrelativenumber設定が便利すぎてヤバイ(12/14)</a>
+                </li>
                 <li>
                   <a href="/2013/12/10/middleman-blog-build-missed-some-article/">middleman-blogでbuildしたら何故か生成されない記事がある(12/10)</a>
                 </li>
@@ -386,9 +438,6 @@ rvm use 1.9.2-head&quot;
                 <li>
                   <a href="/2012/11/30/air-for-android-launch-activity/">AIR for Androidの起動アクティビティ名(11/30)</a>
                 </li>
-                <li>
-                  <a href="/2012/11/05/windows-8-pro-media-center-product-inf/">Windows 8のMedia Center Packを適用するとエディション名が変わる(11/05)</a>
-                </li>
               </ol>
             </div>
             <div class="gadget" id="adsense">
@@ -406,44 +455,44 @@ rvm use 1.9.2-head&quot;
             <div class="gadget" id="tags">
               <span class="title">タグ一覧</span>
               <div class="gadget_body"><a href="/tags/ruby/">
-                Ruby(5) </a><a href="/tags/ruby-on-rails/">
-                Ruby on Rails(4) </a><a href="/tags/emacs/">
-                Emacs(4) </a><a href="/tags/mac/">
-                Mac(3) </a><a href="/tags/review/">
-                Review(3) </a><a href="/tags/macbookpro/">
-                MacBookPro(2) </a><a href="/tags/middleman/">
-                Middleman(2) </a><a href="/tags/octopress/">
-                Octopress(2) </a><a href="/tags/ubuntu/">
-                Ubuntu(2) </a><a href="/tags/server/">
-                Server(2) </a><a href="/tags/windows/">
-                Windows(2) </a><a href="/tags/flash/">
-                Flash(2) </a><a href="/tags/gadget/">
-                Gadget(2) </a><a href="/tags/android/">
-                Android(2) </a><a href="/tags/rinari/">
-                rinari(1) </a><a href="/tags/macmini/">
-                MacMini(1) </a><a href="/tags/ssd/">
-                SSD(1) </a><a href="/tags/windows8/">
-                Windows8(1) </a><a href="/tags/book/">
-                Book(1) </a><a href="/tags/mediacenterpack/">
-                MediaCenterPack(1) </a><a href="/tags/mysql/">
-                MySQL(1) </a><a href="/tags/actionscript/">
-                Actionscript(1) </a><a href="/tags/case/">
-                Case(1) </a><a href="/tags/日々/">
-                日々(1) </a><a href="/tags/adobe-air/">
-                Adobe AIR(1) </a><a href="/tags/mouse/">
-                Mouse(1) </a><a href="/tags/logicool/">
-                Logicool(1) </a><a href="/tags/nginx/">
-                nginx(1) </a><a href="/tags/rvm/">
-                RVM(1) </a><a href="/tags/passenger/">
-                Passenger(1) </a><a href="/tags/uc-411pbt-c/">
+                Ruby(5) </a><a href="/tags/emacs/">
+                Emacs(4) </a><a href="/tags/ruby-on-rails/">
+                Ruby on Rails(4) </a><a href="/tags/review/">
+                Review(3) </a><a href="/tags/mac/">
+                Mac(3) </a><a href="/tags/vim/">
+                Vim(2) </a><a href="/tags/server/">
+                Server(2) </a><a href="/tags/flash/">
+                Flash(2) </a><a href="/tags/android/">
+                Android(2) </a><a href="/tags/middleman/">
+                Middleman(2) </a><a href="/tags/ubuntu/">
+                Ubuntu(2) </a><a href="/tags/windows/">
+                Windows(2) </a><a href="/tags/octopress/">
+                Octopress(2) </a><a href="/tags/gadget/">
+                Gadget(2) </a><a href="/tags/macbookpro/">
+                MacBookPro(2) </a><a href="/tags/rinari/">
+                rinari(1) </a><a href="/tags/ssd/">
+                SSD(1) </a><a href="/tags/refurbished/">
+                Refurbished(1) </a><a href="/tags/macmini/">
+                MacMini(1) </a><a href="/tags/logicool/">
+                Logicool(1) </a><a href="/tags/mouse/">
+                Mouse(1) </a><a href="/tags/nginx/">
+                nginx(1) </a><a href="/tags/windows8/">
+                Windows8(1) </a><a href="/tags/mysql/">
+                MySQL(1) </a><a href="/tags/日々/">
+                日々(1) </a><a href="/tags/uc-411pbt-c/">
                 UC-411PBT-C(1) </a><a href="/tags/goo/">
-                goo(1) </a><a href="/tags/anything-el/">
-                anything.el(1) </a><a href="/tags/refurbished/">
-                Refurbished(1) </a><a href="/tags/vim/">
-                Vim(1) </a><a href="/tags/redmine/">
-                redmine(1) </a><a href="/tags/開発/">
+                goo(1) </a><a href="/tags/adobe-air/">
+                Adobe AIR(1) </a><a href="/tags/mediacenterpack/">
+                MediaCenterPack(1) </a><a href="/tags/book/">
+                Book(1) </a><a href="/tags/actionscript/">
+                Actionscript(1) </a><a href="/tags/redmine/">
+                redmine(1) </a><a href="/tags/rvm/">
+                RVM(1) </a><a href="/tags/passenger/">
+                Passenger(1) </a><a href="/tags/開発/">
                 開発(1) </a><a href="/tags/rails/">
-                Rails(1) </a>
+                Rails(1) </a><a href="/tags/case/">
+                Case(1) </a><a href="/tags/anything-el/">
+                anything.el(1) </a>
               </div>
             </div>
             <div class="gadget" id="twitter">
@@ -456,7 +505,7 @@ rvm use 1.9.2-head&quot;
               <span class="title">アーカイブ</span>
               <ol></ol>
               <li>
-                <a href="/2013/">2013</a> (8)
+                <a href="/2013/">2013</a> (9)
               </li>
               <li>
                 <a href="/2012/">2012</a> (14)

@@ -5,16 +5,71 @@
   <id>http://blog.uskanda.com/</id>
   <link href="http://blog.uskanda.com/"/>
   <link href="http://blog.uskanda.com/feed.xml" rel="self"/>
-  <updated>2013-12-10T14:00:00Z</updated>
+  <updated>2013-12-13T16:00:00Z</updated>
   <author>
     <name>Yusuke Kanda</name>
   </author>
+  <entry>
+    <title>Vimのrelativenumber設定が便利すぎてヤバイ</title>
+    <link rel="alternate" href="http://blog.uskanda.com/2013/12/14/vim-set-relativenumber/"/>
+    <id>http://blog.uskanda.com/2013/12/14/vim-set-relativenumber/</id>
+    <published>2013-12-13T16:00:00Z</published>
+    <updated>2013-12-13T17:37:42+00:00</updated>
+    <author>
+      <name>Yusuke Kanda</name>
+    </author>
+    <content type="html">&lt;p&gt;何故か近々会社でVimについて話すことになったんで、Vim環境を整理してたら良い設定を知りました。&lt;/p&gt;
+
+&lt;h2 id="toc_0"&gt;カーソルのある行との差分行数を表示してくれるrelativenumber&lt;/h2&gt;
+
+&lt;p&gt;Vimでは、下記設定をするとウィンドウ左に行数を表示できます。&lt;/p&gt;
+&lt;pre class="highlight text"&gt;set number
+&lt;/pre&gt;
+&lt;p&gt;&lt;img alt="set number画像" src="http://gyazo.com/5e6b1cc7ece7aeb807aab144780cbaf3.png" /&gt;&lt;/p&gt;
+
+&lt;p&gt;これに加えて、下記の設定を加えると&lt;/p&gt;
+&lt;pre class="highlight text"&gt;set relativenumber
+&lt;/pre&gt;
+&lt;p&gt;見栄えがこうなります。&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt="set relativenumber画像" src="http://gyazo.com/4d20af53dcff2dc779a16b0457c0d5d8.gif" /&gt;&lt;/p&gt;
+
+&lt;h2 id="toc_1"&gt;何が嬉しいのか&lt;/h2&gt;
+
+&lt;p&gt;こんな見え方が嬉しいのはVimならでは。つまり、
+移動・削除等のオペレータ利用時のカウントが一目瞭然なのです！&lt;/p&gt;
+
+&lt;h3 id="toc_2"&gt;例&lt;/h3&gt;
+
+&lt;p&gt;こんなファイルがあったとします。今カーソルは24行目にあります。
+ここからメソッドふたつ、52行目の&amp;quot;end&amp;quot;までを一気に削除したい場合&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt="relativenumber説明サンプル" src="http://gyazo.com/83d07d578b6da17b33f6a84572c5bea5.png" /&gt;&lt;/p&gt;
+
+&lt;p&gt;僕のVim力ではこれまで行単位の範囲選択(V)をしてから52行目あたりまで移動して、
+選択範囲の削除(d)をしていました。&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt="範囲選択" src="http://gyazo.com/3d7152a7734029c43571bdc028c3437e.gif" /&gt;&lt;/p&gt;
+
+&lt;p&gt;これに対して、&lt;code&gt;set relativenumber&lt;/code&gt; していると&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt="relativenumberした場合" src="http://gyazo.com/d2df5a268c71d7823d404d1344d0a271.png" /&gt;&lt;/p&gt;
+
+&lt;p&gt;削除したい範囲が28行先までであることがすぐわかります。
+つまり、d28jと打つだけで削除できます。瞬殺です。&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt="relativenumberした場合の削除" src="http://gyazo.com/9b3e4d0480c24aa5d1bf7190e4c74842.gif" /&gt;&lt;/p&gt;
+
+&lt;p&gt;こんな感じで、大きく離れた行や、行間に対する作業が非常にしやすくなります。おすすめです。
+Vim7.3以降で使えるので、最近のLinuxディストリのビルトインVimやMacVimなら使えるはずです。&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>middleman-blogでbuildしたら何故か生成されない記事がある</title>
     <link rel="alternate" href="http://blog.uskanda.com/2013/12/10/middleman-blog-build-missed-some-article/"/>
     <id>http://blog.uskanda.com/2013/12/10/middleman-blog-build-missed-some-article/</id>
     <published>2013-12-10T14:00:00Z</published>
-    <updated>2013-12-12T15:17:46+00:00</updated>
+    <updated>2013-12-13T17:37:42+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -35,7 +90,7 @@ published: false でもないんだけどなー？&lt;/p&gt;
     <link rel="alternate" href="http://blog.uskanda.com/2013/12/09/transfer-from-octopress-to-middleman/"/>
     <id>http://blog.uskanda.com/2013/12/09/transfer-from-octopress-to-middleman/</id>
     <published>2013-12-08T15:00:00Z</published>
-    <updated>2013-12-12T15:17:46+00:00</updated>
+    <updated>2013-12-13T17:37:42+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -94,7 +149,7 @@ Github Pagesを強く意識しているOctopressよりはデプロイ設定が�
     <link rel="alternate" href="http://blog.uskanda.com/2013/04/01/android-support-library-error-on-android-32/"/>
     <id>http://blog.uskanda.com/2013/04/01/android-support-library-error-on-android-32/</id>
     <published>2013-04-01T10:22:00Z</published>
-    <updated>2013-12-12T15:17:46+00:00</updated>
+    <updated>2013-12-13T17:37:42+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -125,7 +180,7 @@ E/AndroidRuntime(25922):    at android.support.v4.app.NotificationCompat$Builder
     <link rel="alternate" href="http://blog.uskanda.com/2013/02/23/mysql-show-columns-and-indices-from-all-the-tables/"/>
     <id>http://blog.uskanda.com/2013/02/23/mysql-show-columns-and-indices-from-all-the-tables/</id>
     <published>2013-02-23T10:00:00Z</published>
-    <updated>2013-12-12T15:17:46+00:00</updated>
+    <updated>2013-12-13T17:37:42+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -161,7 +216,7 @@ AND information_schema.columns.column_name = information_schema.statistics.colum
     <link rel="alternate" href="http://blog.uskanda.com/2013/02/17/macbook-pro-cover/"/>
     <id>http://blog.uskanda.com/2013/02/17/macbook-pro-cover/</id>
     <published>2013-02-16T21:33:00Z</published>
-    <updated>2013-12-12T15:17:46+00:00</updated>
+    <updated>2013-12-13T17:37:42+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -202,121 +257,6 @@ MOBILE STUDIOのMacBook Pro 13inch Retina向け、マットブラックのケー
 &lt;p&gt;Air向けも。また色展開も豊富。こちらは赤。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href="http://www.amazon.co.jp/exec/obidos/ASIN/B009T8LDJ6/uasmks-22/ref=nosim/" target="_blank"&gt;&lt;img src="http://ecx.images-amazon.com/images/I/21XuoIXOITL._SL160_.jpg" alt="MacBook Air 11インチ用 マット ハードケース 《全12色》 レッド（赤） [MOBILE STUDIO]" /&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href="http://www.amazon.co.jp/exec/obidos/ASIN/B009T8LDJ6/uasmks-22/ref=nosim/" target="_blank"&gt;MacBook Air 11インチ用 マット ハードケース 《全12色》 レッド（赤） [MOBILE STUDIO]&lt;/a&gt;&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>整備済製品のMacBook Pro 13inch Retinaを買ってみた</title>
-    <link rel="alternate" href="http://blog.uskanda.com/2013/02/17/buy-macbook-pro-refurbished/"/>
-    <id>http://blog.uskanda.com/2013/02/17/buy-macbook-pro-refurbished/</id>
-    <published>2013-02-16T19:31:00Z</published>
-    <updated>2013-12-12T15:17:46+00:00</updated>
-    <author>
-      <name>Yusuke Kanda</name>
-    </author>
-    <content type="html">&lt;h2 id="toc_0"&gt;MacBook Proを買いました&lt;/h2&gt;
-
-&lt;p&gt;アップルは初期不良などがあった品を修理した
-整備済製品を&lt;a href="http://store.apple.com/jp/browse/home/specialdeals/mac"&gt;ウェブで販売している&lt;/a&gt;。
-保証期間も新品同様で、少し割安でMac, iPod, iPadを購入できる。&lt;/p&gt;
-
-&lt;p&gt;とはいえ、価格はkakaku.comの最安値より大概高いので、
-公式から買いたいアップルマニア以外にはあんまり意味がないように見える。&lt;/p&gt;
-
-&lt;p&gt;しかし、アップルストアと一部BTO可能な店舗でしか購入できない
-USキーボード派には最安値と成り得る。&lt;/p&gt;
-
-&lt;p&gt;最近MacBook Pro 13インチのRetina Displayモデルが
-整備済商品として登録されるようになってきた。
-USキーボードモデルもちょくちょく入荷されているようで、
-モノがあるのを見つけてから
-半日我慢したけどまだ在庫があったせいでつい
-IYHしてしまった。
-&lt;strong&gt;また暫く貧乏生活です。&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h2 id="toc_1"&gt;到着&lt;/h2&gt;
-
-&lt;p&gt;平日夜注文して二日後には受領。こんな外箱で届いた。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="http://www.flickr.com/photos/uskanda/8467247999/" title="MacBook Pro 13inch Retina Refurbished - Package by uskanda, on Flickr"&gt;&lt;img src="http://farm9.staticflickr.com/8391/8467247999_c0990068dd_z.jpg" width="640" height="427" alt="MacBook Pro 13inch Retina Refurbished - Package"&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;この中に化粧箱があるのかと思いきや&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="http://www.flickr.com/photos/uskanda/8467251841/" title="MacBook Pro 13inch Retina Refurbished - 開封 by uskanda, on Flickr"&gt;&lt;img src="http://farm9.staticflickr.com/8378/8467251841_7bf1b85fe1_z.jpg" width="640" height="427" alt="MacBook Pro 13inch Retina Refurbished - 開封"&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="http://www.flickr.com/photos/uskanda/8468347038/" title="MacBook Pro 13inch Retina Refurbished - 付属品 by uskanda, on Flickr"&gt;&lt;img src="http://farm9.staticflickr.com/8111/8468347038_f2f3bfd781_z.jpg" width="640" height="427" alt="MacBook Pro 13inch Retina Refurbished - 付属品"&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="http://www.flickr.com/photos/uskanda/8468348172/" title="MacBook Pro 13inch Retina Refurbished - 本体 by uskanda, on Flickr"&gt;&lt;img src="http://farm9.staticflickr.com/8510/8468348172_e369312a17_z.jpg" width="640" height="427" alt="MacBook Pro 13inch Retina Refurbished - 本体"&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;いきなりの付属品、その下に本体である。
-&lt;strong&gt;開封の儀好きにはオススメできない。&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h2 id="toc_2"&gt;感触&lt;/h2&gt;
-
-&lt;p&gt;整備済製品でも見た目は新品同様。
-一週間ほど使っていまのところ不具合なし。&lt;/p&gt;
-
-&lt;p&gt;Retinaディスプレイは非常に良好。iPhone/iPadのRetinaに慣れた目でも、
-Macアプリケーションが美しく見えるのはたまらない。&lt;/p&gt;
-
-&lt;p&gt;体感の処理速度としてはこれまで使っていたMacBook Air(2011)から
-確実によくなっているものの、CPUが1.7GHzから2.5GHzになったほどには、
-劇的に高速化した感じはない。Retinaのオーバーヘッドからか
-画面描画の際にはひっかかりを感じこともある。&lt;/p&gt;
-
-&lt;p&gt;メモリが4GBから8GBになったので、メモリ不足でのレインボーカーソルは確実に減った。&lt;/p&gt;
-
-&lt;h2 id="toc_3"&gt;ベンチマーク&lt;/h2&gt;
-
-&lt;p&gt;XBenchの結果は以下のとおり。&lt;/p&gt;
-&lt;pre class="highlight text"&gt;Results 241.09  
-    System Info     
-        Xbench Version      1.3
-        System Version      10.8.2 (12C3103)
-        Physical RAM        8192 MB
-        Model       MacBookPro10,2
-        Drive Type      APPLE SSD SM128E
-    CPU Test    249.37  
-        GCD Loop    325.32  17.15 Mops/sec
-        Floating Point Basic    208.60  4.96 Gflop/sec
-        vecLib FFT  165.82  5.47 Gflop/sec
-        Floating Point Library  466.84  81.29 Mops/sec
-    Memory Test 576.69  
-        System  584.38  
-            Allocate    2383.10 8.75 Malloc/sec
-            Fill    400.91  19492.94 MB/sec
-            Copy    450.52  9305.36 MB/sec
-        Stream  569.21  
-            Copy    557.26  11509.97 MB/sec
-            Scale   565.91  11691.44 MB/sec
-            Add 574.95  12247.63 MB/sec
-            Triad   579.22  12390.85 MB/sec
-    Quartz Graphics Test    185.29  
-        Line    194.80  12.97 Klines/sec [50% alpha]
-        Rectangle   190.84  56.98 Krects/sec [50% alpha]
-        Circle  166.01  13.53 Kcircles/sec [50% alpha]
-        Bezier  182.59  4.61 Kbeziers/sec [50% alpha]
-        Text    195.63  12.24 Kchars/sec
-    OpenGL Graphics Test    224.63  
-        Spinning Squares    224.63  284.95 frames/sec
-    User Interface Test 141.38  
-        Elements    141.38  648.85 refresh/sec
-    Disk Test   450.37  
-        Sequential  295.03  
-            Uncached Write  556.89  341.92 MB/sec [4K blocks]
-            Uncached Write  484.53  274.15 MB/sec [256K blocks]
-            Uncached Read   124.41  36.41 MB/sec [4K blocks]
-            Uncached Read   602.16  302.64 MB/sec [256K blocks]
-        Random  951.28  
-            Uncached Write  707.13  74.86 MB/sec [4K blocks]
-            Uncached Write  754.52  241.55 MB/sec [256K blocks]
-            Uncached Read   2230.67 15.81 MB/sec [4K blocks]
-            Uncached Read   983.22  182.44 MB/sec [256K blocks]
-&lt;/pre&gt;
-&lt;h2 id="toc_4"&gt;余談&lt;/h2&gt;
-
-&lt;p&gt;買った途端&lt;a href="http://www.gizmodo.jp/2013/02/macbook_proair.html"&gt;値下げ&lt;/a&gt;しやがった(´・ω・｀)&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="http://www.amazon.co.jp/exec/obidos/ASIN/B009X5EJSW/uasmks-22/ref=nosim/" target="_blank"&gt;&lt;img src="http://ecx.images-amazon.com/images/I/41OYV1CHZnL._SL160_.jpg" alt="APPLE MacBook Pro with Retina Display 13.3/2.5GHz Dual Core i5 MD212J/A" /&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href="http://www.amazon.co.jp/exec/obidos/ASIN/B009X5EJSW/uasmks-22/ref=nosim/" target="_blank"&gt;APPLE MacBook Pro with Retina Display 13.3/2.5GHz Dual Core i5 MD212J/A&lt;/a&gt;&lt;/p&gt;
 </content>
   </entry>
 </feed>

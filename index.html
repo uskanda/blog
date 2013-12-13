@@ -35,6 +35,79 @@
           <div id="main" role="main">
 <article>
   <div class="title">
+    <a class="date" rel="bookmark"><abbr>2013/12</abbr>14<sub>01:00</sub></a>
+    <div class="container">
+      <div class="subject">
+        <a href="/2013/12/14/vim-set-relativenumber/">Vimのrelativenumber設定が便利すぎてヤバイ</a>
+      </div>
+      <div class="tags">
+        <div class="label label-primary">
+          <i class="fa fa-tag"></i> Vim
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="body"><p>何故か近々会社でVimについて話すことになったんで、Vim環境を整理してたら良い設定を知りました。</p>
+
+<h2 id="toc_0">カーソルのある行との差分行数を表示してくれるrelativenumber</h2>
+
+<p>Vimでは、下記設定をするとウィンドウ左に行数を表示できます。</p>
+<pre class="highlight text">set number
+</pre>
+<p><img alt="set number画像" src="http://gyazo.com/5e6b1cc7ece7aeb807aab144780cbaf3.png" /></p>
+
+<p>これに加えて、下記の設定を加えると</p>
+<pre class="highlight text">set relativenumber
+</pre>
+<p>見栄えがこうなります。</p>
+
+<p><img alt="set relativenumber画像" src="http://gyazo.com/4d20af53dcff2dc779a16b0457c0d5d8.gif" /></p>
+
+<h2 id="toc_1">何が嬉しいのか</h2>
+
+<p>こんな見え方が嬉しいのはVimならでは。つまり、
+移動・削除等のオペレータ利用時のカウントが一目瞭然なのです！</p>
+
+<h3 id="toc_2">例</h3>
+
+<p>こんなファイルがあったとします。今カーソルは24行目にあります。
+ここからメソッドふたつ、52行目の&quot;end&quot;までを一気に削除したい場合&hellip;</p>
+
+<p><img alt="relativenumber説明サンプル" src="http://gyazo.com/83d07d578b6da17b33f6a84572c5bea5.png" /></p>
+
+<p>僕のVim力ではこれまで行単位の範囲選択(V)をしてから52行目あたりまで移動して、
+選択範囲の削除(d)をしていました。</p>
+
+<p><img alt="範囲選択" src="http://gyazo.com/3d7152a7734029c43571bdc028c3437e.gif" /></p>
+
+<p>これに対して、<code>set relativenumber</code> していると&hellip;</p>
+
+<p><img alt="relativenumberした場合" src="http://gyazo.com/d2df5a268c71d7823d404d1344d0a271.png" /></p>
+
+<p>削除したい範囲が28行先までであることがすぐわかります。
+つまり、d28jと打つだけで削除できます。瞬殺です。</p>
+
+<p><img alt="relativenumberした場合の削除" src="http://gyazo.com/9b3e4d0480c24aa5d1bf7190e4c74842.gif" /></p>
+
+<p>こんな感じで、大きく離れた行や、行間に対する作業が非常にしやすくなります。おすすめです。
+Vim7.3以降で使えるので、最近のLinuxディストリのビルトインVimやMacVimなら使えるはずです。</p>
+
+  </div>
+</article>
+<hr /><div class="text-center">
+  <style>
+    .blogresponsivewide { width: 320px; height: 50px; }@media(min-width: 500px) { .blogresponsivewide { width: 468px; height: 60px; } }@media(min-width: 800px) { .blogresponsivewide { width: 728px; height: 90px; } }
+  </style>
+  <script>
+    async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+  </script>
+  <ins class="adsbygoogle blogresponsivewide" data-ad-client="ca-pub-1385530273298456" data-ad-slot="4816571790" style="display:inline-block"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<article>
+  <div class="title">
     <a class="date" rel="bookmark"><abbr>2013/12</abbr>10<sub>23:00</sub></a>
     <div class="container">
       <div class="subject">
@@ -60,18 +133,7 @@ published: false でもないんだけどなー？</p>
 
   </div>
 </article>
-<hr /><div class="text-center">
-  <style>
-    .blogresponsivewide { width: 320px; height: 50px; }@media(min-width: 500px) { .blogresponsivewide { width: 468px; height: 60px; } }@media(min-width: 800px) { .blogresponsivewide { width: 728px; height: 90px; } }
-  </style>
-  <script>
-    async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-  </script>
-  <ins class="adsbygoogle blogresponsivewide" data-ad-client="ca-pub-1385530273298456" data-ad-slot="4816571790" style="display:inline-block"></ins>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-</div>
+<hr />
 <article>
   <div class="title">
     <a class="date" rel="bookmark"><abbr>2013/12</abbr>9<sub>00:00</sub></a>
@@ -638,53 +700,6 @@ Macアプリケーションが美しく見えるのはたまらない。</p>
   </div>
 </article>
 <hr />
-<article>
-  <div class="title">
-    <a class="date" rel="bookmark"><abbr>2012/11</abbr>5<sub>00:00</sub></a>
-    <div class="container">
-      <div class="subject">
-        <a href="/2012/11/05/windows-8-pro-media-center-product-inf/">Windows 8のMedia Center Packを適用するとエディション名が変わる</a>
-      </div>
-      <div class="tags">
-        <div class="label label-primary">
-          <i class="fa fa-tag"></i> Windows
-        </div>
-        <div class="label label-primary">
-          <i class="fa fa-tag"></i> Windows8
-        </div>
-        <div class="label label-primary">
-          <i class="fa fa-tag"></i> MediaCenterPack
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="body">
-    <p>Windows 8はWindows2000以来初めて、発売日に手に入れてない(^_^;)<br>
-    仕事で各プレビュー版をそれなりに触ってしまったので、情熱が。。。<br>
-    さて、Windows 8は単体ではDVD再生ができない。これは前から周知があった。</p>
-    
-    <p><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms724358(v=vs.85).aspx">GetProductInfo function</a></p>
-    
-    <p>以下のMedia Center Packを適用すれば再生可能になる。2013/1/31まではタダらしい。</p>
-    
-    <p><a href="http://windows.microsoft.com/ja-JP/windows-8/feature-packs">機能の追加 - Microsoft Windows</a></p>
-    
-    <p>このMedia Center Packを当てたWindows 8 Proは、通常のWindows 8 Proとは別エディションになるようだ。</p>
-    
-    <p>見た限り、エディション判別によく使う、getProductInfo APIのpdwReturnedProductTypeの値がWindows 8 Proと異なる。</p>
-    
-    <p><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms724358(v=vs.85).aspx">GetProductInfo function</a></p>
-    
-    <p>Media Center Packを適用すると、Proを示すPRODUCT<em>PROFESSIONAL(0x00000030)でなく、
-    PRODUCT</em>PROFESSIONAL_WMC(0x00000067)になってるようだ。</p>
-    
-    <p>WindowsのOSバージョン/エディション判定ロジックのWindows8対応を行ったプロダクトがある場合、この点を見逃していないか確認が必要かも。</p>
-    
-    <p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B009K1SK3E/uasmks-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/510nCGJ7QdL._SL160_.jpg" alt="Microsoft Windows 8 Pro (DSP版)  64bit 日本語" /></a><br /><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B009K1SK3E/uasmks-22/ref=nosim/" target="_blank">Microsoft Windows 8 Pro (DSP版)  64bit 日本語</a></p>
-    
-  </div>
-</article>
-<hr />
 <div class="paginate_box">
   <div class="pull-right">
     <a href="/page/2/">次のページ</a>
@@ -697,6 +712,9 @@ Macアプリケーションが美しく見えるのはたまらない。</p>
             <div class="gadget" id="recents">
               <span class="title">最近の投稿</span>
               <ol>
+                <li>
+                  <a href="/2013/12/14/vim-set-relativenumber/">Vimのrelativenumber設定が便利すぎてヤバイ(12/14)</a>
+                </li>
                 <li>
                   <a href="/2013/12/10/middleman-blog-build-missed-some-article/">middleman-blogでbuildしたら何故か生成されない記事がある(12/10)</a>
                 </li>
@@ -724,9 +742,6 @@ Macアプリケーションが美しく見えるのはたまらない。</p>
                 <li>
                   <a href="/2012/11/30/air-for-android-launch-activity/">AIR for Androidの起動アクティビティ名(11/30)</a>
                 </li>
-                <li>
-                  <a href="/2012/11/05/windows-8-pro-media-center-product-inf/">Windows 8のMedia Center Packを適用するとエディション名が変わる(11/05)</a>
-                </li>
               </ol>
             </div>
             <div class="gadget" id="adsense">
@@ -744,44 +759,44 @@ Macアプリケーションが美しく見えるのはたまらない。</p>
             <div class="gadget" id="tags">
               <span class="title">タグ一覧</span>
               <div class="gadget_body"><a href="/tags/ruby/">
-                Ruby(5) </a><a href="/tags/ruby-on-rails/">
-                Ruby on Rails(4) </a><a href="/tags/emacs/">
-                Emacs(4) </a><a href="/tags/mac/">
-                Mac(3) </a><a href="/tags/review/">
-                Review(3) </a><a href="/tags/macbookpro/">
-                MacBookPro(2) </a><a href="/tags/middleman/">
-                Middleman(2) </a><a href="/tags/octopress/">
-                Octopress(2) </a><a href="/tags/ubuntu/">
-                Ubuntu(2) </a><a href="/tags/server/">
-                Server(2) </a><a href="/tags/windows/">
-                Windows(2) </a><a href="/tags/flash/">
-                Flash(2) </a><a href="/tags/gadget/">
-                Gadget(2) </a><a href="/tags/android/">
-                Android(2) </a><a href="/tags/rinari/">
-                rinari(1) </a><a href="/tags/macmini/">
-                MacMini(1) </a><a href="/tags/ssd/">
-                SSD(1) </a><a href="/tags/windows8/">
-                Windows8(1) </a><a href="/tags/book/">
-                Book(1) </a><a href="/tags/mediacenterpack/">
-                MediaCenterPack(1) </a><a href="/tags/mysql/">
-                MySQL(1) </a><a href="/tags/actionscript/">
-                Actionscript(1) </a><a href="/tags/case/">
-                Case(1) </a><a href="/tags/日々/">
-                日々(1) </a><a href="/tags/adobe-air/">
-                Adobe AIR(1) </a><a href="/tags/mouse/">
-                Mouse(1) </a><a href="/tags/logicool/">
-                Logicool(1) </a><a href="/tags/nginx/">
-                nginx(1) </a><a href="/tags/rvm/">
-                RVM(1) </a><a href="/tags/passenger/">
-                Passenger(1) </a><a href="/tags/uc-411pbt-c/">
+                Ruby(5) </a><a href="/tags/emacs/">
+                Emacs(4) </a><a href="/tags/ruby-on-rails/">
+                Ruby on Rails(4) </a><a href="/tags/review/">
+                Review(3) </a><a href="/tags/mac/">
+                Mac(3) </a><a href="/tags/vim/">
+                Vim(2) </a><a href="/tags/server/">
+                Server(2) </a><a href="/tags/flash/">
+                Flash(2) </a><a href="/tags/android/">
+                Android(2) </a><a href="/tags/middleman/">
+                Middleman(2) </a><a href="/tags/ubuntu/">
+                Ubuntu(2) </a><a href="/tags/windows/">
+                Windows(2) </a><a href="/tags/octopress/">
+                Octopress(2) </a><a href="/tags/gadget/">
+                Gadget(2) </a><a href="/tags/macbookpro/">
+                MacBookPro(2) </a><a href="/tags/rinari/">
+                rinari(1) </a><a href="/tags/ssd/">
+                SSD(1) </a><a href="/tags/refurbished/">
+                Refurbished(1) </a><a href="/tags/macmini/">
+                MacMini(1) </a><a href="/tags/logicool/">
+                Logicool(1) </a><a href="/tags/mouse/">
+                Mouse(1) </a><a href="/tags/nginx/">
+                nginx(1) </a><a href="/tags/windows8/">
+                Windows8(1) </a><a href="/tags/mysql/">
+                MySQL(1) </a><a href="/tags/日々/">
+                日々(1) </a><a href="/tags/uc-411pbt-c/">
                 UC-411PBT-C(1) </a><a href="/tags/goo/">
-                goo(1) </a><a href="/tags/anything-el/">
-                anything.el(1) </a><a href="/tags/refurbished/">
-                Refurbished(1) </a><a href="/tags/vim/">
-                Vim(1) </a><a href="/tags/redmine/">
-                redmine(1) </a><a href="/tags/開発/">
+                goo(1) </a><a href="/tags/adobe-air/">
+                Adobe AIR(1) </a><a href="/tags/mediacenterpack/">
+                MediaCenterPack(1) </a><a href="/tags/book/">
+                Book(1) </a><a href="/tags/actionscript/">
+                Actionscript(1) </a><a href="/tags/redmine/">
+                redmine(1) </a><a href="/tags/rvm/">
+                RVM(1) </a><a href="/tags/passenger/">
+                Passenger(1) </a><a href="/tags/開発/">
                 開発(1) </a><a href="/tags/rails/">
-                Rails(1) </a>
+                Rails(1) </a><a href="/tags/case/">
+                Case(1) </a><a href="/tags/anything-el/">
+                anything.el(1) </a>
               </div>
             </div>
             <div class="gadget" id="twitter">
@@ -794,7 +809,7 @@ Macアプリケーションが美しく見えるのはたまらない。</p>
               <span class="title">アーカイブ</span>
               <ol></ol>
               <li>
-                <a href="/2013/">2013</a> (8)
+                <a href="/2013/">2013</a> (9)
               </li>
               <li>
                 <a href="/2012/">2012</a> (14)

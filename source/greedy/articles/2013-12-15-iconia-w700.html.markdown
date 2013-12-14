@@ -1,0 +1,86 @@
+---
+title: Acerの11.6インチWindowsタブレット ICONIA W700
+date: 2013-12-15 01:39 JST
+tags: Acer, パソコン, タブレット, ICONIAW700
+price: 47800
+purchased_at: 2013-11-02
+---
+
+## 概要
+前々から一台欲しかったWindowsタブレット。
+再生品でお買い得だったICONIA W700を11/2に購入しました。
+
+<a href="http://www.flickr.com/photos/uskanda/10624752776/" title="IMG_8434.JPG by uskanda, on Flickr"><img src="http://farm4.staticflickr.com/3700/10624752776_25143cf005_z.jpg" width="640" height="427" alt="IMG_8434.JPG"></a>
+
+##スペック比較
+現在、Windowsタブレット市場で強烈に存在感を示しているのが
+安価な8型タブレットです。自分が購入したのはW700ですが、売られているのは若干スペックアップした
+W700-2のほうが多いので、そちらと8型タブレットを比較してみます。
+
+##### ICONIA W700-2と8型Windowsタブレットを比較したスペック表
+|   |[ICONIA W700-2](http://www.acer.co.jp/ac/ja/JP/content/model/NT.L0FSJ.007)|[Miix 2](http://www.acer.co.jp/ac/ja/JP/content/model/NT.L0FSJ.007)|[ICONIA W4-820](http://www.acer.co.jp/ac/ja/JP/content/model/NT.L31SJ.002)|
+|:--|:----------|:----|:----------------|
+|CPU|**Core i3 3227U 1.9GHz**|Atom Z3740 1.33GHz|Atom Z3740 1.33GHz|
+|メモリ|**4GB**|2GB|2GB|
+|記憶容量|**128GB**|64GB|64GB|
+|液晶サイズ|**11.6インチ**|8インチ|8インチ|
+|液晶画素数|**1920x1080**|1280x800|1280x800|
+|重量|950g|**350g**|415g|
+|駆動時間|9時間|**10時間**|**10時間(Wi-Fi通信時)**|
+|実売価格<br>(2013/12/15現在)|60,000円前後<br>中古/再生品:45000円前後〜|43,000円前後|**39,000円前後**|
+
+最新のAtomは高速ですが、まだIvy Bridge世代のCore i3(型番3xxx)に迫る性能とは呼べないかと思います。
+こうしてみると、ICONIA W700はトレンドである8型タブレットに比べて
+おおよそ2倍程度のスペックと**2倍以上の重さ**であることがわかります。
+ICONIA W700は中古がそこそこ出回っているので、うまく確保できれば8型と同程度のお値段になります。
+
+<script language="JavaScript" type="text/javascript" src="http://amazlink.fuyu.gs/look.php?creator=true&BrowseNodeSearch=&mode=&charset=UTF-8&rank=1&title=false&image=true&image_fit=false&size=m&price=true&uriage_rank=false&used=false&image_only=false&rakuten_check=true&rakuten_affili=&bookoff_check=false&itunes_check=false&bookoff_affili=&phg_id=&KeywordSearch=iconia%20w4-820&aid=uasmks-22"></script><noscript><a href="http://amazlink.keizoku.com/">Amazonアフィリエイトリンク作成ツール</a></noscript>
+
+<script language="JavaScript" type="text/javascript" src="http://amazlink.fuyu.gs/look.php?creator=true&BrowseNodeSearch=&mode=&charset=UTF-8&rank=1&title=false&image=true&image_fit=false&size=m&price=true&uriage_rank=false&used=false&image_only=false&rakuten_check=true&rakuten_affili=&bookoff_check=false&itunes_check=false&bookoff_affili=&phg_id=&KeywordSearch=miix%202&aid=uasmks-22"></script><noscript><a href="http://amazlink.keizoku.com/">Amazonアフィリエイトリンク作成ツール</a></noscript>
+
+8型はいまのところ画素数が揃って1280x800なのが不満点かな。
+
+## 性能
+Full HDでエンコード済みの動画(H.264)再生でもまったく問題ないです。
+
+<a href="http://www.flickr.com/photos/uskanda/10709778845/" title="IMG_8437.JPG by uskanda, on Flickr"><img src="http://farm6.staticflickr.com/5491/10709778845_bd2ba9a419.jpg" width="500" height="333" alt="IMG_8437.JPG"></a>
+
+**艦これもブラウザからの利用だとストレスフリーでできます。**
+IEコンポーネントを利用する艦これ専ブラだと画面切り替え時や画像の読み込みが少し遅くなる感じになります。
+タイルUI版IEが一番おすすめです。
+
+## 重さ・感触
+問題はこの重さをどう捉えるかです。約1kgはPCとして既存のPCとして捉えれば普通ですが、
+タブレットとして考えると異常な重さです。
+少なくとも片手持ちは厳しいです。
+
+<a href="http://www.flickr.com/photos/uskanda/11370262265/" title="IMG_8461.JPG by uskanda, on Flickr"><img src="http://farm4.staticflickr.com/3742/11370262265_e699a2eac2.jpg" width="500" height="333" alt="IMG_8461.JPG"></a>
+
+こんな感じで横持ちするとしばらくはなんとか...という感じ。
+基本的には付属のスタンドか、膝上等においての利用になるかと思います。
+電車内等での手持ち用途ならば8インチタブレットをおすすめします。
+
+## おすすめする用途
+この端末の真価が発揮されるのは以下のどちらかかと思います。
+
+* **ビジネスシーンでの利用**  
+  11.6型はノートパソコンでも利用されるサイズなので、キーボードさえあれば
+  普通のノートパソコンになります。8型では流石に狭さを感じることも多いかと思います。
+  安価なUltrabookとして考えると優秀です。
+* **寝室用PC**  
+  寝るまで適当にPCをいじる用途に最高です。
+  自分の環境ではNASに動画を放り込んでいるので、寝落ちするまで動画を見ています。
+  iPadなんかだとNASからDLNA経由でがんばってみてもうまく表示できないケースも多いので、
+  完全なWindowsであると便利です。
+  FullHDであるのも動画と相性◎です。
+
+## 入手方法
+僕はじゃんぱらで再生品を購入しました。
+
+[じゃんぱら-通信販売-商品検索](http://www.janpara.co.jp/sale/search/result/?SHPCODE=&OUTCLSCODE=&KEYWORDS=ICONIA+w700&x=-1235&y=-158)
+
+Amazonだと新品で少しお高いですが、用途が当てはまる方なら価格分の価値はあるかと思います。
+
+<script language="JavaScript" type="text/javascript" src="http://amazlink.fuyu.gs/look.php?creator=true&BrowseNodeSearch=&mode=&charset=UTF-8&rank=1&title=false&image=true&image_fit=false&size=m&price=true&uriage_rank=false&used=false&image_only=false&rakuten_check=true&rakuten_affili=&bookoff_check=false&itunes_check=false&bookoff_affili=&phg_id=&KeywordSearch=iconia%20w700&aid=uasmks-22"></script><noscript><a href="http://amazlink.keizoku.com/">Amazonアフィリエイトリンク作成ツール</a></noscript>
+
+

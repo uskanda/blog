@@ -164,6 +164,16 @@ body .main article .body h5 {
   -moz-box-shadow: #ffffff -1px 0 0;
   box-shadow: #ffffff -1px 0 0;
 }
+body .main article .body blockquote {
+  padding: 30px;
+  margin: 0px 30px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  background: url(../images/blockquote_s.png), url(../images/blockquote_e.png);
+  background-repeat: no-repeat, no-repeat;
+  background-position: top left,bottom right;
+  background-color: rgba(255, 255, 255, 0.2);
+}
 body .main article .social_buttons_bottom {
   margin-left: auto;
   margin-right: auto;

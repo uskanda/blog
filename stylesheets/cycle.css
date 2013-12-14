@@ -202,6 +202,7 @@ body .main aside .gadget {
 }
 body .main aside .gadget span.title {
   font-size: 130%;
+  font-weight: bold;
 }
 body .main aside .gadget ol {
   list-style-type: disc;

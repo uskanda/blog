@@ -7,11 +7,13 @@
     link[href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"]
     link[href="/stylesheets/cycle.css" rel="stylesheet"]
     link[href="/stylesheets/syntax.css" rel="stylesheet"]
-    script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"
     title
       | Homesick Cyclist
       = ' - ' + current_article.title unless current_article.nil?
     = feed_tag :atom, "cycle/feed.xml", title: "Atom Feed"
   - content_for :header do
     = partial :header, locals: {site_title: "Homesick Cyclist", site_subtitle: "30km乗ったらもう帰りたい。だけど好きなんです。自転車関連、乗車記録/レビュー/TV観戦記"}
+  - content_for :bottom_js do
+    script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"
+    script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"
   = yield

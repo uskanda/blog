@@ -5,4 +5,5 @@
     = partial :article_title
     .body
       = yield
+      = partial :social_button_bottom, locals: {url: article.url}
       = partial "comment"

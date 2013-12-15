@@ -7,4 +7,5 @@
         = current_article.date
     .body
       = yield
+      = partial :social_button_bottom, locals: {url: article.url}
       = partial "comment"

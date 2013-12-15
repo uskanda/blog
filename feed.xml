@@ -14,7 +14,7 @@
     <link rel="alternate" href="http://blog.uskanda.com/2013/12/14/vim-set-relativenumber/"/>
     <id>http://blog.uskanda.com/2013/12/14/vim-set-relativenumber/</id>
     <published>2013-12-13T16:00:00Z</published>
-    <updated>2013-12-15T17:33:06+00:00</updated>
+    <updated>2013-12-15T18:56:48+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -69,7 +69,7 @@ Vim7.3以降で使えるので、最近のLinuxディストリのビルトイン
     <link rel="alternate" href="http://blog.uskanda.com/2013/12/10/middleman-blog-build-missed-some-article/"/>
     <id>http://blog.uskanda.com/2013/12/10/middleman-blog-build-missed-some-article/</id>
     <published>2013-12-10T14:00:00Z</published>
-    <updated>2013-12-15T17:33:06+00:00</updated>
+    <updated>2013-12-15T18:56:48+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -90,7 +90,7 @@ published: false でもないんだけどなー？&lt;/p&gt;
     <link rel="alternate" href="http://blog.uskanda.com/2013/12/09/transfer-from-octopress-to-middleman/"/>
     <id>http://blog.uskanda.com/2013/12/09/transfer-from-octopress-to-middleman/</id>
     <published>2013-12-08T15:00:00Z</published>
-    <updated>2013-12-15T17:33:06+00:00</updated>
+    <updated>2013-12-15T18:56:48+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -149,7 +149,7 @@ Github Pagesを強く意識しているOctopressよりはデプロイ設定が�
     <link rel="alternate" href="http://blog.uskanda.com/2013/04/01/android-support-library-error-on-android-32/"/>
     <id>http://blog.uskanda.com/2013/04/01/android-support-library-error-on-android-32/</id>
     <published>2013-04-01T10:22:00Z</published>
-    <updated>2013-12-15T17:33:06+00:00</updated>
+    <updated>2013-12-15T18:56:48+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -180,7 +180,7 @@ E/AndroidRuntime(25922):    at android.support.v4.app.NotificationCompat$Builder
     <link rel="alternate" href="http://blog.uskanda.com/2013/02/23/mysql-show-columns-and-indices-from-all-the-tables/"/>
     <id>http://blog.uskanda.com/2013/02/23/mysql-show-columns-and-indices-from-all-the-tables/</id>
     <published>2013-02-23T10:00:00Z</published>
-    <updated>2013-12-15T17:33:06+00:00</updated>
+    <updated>2013-12-15T18:56:48+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -216,7 +216,7 @@ AND information_schema.columns.column_name = information_schema.statistics.colum
     <link rel="alternate" href="http://blog.uskanda.com/2013/02/17/macbook-pro-cover/"/>
     <id>http://blog.uskanda.com/2013/02/17/macbook-pro-cover/</id>
     <published>2013-02-16T21:33:00Z</published>
-    <updated>2013-12-15T17:33:06+00:00</updated>
+    <updated>2013-12-15T18:56:48+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>

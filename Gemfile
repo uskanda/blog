@@ -10,6 +10,7 @@ gem "redcarpet"
 gem "therubyracer"
 gem "less"
 gem "middleman-livereload", "~> 3.1.0"
+gem "nokogiri"
 
 # For feed.xml.builder
 gem "builder", "~> 3.0"

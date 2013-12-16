@@ -432,7 +432,7 @@ chmod a+x php-fastcgi
 PHP_SCRIPT=/usr/bin/php-fastcgi
 FASTCGI_USER=www-data
 RETVAL=0
-case &quot;$1&quot; in
+case "$1" in
 start)
 su - $FASTCGI_USER -c $PHP_SCRIPT
 RETVAL=$?
@@ -447,7 +447,7 @@ su - $FASTCGI_USER -c $PHP_SCRIPT
 RETVAL=$?
 ;;
 *)
-echo &quot;Usage: php-fastcgi {start|stop|restart}&quot;
+echo "Usage: php-fastcgi {start|stop|restart}"
 exit 1
 ;;
 esac
@@ -505,17 +505,8 @@ ln -s /etc/nginx/sites-available/wordpress /etc/nginx/sites-enable/wordpress
 /etc/init.d/php-fastcgi start
 /etc/init.d/nginx start
 </code>
-<h2>参考サイト</h2>
-<a href="http://iphone-diary.com/?p=9113">耐えられずにSixcoreサーバーへ移動 | 普通のサラリーマンのiPhone日記</a>
-(Wordpressの移行)</p>
-
-<p><a href="http://tjun.jp/blog/2011/09/nginx/">さくらVPS+ubuntu+wordpressにnginx入れたメモ | tjun memo</a></p>
-
-<p><a href="http://wiki.nginx.org/WordPress">WordPress</a>
-(nginx公式)</p>
-
-<p><a href="http://akibe.com/wordpress%E7%94%A8%E3%81%AEnginx%E3%81%AE%E3%82%B5%E3%82%A4%E3%83%88%E8%A8%AD%E5%AE%9A%E3%82%92%E8%A6%8B%E7%9B%B4%E3%81%97/" target="_blank">Wordpress用のNginxのサイト設定を見直し @AKIBE</a></p>
-
+</p><h2>参考サイト</h2>
+<a href="http://iphone-diary.com/?p=9113">耐えられずにSixcore...</a><a href="/2012/06/17/wordpress-with-nginx/"><button class="show_article_btn btn btn-primary btn-lg btn-block active"><i class="fa fa-eye"></i>  続きを読む</button></a>
   </div>
 </article>
 <hr />
@@ -547,18 +538,18 @@ ln -s /etc/nginx/sites-available/wordpress /etc/nginx/sites-enable/wordpress
     
     <p>ずっとiMac待ちだったけど、いろいろと限界だったのでついカッとなって<strong>Mac Miniを買ったよ！</strong></p>
     
-    <p><a title="IMG_8028" href="http://www.flickr.com/photos/uskanda/7368789174" target="_blank"><img class="aligncenter" src="http://farm9.staticflickr.com/8016/7368789174_358cc0e4cd.jpg" alt="IMG_8028" /></a></p>
+    <p><a title="IMG_8028" href="http://www.flickr.com/photos/uskanda/7368789174" target="_blank"><img class="aligncenter" src="http://farm9.staticflickr.com/8016/7368789174_358cc0e4cd.jpg" alt="IMG_8028"></a></p>
     
     <p>上位モデルだけど、発売から時間がたっていることもありほぼ下位モデルの値段で
     秋葉原で買えた。当然の如くメモリとSSDも購入。メモリは8GB×2、SSDはA-DATAのSX900 256GB。ふたつ合わせて25,000円弱。</p>
     
-    <p>動作確認だけして&hellip;</p>
+    <p>動作確認だけして…</p>
     
-    <p><a title="IMG_8032" href="http://www.flickr.com/photos/uskanda/7183555013"><img class="aligncenter" src="http://farm8.staticflickr.com/7104/7183555013_781c6e55fc.jpg" alt="IMG_8032" /></a></p>
+    <p><a title="IMG_8032" href="http://www.flickr.com/photos/uskanda/7183555013"><img class="aligncenter" src="http://farm8.staticflickr.com/7104/7183555013_781c6e55fc.jpg" alt="IMG_8032"></a></p>
     
     <p>即解体。</p>
     
-    <p><a title="IMG_8033" href="http://www.flickr.com/photos/uskanda/7368786352"><img class="aligncenter" src="http://farm8.staticflickr.com/7097/7368786352_4882de8ace.jpg" alt="IMG_8033" /></a></p>
+    <p><a title="IMG_8033" href="http://www.flickr.com/photos/uskanda/7368786352"><img class="aligncenter" src="http://farm8.staticflickr.com/7097/7368786352_4882de8ace.jpg" alt="IMG_8033"></a></p>
     
     <p>SSDの換装は下記記事を参考に実施。図解をたどっていけばかんたん。</p>
     
@@ -566,7 +557,7 @@ ln -s /etc/nginx/sites-available/wordpress /etc/nginx/sites-enable/wordpress
     
     <p>完成。</p>
     
-    <p><a title="IMG_8038" href="http://www.flickr.com/photos/uskanda/7368782996"><img class="aligncenter" src="http://farm9.staticflickr.com/8028/7368782996_081f574202.jpg" alt="IMG_8038" /></a></p>
+    <p><a title="IMG_8038" href="http://www.flickr.com/photos/uskanda/7368782996"><img class="aligncenter" src="http://farm9.staticflickr.com/8028/7368782996_081f574202.jpg" alt="IMG_8038"></a></p>
     
     <p>Lionはインターネットインストールできるけど、ドライブ入れ替え後に勝手にはやってくれないらしい。Command+Rを押しながら起動でOSインストールを開始できる。</p>
     
@@ -617,10 +608,7 @@ ln -s /etc/nginx/sites-available/wordpress /etc/nginx/sites-enable/wordpress
         Uncached Read 2909.52 20.62 MB/sec [4K blocks]
         Uncached Read 1532.21 284.31 MB/sec [256K blocks]
     最近のSSDはRandom早いね！
-    MacBookAir(Mid2011 Ultimate)と比べてもだいぶ体感性能が違う感じ。これでHaswellなRetina iMacまで待とう&hellip;</p>
-    
-    <iframe src="http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=uasmks-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B005DPEVH0" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
-    
+    MacBookAir...</p><a href="/2012/06/13/buy-mac-mini/"><button class="show_article_btn btn btn-primary btn-lg btn-block active"><i class="fa fa-eye"></i>  続きを読む</button></a>
   </div>
 </article>
 <hr />
@@ -782,42 +770,42 @@ bundlerはbundle packageでは入らないんでgemファイルを準備して�
               <div class="gadget_body"><a href="/tags/ruby/">
                 Ruby(5) </a><a href="/tags/emacs/">
                 Emacs(4) </a><a href="/tags/ruby-on-rails/">
-                Ruby on Rails(4) </a><a href="/tags/mac/">
-                Mac(3) </a><a href="/tags/review/">
-                Review(3) </a><a href="/tags/middleman/">
-                Middleman(2) </a><a href="/tags/gadget/">
-                Gadget(2) </a><a href="/tags/vim/">
-                Vim(2) </a><a href="/tags/server/">
-                Server(2) </a><a href="/tags/windows/">
-                Windows(2) </a><a href="/tags/macbookpro/">
-                MacBookPro(2) </a><a href="/tags/ubuntu/">
-                Ubuntu(2) </a><a href="/tags/flash/">
-                Flash(2) </a><a href="/tags/octopress/">
+                Ruby on Rails(4) </a><a href="/tags/review/">
+                Review(3) </a><a href="/tags/mac/">
+                Mac(3) </a><a href="/tags/gadget/">
+                Gadget(2) </a><a href="/tags/flash/">
+                Flash(2) </a><a href="/tags/windows/">
+                Windows(2) </a><a href="/tags/ubuntu/">
+                Ubuntu(2) </a><a href="/tags/server/">
+                Server(2) </a><a href="/tags/vim/">
+                Vim(2) </a><a href="/tags/macbookpro/">
+                MacBookPro(2) </a><a href="/tags/middleman/">
+                Middleman(2) </a><a href="/tags/octopress/">
                 Octopress(2) </a><a href="/tags/android/">
-                Android(2) </a><a href="/tags/nginx/">
-                nginx(1) </a><a href="/tags/macmini/">
-                MacMini(1) </a><a href="/tags/開発/">
-                開発(1) </a><a href="/tags/rails/">
-                Rails(1) </a><a href="/tags/ssd/">
-                SSD(1) </a><a href="/tags/actionscript/">
-                Actionscript(1) </a><a href="/tags/case/">
-                Case(1) </a><a href="/tags/mediacenterpack/">
-                MediaCenterPack(1) </a><a href="/tags/book/">
-                Book(1) </a><a href="/tags/windows8/">
-                Windows8(1) </a><a href="/tags/redmine/">
-                redmine(1) </a><a href="/tags/rinari/">
-                rinari(1) </a><a href="/tags/anything-el/">
-                anything.el(1) </a><a href="/tags/uc-411pbt-c/">
+                Android(2) </a><a href="/tags/logicool/">
+                Logicool(1) </a><a href="/tags/ssd/">
+                SSD(1) </a><a href="/tags/rinari/">
+                rinari(1) </a><a href="/tags/mouse/">
+                Mouse(1) </a><a href="/tags/redmine/">
+                redmine(1) </a><a href="/tags/uc-411pbt-c/">
                 UC-411PBT-C(1) </a><a href="/tags/goo/">
-                goo(1) </a><a href="/tags/mouse/">
-                Mouse(1) </a><a href="/tags/logicool/">
-                Logicool(1) </a><a href="/tags/rvm/">
+                goo(1) </a><a href="/tags/macmini/">
+                MacMini(1) </a><a href="/tags/nginx/">
+                nginx(1) </a><a href="/tags/case/">
+                Case(1) </a><a href="/tags/refurbished/">
+                Refurbished(1) </a><a href="/tags/adobe-air/">
+                Adobe AIR(1) </a><a href="/tags/rails/">
+                Rails(1) </a><a href="/tags/anything-el/">
+                anything.el(1) </a><a href="/tags/開発/">
+                開発(1) </a><a href="/tags/windows8/">
+                Windows8(1) </a><a href="/tags/mediacenterpack/">
+                MediaCenterPack(1) </a><a href="/tags/actionscript/">
+                Actionscript(1) </a><a href="/tags/rvm/">
                 RVM(1) </a><a href="/tags/passenger/">
-                Passenger(1) </a><a href="/tags/adobe-air/">
-                Adobe AIR(1) </a><a href="/tags/refurbished/">
-                Refurbished(1) </a><a href="/tags/mysql/">
-                MySQL(1) </a><a href="/tags/日々/">
-                日々(1) </a>
+                Passenger(1) </a><a href="/tags/日々/">
+                日々(1) </a><a href="/tags/mysql/">
+                MySQL(1) </a><a href="/tags/book/">
+                Book(1) </a>
               </div>
             </div>
             <div class="gadget" id="twitter">

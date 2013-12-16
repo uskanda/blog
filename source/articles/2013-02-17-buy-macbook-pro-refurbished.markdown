@@ -37,6 +37,7 @@ IYHしてしまった。
 <a href="http://www.flickr.com/photos/uskanda/8467247999/" title="MacBook Pro 13inch Retina Refurbished - Package by uskanda, on Flickr"><img src="http://farm9.staticflickr.com/8391/8467247999_c0990068dd_z.jpg" width="640" height="427" alt="MacBook Pro 13inch Retina Refurbished - Package"></a>
 
 この中に化粧箱があるのかと思いきや...
+READMORE
 
 <a href="http://www.flickr.com/photos/uskanda/8467251841/" title="MacBook Pro 13inch Retina Refurbished - 開封 by uskanda, on Flickr"><img src="http://farm9.staticflickr.com/8378/8467251841_7bf1b85fe1_z.jpg" width="640" height="427" alt="MacBook Pro 13inch Retina Refurbished - 開封"></a>
 

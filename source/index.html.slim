@@ -11,8 +11,10 @@ blog: gits
     .body
       = article.summary
       - if article.summary.length < article.body.length
-        .show_article
-          = link_to "---続きを読む---", article
+        = link_to article do
+          button.show_article_btn.btn.btn-primary.btn-lg.btn-block.active
+            i.fa.fa-eye
+            |   続きを読む
   hr
 - if paginate
   .paginate_box

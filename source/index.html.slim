@@ -9,7 +9,10 @@ blog: gits
   article
     = partial :article_title, locals: {article: article, with_link: true}
     .body
-      = article.body
+      = article.summary
+      - if article.summary.length < article.body.length
+        .show_article
+          = link_to "---続きを読む---", article
   hr
 - if paginate
   .paginate_box

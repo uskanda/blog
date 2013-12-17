@@ -34,6 +34,59 @@
           <div id="main" role="main">
 <article>
   <div class="title">
+    <a class="date" rel="bookmark"><abbr>2012/04</abbr>2<sub>00:00</sub></a>
+    <div class="container">
+      <div class="subject">
+        <a href="/2012/04/02/update-rails-without-internet/">オフラインでのRails3アプリ環境の構築</a>
+      </div>
+      <div class="tags">
+        <div class="label label-primary">
+          <i class="fa fa-tag"></i> Ruby
+        </div>
+        <div class="label label-primary">
+          <i class="fa fa-tag"></i> Ruby on Rails
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="body"><p>内製アプリの改修を納品したときにオフラインの本番環境に対してRailsアプリの更新をしなければならなかったのでメモ。
+物理メディアのみのやり取りでgemの整理をするのは意外とめんどかった&hellip;</p>
+
+<p>まず、下記コマンドで$RAILS_HOME/vender/cacheに依存gemのコピーが保存される。
+<pre>
+bundle package
+</pre>
+これをオンラインの環境で実施した後、オフライン環境で
+<pre>
+bundle install --local
+</pre>
+とすれば基本的にはOK。
+&hellip;なのだけど、Rubygemsのバージョン依存のgemがあれば当然実行時のバージョンによってエラーが出てしまう。
+デプロイ先はUbuntuだったので、rubygems-updateの最新.gemファイルを持って行って
+<pre>
+gem install rubygems-update --local
+</pre>
+とした。これで行けるかと思ったら今度はbundlerが死んだので、bundlerのgemも持って行って
+<pre>
+gem install bundler --local
+</pre>
+としてやっと解決。
+bundlerはbundle packageでは入らないんでgemファイルを準備していったほうが無難っぽい。</p>
+
+  </div>
+</article>
+<hr /><div class="text-center">
+  <style>
+    .blogresponsivewide { width: 320px; height: 50px; }@media(min-width: 500px) { .blogresponsivewide { width: 468px; height: 60px; } }@media(min-width: 800px) { .blogresponsivewide { width: 728px; height: 90px; } }
+  </style>
+  <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <ins class="adsbygoogle blogresponsivewide" data-ad-client="ca-pub-1385530273298456" data-ad-slot="4816571790" style="display:inline-block"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<article>
+  <div class="title">
     <a class="date" rel="bookmark"><abbr>2012/03</abbr>3<sub>00:00</sub></a>
     <div class="container">
       <div class="subject">
@@ -94,16 +147,7 @@
     
   </div>
 </article>
-<hr /><div class="text-center">
-  <style>
-    .blogresponsivewide { width: 320px; height: 50px; }@media(min-width: 500px) { .blogresponsivewide { width: 468px; height: 60px; } }@media(min-width: 800px) { .blogresponsivewide { width: 728px; height: 90px; } }
-  </style>
-  <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <ins class="adsbygoogle blogresponsivewide" data-ad-client="ca-pub-1385530273298456" data-ad-slot="4816571790" style="display:inline-block"></ins>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-</div>
+<hr />
 <article>
   <div class="title">
     <a class="date" rel="bookmark"><abbr>2012/02</abbr>9<sub>00:00</sub></a>
@@ -173,22 +217,32 @@ markdown-modeの問題はこれで解決。
     <a class="date" rel="bookmark"><abbr>2011/12</abbr>4<sub>00:00</sub></a>
     <div class="container">
       <div class="subject">
-        <a href="/2011/12/04/blog-nameduplication/">まさかのカブリ</a>
+        <a href="/2011/12/04/agile-development-with-rails-4th-ed/">RailsによるアジャイルWebアプリケーション開発 第4版が出てたので買った</a>
       </div>
       <div class="tags">
         <div class="label label-primary">
-          <i class="fa fa-tag"></i> 日々
+          <i class="fa fa-tag"></i> Book
+        </div>
+        <div class="label label-primary">
+          <i class="fa fa-tag"></i> Ruby on Rails
+        </div>
+        <div class="label label-primary">
+          <i class="fa fa-tag"></i> Ruby
         </div>
       </div>
     </div>
   </div>
   <div class="body">
-    <p>ブログをまともに再開したのだけど、
-    適当につけていたブログ名がまさか会社さんとカブっていたとは&hellip;</p>
+    <p>今まで高かったから実は買ったことなかったRailsのバイブル。&hellip;昔4000円台だったよね？
+    <a href="http://estore.ohmsha.co.jp/titles/978427406866P">PDF</a>版がすぐ出てくれるのはすごくありがたい。</p>
     
-    <p><a href="http://fugapiyo.jp/" target="_blank">株式会社フガピヨ</a></p>
+    <p>まとめて読む時間は取れそうにないけど、気がついたところは箇条書きでここにメモっていこう。とりあえずはこまかいところ&hellip;
+    <ul>
+      <li>Rails3.1はRuby1.9利用時はScaffoldでRuby1.9のハッシュ記法を使う。あれ？そうだっけ？っと思って試してみたらホントだった</li>
+      <li>link_toの飛び先をcontroller, action, idのハッシュで指定する記法は載ってすらいない</li>
+    </ul></p>
     
-    <p>新しいブログ名急いで考えよう&hellip;</p>
+    <iframe src="http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=uasmks-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=4274068668" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
     
   </div>
 </article>
@@ -233,32 +287,22 @@ markdown-modeの問題はこれで解決。
     <a class="date" rel="bookmark"><abbr>2011/12</abbr>4<sub>00:00</sub></a>
     <div class="container">
       <div class="subject">
-        <a href="/2011/12/04/agile-development-with-rails-4th-ed/">RailsによるアジャイルWebアプリケーション開発 第4版が出てたので買った</a>
+        <a href="/2011/12/04/blog-nameduplication/">まさかのカブリ</a>
       </div>
       <div class="tags">
         <div class="label label-primary">
-          <i class="fa fa-tag"></i> Book
-        </div>
-        <div class="label label-primary">
-          <i class="fa fa-tag"></i> Ruby on Rails
-        </div>
-        <div class="label label-primary">
-          <i class="fa fa-tag"></i> Ruby
+          <i class="fa fa-tag"></i> 日々
         </div>
       </div>
     </div>
   </div>
   <div class="body">
-    <p>今まで高かったから実は買ったことなかったRailsのバイブル。&hellip;昔4000円台だったよね？
-    <a href="http://estore.ohmsha.co.jp/titles/978427406866P">PDF</a>版がすぐ出てくれるのはすごくありがたい。</p>
+    <p>ブログをまともに再開したのだけど、
+    適当につけていたブログ名がまさか会社さんとカブっていたとは&hellip;</p>
     
-    <p>まとめて読む時間は取れそうにないけど、気がついたところは箇条書きでここにメモっていこう。とりあえずはこまかいところ&hellip;
-    <ul>
-      <li>Rails3.1はRuby1.9利用時はScaffoldでRuby1.9のハッシュ記法を使う。あれ？そうだっけ？っと思って試してみたらホントだった</li>
-      <li>link_toの飛び先をcontroller, action, idのハッシュで指定する記法は載ってすらいない</li>
-    </ul></p>
+    <p><a href="http://fugapiyo.jp/" target="_blank">株式会社フガピヨ</a></p>
     
-    <iframe src="http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=uasmks-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=4274068668" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+    <p>新しいブログ名急いで考えよう&hellip;</p>
     
   </div>
 </article>
@@ -347,49 +391,6 @@ markdown-modeの問題はこれで解決。
   </div>
 </article>
 <hr />
-<article>
-  <div class="title">
-    <a class="date" rel="bookmark"><abbr>2011/06</abbr>22<sub>00:00</sub></a>
-    <div class="container">
-      <div class="subject">
-        <a href="/2011/06/22/use-multiple-ruby-with-passenger/">RVM+PassengerでRuby1.8系と1.9系を同時利用する</a>
-      </div>
-      <div class="tags">
-        <div class="label label-primary">
-          <i class="fa fa-tag"></i> Ruby
-        </div>
-        <div class="label label-primary">
-          <i class="fa fa-tag"></i> RVM
-        </div>
-        <div class="label label-primary">
-          <i class="fa fa-tag"></i> Passenger
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="body"><p>半年前に書いたものがアップせずに残ってたorz<br>
-一応あげておこう。。。    </p>
-
-<p>RedmineはまだRuby1.8/Rails2系しか対応してないからRuby1.8を使わなきゃいけないけど、<br>
-他のRailsアプリはRuby1.9で動作させるようにしたい！というわけで<br>
-Passengerで複数のRubyを使ってアプリを動かす方法を探したら、<br>
-そのまんまの記事がPassenger公式に上がってた。    </p>
-
-<p><a title="Permanent link to Phusion Passenger &amp; running multiple Ruby versions" rel="bookmark" href="http://blog.phusion.nl/2010/09/21/phusion-passenger-running-multiple-ruby-versions/">Phusion Passenger &amp; running multiple Ruby versions</a>    </p>
-
-<p>Passengerはnginx利用で単体起動する機能があるようで、<br>
-&ldquo;passenger start&quot;でnginxインストールから起動までやってくれる。<br>
-standaloneの場合、これで立ち上がったPassengerに大して、メインのApache/nginxのリバースプロキシでアクセスする。<br>
-rc.localに自動起動のための設定を書いた。    </p>
-<pre class="highlight text">su - $USERNAME -c &quot;    
-cd /webapps/redmine    
-rvm use 1.8.7-head    
-passenger start -a 127.0.0.1 -p 3000 -e production -d    
-rvm use 1.9.2-head&quot;
-</pre>
-  </div>
-</article>
-<hr />
 <div class="paginate_box">
   <div class="pull-left">
     <a href="/page/2/">前のページ</a>
@@ -405,6 +406,9 @@ rvm use 1.9.2-head&quot;
             <div class="gadget" id="recents">
               <span class="title">最近の投稿</span>
               <ol>
+                <li>
+                  <a href="/2013/12/18/capistrano-git-subdir/">Capistranoでgitレポジトリのサブディレクトリ以下をデプロイ対象にする(12/18)</a>
+                </li>
                 <li>
                   <a href="/2013/12/14/vim-set-relativenumber/">Vimのrelativenumber設定が便利すぎてヤバイ(12/14)</a>
                 </li>
@@ -432,9 +436,6 @@ rvm use 1.9.2-head&quot;
                 <li>
                   <a href="/2013/01/04/vim-commands-for-me/">僕の覚えた順Vimコマンド(01/04)</a>
                 </li>
-                <li>
-                  <a href="/2012/11/30/air-for-android-launch-activity/">AIR for Androidの起動アクティビティ名(11/30)</a>
-                </li>
               </ol>
             </div>
             <div class="gadget" id="adsense">
@@ -454,42 +455,44 @@ rvm use 1.9.2-head&quot;
               <div class="gadget_body"><a href="/tags/ruby/">
                 Ruby(5) </a><a href="/tags/emacs/">
                 Emacs(4) </a><a href="/tags/ruby-on-rails/">
-                Ruby on Rails(4) </a><a href="/tags/review/">
-                Review(3) </a><a href="/tags/mac/">
-                Mac(3) </a><a href="/tags/macbookpro/">
-                MacBookPro(2) </a><a href="/tags/octopress/">
-                Octopress(2) </a><a href="/tags/android/">
-                Android(2) </a><a href="/tags/ubuntu/">
-                Ubuntu(2) </a><a href="/tags/server/">
-                Server(2) </a><a href="/tags/windows/">
-                Windows(2) </a><a href="/tags/middleman/">
-                Middleman(2) </a><a href="/tags/flash/">
+                Ruby on Rails(4) </a><a href="/tags/mac/">
+                Mac(3) </a><a href="/tags/review/">
+                Review(3) </a><a href="/tags/vim/">
+                Vim(2) </a><a href="/tags/macbookpro/">
+                MacBookPro(2) </a><a href="/tags/flash/">
                 Flash(2) </a><a href="/tags/gadget/">
-                Gadget(2) </a><a href="/tags/vim/">
-                Vim(2) </a><a href="/tags/book/">
-                Book(1) </a><a href="/tags/macmini/">
-                MacMini(1) </a><a href="/tags/ssd/">
-                SSD(1) </a><a href="/tags/windows8/">
-                Windows8(1) </a><a href="/tags/mediacenterpack/">
-                MediaCenterPack(1) </a><a href="/tags/rinari/">
-                rinari(1) </a><a href="/tags/mysql/">
-                MySQL(1) </a><a href="/tags/actionscript/">
-                Actionscript(1) </a><a href="/tags/case/">
-                Case(1) </a><a href="/tags/日々/">
-                日々(1) </a><a href="/tags/adobe-air/">
-                Adobe AIR(1) </a><a href="/tags/mouse/">
-                Mouse(1) </a><a href="/tags/logicool/">
-                Logicool(1) </a><a href="/tags/nginx/">
+                Gadget(2) </a><a href="/tags/server/">
+                Server(2) </a><a href="/tags/middleman/">
+                Middleman(2) </a><a href="/tags/octopress/">
+                Octopress(2) </a><a href="/tags/android/">
+                Android(2) </a><a href="/tags/windows/">
+                Windows(2) </a><a href="/tags/ubuntu/">
+                Ubuntu(2) </a><a href="/tags/mediacenterpack/">
+                MediaCenterPack(1) </a><a href="/tags/windows8/">
+                Windows8(1) </a><a href="/tags/anything-el/">
+                anything.el(1) </a><a href="/tags/passenger/">
+                Passenger(1) </a><a href="/tags/nginx/">
                 nginx(1) </a><a href="/tags/rvm/">
-                RVM(1) </a><a href="/tags/passenger/">
-                Passenger(1) </a><a href="/tags/uc-411pbt-c/">
-                UC-411PBT-C(1) </a><a href="/tags/goo/">
-                goo(1) </a><a href="/tags/anything-el/">
-                anything.el(1) </a><a href="/tags/refurbished/">
-                Refurbished(1) </a><a href="/tags/redmine/">
-                redmine(1) </a><a href="/tags/開発/">
+                RVM(1) </a><a href="/tags/case/">
+                Case(1) </a><a href="/tags/book/">
+                Book(1) </a><a href="/tags/logicool/">
+                Logicool(1) </a><a href="/tags/redmine/">
+                redmine(1) </a><a href="/tags/adobe-air/">
+                Adobe AIR(1) </a><a href="/tags/mouse/">
+                Mouse(1) </a><a href="/tags/capistrano/">
+                Capistrano(1) </a><a href="/tags/git/">
+                git(1) </a><a href="/tags/開発/">
                 開発(1) </a><a href="/tags/rails/">
-                Rails(1) </a>
+                Rails(1) </a><a href="/tags/rinari/">
+                rinari(1) </a><a href="/tags/uc-411pbt-c/">
+                UC-411PBT-C(1) </a><a href="/tags/goo/">
+                goo(1) </a><a href="/tags/macmini/">
+                MacMini(1) </a><a href="/tags/ssd/">
+                SSD(1) </a><a href="/tags/actionscript/">
+                Actionscript(1) </a><a href="/tags/日々/">
+                日々(1) </a><a href="/tags/refurbished/">
+                Refurbished(1) </a><a href="/tags/mysql/">
+                MySQL(1) </a>
               </div>
             </div>
             <div class="gadget" id="twitter">
@@ -502,7 +505,7 @@ rvm use 1.9.2-head&quot;
               <span class="title">アーカイブ</span>
               <ol></ol>
               <li>
-                <a href="/2013/">2013</a> (9)
+                <a href="/2013/">2013</a> (10)
               </li>
               <li>
                 <a href="/2012/">2012</a> (14)

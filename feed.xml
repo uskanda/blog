@@ -5,16 +5,95 @@
   <id>http://blog.uskanda.com/</id>
   <link href="http://blog.uskanda.com/"/>
   <link href="http://blog.uskanda.com/feed.xml" rel="self"/>
-  <updated>2013-12-13T16:00:00Z</updated>
+  <updated>2013-12-17T15:15:00Z</updated>
   <author>
     <name>Yusuke Kanda</name>
   </author>
+  <entry>
+    <title>Capistranoでgitレポジトリのサブディレクトリ以下をデプロイ対象にする</title>
+    <link rel="alternate" href="http://blog.uskanda.com/2013/12/18/capistrano-git-subdir/"/>
+    <id>http://blog.uskanda.com/2013/12/18/capistrano-git-subdir/</id>
+    <published>2013-12-17T15:15:00Z</published>
+    <updated>2013-12-17T15:27:13+00:00</updated>
+    <author>
+      <name>Yusuke Kanda</name>
+    </author>
+    <content type="html">&lt;h2 id="toc_0"&gt;gitの特定サブディレクトリ以下&lt;/h2&gt;
+
+&lt;p&gt;Subversionからgitへの移行をしていると、
+&lt;a href="https://github.com/capistrano/capistrano"&gt;Capistrano&lt;/a&gt;の移行でつまづきました。&lt;/p&gt;
+
+&lt;p&gt;これまで、svnの特定のサブディレクトリ以下を取得、デプロイしていたけど、
+gitはそもそもサブディレクトリ以下のみを指定のcloneができないので、そのまま移行できなかった。  &lt;/p&gt;
+
+&lt;p&gt;※これを書くときに調べたら、sparse-checkout という機能はあるみたい。&lt;br&gt;
+&lt;a href="http://okitan.tumblr.com/post/7642201668/git-sparse-checkout"&gt;何もわからない / git の sparse-checkout&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;教えて&lt;a href="http://stackoverflow.com/questions/29168/deploying-a-git-subdirectory-in-capistrano"&gt;Stackoverflow&lt;/a&gt;した結果、下記のようにすればOKでした。&lt;/p&gt;
+
+&lt;h2 id="toc_1"&gt;set :deploy_via, :remote_cache を指定している場合&lt;/h2&gt;
+
+&lt;p&gt;Capfile, deploy.rbに下記を追加。&lt;/p&gt;
+
+&lt;h5 id="toc_2"&gt;Capfile&lt;/h5&gt;
+&lt;pre class="highlight ruby"&gt;&lt;span class="nb"&gt;require&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;capistrano/recipes/deploy/strategy/remote_cache&amp;#39;&lt;/span&gt;
+
+&lt;span class="k"&gt;class &lt;/span&gt;&lt;span class="nc"&gt;RemoteCacheSubdir&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="no"&gt;Capistrano&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;Deploy&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;Strategy&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;RemoteCache&lt;/span&gt;
+
+  &lt;span class="kp"&gt;private&lt;/span&gt;
+
+  &lt;span class="k"&gt;def &lt;/span&gt;&lt;span class="nf"&gt;repository_cache_subdir&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;configuration&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;:deploy_subdir&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt;
+      &lt;span class="no"&gt;File&lt;/span&gt;&lt;span class="nf"&gt;.join&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;repository_cache&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;configuration&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;:deploy_subdir&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt;
+      &lt;span class="n"&gt;repository_cache&lt;/span&gt;
+    &lt;span class="k"&gt;end&lt;/span&gt;
+  &lt;span class="k"&gt;end&lt;/span&gt;
+
+  &lt;span class="k"&gt;def &lt;/span&gt;&lt;span class="nf"&gt;copy_repository_cache&lt;/span&gt;
+    &lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="nf"&gt;.trace&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;copying the cached version to &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;configuration&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;:release_path&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;copy_exclude&lt;/span&gt;&lt;span class="nf"&gt;.empty?&lt;/span&gt; 
+      &lt;span class="n"&gt;run&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;cp -RPp &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;repository_cache_subdir&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;configuration&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;:release_path&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; &amp;amp;&amp;amp; &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;mark&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt;
+      &lt;span class="n"&gt;exclusions&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;copy_exclude&lt;/span&gt;&lt;span class="nf"&gt;.map&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;--exclude=&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="nf"&gt;.join&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39; &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+      &lt;span class="n"&gt;run&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;rsync -lrpt &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;exclusions&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;repository_cache_subdir&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;/* &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;configuration&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;:release_path&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; &amp;amp;&amp;amp; &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;mark&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;end&lt;/span&gt;
+  &lt;span class="k"&gt;end&lt;/span&gt;
+
+&lt;span class="k"&gt;end&lt;/span&gt;
+
+&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="ss"&gt;:strategy&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="no"&gt;RemoteCacheSubdir&lt;/span&gt;&lt;span class="nf"&gt;.new&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+&lt;h5 id="toc_3"&gt;deploy.rb&lt;/h5&gt;
+&lt;pre class="highlight ruby"&gt;&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="ss"&gt;:deploy_subdir&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;project/subdir&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;h2 id="toc_4"&gt;set :deploy_via, :copy の動作をさせたい場合&lt;/h2&gt;
+
+&lt;p&gt;今回やりたかったのはこちら。
+方法はいくつかためしたけど、gemになっている下記はちゃんと動きました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/yyuu/capistrano-copy-subdir"&gt;yyuu/capistrano-copy-subdir&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Gemを追加するだけで動作します。&lt;/p&gt;
+&lt;pre class="highlight ruby"&gt;&lt;span class="n"&gt;gem&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;capistrano-copy-subdir&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;pre class="highlight shell"&gt;&lt;span class="gp"&gt;$ &lt;/span&gt;bundle install
+&lt;/pre&gt;
+&lt;p&gt;インストール後、
+deploy.rb内部の&lt;code&gt;deploy_via&lt;/code&gt;自体を:copyでなく、:copy_subdirに書き換えます。&lt;/p&gt;
+
+&lt;h5 id="toc_5"&gt;deploy.rb&lt;/h5&gt;
+&lt;pre class="highlight ruby"&gt;&lt;span class="n"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;:deploy_via&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;:copy_subdir&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;:deploy_subdir&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;project/subdir&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;これでsvnで&lt;code&gt;set :deploy\_via, :copy&lt;/code&gt;しているときと同等の動作になりました。&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>Vimのrelativenumber設定が便利すぎてヤバイ</title>
     <link rel="alternate" href="http://blog.uskanda.com/2013/12/14/vim-set-relativenumber/"/>
     <id>http://blog.uskanda.com/2013/12/14/vim-set-relativenumber/</id>
     <published>2013-12-13T16:00:00Z</published>
-    <updated>2013-12-16T16:10:04+00:00</updated>
+    <updated>2013-12-17T15:27:13+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -70,7 +149,7 @@ Vim7.3以降で使えるので、最近のLinuxディストリのビルトイン
     <link rel="alternate" href="http://blog.uskanda.com/2013/12/10/middleman-blog-build-missed-some-article/"/>
     <id>http://blog.uskanda.com/2013/12/10/middleman-blog-build-missed-some-article/</id>
     <published>2013-12-10T14:00:00Z</published>
-    <updated>2013-12-16T16:10:04+00:00</updated>
+    <updated>2013-12-17T15:27:13+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -91,7 +170,7 @@ published: false でもないんだけどなー？&lt;/p&gt;
     <link rel="alternate" href="http://blog.uskanda.com/2013/12/09/transfer-from-octopress-to-middleman/"/>
     <id>http://blog.uskanda.com/2013/12/09/transfer-from-octopress-to-middleman/</id>
     <published>2013-12-08T15:00:00Z</published>
-    <updated>2013-12-16T16:10:04+00:00</updated>
+    <updated>2013-12-17T15:27:13+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -150,7 +229,7 @@ Github Pagesを強く意識しているOctopressよりはデプロイ設定が�
     <link rel="alternate" href="http://blog.uskanda.com/2013/04/01/android-support-library-error-on-android-32/"/>
     <id>http://blog.uskanda.com/2013/04/01/android-support-library-error-on-android-32/</id>
     <published>2013-04-01T10:22:00Z</published>
-    <updated>2013-12-16T16:10:04+00:00</updated>
+    <updated>2013-12-17T15:27:13+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -181,7 +260,7 @@ E/AndroidRuntime(25922):    at android.support.v4.app.NotificationCompat$Builder
     <link rel="alternate" href="http://blog.uskanda.com/2013/02/23/mysql-show-columns-and-indices-from-all-the-tables/"/>
     <id>http://blog.uskanda.com/2013/02/23/mysql-show-columns-and-indices-from-all-the-tables/</id>
     <published>2013-02-23T10:00:00Z</published>
-    <updated>2013-12-16T16:10:04+00:00</updated>
+    <updated>2013-12-17T15:27:13+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -210,54 +289,6 @@ AND information_schema.columns.column_name = information_schema.statistics.colum
 &lt;/pre&gt;
 &lt;p&gt;複合インデックスが微妙だけど今欲しいものとしては問題なし。
 また、mysql起動時に-HでHTML出力にできたので、それを手元において確認中。&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>MOBILE STUDIOのMacBook Proのマットブラック ハードケースを試す</title>
-    <link rel="alternate" href="http://blog.uskanda.com/2013/02/17/macbook-pro-cover/"/>
-    <id>http://blog.uskanda.com/2013/02/17/macbook-pro-cover/</id>
-    <published>2013-02-16T21:33:00Z</published>
-    <updated>2013-12-16T16:10:04+00:00</updated>
-    <author>
-      <name>Yusuke Kanda</name>
-    </author>
-    <content type="html">&lt;p&gt;Amazonで各MacBook向けのケースを売っている
-MOBILE STUDIOのMacBook Pro 13inch Retina向け、マットブラックのケースを買ってみた。
-お値段2380円。他のケースに比べて非常に割安！&lt;/p&gt;
-
-&lt;h2 id="toc_0"&gt;レビュー&lt;/h2&gt;
-
-&lt;h3 id="toc_1"&gt;外観&lt;/h3&gt;
-
-&lt;p&gt;正直いってこの価格だと見た目は期待していなかったのだけど、
-まったく安っぽくない！いい意味で期待を裏切られた感じ。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="http://www.flickr.com/photos/uskanda/8467278289/" title="MOBILE STDUIO MacBook Pro 13inch Retina Case by uskanda, on Flickr"&gt;&lt;img src="http://farm9.staticflickr.com/8372/8467278289_39d5239250_z.jpg" width="640" height="427" alt="MOBILE STDUIO MacBook Pro 13inch Retina Case"&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Amazonレビューではアップルマーク周辺が浮いてしまうような指摘もあったけど、
-自分のケースでは問題なし。&lt;/p&gt;
-
-&lt;p&gt;個人的に見た目は以前MacBook Airで利用していたSpeckのSeeThru, TUNEWAREのCARBONLOOKよりおすすめ。
-ゴム足が少し高めで、机から少し浮いた印象を感じるかも。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="http://www.flickr.com/photos/uskanda/8467275001/" title="MacBook Pro 13inch Retina Case by uskanda, on Flickr"&gt;&lt;img src="http://farm9.staticflickr.com/8089/8467275001_5682dc5a68_z.jpg" width="640" height="427" alt="MacBook Pro 13inch Retina Case"&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id="toc_2"&gt;重量&lt;/h3&gt;
-
-&lt;p&gt;両方合わせて実測254.5g。
-装着すると1.9kg弱。非RetinaのMacBook Proに迫る重量になってしまうのはご愛嬌。&lt;/p&gt;
-
-&lt;h2 id="toc_3"&gt;リンク&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00AF3LCHM/uasmks-22/ref=nosim/" target="_blank"&gt;&lt;img src="http://ecx.images-amazon.com/images/I/21IjA6v8IWL._SL160_.jpg" alt="MacBook Pro Retina ディスプレイ 13.3インチ用 マット ハードケース 《全12色》 ブラック（黒） [MOBILE STUDIO]" /&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00AF3LCHM/uasmks-22/ref=nosim/" target="_blank"&gt;MacBook Pro Retina ディスプレイ 13.3インチ用 マット ハードケース 《全12色》 ブラック（黒） [MOBILE STUDIO]&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;こちらは15インチ用。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="http://www.amazon.co.jp/exec/obidos/ASIN/B009A4YKXA/uasmks-22/ref=nosim/" target="_blank"&gt;&lt;img src="http://ecx.images-amazon.com/images/I/21ghGdXBnuL._SL160_.jpg" alt="MacBook Pro Retina ディスプレイ 15.4インチ用 マット ハードケース 《全12色》 ブラック（黒） [MOBILE STUDIO]" /&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href="http://www.amazon.co.jp/exec/obidos/ASIN/B009A4YKXA/uasmks-22/ref=nosim/" target="_blank"&gt;MacBook Pro Retina ディスプレイ 15.4インチ用 マット ハードケース 《全12色》 ブラック（黒） [MOBILE STUDIO]&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Air向けも。また色展開も豊富。こちらは赤。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="http://www.amazon.co.jp/exec/obidos/ASIN/B009T8LDJ6/uasmks-22/ref=nosim/" target="_blank"&gt;&lt;img src="http://ecx.images-amazon.com/images/I/21XuoIXOITL._SL160_.jpg" alt="MacBook Air 11インチ用 マット ハードケース 《全12色》 レッド（赤） [MOBILE STUDIO]" /&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href="http://www.amazon.co.jp/exec/obidos/ASIN/B009T8LDJ6/uasmks-22/ref=nosim/" target="_blank"&gt;MacBook Air 11インチ用 マット ハードケース 《全12色》 レッド（赤） [MOBILE STUDIO]&lt;/a&gt;&lt;/p&gt;
 </content>
   </entry>
 </feed>

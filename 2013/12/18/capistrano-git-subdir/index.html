@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge;chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+    <link href="/stylesheets/gits.css" rel="stylesheet" />
+    <link href="/stylesheets/syntax.css" rel="stylesheet" />
+    <title>GHOST IN THE SUIT - Capistranoでgitレポジトリのサブディレクトリ以下をデプロイ対象にする</title><link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-9">
+            <h1 class="site_title">
+              <a href="/">GHOST IN THE SUIT</a>
+            </h1>
+            <p>
+              Excelの泥にまみれても、こころの奥にgeekの灯を。
+            </p>
+          </div>
+          <div class="col-sm-3 hidden-xs externals">
+            <a href="/feed.xml"><i class="fa fa-rss fa-3x"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container main">
+      <div class="row">
+        <div class="col-sm-9">
+          <div id="main" role="main"><article>
+  <div class="title">
+    <a class="date" rel="bookmark"><abbr>2013/12</abbr>18<sub>00:15</sub></a>
+    <div class="container">
+      <div class="subject">Capistranoでgitレポジトリのサブディレクトリ以下をデプロイ対象にする
+      </div>
+      <div class="tags">
+        <div class="label label-primary">
+          <i class="fa fa-tag"></i> Capistrano
+        </div>
+        <div class="label label-primary">
+          <i class="fa fa-tag"></i> git
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="body"><h2 id="toc_0">gitの特定サブディレクトリ以下</h2>
+
+<p>Subversionからgitへの移行をしていると、
+<a href="https://github.com/capistrano/capistrano">Capistrano</a>の移行でつまづきました。</p>
+
+<p>これまで、svnの特定のサブディレクトリ以下を取得、デプロイしていたけど、
+gitはそもそもサブディレクトリ以下のみを指定のcloneができないので、そのまま移行できなかった。  </p>
+
+<p>※これを書くときに調べたら、sparse-checkout という機能はあるみたい。<br>
+<a href="http://okitan.tumblr.com/post/7642201668/git-sparse-checkout">何もわからない / git の sparse-checkout</a></p>
+
+<p>教えて<a href="http://stackoverflow.com/questions/29168/deploying-a-git-subdirectory-in-capistrano">Stackoverflow</a>した結果、下記のようにすればOKでした。</p>
+
+<h2 id="toc_1">set :deploy_via, :remote_cache を指定している場合</h2>
+
+<p>Capfile, deploy.rbに下記を追加。</p>
+
+<h5 id="toc_2">Capfile</h5>
+<pre class="highlight ruby"><span class="nb">require</span> <span class="s1">&#39;capistrano/recipes/deploy/strategy/remote_cache&#39;</span>
+
+<span class="k">class </span><span class="nc">RemoteCacheSubdir</span> <span class="o">&lt;</span> <span class="no">Capistrano</span><span class="o">::</span><span class="no">Deploy</span><span class="o">::</span><span class="no">Strategy</span><span class="o">::</span><span class="no">RemoteCache</span>
+
+  <span class="kp">private</span>
+
+  <span class="k">def </span><span class="nf">repository_cache_subdir</span>
+    <span class="k">if</span> <span class="n">configuration</span><span class="o">[</span><span class="ss">:deploy_subdir</span><span class="o">]</span> <span class="k">then</span>
+      <span class="no">File</span><span class="nf">.join</span><span class="p">(</span><span class="n">repository_cache</span><span class="p">,</span> <span class="n">configuration</span><span class="o">[</span><span class="ss">:deploy_subdir</span><span class="o">]</span><span class="p">)</span>
+    <span class="k">else</span>
+      <span class="n">repository_cache</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="k">def </span><span class="nf">copy_repository_cache</span>
+    <span class="n">logger</span><span class="nf">.trace</span> <span class="s2">&quot;copying the cached version to </span><span class="si">#{</span><span class="n">configuration</span><span class="o">[</span><span class="ss">:release_path</span><span class="o">]</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">if</span> <span class="n">copy_exclude</span><span class="nf">.empty?</span> 
+      <span class="n">run</span> <span class="s2">&quot;cp -RPp </span><span class="si">#{</span><span class="n">repository_cache_subdir</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">configuration</span><span class="o">[</span><span class="ss">:release_path</span><span class="o">]</span><span class="si">}</span><span class="s2"> &amp;&amp; </span><span class="si">#{</span><span class="n">mark</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">else</span>
+      <span class="n">exclusions</span> <span class="o">=</span> <span class="n">copy_exclude</span><span class="nf">.map</span> <span class="p">{</span> <span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="s2">&quot;--exclude=</span><span class="se">\&quot;</span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2">&quot;</span> <span class="p">}</span><span class="nf">.join</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+      <span class="n">run</span> <span class="s2">&quot;rsync -lrpt </span><span class="si">#{</span><span class="n">exclusions</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">repository_cache_subdir</span><span class="si">}</span><span class="s2">/* </span><span class="si">#{</span><span class="n">configuration</span><span class="o">[</span><span class="ss">:release_path</span><span class="o">]</span><span class="si">}</span><span class="s2"> &amp;&amp; </span><span class="si">#{</span><span class="n">mark</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+<span class="k">end</span>
+
+<span class="n">set</span> <span class="ss">:strategy</span><span class="p">,</span> <span class="no">RemoteCacheSubdir</span><span class="nf">.new</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span>
+</pre>
+<h5 id="toc_3">deploy.rb</h5>
+<pre class="highlight ruby"><span class="n">set</span> <span class="ss">:deploy_subdir</span><span class="p">,</span> <span class="s2">&quot;project/subdir&quot;</span>
+</pre>
+<h2 id="toc_4">set :deploy_via, :copy の動作をさせたい場合</h2>
+
+<p>今回やりたかったのはこちら。
+方法はいくつかためしたけど、gemになっている下記はちゃんと動きました。</p>
+
+<p><a href="https://github.com/yyuu/capistrano-copy-subdir">yyuu/capistrano-copy-subdir</a></p>
+
+<p>Gemを追加するだけで動作します。</p>
+<pre class="highlight ruby"><span class="n">gem</span> <span class="s1">&#39;capistrano-copy-subdir&#39;</span>
+</pre><pre class="highlight shell"><span class="gp">$ </span>bundle install
+</pre>
+<p>インストール後、
+deploy.rb内部の<code>deploy_via</code>自体を:copyでなく、:copy_subdirに書き換えます。</p>
+
+<h5 id="toc_5">deploy.rb</h5>
+<pre class="highlight ruby"><span class="n">set</span><span class="p">(</span><span class="ss">:deploy_via</span><span class="p">,</span> <span class="ss">:copy_subdir</span><span class="p">)</span>
+<span class="n">set</span><span class="p">(</span><span class="ss">:deploy_subdir</span><span class="p">,</span> <span class="s1">&#39;project/subdir&#39;</span><span class="p">)</span>
+</pre>
+<p>これでsvnで<code>set :deploy\_via, :copy</code>しているときと同等の動作になりました。</p>
+<div class="social_buttons_bottom row">
+      <div class="pull-left">
+        <a class="twitter-share-button" data-count="vertical" data-lang="ja" data-related="anywhereTheJavascriptAPI" data-url="http://blog.uskanda.com/2013/12/18/capistrano-git-subdir/" data-via="uskanda" href="https://twitter.com/share">>ツイート</a></a>
+        <script>
+          !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+        </script>
+      </div>
+      <div class="pull-left">
+        <a class="hatena-bookmark-button" data-hatena-bookmark-lang="ja" data-hatena-bookmark-layout="vertical-balloon" href="http://b.hatena.ne.jp/entry/blog.uskanda.com/2013/12/18/capistrano-git-subdir/" title="このエントリーをはてなブックマークに追加"><img alt="このエントリーをはてなブックマークに追加" height="20" src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" style="border: none;" width="20" /></a>
+        <script async="async" charset="utf-8" src="http://b.st-hatena.com/js/bookmark_button.js" type="text/javascript"></script>
+      </div>
+      <div class="pull-left">
+        <a class="pocket-btn" data-lang="en" data-pocket-count="vertical" data-pocket-label="pocket" data-save-url="http://blog.uskanda.com/2013/12/18/capistrano-git-subdir/"></a>
+        <script type="text/javascript">
+          !function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");
+        </script>
+      </div>
+      <div class="pull-left">
+        <div class="g-plusone" data-size="tall"></div>
+        <script type="text/javascript">
+          window.___gcfg = {lang: 'ja'};
+          
+          (function() {
+            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+            po.src = 'https://apis.google.com/js/platform.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+          })();
+        </script>
+      </div>
+      <div class="pull-left">
+        <a class="feedlyButton" href="http://cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Fblog.uskanda.com%2F" target="_blank" title="このブログのRSSをFeedlyで購読してみませんか">
+          <div class="arrow_box_feedly">
+            <i class="fa fa-rss fa-lg"></i>
+          </div>
+          <img alt="follow us in feedly" height="20" id="feedlyFollow" src="http://s3.feedly.com/img/follows/feedly-follow-rectangle-volume-medium_2x.png" width="66" /></a>
+      </div>
+    </div><h3>
+      コメントをどうぞ 
+    </h3>
+    <div aria-live="polite" id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+    <script type="text/javascript">
+      var disqus_shortname = 'ghostinthesuit';
+      var disqus_identifier = "http://blog.uskanda.com/2013/12/18/capistrano-git-subdir/";
+      var disqus_url = 'http://blog.uskanda.com/2013/12/18/capistrano-git-subdir/';
+      var disqus_script = 'embed.js';
+      
+      (function () {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }());
+    </script>
+  </div>
+</article>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <aside>
+            <div class="gadget" id="recents">
+              <span class="title">最近の投稿</span>
+              <ol>
+                <li>
+                  <a href="/2013/12/18/capistrano-git-subdir/">Capistranoでgitレポジトリのサブディレクトリ以下をデプロイ対象にする(12/18)</a>
+                </li>
+                <li>
+                  <a href="/2013/12/14/vim-set-relativenumber/">Vimのrelativenumber設定が便利すぎてヤバイ(12/14)</a>
+                </li>
+                <li>
+                  <a href="/2013/12/10/middleman-blog-build-missed-some-article/">middleman-blogでbuildしたら何故か生成されない記事がある(12/10)</a>
+                </li>
+                <li>
+                  <a href="/2013/12/09/transfer-from-octopress-to-middleman/">OctopressからMiddlemanに移行した(12/09)</a>
+                </li>
+                <li>
+                  <a href="/2013/04/01/android-support-library-error-on-android-32/">Android3.2で通知を出そうとするとエラーが出る(04/01)</a>
+                </li>
+                <li>
+                  <a href="/2013/02/23/mysql-show-columns-and-indices-from-all-the-tables/">MySQLで全てのテーブルのカラムとインデックス有無を表示したい(02/23)</a>
+                </li>
+                <li>
+                  <a href="/2013/02/17/macbook-pro-cover/">MOBILE STUDIOのMacBook Proのマットブラック ハードケースを試す(02/17)</a>
+                </li>
+                <li>
+                  <a href="/2013/02/17/buy-macbook-pro-refurbished/">整備済製品のMacBook Pro 13inch Retinaを買ってみた(02/17)</a>
+                </li>
+                <li>
+                  <a href="/2013/01/31/hello-octopress/">今更ながらOctopress(01/31)</a>
+                </li>
+                <li>
+                  <a href="/2013/01/04/vim-commands-for-me/">僕の覚えた順Vimコマンド(01/04)</a>
+                </li>
+              </ol>
+            </div>
+            <div class="gadget" id="adsense">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+              <!-- BlogSide2 -->
+              <ins class="adsbygoogle"
+                   style="display:inline-block;width:200px;height:200px"
+                   data-ad-client="ca-pub-1385530273298456"
+                   data-ad-slot="9191807793"></ins>
+              <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+              </script>
+              
+            </div>
+            <div class="gadget" id="tags">
+              <span class="title">タグ一覧</span>
+              <div class="gadget_body"><a href="/tags/ruby/">
+                Ruby(5) </a><a href="/tags/emacs/">
+                Emacs(4) </a><a href="/tags/ruby-on-rails/">
+                Ruby on Rails(4) </a><a href="/tags/mac/">
+                Mac(3) </a><a href="/tags/review/">
+                Review(3) </a><a href="/tags/vim/">
+                Vim(2) </a><a href="/tags/macbookpro/">
+                MacBookPro(2) </a><a href="/tags/flash/">
+                Flash(2) </a><a href="/tags/gadget/">
+                Gadget(2) </a><a href="/tags/server/">
+                Server(2) </a><a href="/tags/middleman/">
+                Middleman(2) </a><a href="/tags/octopress/">
+                Octopress(2) </a><a href="/tags/android/">
+                Android(2) </a><a href="/tags/windows/">
+                Windows(2) </a><a href="/tags/ubuntu/">
+                Ubuntu(2) </a><a href="/tags/mediacenterpack/">
+                MediaCenterPack(1) </a><a href="/tags/windows8/">
+                Windows8(1) </a><a href="/tags/anything-el/">
+                anything.el(1) </a><a href="/tags/passenger/">
+                Passenger(1) </a><a href="/tags/nginx/">
+                nginx(1) </a><a href="/tags/rvm/">
+                RVM(1) </a><a href="/tags/case/">
+                Case(1) </a><a href="/tags/book/">
+                Book(1) </a><a href="/tags/logicool/">
+                Logicool(1) </a><a href="/tags/redmine/">
+                redmine(1) </a><a href="/tags/adobe-air/">
+                Adobe AIR(1) </a><a href="/tags/mouse/">
+                Mouse(1) </a><a href="/tags/capistrano/">
+                Capistrano(1) </a><a href="/tags/git/">
+                git(1) </a><a href="/tags/開発/">
+                開発(1) </a><a href="/tags/rails/">
+                Rails(1) </a><a href="/tags/rinari/">
+                rinari(1) </a><a href="/tags/uc-411pbt-c/">
+                UC-411PBT-C(1) </a><a href="/tags/goo/">
+                goo(1) </a><a href="/tags/macmini/">
+                MacMini(1) </a><a href="/tags/ssd/">
+                SSD(1) </a><a href="/tags/actionscript/">
+                Actionscript(1) </a><a href="/tags/日々/">
+                日々(1) </a><a href="/tags/refurbished/">
+                Refurbished(1) </a><a href="/tags/mysql/">
+                MySQL(1) </a>
+              </div>
+            </div>
+            <div class="gadget" id="twitter">
+              <span class="title">ツイート</span><a class="twitter-timeline" data-chrome="noheader noborders transparent" data-widget-id="408280914938982400" href="https://twitter.com/uskanda">Tweets by @uskanda</a>
+              <script>
+                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+              </script>
+            </div>
+            <div class="gadget" id="archives">
+              <span class="title">アーカイブ</span>
+              <ol></ol>
+              <li>
+                <a href="/2013/">2013</a> (10)
+              </li>
+              <li>
+                <a href="/2012/">2012</a> (14)
+              </li>
+              <li>
+                <a href="/2011/">2011</a> (8)
+              </li>
+            </div>
+            <div class="gadget" id="amazon">
+              <script type="text/javascript"><!--
+              amazon_ad_tag = "uasmks-22"; amazon_ad_width = "160"; amazon_ad_height = "600";//--></script>
+              <script type="text/javascript" src="http://ir-jp.amazon-adsystem.com/s/ads.js"></script>
+              
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="container">
+        <div class="text-center">
+          <style>
+            .blogresponsivewide { width: 320px; height: 50px; }@media(min-width: 500px) { .blogresponsivewide { width: 468px; height: 60px; } }@media(min-width: 800px) { .blogresponsivewide { width: 728px; height: 90px; } }
+          </style>
+          <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          <ins class="adsbygoogle blogresponsivewide" data-ad-client="ca-pub-1385530273298456" data-ad-slot="4816571790" style="display:inline-block"></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+      </div>
+      <div class="container blog_list">
+        ブログ一覧
+        <ul>
+          <li>
+            <a class="foreground_color" href="http://blog.uskanda.com/">GHOST IN THE SUIT - Web開発/サーバ/ガジェット等、IT系情報を中心に</a>
+          </li>
+          <li>
+            <a class="foreground_color" href="http://blog.uskanda.com/cycle/">Homesick Cyclist - ロードバイク関連</a>
+          </li>
+          <li>
+            <a class="foreground_color" href="http://blog.uskanda.com/greedy/">物欲遡及決裁 - 買っちゃったもののレビュー </a>
+          </li>
+        </ul>
+      </div>
+      <div class="container">
+        <a href="http://creativecommons.org/licenses/by-sa/4.0/" rel="license"><img alt="クリエイティブ・コモンズ・ライセンス" src="http://i.creativecommons.org/l/by-sa/4.0/88x31.png" style="border-width:0" /></a>   Some rights reserved by Yusuke Kanda 2010-2013.
+        <div class="pull-right">
+          Powered by <a href="http://middlemanapp.com">Middleman</a>, <a href="http://github.com">Github</a>, <a href="https://travis-ci.org/">Travis CI</a>.  <img src="https://travis-ci.org/uskanda/blog.png?branch=master" />
+        </div>
+      </div>
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script><!-- Google Analytics -->
+    <script type="text/javascript">
+    
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-3828545-4']);
+      _gaq.push(['_setDomainName', 'uskanda.com']);
+      _gaq.push(['_trackPageview']);
+    
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    
+    </script>
+    
+  </body>
+</html>

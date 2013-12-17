@@ -14,17 +14,17 @@
     <link rel="alternate" href="http://blog.uskanda.com/2013/12/18/capistrano-git-subdir/"/>
     <id>http://blog.uskanda.com/2013/12/18/capistrano-git-subdir/</id>
     <published>2013-12-17T15:15:00Z</published>
-    <updated>2013-12-17T15:47:01+00:00</updated>
+    <updated>2013-12-17T16:03:57+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
-    <content type="html">&lt;h2 id="toc_0"&gt;gitの特定サブディレクトリ以下&lt;/h2&gt;
+    <content type="html">&lt;h2 id="toc_0"&gt;gitの特定サブディレクトリ以下だけデプロイしたいんです＞＜&lt;/h2&gt;
 
 &lt;p&gt;Subversionからgitへの移行をしていると、
 &lt;a href="https://github.com/capistrano/capistrano"&gt;Capistrano&lt;/a&gt;の移行でつまづきました。&lt;/p&gt;
 
 &lt;p&gt;これまで、svnの特定のサブディレクトリ以下を取得、デプロイしていたけど、
-gitはそもそもサブディレクトリ以下のみを指定のcloneができないので、そのまま移行できなかった。  &lt;/p&gt;
+gitはそもそもサブディレクトリ以下のみを指定したcloneができないので、そのまま移行できなかった。  &lt;/p&gt;
 
 &lt;p&gt;※これを書くときに調べたら、sparse-checkout という機能はあるみたい。&lt;br&gt;
 &lt;a href="http://okitan.tumblr.com/post/7642201668/git-sparse-checkout"&gt;何もわからない / git の sparse-checkout&lt;/a&gt;&lt;/p&gt;
@@ -93,7 +93,7 @@ deploy.rb内部の&lt;code&gt;deploy_via&lt;/code&gt;自体を:copyでなく、:
     <link rel="alternate" href="http://blog.uskanda.com/2013/12/14/vim-set-relativenumber/"/>
     <id>http://blog.uskanda.com/2013/12/14/vim-set-relativenumber/</id>
     <published>2013-12-13T16:00:00Z</published>
-    <updated>2013-12-17T15:47:01+00:00</updated>
+    <updated>2013-12-17T16:03:57+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -149,7 +149,7 @@ Vim7.3以降で使えるので、最近のLinuxディストリのビルトイン
     <link rel="alternate" href="http://blog.uskanda.com/2013/12/10/middleman-blog-build-missed-some-article/"/>
     <id>http://blog.uskanda.com/2013/12/10/middleman-blog-build-missed-some-article/</id>
     <published>2013-12-10T14:00:00Z</published>
-    <updated>2013-12-17T15:47:01+00:00</updated>
+    <updated>2013-12-17T16:03:57+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -170,7 +170,7 @@ published: false でもないんだけどなー？&lt;/p&gt;
     <link rel="alternate" href="http://blog.uskanda.com/2013/12/09/transfer-from-octopress-to-middleman/"/>
     <id>http://blog.uskanda.com/2013/12/09/transfer-from-octopress-to-middleman/</id>
     <published>2013-12-08T15:00:00Z</published>
-    <updated>2013-12-17T15:47:01+00:00</updated>
+    <updated>2013-12-17T16:03:57+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -229,7 +229,7 @@ Github Pagesを強く意識しているOctopressよりはデプロイ設定が�
     <link rel="alternate" href="http://blog.uskanda.com/2013/04/01/android-support-library-error-on-android-32/"/>
     <id>http://blog.uskanda.com/2013/04/01/android-support-library-error-on-android-32/</id>
     <published>2013-04-01T10:22:00Z</published>
-    <updated>2013-12-17T15:47:01+00:00</updated>
+    <updated>2013-12-17T16:03:57+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -260,7 +260,7 @@ E/AndroidRuntime(25922):    at android.support.v4.app.NotificationCompat$Builder
     <link rel="alternate" href="http://blog.uskanda.com/2013/02/23/mysql-show-columns-and-indices-from-all-the-tables/"/>
     <id>http://blog.uskanda.com/2013/02/23/mysql-show-columns-and-indices-from-all-the-tables/</id>
     <published>2013-02-23T10:00:00Z</published>
-    <updated>2013-12-17T15:47:01+00:00</updated>
+    <updated>2013-12-17T16:03:57+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>

@@ -1,5 +1,6 @@
 language: ruby
 rvm: 2.0.0
+cache: bundler
 before_script:
   - '[ "$TRAVIS_BRANCH" == "master" ] && [ "$GH_TOKEN" ] && rake setup'
 script: rake build

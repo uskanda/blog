@@ -4,13 +4,13 @@ date: 2013-12-18 00:15 JST
 tags: Capistrano, git
 ---
 
-gitの特定サブディレクトリ以下
+gitの特定サブディレクトリ以下だけデプロイしたいんです＞＜
 --------------------------------
 Subversionからgitへの移行をしていると、
 [Capistrano](https://github.com/capistrano/capistrano)の移行でつまづきました。
 
 これまで、svnの特定のサブディレクトリ以下を取得、デプロイしていたけど、
-gitはそもそもサブディレクトリ以下のみを指定のcloneができないので、そのまま移行できなかった。  
+gitはそもそもサブディレクトリ以下のみを指定したcloneができないので、そのまま移行できなかった。  
 
 ※これを書くときに調べたら、sparse-checkout という機能はあるみたい。   
 [何もわからない / git の sparse-checkout](http://okitan.tumblr.com/post/7642201668/git-sparse-checkout)

@@ -1,9 +1,16 @@
 span.title
   | アーカイブ
-ol
+ol.year_archives
 - blog.articles.group_by{|a| a.date.year }.each do |year, articles|
     li
-      = link_to year, blog_year_path(year)
+      = link_to "#{year}年", blog_year_path(year)
       |  (
       = articles.size
       | )
+      ol.month_archives
+        - articles.group_by{|a| a.date.month}.each do |month, month_articles|
+          li
+            = link_to "#{year}年#{month}月", blog_month_path(year, month)
+            | (
+            = month_articles.size
+            | )

@@ -5,16 +5,35 @@
   <id>http://blog.uskanda.com/</id>
   <link href="http://blog.uskanda.com/"/>
   <link href="http://blog.uskanda.com/feed.xml" rel="self"/>
-  <updated>2013-12-17T15:15:00Z</updated>
+  <updated>2013-12-31T15:39:00Z</updated>
   <author>
     <name>Yusuke Kanda</name>
   </author>
+  <entry>
+    <title>2014年新年の目標</title>
+    <link rel="alternate" href="http://blog.uskanda.com/2014/01/01/2014-new-years-goal/"/>
+    <id>http://blog.uskanda.com/2014/01/01/2014-new-years-goal/</id>
+    <published>2013-12-31T15:39:00Z</published>
+    <updated>2013-12-31T16:13:44+00:00</updated>
+    <author>
+      <name>Yusuke Kanda</name>
+    </author>
+    <content type="html">&lt;p&gt;2014年、あけましておめでとうございます。
+本年もよろしくお願いします。&lt;/p&gt;
+
+&lt;p&gt;勢いで目標を決めたので忘れないためにブログにも張っておきます。&lt;/p&gt;
+
+&lt;blockquote class="twitter-tweet" lang="en"&gt;&lt;p&gt;今年の目標は【仕事でSI以外の業務をつくる】【どんな糞でもいいのでgithub streak 365days】【札幌〜釧路300km自転車旅行】【ダイエット-20kg】の4本です&lt;/p&gt;&amp;mdash; Yusuke Kanda (@uskanda) &lt;a href="https://twitter.com/uskanda/statuses/418041376459087873"&gt;December 31, 2013&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+</content>
+  </entry>
   <entry>
     <title>Capistranoでgitレポジトリのサブディレクトリ以下をデプロイ対象にする</title>
     <link rel="alternate" href="http://blog.uskanda.com/2013/12/18/capistrano-git-subdir/"/>
     <id>http://blog.uskanda.com/2013/12/18/capistrano-git-subdir/</id>
     <published>2013-12-17T15:15:00Z</published>
-    <updated>2013-12-22T18:28:15+00:00</updated>
+    <updated>2013-12-31T16:13:44+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -93,7 +112,7 @@ deploy.rb内部の&lt;code&gt;deploy_via&lt;/code&gt;自体を:copyでなく、:
     <link rel="alternate" href="http://blog.uskanda.com/2013/12/14/vim-set-relativenumber/"/>
     <id>http://blog.uskanda.com/2013/12/14/vim-set-relativenumber/</id>
     <published>2013-12-13T16:00:00Z</published>
-    <updated>2013-12-22T18:28:15+00:00</updated>
+    <updated>2013-12-31T16:13:44+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -149,7 +168,7 @@ Vim7.3以降で使えるので、最近のLinuxディストリのビルトイン
     <link rel="alternate" href="http://blog.uskanda.com/2013/12/10/middleman-blog-build-missed-some-article/"/>
     <id>http://blog.uskanda.com/2013/12/10/middleman-blog-build-missed-some-article/</id>
     <published>2013-12-10T14:00:00Z</published>
-    <updated>2013-12-22T18:28:15+00:00</updated>
+    <updated>2013-12-31T16:13:44+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -170,7 +189,7 @@ published: false でもないんだけどなー？&lt;/p&gt;
     <link rel="alternate" href="http://blog.uskanda.com/2013/12/09/transfer-from-octopress-to-middleman/"/>
     <id>http://blog.uskanda.com/2013/12/09/transfer-from-octopress-to-middleman/</id>
     <published>2013-12-08T15:00:00Z</published>
-    <updated>2013-12-22T18:28:15+00:00</updated>
+    <updated>2013-12-31T16:13:44+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -229,7 +248,7 @@ Github Pagesを強く意識しているOctopressよりはデプロイ設定が�
     <link rel="alternate" href="http://blog.uskanda.com/2013/04/01/android-support-library-error-on-android-32/"/>
     <id>http://blog.uskanda.com/2013/04/01/android-support-library-error-on-android-32/</id>
     <published>2013-04-01T10:22:00Z</published>
-    <updated>2013-12-22T18:28:15+00:00</updated>
+    <updated>2013-12-31T16:13:44+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -253,42 +272,6 @@ E/AndroidRuntime(25922):    at android.support.v4.app.NotificationCompat$Builder
 &lt;p&gt;&lt;a href="https://code.google.com/p/android/issues/detail?id=36502"&gt;Issue 36502 - android - android support library v4 and notification on android-13 - Android - An Open Handset Alliance Project - Google Project Hosting&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;android-support-v4.jarを更新したら直ったけどライブラリの差し替えなんてやりたくない時期だよ&amp;hellip;(´・ω・`)&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>MySQLで全てのテーブルのカラムとインデックス有無を表示したい</title>
-    <link rel="alternate" href="http://blog.uskanda.com/2013/02/23/mysql-show-columns-and-indices-from-all-the-tables/"/>
-    <id>http://blog.uskanda.com/2013/02/23/mysql-show-columns-and-indices-from-all-the-tables/</id>
-    <published>2013-02-23T10:00:00Z</published>
-    <updated>2013-12-22T18:28:15+00:00</updated>
-    <author>
-      <name>Yusuke Kanda</name>
-    </author>
-    <content type="html">&lt;p&gt;今の状況：&lt;/p&gt;
-
-&lt;blockquote class="twitter-tweet"&gt;&lt;p&gt;ひたすらMySQLのEXPLAINと格闘中である&lt;/p&gt;&amp;mdash; Yusuke Kanda (@uskanda) &lt;a href="https://twitter.com/uskanda/status/305174512075411457"&gt;February 23, 2013&lt;/a&gt;&lt;/blockquote&gt;
-
-&lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
-
-&lt;p&gt;そればっかりやっているわけにもいかないんだけど&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;さて、MySQLで、ER図も何もないので今のDB全体をなんとなく俯瞰したい。
-当方生ぬるいORM厨でございます。&lt;/p&gt;
-
-&lt;p&gt;showなんとかを繰り返さなくても、DBのメタデータ一式をINFORMATION_SCHEMAデータベースから取れるのね。便利。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="http://dev.mysql.com/doc/refman/5.1/ja/information-schema.html"&gt;MySQL :: MySQL 5.1 リファレンスマニュアル :: 21 INFORMATION_SCHEMA データベース&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;テーブルと各テーブルのカラム、インデックスを下記で取得。
-ツール使えよって話だけど、手探りの状態からだと手っ取り早い。&lt;/p&gt;
-&lt;pre class="highlight text"&gt;SELECT information_schema.columns.table_name, information_schema.columns.column_name, 
-       information_schema.columns.column_type, information_schema.statistics.index_name 
-FROM information_schema.columns LEFT JOIN information_schema.statistics 
-ON information_schema.columns.table_name = information_schema.statistics.table_name 
-AND information_schema.columns.column_name = information_schema.statistics.column_name;
-&lt;/pre&gt;
-&lt;p&gt;複合インデックスが微妙だけど今欲しいものとしては問題なし。
-また、mysql起動時に-HでHTML出力にできたので、それを手元において確認中。&lt;/p&gt;
 </content>
   </entry>
 </feed>

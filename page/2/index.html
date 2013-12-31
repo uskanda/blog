@@ -34,6 +34,174 @@
           <div id="main" role="main">
 <article>
   <div class="title">
+    <a class="date" rel="bookmark"><abbr>2013/01</abbr>4<sub>00:00</sub></a>
+    <div class="container">
+      <div class="subject">
+        <a href="/2013/01/04/vim-commands-for-me/">僕の覚えた順Vimコマンド</a>
+      </div>
+      <div class="tags">
+        <div class="label label-primary">
+          <i class="fa fa-tag"></i> Vim
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="body">
+    <p>あけましておめでとうございます。年末年始、風邪で死んでおります。
+    なんだかよくわかりませんが、ここ数カ月体中の節々が痛いです。年ですか。
+    ちょっと作業するだけで<strong>小指も痛い</strong>ので、
+    今年はEmacsからVimへの乗り換えを画策したいと思います。
+    本当はSublime Text2にしたかったけど、痒いところに微妙に手が届かず、断念orz
+    そんなわけで、MacVimを使いながら、勉強したコマンドを
+    覚えた順に列挙していきたいと思います。適宜追加予定。
+    <h2>これを書き始めたときの僕のviレベル</h2>
+    <ul>
+        <li>基本的にEmacsユーザ</li>
+        <li>viはサーバの設定ファイルとかいじるときとかにたまに使用</li>
+        <li>最低限のモード切り替え(i,A,etc)、移動(hjkl,gg,etc)や、最低限のコピペ(dd/yy/p)とかは知ってる</li>
+    </ul>
+    <h2>ビジュアルモード</h2>
+    コピー等する領域をコマンドベースじゃなくて、範囲を確認しながら行うモード。
+    ふつーのエディタならShift+カーソルで選択している状態。Emacsだとtransient-mark-modeオンでのリージョン選択相当。以下の表は記載なければビジュアルモードでのコマンド。
+    <table border="0">
+    <tbody>
+    <tr>
+    <td>ノーマルモードでv</td>
+    <td>ビジュアルモードに入る。
+    現在のカーソル位置から始まる任意の範囲を選択できる。
+    vの代わりにVで行単位での選択、&lt;C-v&gt;で矩形選択。</td>
+    </tr>
+    <tr>
+    <td>hjkl等</td>
+    <td>hjklはじめ、移動はノーマルモードと同様に利用可能。</td>
+    </tr>
+    <tr>
+    <td>d</td>
+    <td>選択範囲を削除</td>
+    </tr>
+    <tr>
+    <td>c</td>
+    <td>選択範囲を削除してインサートモードにする。</td>
+    </tr>
+    <tr>
+    <td>y</td>
+    <td>選択範囲をコピー(ヤンク)</td>
+    </tr>
+    </tbody>
+    </table>
+    <h2>画面分割</h2>
+    <table border="0">
+    <tbody>
+    <tr>
+    <td>:split もしくは &lt;C-w&gt;s</td>
+    <td>画面を水平分割</td>
+    </tr>
+    <tr>
+    <td>:vsplit もしくは &lt;C-w&gt;v</td>
+    <td>画面を垂直分割</td>
+    </tr>
+    <tr>
+    <td>&lt;C-w&gt;[hjkltb]</td>
+    <td>hjklで指定した方向の画面に移動。
+    &lt;C-w&gt;tで最初のウィンドウ、bで最後のウィンドウ</td>
+    </tr>
+    <tr>
+    <td>&lt;C-w&gt;c</td>
+    <td>分割した画面を閉じる</td>
+    </tr>
+    </tbody>
+    </table>
+    <h2>インデント</h2>
+    <table border="0">
+    <tbody>
+    <tr>
+    <td>&gt;&gt;</td>
+    <td>インデントを挿入</td>
+    </tr>
+    <tr>
+    <td>&lt;&lt;</td>
+    <td>インデントを削除</td>
+    </tr>
+    <tr>
+    <td>=</td>
+    <td>指定した範囲をオートインデント</td>
+    </tr>
+    <tr>
+    <td>gg=G</td>
+    <td>ファイル全体に対してオートインデントを適用。
+    ファイル先頭に移動(gg)→オートインデント(=)→ファイル終端(G)まで。</td>
+    </tr>
+    </tbody>
+    </table>
+    <h2>zencoding.vim</h2>
+    VimでのZen-Coding。下記をみながらお勉強。</p>
+    
+    <p><a href="http://mattn.kaoriya.net/software/vim/20100306021632.htm">Big Sky :: zen-codingの殆どの機能をzencoding.vimに取り込んだ。</a></p>
+    
+    <table border="0">
+    <tbody>
+    <tr>
+    <td>略語入力後&lt;C-y&gt;,</td>
+    <td>Zen-Coding略語展開</td>
+    </tr>
+    <tr>
+    <td>範囲選択後&lt;C-y&gt;,</td>
+    <td>任意のタグで選択範囲を括る</td>
+    </tr>
+    </tbody>
+    </table>
+    
+    <h2>移動・編集とか</h2>
+    
+    <p>編集の肌感覚がなんとなくわかってきた。
+    <table border="0">
+    <tbody>
+    <tr>
+    <td>g,</td>
+    <td>直前の編集箇所に戻る</td>
+    </tr>
+    <tr>
+    <td>cw</td>
+    <td>カーソル位置の単語を単語の終わりまでを削除してインサートモードに移行</td>
+    </tr>
+    <tr>
+    <td>caw</td>
+    <td>カーソル位置の単語全体を削除してインサートモードに移行</td>
+    </tr>
+    <tr>
+    <td>dw</td>
+    <td>カーソル位置から単語の終わりまでを削除</td>
+    </tr>
+    <tr>
+    <td>daw</td>
+    <td>カーソル位置の単語全体を削除</td>
+    </tr>
+    <tr>
+    <td>d$</td>
+    <td>カーソル位置から行末までを削除</td>
+    </tr>
+    <tr>
+    <td>d0,
+    d^</td>
+    <td>行頭からカーソル位置までを削除</td>
+    </tr>
+    </tbody>
+    </table></p>
+    
+  </div>
+</article>
+<hr /><div class="text-center">
+  <style>
+    .blogresponsivewide { width: 320px; height: 50px; }@media(min-width: 500px) { .blogresponsivewide { width: 468px; height: 60px; } }@media(min-width: 800px) { .blogresponsivewide { width: 728px; height: 90px; } }
+  </style>
+  <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <ins class="adsbygoogle blogresponsivewide" data-ad-client="ca-pub-1385530273298456" data-ad-slot="4816571790" style="display:inline-block"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<article>
+  <div class="title">
     <a class="date" rel="bookmark"><abbr>2012/11</abbr>30<sub>00:00</sub></a>
     <div class="container">
       <div class="subject">
@@ -63,16 +231,7 @@
 
   </div>
 </article>
-<hr /><div class="text-center">
-  <style>
-    .blogresponsivewide { width: 320px; height: 50px; }@media(min-width: 500px) { .blogresponsivewide { width: 468px; height: 60px; } }@media(min-width: 800px) { .blogresponsivewide { width: 728px; height: 90px; } }
-  </style>
-  <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <ins class="adsbygoogle blogresponsivewide" data-ad-client="ca-pub-1385530273298456" data-ad-slot="4816571790" style="display:inline-block"></ins>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-</div>
+<hr />
 <article>
   <div class="title">
     <a class="date" rel="bookmark"><abbr>2012/11</abbr>5<sub>00:00</sub></a>
@@ -335,6 +494,45 @@ mx</em>internal is a namespace used by the Flex framework to partition out funct
     <a class="date" rel="bookmark"><abbr>2012/06</abbr>18<sub>00:00</sub></a>
     <div class="container">
       <div class="subject">
+        <a href="/2012/06/18/osx-mouse-tips/">Mac OS Xでマウスを使うとしっくりこない件</a>
+      </div>
+      <div class="tags">
+        <div class="label label-primary">
+          <i class="fa fa-tag"></i> Mac
+        </div>
+        <div class="label label-primary">
+          <i class="fa fa-tag"></i> Mouse
+        </div>
+        <div class="label label-primary">
+          <i class="fa fa-tag"></i> Logicool
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="body">
+    <p>Mac Miniを購入して、OSXでマウス(Logicool M705)とMagic Trackpadを常用する環境になったが、マウスがいまいちしっくりこない。
+    <h2>1. マウス移動がWindowsと比べて加速しすぎる。</h2>
+    細かい動きをしようとすると動きが少なすぎてイライラする。最小化/最大化をミスクリックすること多数。
+    Logicool等、サードパーティのソフト設定ができる場合はOS側の&quot;軌跡の速さ&quot;を下げて、サードパーティ側の速度を極端に上げれば(Logicoolの場合、&quot;追随速度係数&quot;)加速が弱まってちょうどいい感じ。</p>
+    
+    <p>それにしてもLogicoolはハードウェアはいいのにソフトウェアはWindowsでもMacでもイマイチだね&hellip;
+    <h2>2. マウスのスクロール方向が逆</h2>
+    トラックパッドとマウスを併用する場合、現行のLionでは、<strong>トラックパッドとマウスのスクロール方向は連動している</strong>ので、トラックパッドをナチュラルスクロールにするとマウスのスクロールも逆になる。これは流石に慣れない&hellip;</p>
+    
+    <p>指定デバイスのスクロールだけ逆転させてくれるソフトがあったのでOSがどうにかしてくれるまではこれを使うとする。</p>
+    
+    <p><a href="http://pilotmoon.com/scrollreverser/" target="_blank">Scroll Reverser for Mac OS X</a>
+    <h2>3. 利用しているM705の場合、ホイールをフリースピンさせた後にガタガタ動く。</h2>
+    Windowsでは起こってなかったのでハードウェアがヘタったわけではないようだ。これだけ解決策がまだ見当たらないので模索中&hellip;</p>
+    
+  </div>
+</article>
+<hr />
+<article>
+  <div class="title">
+    <a class="date" rel="bookmark"><abbr>2012/06</abbr>18<sub>00:00</sub></a>
+    <div class="container">
+      <div class="subject">
         <a href="/2012/06/18/windows8-manifest-setting-for-compatibility/">Windows8デスクトップアプリでの互換性マニフェスト設定</a>
       </div>
       <div class="tags">
@@ -373,45 +571,6 @@ mx</em>internal is a namespace used by the Flex framework to partition out funct
     &lt;/application&gt;
     &lt;/compatibility&gt;
     &lt;/assembly&gt;</blockquote></p>
-    
-  </div>
-</article>
-<hr />
-<article>
-  <div class="title">
-    <a class="date" rel="bookmark"><abbr>2012/06</abbr>18<sub>00:00</sub></a>
-    <div class="container">
-      <div class="subject">
-        <a href="/2012/06/18/osx-mouse-tips/">Mac OS Xでマウスを使うとしっくりこない件</a>
-      </div>
-      <div class="tags">
-        <div class="label label-primary">
-          <i class="fa fa-tag"></i> Mac
-        </div>
-        <div class="label label-primary">
-          <i class="fa fa-tag"></i> Mouse
-        </div>
-        <div class="label label-primary">
-          <i class="fa fa-tag"></i> Logicool
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="body">
-    <p>Mac Miniを購入して、OSXでマウス(Logicool M705)とMagic Trackpadを常用する環境になったが、マウスがいまいちしっくりこない。
-    <h2>1. マウス移動がWindowsと比べて加速しすぎる。</h2>
-    細かい動きをしようとすると動きが少なすぎてイライラする。最小化/最大化をミスクリックすること多数。
-    Logicool等、サードパーティのソフト設定ができる場合はOS側の&quot;軌跡の速さ&quot;を下げて、サードパーティ側の速度を極端に上げれば(Logicoolの場合、&quot;追随速度係数&quot;)加速が弱まってちょうどいい感じ。</p>
-    
-    <p>それにしてもLogicoolはハードウェアはいいのにソフトウェアはWindowsでもMacでもイマイチだね&hellip;
-    <h2>2. マウスのスクロール方向が逆</h2>
-    トラックパッドとマウスを併用する場合、現行のLionでは、<strong>トラックパッドとマウスのスクロール方向は連動している</strong>ので、トラックパッドをナチュラルスクロールにするとマウスのスクロールも逆になる。これは流石に慣れない&hellip;</p>
-    
-    <p>指定デバイスのスクロールだけ逆転させてくれるソフトがあったのでOSがどうにかしてくれるまではこれを使うとする。</p>
-    
-    <p><a href="http://pilotmoon.com/scrollreverser/" target="_blank">Scroll Reverser for Mac OS X</a>
-    <h2>3. 利用しているM705の場合、ホイールをフリースピンさせた後にガタガタ動く。</h2>
-    Windowsでは起こってなかったのでハードウェアがヘタったわけではないようだ。これだけ解決策がまだ見当たらないので模索中&hellip;</p>
     
   </div>
 </article>
@@ -644,56 +803,6 @@ ln -s /etc/nginx/sites-available/wordpress /etc/nginx/sites-enable/wordpress
   </div>
 </article>
 <hr />
-<article>
-  <div class="title">
-    <a class="date" rel="bookmark"><abbr>2012/04</abbr>29<sub>00:00</sub></a>
-    <div class="container">
-      <div class="subject">
-        <a href="/2012/04/29/ubuntu-1204-name-resolve-failed/">Ubuntu 12.04にアップグレードしたら名前解決できなくなった</a>
-      </div>
-      <div class="tags">
-        <div class="label label-primary">
-          <i class="fa fa-tag"></i> Ubuntu
-        </div>
-        <div class="label label-primary">
-          <i class="fa fa-tag"></i> Server
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="body"><p>さくらのVPS 2Gに現状の1.5Gからの移行を準備中。<br>
-新サーバは出たてのUbuntu 12.04 LTSにしてみたら、名前解決ができなくなった＞＜<br>
-以下、DNS情報はさくらのVPSの場合。</p>
-
-<p>/etc/resolv.conf を見たら何も書いてない&hellip;  </p>
-<pre class="highlight text"># Dynamic resolv.conf(5) file for glibc resolver(3) generated by resolvconf(8)
-#     DO NOT EDIT THIS FILE BY HAND -- YOUR CHANGES WILL BE OVERWRITTEN
-</pre>
-<p>resolvconfコマンドが自動生成するようになりました、とのこと。</p>
-
-<p>そのresolvconfはインタフェース設定(/etc/network/interfaces)に記載の
-DNSサーバ情報を/etc/resolv.confに書いてくれるのだけど、interfacesに<br>
-下記のように書いても変化なし。
-<code>
-dns-nameservers 210.188.224.11
-dns-search sakura.ne.jp
-</code></p>
-
-<p>resolvconfのmanを読むとデフォルト設定が/etc/resolvconf/resolv.conf.d/baseらしい。
-<blockquote>
-/etc/resolvconf/resolv.conf.d/base
-File containing basic resolver information.  The lines in this file are included in the resolver configuration file even when no interfaces are configured.
-</blockquote></p>
-
-<p>このファイルに既存のresolv.conf設定を書いて暫定対処。
-<code>
-search sakura.ne.jp
-nameserver 210.188.224.11
-</code></p>
-
-  </div>
-</article>
-<hr />
 <div class="paginate_box">
   <div class="pull-left">
     <a href="/">前のページ</a>
@@ -709,6 +818,9 @@ nameserver 210.188.224.11
             <div class="gadget" id="recents">
               <span class="title">最近の投稿</span>
               <ol>
+                <li>
+                  <a href="/2014/01/01/2014-new-years-goal/">2014年新年の目標(01/01)</a>
+                </li>
                 <li>
                   <a href="/2013/12/18/capistrano-git-subdir/">Capistranoでgitレポジトリのサブディレクトリ以下をデプロイ対象にする(12/18)</a>
                 </li>
@@ -736,9 +848,6 @@ nameserver 210.188.224.11
                 <li>
                   <a href="/2013/01/31/hello-octopress/">今更ながらOctopress(01/31)</a>
                 </li>
-                <li>
-                  <a href="/2013/01/04/vim-commands-for-me/">僕の覚えた順Vimコマンド(01/04)</a>
-                </li>
               </ol>
             </div>
             <div class="gadget" id="adsense">
@@ -756,46 +865,48 @@ nameserver 210.188.224.11
             <div class="gadget" id="tags">
               <span class="title">タグ一覧</span>
               <div class="gadget_body"><a href="/tags/ruby/">
-                Ruby(5) </a><a href="/tags/emacs/">
-                Emacs(4) </a><a href="/tags/ruby-on-rails/">
-                Ruby on Rails(4) </a><a href="/tags/mac/">
-                Mac(3) </a><a href="/tags/review/">
-                Review(3) </a><a href="/tags/gadget/">
-                Gadget(2) </a><a href="/tags/octopress/">
-                Octopress(2) </a><a href="/tags/middleman/">
-                Middleman(2) </a><a href="/tags/android/">
-                Android(2) </a><a href="/tags/flash/">
-                Flash(2) </a><a href="/tags/vim/">
-                Vim(2) </a><a href="/tags/windows/">
-                Windows(2) </a><a href="/tags/macbookpro/">
+                Ruby(5) </a><a href="/tags/ruby-on-rails/">
+                Ruby on Rails(4) </a><a href="/tags/emacs/">
+                Emacs(4) </a><a href="/tags/review/">
+                Review(3) </a><a href="/tags/mac/">
+                Mac(3) </a><a href="/tags/ubuntu/">
+                Ubuntu(2) </a><a href="/tags/gadget/">
+                Gadget(2) </a><a href="/tags/macbookpro/">
                 MacBookPro(2) </a><a href="/tags/server/">
-                Server(2) </a><a href="/tags/ubuntu/">
-                Ubuntu(2) </a><a href="/tags/goo/">
-                goo(1) </a><a href="/tags/rails/">
-                Rails(1) </a><a href="/tags/rvm/">
-                RVM(1) </a><a href="/tags/passenger/">
-                Passenger(1) </a><a href="/tags/uc-411pbt-c/">
-                UC-411PBT-C(1) </a><a href="/tags/nginx/">
-                nginx(1) </a><a href="/tags/開発/">
-                開発(1) </a><a href="/tags/rinari/">
-                rinari(1) </a><a href="/tags/redmine/">
-                redmine(1) </a><a href="/tags/refurbished/">
-                Refurbished(1) </a><a href="/tags/adobe-air/">
-                Adobe AIR(1) </a><a href="/tags/日々/">
-                日々(1) </a><a href="/tags/mysql/">
-                MySQL(1) </a><a href="/tags/capistrano/">
+                Server(2) </a><a href="/tags/octopress/">
+                Octopress(2) </a><a href="/tags/android/">
+                Android(2) </a><a href="/tags/middleman/">
+                Middleman(2) </a><a href="/tags/windows/">
+                Windows(2) </a><a href="/tags/flash/">
+                Flash(2) </a><a href="/tags/vim/">
+                Vim(2) </a><a href="/tags/nginx/">
+                nginx(1) </a><a href="/tags/mysql/">
+                MySQL(1) </a><a href="/tags/macmini/">
+                MacMini(1) </a><a href="/tags/actionscript/">
+                Actionscript(1) </a><a href="/tags/uc-411pbt-c/">
+                UC-411PBT-C(1) </a><a href="/tags/goo/">
+                goo(1) </a><a href="/tags/ssd/">
+                SSD(1) </a><a href="/tags/refurbished/">
+                Refurbished(1) </a><a href="/tags/redmine/">
+                redmine(1) </a><a href="/tags/case/">
+                Case(1) </a><a href="/tags/logicool/">
+                Logicool(1) </a><a href="/tags/capistrano/">
                 Capistrano(1) </a><a href="/tags/git/">
                 git(1) </a><a href="/tags/anything-el/">
-                anything.el(1) </a><a href="/tags/actionscript/">
-                Actionscript(1) </a><a href="/tags/book/">
-                Book(1) </a><a href="/tags/mouse/">
-                Mouse(1) </a><a href="/tags/logicool/">
-                Logicool(1) </a><a href="/tags/macmini/">
-                MacMini(1) </a><a href="/tags/ssd/">
-                SSD(1) </a><a href="/tags/windows8/">
+                anything.el(1) </a><a href="/tags/日々/">
+                日々(1) </a><a href="/tags/mouse/">
+                Mouse(1) </a><a href="/tags/rvm/">
+                RVM(1) </a><a href="/tags/passenger/">
+                Passenger(1) </a><a href="/tags/adobe-air/">
+                Adobe AIR(1) </a><a href="/tags/雑記/">
+                雑記(1) </a><a href="/tags/目標/">
+                目標(1) </a><a href="/tags/book/">
+                Book(1) </a><a href="/tags/開発/">
+                開発(1) </a><a href="/tags/rails/">
+                Rails(1) </a><a href="/tags/windows8/">
                 Windows8(1) </a><a href="/tags/mediacenterpack/">
-                MediaCenterPack(1) </a><a href="/tags/case/">
-                Case(1) </a>
+                MediaCenterPack(1) </a><a href="/tags/rinari/">
+                rinari(1) </a>
               </div>
             </div>
             <div class="gadget" id="twitter">
@@ -807,6 +918,14 @@ nameserver 210.188.224.11
             <div class="gadget" id="archives">
               <span class="title">アーカイブ</span>
               <ol class="year_archives"></ol>
+              <li>
+                <a href="/2014/">2014年</a> (1)
+                <ol class="month_archives">
+                  <li>
+                    <a href="/2014/01/">2014年1月</a>(1)
+                  </li>
+                </ol>
+              </li>
               <li>
                 <a href="/2013/">2013年</a> (10)
                 <ol class="month_archives">

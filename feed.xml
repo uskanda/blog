@@ -14,7 +14,7 @@
     <link rel="alternate" href="http://blog.uskanda.com/2014/01/01/2014-new-years-goal/"/>
     <id>http://blog.uskanda.com/2014/01/01/2014-new-years-goal/</id>
     <published>2013-12-31T15:39:00Z</published>
-    <updated>2013-12-31T16:13:44+00:00</updated>
+    <updated>2014-01-01T10:39:17+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -33,7 +33,7 @@
     <link rel="alternate" href="http://blog.uskanda.com/2013/12/18/capistrano-git-subdir/"/>
     <id>http://blog.uskanda.com/2013/12/18/capistrano-git-subdir/</id>
     <published>2013-12-17T15:15:00Z</published>
-    <updated>2013-12-31T16:13:44+00:00</updated>
+    <updated>2014-01-01T10:39:17+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -112,7 +112,7 @@ deploy.rb内部の&lt;code&gt;deploy_via&lt;/code&gt;自体を:copyでなく、:
     <link rel="alternate" href="http://blog.uskanda.com/2013/12/14/vim-set-relativenumber/"/>
     <id>http://blog.uskanda.com/2013/12/14/vim-set-relativenumber/</id>
     <published>2013-12-13T16:00:00Z</published>
-    <updated>2013-12-31T16:13:44+00:00</updated>
+    <updated>2014-01-01T10:39:17+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -168,7 +168,7 @@ Vim7.3以降で使えるので、最近のLinuxディストリのビルトイン
     <link rel="alternate" href="http://blog.uskanda.com/2013/12/10/middleman-blog-build-missed-some-article/"/>
     <id>http://blog.uskanda.com/2013/12/10/middleman-blog-build-missed-some-article/</id>
     <published>2013-12-10T14:00:00Z</published>
-    <updated>2013-12-31T16:13:44+00:00</updated>
+    <updated>2014-01-01T10:39:17+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -189,7 +189,7 @@ published: false でもないんだけどなー？&lt;/p&gt;
     <link rel="alternate" href="http://blog.uskanda.com/2013/12/09/transfer-from-octopress-to-middleman/"/>
     <id>http://blog.uskanda.com/2013/12/09/transfer-from-octopress-to-middleman/</id>
     <published>2013-12-08T15:00:00Z</published>
-    <updated>2013-12-31T16:13:44+00:00</updated>
+    <updated>2014-01-01T10:39:17+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -248,7 +248,7 @@ Github Pagesを強く意識しているOctopressよりはデプロイ設定が�
     <link rel="alternate" href="http://blog.uskanda.com/2013/04/01/android-support-library-error-on-android-32/"/>
     <id>http://blog.uskanda.com/2013/04/01/android-support-library-error-on-android-32/</id>
     <published>2013-04-01T10:22:00Z</published>
-    <updated>2013-12-31T16:13:44+00:00</updated>
+    <updated>2014-01-01T10:39:17+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>

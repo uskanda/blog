@@ -11,6 +11,9 @@
       | Homesick Cyclist
       = ' - ' + current_article.title unless current_article.nil?
     = feed_tag :atom, "cycle/feed.xml", title: "Atom Feed"
+    meta[property="og:site_name" content="Homesick Cyclist"]
+    meta[property="og:title" content="#{current_article.nil? ? '' : current_article.title}"]
+    meta[property="og:type" content="blog"]
   - content_for :header do
     = partial :header, locals: {site_title: "Homesick Cyclist", site_subtitle: "30km乗ったらもう帰りたい。だけど好きなんです。自転車関連、乗車記録/レビュー/TV観戦記"}
   - content_for :bottom_js do

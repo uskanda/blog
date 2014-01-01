@@ -11,6 +11,9 @@
       | 物欲遡及決裁
       = ' - ' + current_article.title unless current_article.nil?
     = feed_tag :atom, "cycle/feed.xml", title: "Atom Feed"
+    meta[property="og:site_name" content="物欲遡及決裁"]
+    meta[property="og:title" content="#{current_article.nil? ? '' : current_article.title}"]
+    meta[property="og:type" content="blog"]
   - content_for :header do
     = partial :header, locals: {site_title: "物欲遡及決裁", site_subtitle: "なんか買ったら書く、懺悔のレビュー。"}
   - content_for :bottom_js do

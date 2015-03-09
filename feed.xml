@@ -5,16 +5,50 @@
   <id>http://blog.uskanda.com/</id>
   <link href="http://blog.uskanda.com/"/>
   <link href="http://blog.uskanda.com/feed.xml" rel="self"/>
-  <updated>2013-12-31T15:39:00Z</updated>
+  <updated>2015-03-09T13:40:00Z</updated>
   <author>
     <name>Yusuke Kanda</name>
   </author>
+  <entry>
+    <title>MySQLのindexは降順にできない</title>
+    <link rel="alternate" href="http://blog.uskanda.com/2015/03/09/mysql-index-desc/"/>
+    <id>http://blog.uskanda.com/2015/03/09/mysql-index-desc/</id>
+    <published>2015-03-09T13:40:00Z</published>
+    <updated>2015-03-09T13:38:21+00:00</updated>
+    <author>
+      <name>Yusuke Kanda</name>
+    </author>
+    <content type="html">&lt;p&gt;&lt;code&gt;ORDER BY hoge ASC, fuga DESC&lt;/code&gt;のように、複数カラムを利用し、かつ昇順/降順を両方含むソートをするクエリが遅い。&lt;br&gt;
+実行計画を見ると&lt;code&gt;Use filesort&lt;/code&gt;が出てて消さない&amp;hellip;  インデックスがうまく効いていない？と思って調べているとぶつかったのがこれ。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;index_col_name&lt;/code&gt; 仕様は ASC か DESC で終わることができます。これらのキーワードは昇順や降順インデックス値ストレージを指定するための将来の拡張子として許容されます。現在は、それらは解析されますが無視されます。インデックス値は毎回昇順で格納されます。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://mysql.stu.edu.tw/doc/refman/5.1-olh/ja/create-index.html"&gt;MySQL :: MySQL 5.1 リファレンスマニュアル (オンラインヘルプ) :: 8.1.13 CREATE INDEX 構文 &lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;ってことは昇順/降順が統一されていない並び順の複合インデックスは作れない。 &lt;/p&gt;
+
+&lt;p&gt;いやいやこれMySQL5.1のリファレンスだし&amp;hellip;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;An &lt;code&gt;index_col_name&lt;/code&gt; specification can end with ASC or DESC. These keywords are permitted for future extensions for specifying ascending or descending index value storage. Currently, they are parsed but ignored; index values are always stored in ascending order.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://dev.mysql.com/doc/refman/5.6/en/create-index.html"&gt;MySQL :: MySQL 5.6 Reference Manual :: 13.1.13 CREATE INDEX Syntax&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Oh&amp;hellip; 
+5.6でもダメでした。&lt;/p&gt;
+
+&lt;p&gt;そんなわけでソート条件に昇順/降順両方含む場合は別にソート用カラムを設けるのが無難ですね。&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>2014年新年の目標</title>
     <link rel="alternate" href="http://blog.uskanda.com/2014/01/01/2014-new-years-goal/"/>
     <id>http://blog.uskanda.com/2014/01/01/2014-new-years-goal/</id>
     <published>2013-12-31T15:39:00Z</published>
-    <updated>2014-01-28T06:55:09+00:00</updated>
+    <updated>2015-03-09T13:38:21+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -33,7 +67,7 @@
     <link rel="alternate" href="http://blog.uskanda.com/2013/12/18/capistrano-git-subdir/"/>
     <id>http://blog.uskanda.com/2013/12/18/capistrano-git-subdir/</id>
     <published>2013-12-17T15:15:00Z</published>
-    <updated>2014-01-28T06:55:09+00:00</updated>
+    <updated>2015-03-09T13:38:21+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -112,7 +146,7 @@ deploy.rb内部の&lt;code&gt;deploy_via&lt;/code&gt;自体を:copyでなく、:
     <link rel="alternate" href="http://blog.uskanda.com/2013/12/14/vim-set-relativenumber/"/>
     <id>http://blog.uskanda.com/2013/12/14/vim-set-relativenumber/</id>
     <published>2013-12-13T16:00:00Z</published>
-    <updated>2014-01-28T06:55:09+00:00</updated>
+    <updated>2015-03-09T13:38:21+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -168,7 +202,7 @@ Vim7.3以降で使えるので、最近のLinuxディストリのビルトイン
     <link rel="alternate" href="http://blog.uskanda.com/2013/12/10/middleman-blog-build-missed-some-article/"/>
     <id>http://blog.uskanda.com/2013/12/10/middleman-blog-build-missed-some-article/</id>
     <published>2013-12-10T14:00:00Z</published>
-    <updated>2014-01-28T06:55:09+00:00</updated>
+    <updated>2015-03-09T13:38:21+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -189,7 +223,7 @@ published: false でもないんだけどなー？&lt;/p&gt;
     <link rel="alternate" href="http://blog.uskanda.com/2013/12/09/transfer-from-octopress-to-middleman/"/>
     <id>http://blog.uskanda.com/2013/12/09/transfer-from-octopress-to-middleman/</id>
     <published>2013-12-08T15:00:00Z</published>
-    <updated>2014-01-28T06:55:09+00:00</updated>
+    <updated>2015-03-09T13:38:21+00:00</updated>
     <author>
       <name>Yusuke Kanda</name>
     </author>
@@ -241,37 +275,6 @@ Github Pagesを強く意識しているOctopressよりはデプロイ設定が�
 &lt;p&gt;&lt;a href="http://webtech-walker.com/archive/2013/08/jekyll_to_middleman.html"&gt;ブログをJekyllからmiddlemanに移行してTravis CIでGitHub Pagesにデプロイするようにした - Webtech Walker&lt;/a&gt;&lt;br&gt;
 &lt;a href="http://tricknotes.hateblo.jp/entry/2013/06/17/020229"&gt;Middleman で作った web サイトを Travis + GitHub pages でお手軽に運用する - tricknotesのぼうけんのしょ&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Android3.2で通知を出そうとするとエラーが出る</title>
-    <link rel="alternate" href="http://blog.uskanda.com/2013/04/01/android-support-library-error-on-android-32/"/>
-    <id>http://blog.uskanda.com/2013/04/01/android-support-library-error-on-android-32/</id>
-    <published>2013-04-01T10:22:00Z</published>
-    <updated>2014-01-28T06:55:09+00:00</updated>
-    <author>
-      <name>Yusuke Kanda</name>
-    </author>
-    <content type="html">&lt;h2 id="toc_0"&gt;問題&lt;/h2&gt;
-
-&lt;p&gt;Androidアプリで通知を出そうとするとエラーの出る機種があるよ&amp;hellip;
-Honeycombの一部機種でだけ起こってるみたいだよ！&lt;/p&gt;
-
-&lt;h2 id="toc_1"&gt;こんなエラーが出てる&lt;/h2&gt;
-&lt;pre class="highlight text"&gt;E/AndroidRuntime(25922): FATAL EXCEPTION: main
-E/AndroidRuntime(25922): java.lang.NoSuchMethodError: android.app.Notification$Builder.setProgress
-E/AndroidRuntime(25922):    at android.support.v4.app.NotificationCompatIceCreamSandwich.add(NotificationCompatIceCreamSandwich.java:31)
-E/AndroidRuntime(25922):    at android.support.v4.app.NotificationCompat$NotificationCompatImplIceCreamSandwich.build(NotificationCompat.java:104)
-E/AndroidRuntime(25922):    at android.support.v4.app.NotificationCompat$Builder.build(NotificationCompat.java:558)
-&lt;/pre&gt;
-&lt;h2 id="toc_2"&gt;原因&lt;/h2&gt;
-
-&lt;p&gt;Android Support LibraryがAPI Level 13(Android 3.2)の機種に対してバグってたよ&amp;hellip;
-手元の3.0や3.1で試しても出なかったはずだよ&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="https://code.google.com/p/android/issues/detail?id=36502"&gt;Issue 36502 - android - android support library v4 and notification on android-13 - Android - An Open Handset Alliance Project - Google Project Hosting&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;android-support-v4.jarを更新したら直ったけどライブラリの差し替えなんてやりたくない時期だよ&amp;hellip;(´・ω・`)&lt;/p&gt;
 </content>
   </entry>
 </feed>

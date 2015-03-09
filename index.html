@@ -37,6 +37,62 @@
           <div id="main" role="main">
 <article>
   <div class="title">
+    <a class="date" rel="bookmark"><abbr>2015/03</abbr>9<sub>22:40</sub></a>
+    <div class="container">
+      <div class="subject">
+        <a href="/2015/03/09/mysql-index-desc/">MySQLのindexは降順にできない</a>
+      </div>
+      <div class="tags">
+        <div class="label label-primary">
+          <i class="fa fa-tag"></i> MySQL
+        </div>
+        <div class="label label-primary">
+          <i class="fa fa-tag"></i> Tips
+        </div>
+        <div class="label label-primary">
+          <i class="fa fa-tag"></i> 恥ずかしながら今知ったシリーズ
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="body"><p><code>ORDER BY hoge ASC, fuga DESC</code>のように、複数カラムを利用し、かつ昇順/降順を両方含むソートをするクエリが遅い。<br>
+実行計画を見ると<code>Use filesort</code>が出てて消さない&hellip;  インデックスがうまく効いていない？と思って調べているとぶつかったのがこれ。</p>
+
+<blockquote>
+<p><code>index_col_name</code> 仕様は ASC か DESC で終わることができます。これらのキーワードは昇順や降順インデックス値ストレージを指定するための将来の拡張子として許容されます。現在は、それらは解析されますが無視されます。インデックス値は毎回昇順で格納されます。</p>
+
+<p><a href="http://mysql.stu.edu.tw/doc/refman/5.1-olh/ja/create-index.html">MySQL :: MySQL 5.1 リファレンスマニュアル (オンラインヘルプ) :: 8.1.13 CREATE INDEX 構文 </a></p>
+</blockquote>
+
+<p>ってことは昇順/降順が統一されていない並び順の複合インデックスは作れない。 </p>
+
+<p>いやいやこれMySQL5.1のリファレンスだし&hellip;</p>
+
+<blockquote>
+<p>An <code>index_col_name</code> specification can end with ASC or DESC. These keywords are permitted for future extensions for specifying ascending or descending index value storage. Currently, they are parsed but ignored; index values are always stored in ascending order.</p>
+
+<p><a href="http://dev.mysql.com/doc/refman/5.6/en/create-index.html">MySQL :: MySQL 5.6 Reference Manual :: 13.1.13 CREATE INDEX Syntax</a></p>
+</blockquote>
+
+<p>Oh&hellip; 
+5.6でもダメでした。</p>
+
+<p>そんなわけでソート条件に昇順/降順両方含む場合は別にソート用カラムを設けるのが無難ですね。</p>
+
+  </div>
+</article>
+<hr /><div class="text-center">
+  <style>
+    .blogresponsivewide { width: 320px; height: 50px; }@media(min-width: 500px) { .blogresponsivewide { width: 468px; height: 60px; } }@media(min-width: 800px) { .blogresponsivewide { width: 728px; height: 90px; } }
+  </style>
+  <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <ins class="adsbygoogle blogresponsivewide" data-ad-client="ca-pub-1385530273298456" data-ad-slot="4816571790" style="display:inline-block"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<article>
+  <div class="title">
     <a class="date" rel="bookmark"><abbr>2014/01</abbr>1<sub>00:39</sub></a>
     <div class="container">
       <div class="subject">
@@ -64,16 +120,7 @@
     
   </div>
 </article>
-<hr /><div class="text-center">
-  <style>
-    .blogresponsivewide { width: 320px; height: 50px; }@media(min-width: 500px) { .blogresponsivewide { width: 468px; height: 60px; } }@media(min-width: 800px) { .blogresponsivewide { width: 728px; height: 90px; } }
-  </style>
-  <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <ins class="adsbygoogle blogresponsivewide" data-ad-client="ca-pub-1385530273298456" data-ad-slot="4816571790" style="display:inline-block"></ins>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-</div>
+<hr />
 <article>
   <div class="title">
     <a class="date" rel="bookmark"><abbr>2013/12</abbr>18<sub>00:15</sub></a>
@@ -503,31 +550,6 @@ AND information_schema.columns.column_name = information_schema.statistics.colum
   </div>
 </article>
 <hr />
-<article>
-  <div class="title">
-    <a class="date" rel="bookmark"><abbr>2013/01</abbr>31<sub>00:00</sub></a>
-    <div class="container">
-      <div class="subject">
-        <a href="/2013/01/31/hello-octopress/">今更ながらOctopress</a>
-      </div>
-      <div class="tags">
-        <div class="label label-primary">
-          <i class="fa fa-tag"></i> Octopress
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="body">
-    <h2 id="toc_0">ブログ移転しました</h2>
-    
-    <p>Wordpressをいろいろ整理したいと思っていたのだけど、
-    せっかくなのでOctopressに移行してみた。
-    Wordpressからの移行でデザインが崩れてる記事もあるけど、
-    おおよそおっけーなのでひとまずこのまま。</p>
-    
-  </div>
-</article>
-<hr />
 <div class="paginate_box">
   <div class="pull-right">
     <a href="/page/2/">次のページ</a>
@@ -540,6 +562,9 @@ AND information_schema.columns.column_name = information_schema.statistics.colum
             <div class="gadget" id="recents">
               <span class="title">最近の投稿</span>
               <ol>
+                <li>
+                  <a href="/2015/03/09/mysql-index-desc/">MySQLのindexは降順にできない(03/09)</a>
+                </li>
                 <li>
                   <a href="/2014/01/01/2014-new-years-goal/">2014年新年の目標(01/01)</a>
                 </li>
@@ -567,9 +592,6 @@ AND information_schema.columns.column_name = information_schema.statistics.colum
                 <li>
                   <a href="/2013/02/17/buy-macbook-pro-refurbished/">整備済製品のMacBook Pro 13inch Retinaを買ってみた(02/17)</a>
                 </li>
-                <li>
-                  <a href="/2013/01/31/hello-octopress/">今更ながらOctopress(01/31)</a>
-                </li>
               </ol>
             </div>
             <div class="gadget" id="adsense">
@@ -587,48 +609,50 @@ AND information_schema.columns.column_name = information_schema.statistics.colum
             <div class="gadget" id="tags">
               <span class="title">タグ一覧</span>
               <div class="gadget_body"><a href="/tags/ruby/">
-                Ruby(5) </a><a href="/tags/ruby-on-rails/">
-                Ruby on Rails(4) </a><a href="/tags/emacs/">
-                Emacs(4) </a><a href="/tags/review/">
+                Ruby(5) </a><a href="/tags/emacs/">
+                Emacs(4) </a><a href="/tags/ruby-on-rails/">
+                Ruby on Rails(4) </a><a href="/tags/review/">
                 Review(3) </a><a href="/tags/mac/">
-                Mac(3) </a><a href="/tags/octopress/">
-                Octopress(2) </a><a href="/tags/vim/">
-                Vim(2) </a><a href="/tags/middleman/">
-                Middleman(2) </a><a href="/tags/server/">
-                Server(2) </a><a href="/tags/ubuntu/">
-                Ubuntu(2) </a><a href="/tags/gadget/">
-                Gadget(2) </a><a href="/tags/flash/">
-                Flash(2) </a><a href="/tags/android/">
+                Mac(3) </a><a href="/tags/middleman/">
+                Middleman(2) </a><a href="/tags/windows/">
+                Windows(2) </a><a href="/tags/vim/">
+                Vim(2) </a><a href="/tags/ubuntu/">
+                Ubuntu(2) </a><a href="/tags/octopress/">
+                Octopress(2) </a><a href="/tags/android/">
                 Android(2) </a><a href="/tags/macbookpro/">
-                MacBookPro(2) </a><a href="/tags/windows/">
-                Windows(2) </a><a href="/tags/nginx/">
-                nginx(1) </a><a href="/tags/rinari/">
-                rinari(1) </a><a href="/tags/book/">
-                Book(1) </a><a href="/tags/uc-411pbt-c/">
-                UC-411PBT-C(1) </a><a href="/tags/goo/">
-                goo(1) </a><a href="/tags/雑記/">
-                雑記(1) </a><a href="/tags/目標/">
-                目標(1) </a><a href="/tags/actionscript/">
-                Actionscript(1) </a><a href="/tags/refurbished/">
-                Refurbished(1) </a><a href="/tags/redmine/">
-                redmine(1) </a><a href="/tags/passenger/">
-                Passenger(1) </a><a href="/tags/windows8/">
+                MacBookPro(2) </a><a href="/tags/server/">
+                Server(2) </a><a href="/tags/gadget/">
+                Gadget(2) </a><a href="/tags/flash/">
+                Flash(2) </a><a href="/tags/mysql/">
+                MySQL(2) </a><a href="/tags/actionscript/">
+                Actionscript(1) </a><a href="/tags/adobe-air/">
+                Adobe AIR(1) </a><a href="/tags/case/">
+                Case(1) </a><a href="/tags/git/">
+                git(1) </a><a href="/tags/windows8/">
                 Windows8(1) </a><a href="/tags/mediacenterpack/">
-                MediaCenterPack(1) </a><a href="/tags/rvm/">
-                RVM(1) </a><a href="/tags/case/">
-                Case(1) </a><a href="/tags/日々/">
-                日々(1) </a><a href="/tags/anything-el/">
-                anything.el(1) </a><a href="/tags/macmini/">
-                MacMini(1) </a><a href="/tags/ssd/">
-                SSD(1) </a><a href="/tags/開発/">
-                開発(1) </a><a href="/tags/rails/">
-                Rails(1) </a><a href="/tags/capistrano/">
-                Capistrano(1) </a><a href="/tags/git/">
-                git(1) </a><a href="/tags/mouse/">
+                MediaCenterPack(1) </a><a href="/tags/refurbished/">
+                Refurbished(1) </a><a href="/tags/redmine/">
+                redmine(1) </a><a href="/tags/capistrano/">
+                Capistrano(1) </a><a href="/tags/uc-411pbt-c/">
+                UC-411PBT-C(1) </a><a href="/tags/goo/">
+                goo(1) </a><a href="/tags/mouse/">
                 Mouse(1) </a><a href="/tags/logicool/">
-                Logicool(1) </a><a href="/tags/mysql/">
-                MySQL(1) </a><a href="/tags/adobe-air/">
-                Adobe AIR(1) </a>
+                Logicool(1) </a><a href="/tags/nginx/">
+                nginx(1) </a><a href="/tags/目標/">
+                目標(1) </a><a href="/tags/雑記/">
+                雑記(1) </a><a href="/tags/macmini/">
+                MacMini(1) </a><a href="/tags/ssd/">
+                SSD(1) </a><a href="/tags/恥ずかしながら今知ったシリーズ/">
+                恥ずかしながら今知ったシリーズ(1) </a><a href="/tags/tips/">
+                Tips(1) </a><a href="/tags/開発/">
+                開発(1) </a><a href="/tags/rails/">
+                Rails(1) </a><a href="/tags/日々/">
+                日々(1) </a><a href="/tags/book/">
+                Book(1) </a><a href="/tags/rinari/">
+                rinari(1) </a><a href="/tags/anything-el/">
+                anything.el(1) </a><a href="/tags/rvm/">
+                RVM(1) </a><a href="/tags/passenger/">
+                Passenger(1) </a>
               </div>
             </div>
             <div class="gadget" id="twitter">
@@ -640,6 +664,14 @@ AND information_schema.columns.column_name = information_schema.statistics.colum
             <div class="gadget" id="archives">
               <span class="title">アーカイブ</span>
               <ol class="year_archives"></ol>
+              <li>
+                <a href="/2015/">2015年</a> (1)
+                <ol class="month_archives">
+                  <li>
+                    <a href="/2015/03/">2015年3月</a>(1)
+                  </li>
+                </ol>
+              </li>
               <li>
                 <a href="/2014/">2014年</a> (1)
                 <ol class="month_archives">
